@@ -1,0 +1,46 @@
+VER 3 0000000000000001 "Chastise" "Spell_Holy_Chastise"
+/click ActionButton3
+/targetlasttarget
+END
+VER 3 0000000000000007 "kgkg" "Ability_BackStab"
+/kneel
+END
+VER 3 000000000000000D "Tomtom" "ACHIEVEMENT_GUILD_DOCTORISIN"
+/way 33.6 59.9 Torso
+/way 34 49.8 Torso
+/way 34.9 61.7 Torso
+/way 36.3 48.9 Torso
+/way 36.8 59.9 Torso
+/way 37.8 53.8 Torso
+END
+VER 3 0000000000000005 "Барьер" "Spell_Holy_Dizzy"
+/cast Слово силы:барьер
+END
+VER 3 0000000000000008 "Дебафф нах!" "Ability_Warrior_EndlessRage"
+/rw На мне дебафф!
+/rw На мне дебафф!
+END
+VER 3 0000000000000002 "Долбаний кликер" "Spell_Nature_CrystalBall"
+/cast Слово Света: Святилище
+END
+VER 3 0000000000000004 "Мега мана макрос" "Spell_Holy_ConsumeMagic"
+/use Краги Гилли
+/cast Исчадие тьмы
+END
+VER 3 000000000000000B "Поклон" "Spell_druid_wildburst"
+/поклон
+END
+VER 3 000000000000000C "Птенец" "Ability_Creature_Disease_05"
+/tar Птенец дикого
+/run SetRaidTarget("target", 4)
+END
+VER 3 0000000000000006 "Спам" "Spell_Druid_stamedingroar"
+/4 Неспеша собираю статик для освоения ХМов ТКТ,ТЧВ,СБ и освоения Души Дракона после выхода 4.3. Требуются ТЕРПЕЛИВЫЕ люди с вещами от 365ilvl.
+/4 Нужны: Танки, хил(Хпал или Ршам) и дд. Рт с 20:00(Мск). По вопросам обращаться в ПМ.
+END
+VER 3 0000000000000009 "Ультра" "INV_Qiraj_JewelGlyphed"
+/click extraActionbutton1
+END
+VER 3 000000000000000A "Ультраксион" "Spell_Nature_ShamanRage"
+/click ExtraActionButton1
+END

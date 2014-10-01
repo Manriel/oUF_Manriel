@@ -1,0 +1,6 @@
+## Interface: 30100
+## Author: Caellian
+## Title: |cff25bb25aNameplates|r
+## Notes: Custom minimalistic nameplates
+
+aNamePlates.lua

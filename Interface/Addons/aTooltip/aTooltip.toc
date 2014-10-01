@@ -1,0 +1,8 @@
+## Interface: 50001
+## Title: |cff00ffffaTooltip|r
+## Notes: Simple tooltip mod
+## Author: ALZA, Shantalya
+## Credits: sTooltip by Shantalya
+## Version: 1.0
+
+aTooltip.lua

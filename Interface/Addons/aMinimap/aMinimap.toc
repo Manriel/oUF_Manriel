@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: |cff3399FFa|rMinimap
+## Notes: Minimalistic minimap addon
+## Author: ac3r
+## Version: 1.1
+
+aMinimap.lua

@@ -1,0 +1,18 @@
+# Temp and backup files
+tmp/
+*.old
+*.tmp
+*.bak
+*.swp
+
+# Windows detritus
+$RECYCLE.BIN/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+/Cache
+/Errors
+/Logs
+/Screenshots
+/run.bat

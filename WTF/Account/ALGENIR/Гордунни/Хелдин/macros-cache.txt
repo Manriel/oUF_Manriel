@@ -1,0 +1,61 @@
+VER 3 010000000000000F "CT:Смерть" "SPELL_SHADOW_DEMONICFORTITUDE"
+#showtooltip Слово Тьмы: Смерть
+/stopcasting
+/cast Слово Тьмы: Смерть
+END
+VER 3 010000000000000D "Cияние" "ABILITY_PRIEST_HALO"
+#showtooltip Сияние
+/stopcasting
+/cast Сияние
+END
+VER 3 0100000000000008 "kiss" "Ability_BackStab"
+/use Губная помада "Бородавки прочь"
+/kiss
+END
+VER 3 0100000000000009 "mount" "Ability_Mount_SnowyGryphon"
+/cast [flyable] Аметистовый протодракон
+/cast [noflyable] Стремительный ледопард
+END
+VER 3 0100000000000011 "Pain" "SPELL_SHADOW_SHADOWWORDPAIN"
+/cast [target=mouseover] Слово тьмы: Боль
+END
+VER 3 010000000000000A "SS" "INV_Misc_QuestionMark"
+/use Камень здоровья из Скверны
+END
+VER 3 010000000000000B "VuhDoDCShieldData" "Ability_Hunter_FerociousInspiration"
+P[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]1IH[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 010000000000000C "VuhDoDCShieldNames" "Ability_Hunter_FerociousInspiration"
+N[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]Hel[x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x][x]
+END
+VER 3 010000000000000E "Взрыв разума" "SPELL_SHADOW_UNHOLYFRENZY"
+#showtooltip Взрыв разума
+/script UIErrorsFrame:Hide() 
+/use 10
+/script UIErrorsFrame:Clear() 
+/script UIErrorsFrame:Show()
+/cast Взрыв разума
+END
+VER 3 0100000000000010 "Взрыв разума" "ability_deathknight_hemorrhagicfever"
+#Showtooltip Взрыв разума
+/stopcasting
+/cast Взрыв разума
+END
+VER 3 0100000000000002 "Воскресить" "INV_Misc_QuestionMark"
+#showtooltip Воскрешение 
+/cast [button:2]Воскрешение(Уровень 1);Воскрешение(Уровень 1) 
+/stopmacro [button:2] 
+/stopmacro [nohelp] 
+/run Res()
+END
+VER 3 0100000000000003 "Грац!" "Spell_unused2"
+/gz 
+END
+VER 3 0100000000000012 "Придание сил" "SPELL_HOLY_POWERINFUSION"
+#showtooltip Придание сил
+/script UIErrorsFrame:Hide() 
+/use 10
+/script UIErrorsFrame:Clear() 
+/script UIErrorsFrame:Show()
+/cast Придание сил
+END
