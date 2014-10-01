@@ -1,0 +1,15 @@
+VER 3 0000000000000003 "123123123" "INV_MISC_QUESTIONMARK"
+/run s=UnitClassification("target")
+/run DEFAULT_CHAT_FRAME:AddMessage(s)
+END
+VER 3 0000000000000002 "res" "INV_Misc_QuestionMark"
+#showtooltip Воскрешение
+/cast [dead] Воскрешение; [button:2] Воскрешение
+/stopmacro [button:2]
+/stopmacro [nohelp]
+/run Res();
+END
+VER 3 0000000000000001 "нетманы" "Ability_Vehicle_LaunchPlayer"
+/к Мало маны!
+/oom
+END
