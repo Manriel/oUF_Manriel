@@ -1,0 +1,23 @@
+MACRO 16777218 "Воскресить" INV_Misc_QuestionMark
+#showtooltip Воскрешение 
+/cast [button:2]Воскрешение(Уровень 1);Воскрешение(Уровень 1) 
+/stopmacro [button:2] 
+/stopmacro [nohelp] 
+/к Воскрешаю %t
+END
+MACRO 16777219 "Грац!" Spell_unused2
+/gz 
+END
+MACRO 16777220 "Поцелуй" Ability_Mage_Burnout
+/kiss
+END
+MACRO 16777221 "Сарта +3" Ability_Creature_Cursed_02
+/2 Сарта +3. Ищу. Холи прист ~2600 СПД без бафов. 
+/4 Сарта +3. Ищу. Холи прист ~2600 СПД без бафов.
+END
+MACRO 16777217 "Сковывание" INV_Misc_QuestionMark
+#showtooltip Сковывание нежити 
+/clearfocus [modifier:alt][target=focus,dead][target=focus,help][target=focus,noexists] 
+/focus [target=focus,noexists] 
+/cast [target=focus] Сковывание нежити
+END

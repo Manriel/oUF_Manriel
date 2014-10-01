@@ -1,0 +1,7 @@
+oUF: enabled
+oUF_AlekkUI: enabled
+aSettings: enabled
+m_ActionBars: enabled
+!mCFG: enabled
+aPanels: enabled
+Clique: enabled

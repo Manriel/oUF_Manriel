@@ -1,4 +1,4 @@
-## Interface: 50001
+## Interface: 50400
 ## Title: |cff00ffffaTooltip|r
 ## Notes: Simple tooltip mod
 ## Author: ALZA, Shantalya

@@ -1,4 +1,4 @@
-﻿local xPosition = -75; -- -125
+﻿local xPosition = -218; -- -125
 
 local fontName = "Interface\\AddOns\\oUF_AlekkUI\\fonts\\CalibriBold.ttf"
 local fontNamePixel = "Interface\\AddOns\\oUF_AlekkUI\\fonts\\Calibri.ttf"
@@ -762,7 +762,7 @@ player:SetPoint("CENTER", -287, xPosition) -- -305, -125
 local target = oUF:Spawn("target")
 target:SetPoint("CENTER", 287, xPosition) -- 305, -125)
 local pet = oUF:Spawn("pet")
-pet:SetPoint("TOPLEFT", player, "BOTTOMLEFT", 0, -75)
+pet:SetPoint("TOPLEFT", player, "BOTTOMLEFT", -65, -23)
 local tt = oUF:Spawn("targettarget")
 tt:SetPoint("TOPRIGHT", target, "BOTTOMRIGHT", 0, -1)
 local focus = oUF:Spawn("focus")

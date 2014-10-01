@@ -72,11 +72,11 @@ cfg.bars = {
 		custom_visibility_macro = false
 		},
 	["PetBar"] = {
-		hide_bar = false,				show_in_combat = false,		scale = 0.9,
+		hide_bar = false,				show_in_combat = false,		scale = 1,
 		show_on_mouseover = true,		bar_alpha = 1,				fadeout_alpha = 1,
-		orientation = "HORIZONTAL",	rows = 1,						buttons = 10, 
-		button_size = cfg.mAB.size,			button_spacing = cfg.mAB.spacing,
-		position = {a="BOTTOM", x=0, y=37},
+		orientation = "HORIZONTAL",		rows = 2,						buttons = 10, 
+		button_size = cfg.mAB.size+2,			button_spacing = cfg.mAB.spacing,
+		position = {a="CENTER", x=-440, y=-210},
 		custom_visibility_macro = false
 		},
 	["MicroMenu"] = {

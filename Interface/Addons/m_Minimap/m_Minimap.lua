@@ -31,10 +31,10 @@ end)
 
 -- Background
 Minimap:SetBackdrop({bgFile = "Interface\\ChatFrame\\ChatFrameBackground", insets = {
-    top = -BGThickness / Scale,
-    left = -BGThickness / Scale,
-    bottom = -BGThickness / Scale,
-    right = -BGThickness / Scale
+    top = -BGThickness,
+    left = -BGThickness,
+    bottom = -BGThickness,
+    right = -BGThickness
 }})
 if(ClassColorBorder==true) then
     local _, class = UnitClass("player")
@@ -68,9 +68,11 @@ local frames = {
     "MinimapZoomIn",
     "MiniMapVoiceChatFrame",
     "MiniMapWorldMapButton",
+    
     "MiniMapMailBorder",
-    -- "MiniMapBattlefieldBorder",
-    -- "FeedbackUIButton",
+--    "MiniMapBattlefieldBorder",
+--    "FeedbackUIButton",
+--  "MinimapBackdrop",
 }
 
 for i in pairs(frames) do
@@ -86,18 +88,14 @@ MiniMapTracking:ClearAllPoints()
 MiniMapTracking:SetPoint("BOTTOMLEFT", Minimap, -5, -7)
 
 -- BG icon
--- MiniMapBattlefieldFrame:ClearAllPoints()
--- MiniMapBattlefieldFrame:SetPoint("TOP", Minimap, "TOP", 2, 8)
+--MiniMapBattlefieldFrame:ClearAllPoints()
+--MiniMapBattlefieldFrame:SetPoint("TOP", Minimap, "TOP", 2, 8)
 
--- Random Group icon
--- MiniMapLFGFrame:ClearAllPoints()
--- MiniMapLFGFrameBorder:SetAlpha(0)
--- MiniMapLFGFrame:SetPoint("TOP", Minimap, "TOP", 1, 8)
--- MiniMapLFGFrame:SetFrameStrata("MEDIUM")
-
--- BG and LFG frames combines into Queue Status Button
+-- LFG icon
 QueueStatusMinimapButton:ClearAllPoints()
-QueueStatusMinimapButton:SetPoint("TOP", Minimap, "TOP", 2, 8)
+QueueStatusMinimapButton:SetPoint("TOP", Minimap, "TOP", 1, 8)
+QueueStatusMinimapButtonBorder:Hide()
+-- QueueStatusMinimapButtonBorder:SetFrameStrata("MEDIUM")
 
 -- Instance Difficulty flag
 MiniMapInstanceDifficulty:ClearAllPoints()
@@ -151,11 +149,25 @@ local menuList = {
     {text = "Guild",
     func = function() ToggleGuildFrame(1) end},
     {text = "PvP",
-    func = function() ToggleFrame(PVPFrame) end},
-    {text = "LFDungeon",
-    func = function() ToggleFrame(LFDParentFrame) end},
-    {text = "LFRaid",
-    func = function() ToggleFrame(LFRParentFrame) end},
+    func = function() 
+        --ToggleFrame(PVPUIFrame) 
+        if PVPUIFrame then
+            if UnitLevel("player") >= 10 then
+                if PVPUIFrame:IsShown() then
+                    HideUIPanel(PVPUIFrame)
+                else
+                    ShowUIPanel(PVPUIFrame)
+                end
+            end
+        else
+            LoadAddOn("Blizzard_PVPUI")
+            ShowUIPanel(PVPUIFrame)
+        end
+    end},
+    {text = "Dungeon Finder",
+    func = function() ToggleLFDParentFrame() end},
+    {text = "Pets and Mounts",
+    func = function() TogglePetJournal(1) end},
     {text = "Help",
     func = function() ToggleHelpFrame() end},
     {text = "Calendar",
@@ -163,14 +175,27 @@ local menuList = {
     if(not CalendarFrame) then LoadAddOn("Blizzard_Calendar") end
         Calendar_Toggle()
     end},
+    {text = "Dungeon Journal",
+    func = function() ToggleEncounterJournal() end},
 }
 
 -- Click func
- Minimap:SetScript("OnMouseDown", function(_, button)
-    if(button=="MiddleButton") then
+Minimap:SetScript("OnMouseUp", function(_, btn)
+    if(btn=="MiddleButton") then
         ToggleDropDownMenu(1, nil, MiniMapTrackingDropDown, "cursor", 0, 0)
-    elseif(button=="RightButton") then
-        EasyMenu(menuList, menuFrame, "cursor", 0, 0, "MENU", 2)
+    elseif(btn=="RightButton") then
+        EasyMenu(menuList, menuFrame, "cursor", 0, 0, "MENU", 1)
+    else
+        local x, y = GetCursorPosition()
+        x = x / Minimap:GetEffectiveScale()
+        y = y / Minimap:GetEffectiveScale()
+        local cx, cy = Minimap:GetCenter()
+        x = x - cx
+        y = y - cy
+        if ( sqrt(x * x + y * y) < (Minimap:GetWidth() / 2) ) then
+            Minimap:PingLocation(x, y)
+        end
+        Minimap_SetPing(x, y, 1)
     end
 end) 
 
@@ -183,13 +208,32 @@ clockFrame:Hide()
 clockTime:SetFont("Fonts\\FRIZQT__.ttf", 12, "THINOUTLINE")
 clockTime:SetTextColor(1,1,1)
 TimeManagerClockButton:SetPoint("BOTTOM", Minimap, "BOTTOM", 0, -3)
-TimeManagerClockButton:Hide()
-TimeManagerClockButton:SetScript("OnMouseDown", function(_,click)
-        if click == "RightButton" then
+TimeManagerClockButton:SetScript("OnClick", function(_,btn)
+    if btn == "LeftButton" then
+        TimeManager_Toggle()
+    end 
+    if btn == "RightButton" then
         if not CalendarFrame then
             LoadAddOn("Blizzard_Calendar")
         end
-            CalendarFrame:Show()
-        end
-    end)
+        Calendar_Toggle()
+    end
+end)
     
+-- Zone text
+local zoneTextFrame = CreateFrame("Frame", nil, UIParent)
+zoneTextFrame:SetPoint("TOPLEFT", Minimap, "TOPLEFT", 0, zoneTextYOffset)
+zoneTextFrame:SetPoint("TOPRIGHT", Minimap, "TOPRIGHT", 0, zoneTextYOffset)
+zoneTextFrame:SetHeight(19)
+zoneTextFrame:SetAlpha(0)
+MinimapZoneText:SetParent(zoneTextFrame)
+MinimapZoneText:ClearAllPoints()
+MinimapZoneText:SetPoint("LEFT", 2, 1)
+MinimapZoneText:SetPoint("RIGHT", -2, 1)
+MinimapZoneText:SetFont("Fonts\\FRIZQT__.ttf", 12, "THINOUTLINE")
+Minimap:SetScript("OnEnter", function(self)
+    UIFrameFadeIn(zoneTextFrame, 0.3, 0, 1)
+end)
+Minimap:SetScript("OnLeave", function(self)
+    UIFrameFadeOut(zoneTextFrame, 0.3, 1, 0)
+end)

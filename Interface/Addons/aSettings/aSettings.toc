@@ -1,7 +1,7 @@
-## Interface: 50001
+## Interface: 50400
 ## Title: |cff00ffffaSettings|r
 ## Notes: Some UI tweaks
-## Author: ALZA
+## Author: ALZA, Manriel
 ## Version: 1.4
 
 aSettings.lua

@@ -57,6 +57,7 @@ aPanels.PLAYER_LOGIN = function(self)
 				bottom = 2
 			}
 		};
+		cF:SetHeight(26);
 		cF:SetBackdrop(backdrop);
 		cF.focusLeft:SetTexture(nil);
 		cF.focusRight:SetTexture(nil);
@@ -78,25 +79,30 @@ aPanels.PLAYER_LOGIN = function(self)
 			bottom = 3
 		}
 	};
-	local panel = CreateFrame('Frame', 'aPanels_Bar1', Bar1_holder);
-	panel:SetPoint("BOTTOMRIGHT", Bar1_holder, "BOTTOMRIGHT", 2, -2);
-	panel:SetPoint("TOPLEFT", Bar1_holder, "TOPLEFT", -2, 2);
-	panel:SetBackdrop(backdrop);
-	panel:SetFrameStrata("BACKGROUND");
-	panel:SetFrameLevel(0);
-	local panel = CreateFrame('Frame', 'aPanels_Bar2', Bar2_holder);
-	panel:SetPoint("BOTTOMRIGHT", Bar2_holder, "BOTTOMRIGHT", 2, -2);
-	panel:SetPoint("TOPLEFT", Bar2_holder, "TOPLEFT", -2, 2);
-	panel:SetBackdrop(backdrop);
-	panel:SetFrameStrata("BACKGROUND");
-	panel:SetFrameLevel(0);
-	local panel = CreateFrame('Frame', 'aPanels_Bar2', Bar3_holder);
-	panel:SetPoint("BOTTOMRIGHT", Bar3_holder, "BOTTOMRIGHT", 2, -2);
-	panel:SetPoint("TOPLEFT", Bar3_holder, "TOPLEFT", -2, 2);
-	panel:SetBackdrop(backdrop);
-	panel:SetFrameStrata("BACKGROUND");
-	panel:SetFrameLevel(0);
-
+	if Bar1_holder then
+		local panel = CreateFrame('Frame', 'aPanels_Bar1', Bar1_holder);
+		panel:SetPoint("BOTTOMRIGHT", Bar1_holder, "BOTTOMRIGHT", 2, -2);
+		panel:SetPoint("TOPLEFT", Bar1_holder, "TOPLEFT", -2, 2);
+		panel:SetBackdrop(backdrop);
+		panel:SetFrameStrata("BACKGROUND");
+		panel:SetFrameLevel(0);
+	end;
+	if Bar2_holder then
+		local panel = CreateFrame('Frame', 'aPanels_Bar2', Bar2_holder);
+		panel:SetPoint("BOTTOMRIGHT", Bar2_holder, "BOTTOMRIGHT", 2, -2);
+		panel:SetPoint("TOPLEFT", Bar2_holder, "TOPLEFT", -2, 2);
+		panel:SetBackdrop(backdrop);
+		panel:SetFrameStrata("BACKGROUND");
+		panel:SetFrameLevel(0);
+	end;
+	if Bar3_holder then
+		local panel = CreateFrame('Frame', 'aPanels_Bar2', Bar3_holder);
+		panel:SetPoint("BOTTOMRIGHT", Bar3_holder, "BOTTOMRIGHT", 2, -2);
+		panel:SetPoint("TOPLEFT", Bar3_holder, "TOPLEFT", -2, 2);
+		panel:SetBackdrop(backdrop);
+		panel:SetFrameStrata("BACKGROUND");
+		panel:SetFrameLevel(0);
+	end;
 end
 
 aPanels:RegisterEvent("PLAYER_LOGIN")

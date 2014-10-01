@@ -1,6 +1,6 @@
-## Interface: 50001
+## Interface: 50400
 ## Title: UDF
-## Author: ANTEY
+## Author: Manriel
 ## Version: 1.0
 ## Notes: This addon is my additional macros, not reallised normal methods.
 ## DefaultState: Enabled

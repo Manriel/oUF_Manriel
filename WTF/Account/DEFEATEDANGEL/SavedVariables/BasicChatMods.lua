@@ -1,9 +1,10 @@
 
 bcmDB = {
-	["stampformat"] = "[%I:%M:%S]",
 	["lines"] = {
 		["ChatFrame1"] = 1000,
 	},
+	["playerLBrack"] = "[",
+	["stampformat"] = "[%I:%M:%S]",
 	["stampcolor"] = "|cff777777",
 	["replacements"] = {
 		"[GEN]", -- [1]
@@ -24,12 +25,12 @@ bcmDB = {
 		"[RW]", -- [16]
 		"[%1]", -- [17]
 	},
-	["playerLBrack"] = "[",
 	["playerRBrack"] = "]",
 	["sticky"] = {
 		["EMOTE"] = 1,
 		["YELL"] = 1,
 		["RAID_WARNING"] = 1,
 	},
+	["noEditBoxBG"] = true,
 	["playerSeparator"] = ":",
 }
