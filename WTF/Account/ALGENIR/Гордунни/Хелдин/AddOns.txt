@@ -1,8 +1,9 @@
-oUF_AlekkUI: disabled
-oUF: disabled
+oUF: enabled
+oUF_AlekkUI: enabled
 aSettings: enabled
-aNamePlates: disabled
-aPanels: enabled
-aTooltip: disabled
 m_ActionBars: enabled
-aMinimap: enabled
+!mCFG: enabled
+aPanels: enabled
+Clique: enabled
+aTooltip: enabled
+aNamePlates: enabled

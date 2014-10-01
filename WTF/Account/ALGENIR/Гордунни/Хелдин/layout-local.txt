@@ -1,1 +1,15 @@
 Version: 1
+Frame: ACP_AddonList
+FrameLevel: 25
+Anchor: CENTER
+X: -118
+Y: 31
+W: 640
+H: 512
+Frame: GridLayoutFrame
+FrameLevel: 1
+Anchor: BOTTOM
+X: 1
+Y: 53
+W: 75
+H: 208

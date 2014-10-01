@@ -1,24 +1,37 @@
 ﻿local xPosition = -218; -- -125
 
-local fontName = "Interface\\AddOns\\oUF_AlekkUI\\fonts\\CalibriBold.ttf"
-local fontNamePixel = "Interface\\AddOns\\oUF_AlekkUI\\fonts\\Calibri.ttf"
+local mediaLib = LibStub:GetLibrary("LibSharedMedia-3.0");
+
+if not mediaLib then return end;
+
+mediaLib:Register('background', 'Manriel-Health', "Interface\\AddOns\\oUF_AlekkUI\\textures\\Ruben");
+mediaLib:Register('background', 'Manriel-Rune', "Interface\\AddOns\\oUF_AlekkUI\\textures\\rothTex");
+mediaLib:Register('background', 'Manriel-Glow', "Interface\\Addons\\oUF_AlekkUI\\media\\glowTex");
+mediaLib:Register('border', 'Manriel-Border-Caith', "Interface\\AddOns\\oUF_AlekkUI\\textures\\Caith");
+mediaLib:Register('border', 'Manriel-Border-Bubble', "Interface\\Addons\\oUF_AlekkUI\\textures\\bubbleTex");
+mediaLib:Register('border', 'Manriel-Border-Castbar', "Interface\\AddOns\\oUF_AlekkUI\\textures\\border");
+mediaLib:Register('font', 'CalibriBold', "Interface\\AddOns\\oUF_AlekkUI\\fonts\\CalibriBold.ttf");
+mediaLib:Register('font', 'Calibri', "Interface\\AddOns\\oUF_AlekkUI\\fonts\\Calibri.ttf");
+
+local fontName = mediaLib:Fetch('font', 'CalibriBold');
+local fontNamePixel = mediaLib:Fetch('font', 'Calibri');
 local baseFontSize = 11
 
-local textureHealthBar = "Interface\\AddOns\\oUF_AlekkUI\\textures\\Ruben"
-local textureRuneBar = "Interface\\AddOns\\oUF_AlekkUI\\textures\\rothTex"
-local textureBorder = "Interface\\AddOns\\oUF_AlekkUI\\textures\\Caith"
-local textureBubble = 'Interface\\Addons\\oUF_AlekkUI\\textures\\bubbleTex'
-local textureCastBarBorder = 'Interface\\AddOns\\oUF_AlekkUI\\textures\\border'
-local textureGlow = 'Interface\\Addons\\oUF_AlekkUI\\media\\glowTex'
+local textureHealthBar = mediaLib:Fetch('background', 'Manriel-Health');
+local textureRuneBar = mediaLib:Fetch('background', 'Manriel-Rune');
+local textureBorder = mediaLib:Fetch('border', 'Manriel-Border-Caith');
+local textureBubble = mediaLib:Fetch('border', 'Manriel-Border-Bubble');
+local textureCastBarBorder = mediaLib:Fetch('border', 'Manriel-Border-Castbar');
+local textureGlow = mediaLib:Fetch('background', 'Manriel-Glow');
 
 local backdrop = {
 	bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
-	edgeFile = "Interface\\AddOns\\oUF_AlekkUI\\textures\\border", edgeSize = 12,
+	edgeFile = mediaLib:Fetch('border', 'Manriel-Border-Castbar'), edgeSize = 12,
 	insets = {left = 0, right = 0, top = 0, bottom = 0},
 }
 
 local backdrophp = {
-	bgFile = "Interface\\AddOns\\oUF_AlekkUI\\textures\\Ruben",
+	bgFile = mediaLib:Fetch('background', 'Manriel-Health'),
 	insets = {left = 0, right = 0, top = 0, bottom = 0},
 }
 
