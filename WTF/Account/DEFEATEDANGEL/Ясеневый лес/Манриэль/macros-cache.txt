@@ -1,3 +1,6 @@
+VER 3 0100000000000011 "debug" "SPELL_MISC_PETHEAL"
+/dump GetMouseFocus():GetName()
+END
 VER 3 010000000000000B "Dispersion" "INV_Misc_QuestionMark"
 #showtooltip Слияние с тьмой
 /cancelaura [button:2] Слияние с тьмой
@@ -6,7 +9,7 @@ VER 3 010000000000000B "Dispersion" "INV_Misc_QuestionMark"
 /cast Слияние с тьмой
 END
 VER 3 0100000000000010 "GetFrameName" "INV_SummerFest_FireSpirit"
-/script print(GetMouseFocus():GetParent():GetName())
+/script print(GetMouseFocus():GetName())
 END
 VER 3 0100000000000008 "kiss" "Ability_BackStab"
 /use Губная помада "Бородавки прочь"

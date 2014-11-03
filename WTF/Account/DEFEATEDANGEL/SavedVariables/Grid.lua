@@ -33,7 +33,6 @@ GridDB = {
 							["buff_Словосилы:Щит"] = false,
 							["alert_lowMana"] = false,
 							["alert_lowHealth"] = false,
-							["alert_aggro"] = true,
 						},
 						["corner4"] = {
 							["alert_aggro"] = false,
@@ -66,6 +65,14 @@ GridDB = {
 		["GridStatusAbsorbs"] = {
 		},
 		["GridStatusTarget"] = {
+		},
+		["GridRoster"] = {
+		},
+		["GridStatusMouseover"] = {
+		},
+		["GridStatusRole"] = {
+		},
+		["GridStatusRaidIcon"] = {
 		},
 		["GridStatusRange"] = {
 		},
@@ -149,41 +156,7 @@ GridDB = {
 		},
 		["GridStatusName"] = {
 		},
-		["GridRoster"] = {
-			["profiles"] = {
-				["Default"] = {
-					["party_state"] = "raid_40",
-				},
-			},
-		},
-		["GridStatusHealth"] = {
-			["profiles"] = {
-				["Default"] = {
-					["alert_offline"] = {
-						["color"] = {
-							["a"] = 1,
-							["r"] = 0.3764705882352941,
-							["b"] = 0.3764705882352941,
-							["g"] = 0.3764705882352941,
-						},
-					},
-					["unit_healthDeficit"] = {
-						["threshold"] = 95,
-					},
-					["alert_lowHealth"] = {
-						["threshold"] = 15,
-						["priority"] = 15,
-					},
-					["alert_death"] = {
-						["color"] = {
-							["a"] = 0.8,
-							["b"] = 0.6078431372549019,
-							["g"] = 0.6078431372549019,
-							["r"] = 0.6078431372549019,
-						},
-					},
-				},
-			},
+		["GridStatusGroup"] = {
 		},
 		["GridLayout"] = {
 			["profiles"] = {
@@ -207,7 +180,7 @@ GridDB = {
 					},
 					["groupAnchor"] = "BOTTOMLEFT",
 					["PosY"] = 37,
-					["layout"] = "Для Группы из 40 чел.",
+					["layout"] = "Нет",
 					["PosX"] = 482,
 					["borderTexture"] = "Manriel-Border",
 					["horizontal"] = true,
@@ -222,6 +195,35 @@ GridDB = {
 				},
 			},
 		},
+		["GridStatusHealth"] = {
+			["profiles"] = {
+				["Default"] = {
+					["alert_offline"] = {
+						["color"] = {
+							["a"] = 1,
+							["r"] = 0.376470588235294,
+							["b"] = 0.376470588235294,
+							["g"] = 0.376470588235294,
+						},
+					},
+					["unit_healthDeficit"] = {
+						["threshold"] = 95,
+					},
+					["alert_lowHealth"] = {
+						["threshold"] = 15,
+						["priority"] = 15,
+					},
+					["alert_death"] = {
+						["color"] = {
+							["a"] = 0.8,
+							["b"] = 0.607843137254902,
+							["g"] = 0.607843137254902,
+							["r"] = 0.607843137254902,
+						},
+					},
+				},
+			},
+		},
 		["GridStatusMana"] = {
 		},
 		["GridStatusAuras"] = {
@@ -232,6 +234,12 @@ GridDB = {
 					},
 					["buff_Обновление"] = {
 						["icon"] = "Interface\\Icons\\Spell_Holy_Renew",
+					},
+					["buff_PowerWord:Shield"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
+					},
+					["buff_PrayerofMending"] = {
+						["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
 					},
 					["buff_Милость"] = {
 						["icon"] = "Interface\\Icons\\Spell_Holy_HopeAndGrace",
@@ -244,10 +252,12 @@ GridDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Шепот - Ясеневый лес"] = "Default",
-		["Лавлиэт - Ясеневый лес"] = "Default",
 		["Манриэль - Ясеневый лес"] = "Default",
 		["Чивва - Ясеневый лес"] = "Default",
+		["Шепот - Ясеневый лес"] = "Default",
+		["Ещеживая - Подземье"] = "Default",
+		["Лотаниэль - Подземье"] = "Default",
+		["Лавлиэт - Ясеневый лес"] = "Default",
 	},
 	["global"] = {
 		["debug"] = {
@@ -257,7 +267,7 @@ GridDB = {
 	["profiles"] = {
 		["Default"] = {
 			["minimap"] = {
-				["minimapPos"] = 158.9369717306347,
+				["minimapPos"] = 158.936971730635,
 				["hide"] = false,
 			},
 		},

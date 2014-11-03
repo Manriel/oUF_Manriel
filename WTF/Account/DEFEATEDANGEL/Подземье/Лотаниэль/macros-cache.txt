@@ -1,0 +1,24 @@
+VER 3 010000000000000B "Dispersion" "INV_Misc_QuestionMark"
+#showtooltip Слияние с тьмой
+/stopcasting
+/cast Слияние с тьмой
+END
+VER 3 0100000000000008 "kiss" "Ability_BackStab"
+/use Губная помада "Бородавки прочь"
+/kiss
+END
+VER 3 0100000000000009 "mount" "Ability_Mount_SnowyGryphon"
+#showtooltip Белоснежный грифон
+/cast [flyable] Ониксовый дракон Крыльев Пустоты; [noflyable] Стремительный ледопард; [swimming] Морской конек бездны
+END
+VER 3 0100000000000003 "Грац!" "Spell_unused2"
+/gz 
+END
+VER 3 010000000000000A "Камень здоровья" "INV_Misc_QuestionMark"
+#showtooltip Камень здоровья
+/use Камень здоровья
+END
+VER 3 010000000000000C "Сточный краб" "Ability_Rogue_FindWeakness"
+/tar Сточный краб
+/script SetRaidTarget("target", 8)
+END

@@ -5,4 +5,5 @@
 ## Notes: oUF layout
 ## RequiredDeps: oUF
 
+extra/oUF_CustomClassIcons.lua
 oUF_AlekkUI.lua

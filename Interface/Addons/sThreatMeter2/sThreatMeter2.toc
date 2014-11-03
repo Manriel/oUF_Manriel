@@ -1,0 +1,7 @@
+## Interface: 30000
+## Title: |cffff00ffs|r|cffffffffThreatMeter2|r
+## Notes: Bedrohungsanzeige.
+## Author: Nils Ruesch
+## Version: 090228
+
+sThreatMeter2.lua

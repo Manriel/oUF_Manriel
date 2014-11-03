@@ -18,8 +18,10 @@ local aPanels		= CreateFrame("Frame", "aPanels_main", UIParent);
 
 aPanels.PLAYER_LOGIN = function(self)
 	-- Chat frames
+	ChatFrames = CreateFrame('Frame', 'ChatFramesParent', aPanels);
 	for i=1, 10 do
 		local cF = _G[("%s%d"):format("ChatFrame", i)]
+		cF:SetParent(ChatFrames);
 		
 		local panel = CreateFrame('Frame', 'aPanels_ChatFrame'..i, cF);
 		panel:SetPoint("BOTTOMRIGHT", "ChatFrame"..i, "BOTTOMRIGHT", 4, -8);
@@ -42,26 +44,29 @@ aPanels.PLAYER_LOGIN = function(self)
 		panel:SetFrameLevel(0);
 		panel:Show();
 	end
+
+	local backdrop = {
+		bgFile = background,
+		tile = true,
+		tileSize = 256,
+		edgeFile = border16,
+		edgeSize = 10,
+		insets = {
+			left = 2,
+			right = 2,
+			top = 2,
+			bottom = 2
+		}
+	};
 	for i=1, 10 do
 		local cF = _G[("%s%d%s"):format("ChatFrame", i, "EditBox")]
-		local backdrop = {
-			bgFile = background,
-			tile = true,
-			tileSize = 256,
-			edgeFile = border16,
-			edgeSize = 10,
-			insets = {
-				left = 2,
-				right = 2,
-				top = 2,
-				bottom = 2
-			}
-		};
-		cF:SetHeight(26);
-		cF:SetBackdrop(backdrop);
-		cF.focusLeft:SetTexture(nil);
-		cF.focusRight:SetTexture(nil);
-		cF.focusMid:SetTexture(nil);
+		if cF then
+			cF:SetHeight(26);
+			cF:SetBackdrop(backdrop);
+			cF.focusLeft:SetTexture(nil);
+			cF.focusRight:SetTexture(nil);
+			cF.focusMid:SetTexture(nil);
+		end
 	end
 	-- Chat end
 
@@ -102,6 +107,14 @@ aPanels.PLAYER_LOGIN = function(self)
 		panel:SetBackdrop(backdrop);
 		panel:SetFrameStrata("BACKGROUND");
 		panel:SetFrameLevel(0);
+	end;
+
+	if sThreatMeter_Main then
+		sThreatMeter_Main:SetPoint("TOPLEFT", Bar3_holder, "TOPRIGHT", 6, 0);
+		panel = CreateFrame('Frame', 'aPanels_ThreatMeter', sThreatMeter_Main);
+		panel:SetPoint("TOPLEFT", sThreatMeter_Main, "TOPLEFT", -2, 2);
+		panel:SetPoint("BOTTOMRIGHT", sThreatMeter_Main, "BOTTOMRIGHT", 2, -2);
+		panel:SetBackdrop(backdrop);
 	end;
 end
 
