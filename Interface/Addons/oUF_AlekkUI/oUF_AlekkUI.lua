@@ -22,7 +22,7 @@ else
 			'Dead',
 			'Dead',
 			'Dead',
-		},,
+		},
 		ghost = 'Ghost',
 	}
 end
