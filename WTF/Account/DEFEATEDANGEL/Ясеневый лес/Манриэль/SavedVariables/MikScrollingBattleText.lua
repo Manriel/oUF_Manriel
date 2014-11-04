@@ -1,4 +1,4 @@
 
 MSBTProfiles_SavedVarsPerChar = {
-	["currentProfileName"] = "Alekk UI Heal",
+	["currentProfileName"] = "Manriel UI Heal",
 }

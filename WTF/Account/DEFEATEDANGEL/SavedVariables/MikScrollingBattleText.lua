@@ -1,9 +1,29 @@
 
 MSBTProfiles_SavedVars = {
 	["profiles"] = {
-		["Alekk UI"] = {
+		["Default"] = {
+			["critFontSize"] = 24,
+			["critFontName"] = "Friz",
+			["normalFontName"] = "Friz",
+			["triggers"] = {
+				["MSBT_TRIGGER_EXECUTE"] = {
+					["disabled"] = true,
+				},
+				["MSBT_TRIGGER_BLOODSURGE"] = {
+					["disabled"] = true,
+				},
+				["MSBT_TRIGGER_OVERPOWER"] = {
+					["disabled"] = true,
+				},
+				["MSBT_TRIGGER_RAMPAGE"] = {
+					["disabled"] = true,
+				},
+			},
+			["creationVersion"] = "5.3.24",
+		},
+		["Manriel UI"] = {
 			["powerThrottleDuration"] = 5,
-			["critFontName"] = "CalibriBold",
+			["hotThrottleDuration"] = 5,
 			["animationSpeed"] = 50,
 			["triggers"] = {
 				["MSBT_TRIGGER_KILL_COMMAND"] = {
@@ -13,11 +33,10 @@ MSBTProfiles_SavedVars = {
 			["dotThrottleDuration"] = 5,
 			["creationVersion"] = "5.3.24",
 			["critFontSize"] = 22,
-			["hotThrottleDuration"] = 5,
+			["critFontName"] = "CalibriBold",
 			["events"] = {
-				["PET_INCOMING_SPELL_DAMAGE"] = {
-					["message"] = "(%s) -%a",
-					["scrollArea"] = "Custom1",
+				["OUTGOING_SPELL_BLOCK"] = {
+					["message"] = "Block! ",
 				},
 				["NOTIFICATION_BUFF_FADE"] = {
 					["disabled"] = true,
@@ -34,9 +53,8 @@ MSBTProfiles_SavedVars = {
 					["message"] = "Pet %a",
 					["scrollArea"] = "Custom2",
 				},
-				["PET_OUTGOING_SPELL_EVADE"] = {
-					["message"] = "Pet Evade!",
-					["scrollArea"] = "Custom2",
+				["OUTGOING_SPELL_MISS"] = {
+					["message"] = "Miss!",
 				},
 				["PET_INCOMING_IMMUNE"] = {
 					["scrollArea"] = "Custom1",
@@ -44,9 +62,8 @@ MSBTProfiles_SavedVars = {
 				["PET_INCOMING_PARRY"] = {
 					["scrollArea"] = "Custom1",
 				},
-				["PET_INCOMING_SPELL_MISS"] = {
-					["message"] = "(%s) Miss!",
-					["scrollArea"] = "Custom1",
+				["OUTGOING_SPELL_DAMAGE_CRIT"] = {
+					["message"] = "%a",
 				},
 				["OUTGOING_HEAL_CRIT"] = {
 					["scrollArea"] = "Custom4",
@@ -75,8 +92,8 @@ MSBTProfiles_SavedVars = {
 				["PET_OUTGOING_BLOCK"] = {
 					["scrollArea"] = "Custom2",
 				},
-				["INCOMING_SPELL_ABSORB"] = {
-					["scrollArea"] = "Custom3",
+				["NOTIFICATION_ITEM_BUFF_FADE"] = {
+					["disabled"] = true,
 				},
 				["PET_OUTGOING_MISS"] = {
 					["scrollArea"] = "Custom2",
@@ -102,9 +119,8 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Immune!",
 					["scrollArea"] = "Custom1",
 				},
-				["NOTIFICATION_EXPERIENCE_GAIN"] = {
-					["disabled"] = false,
-					["fontSize"] = false,
+				["INCOMING_ABSORB"] = {
+					["scrollArea"] = "Custom3",
 				},
 				["PET_INCOMING_SPELL_BLOCK"] = {
 					["message"] = "(%s) Block!",
@@ -137,14 +153,14 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_SOUL_SHARD_CREATED"] = {
 					["fontSize"] = false,
 				},
-				["NOTIFICATION_ITEM_BUFF_FADE"] = {
-					["disabled"] = true,
-				},
 				["PET_OUTGOING_ABSORB"] = {
 					["scrollArea"] = "Custom2",
 				},
-				["INCOMING_ABSORB"] = {
-					["scrollArea"] = "Custom3",
+				["PET_INCOMING_ABSORB"] = {
+					["scrollArea"] = "Custom1",
+				},
+				["NOTIFICATION_COMBAT_LEAVE"] = {
+					["scrollArea"] = "Custom4",
 				},
 				["OUTGOING_EVADE"] = {
 					["fontSize"] = false,
@@ -159,24 +175,26 @@ MSBTProfiles_SavedVars = {
 					["message"] = "Pet Miss!",
 					["scrollArea"] = "Custom2",
 				},
-				["PET_INCOMING_ABSORB"] = {
-					["scrollArea"] = "Custom1",
+				["OUTGOING_SPELL_EVADE"] = {
+					["fontSize"] = false,
 				},
 				["PET_INCOMING_DODGE"] = {
 					["scrollArea"] = "Custom1",
 				},
-				["NOTIFICATION_COMBAT_LEAVE"] = {
-					["scrollArea"] = "Custom4",
-				},
-				["OUTGOING_SPELL_BLOCK"] = {
-					["message"] = "Block! ",
+				["PET_INCOMING_SPELL_DOT"] = {
+					["message"] = "(%s) -%a",
+					["scrollArea"] = "Custom1",
 				},
 				["OUTGOING_SPELL_DAMAGE"] = {
 					["message"] = "%a",
 				},
-				["PET_INCOMING_SPELL_RESIST"] = {
-					["message"] = "(%s) Resist!",
-					["scrollArea"] = "Custom1",
+				["PET_OUTGOING_SPELL_DODGE"] = {
+					["message"] = "Pet Dodge!",
+					["scrollArea"] = "Custom2",
+				},
+				["NOTIFICATION_CP_FULL"] = {
+					["fontSize"] = false,
+					["scrollArea"] = "Static",
 				},
 				["PET_OUTGOING_DAMAGE_CRIT"] = {
 					["scrollArea"] = "Custom2",
@@ -191,9 +209,9 @@ MSBTProfiles_SavedVars = {
 				["INCOMING_SPELL_DODGE"] = {
 					["scrollArea"] = "Custom3",
 				},
-				["NOTIFICATION_CP_FULL"] = {
-					["fontSize"] = false,
-					["scrollArea"] = "Static",
+				["PET_INCOMING_SPELL_RESIST"] = {
+					["message"] = "(%s) Resist!",
+					["scrollArea"] = "Custom1",
 				},
 				["PET_OUTGOING_SPELL_RESIST"] = {
 					["message"] = "Pet Resist!",
@@ -210,8 +228,9 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Absorb!",
 					["scrollArea"] = "Custom1",
 				},
-				["OUTGOING_SPELL_DAMAGE_CRIT"] = {
-					["message"] = "%a",
+				["PET_INCOMING_SPELL_DAMAGE"] = {
+					["message"] = "(%s) -%a",
+					["scrollArea"] = "Custom1",
 				},
 				["PET_INCOMING_DAMAGE"] = {
 					["scrollArea"] = "Custom1",
@@ -287,15 +306,15 @@ MSBTProfiles_SavedVars = {
 				["OUTGOING_HOT"] = {
 					["scrollArea"] = "Custom4",
 				},
-				["PET_OUTGOING_SPELL_DODGE"] = {
-					["message"] = "Pet Dodge!",
+				["PET_OUTGOING_SPELL_EVADE"] = {
+					["message"] = "Pet Evade!",
 					["scrollArea"] = "Custom2",
 				},
 				["INCOMING_SPELL_IMMUNE"] = {
 					["scrollArea"] = "Custom3",
 				},
-				["PET_INCOMING_SPELL_DOT"] = {
-					["message"] = "(%s) -%a",
+				["PET_INCOMING_SPELL_MISS"] = {
+					["message"] = "(%s) Miss!",
 					["scrollArea"] = "Custom1",
 				},
 				["PET_INCOMING_SPELL_DAMAGE_CRIT"] = {
@@ -312,8 +331,8 @@ MSBTProfiles_SavedVars = {
 				["INCOMING_SPELL_RESIST"] = {
 					["scrollArea"] = "Custom3",
 				},
-				["OUTGOING_SPELL_EVADE"] = {
-					["fontSize"] = false,
+				["INCOMING_SPELL_ABSORB"] = {
+					["scrollArea"] = "Custom3",
 				},
 				["PET_INCOMING_HOT"] = {
 					["message"] = "(%n) Pet +%a",
@@ -325,8 +344,9 @@ MSBTProfiles_SavedVars = {
 				["OUTGOING_SPELL_DOT"] = {
 					["message"] = "%a",
 				},
-				["OUTGOING_SPELL_MISS"] = {
-					["message"] = "Miss!",
+				["NOTIFICATION_EXPERIENCE_GAIN"] = {
+					["disabled"] = false,
+					["fontSize"] = false,
 				},
 				["NOTIFICATION_ITEM_BUFF"] = {
 					["disabled"] = true,
@@ -335,15 +355,6 @@ MSBTProfiles_SavedVars = {
 			},
 			["soundsDisabled"] = true,
 			["scrollAreas"] = {
-				["Incoming"] = {
-					["stickyDirection"] = "Up",
-					["direction"] = "Up",
-					["offsetX"] = -161,
-					["scrollWidth"] = 100,
-					["offsetY"] = -119,
-					["textAlignIndex"] = 2,
-					["stickyTextAlignIndex"] = 1,
-				},
 				["Outgoing"] = {
 					["direction"] = "Up",
 					["behavior"] = "MSBT_NORMAL",
@@ -355,21 +366,25 @@ MSBTProfiles_SavedVars = {
 					["animationStyle"] = "Straight",
 					["textAlignIndex"] = 2,
 				},
+				["Notification"] = {
+					["scrollHeight"] = 180,
+					["offsetY"] = 262,
+				},
 				["Custom4"] = {
 					["stickyDirection"] = "Up",
-					["stickyTextAlignIndex"] = 1,
+					["direction"] = "Up",
 					["offsetX"] = -430,
 					["scrollWidth"] = 200,
 					["stickyBehavior"] = "Jiggle",
 					["offsetY"] = -20,
 					["name"] = "Healing",
-					["direction"] = "Up",
+					["stickyTextAlignIndex"] = 1,
 				},
 				["Custom2"] = {
 					["critFontSize"] = 13,
-					["direction"] = "Up",
-					["offsetX"] = 540,
 					["scrollHeight"] = 100,
+					["offsetX"] = 540,
+					["direction"] = "Up",
 					["stickyBehavior"] = "Jiggle",
 					["offsetY"] = -118,
 					["name"] = "Pet Outgoing",
@@ -377,9 +392,9 @@ MSBTProfiles_SavedVars = {
 				},
 				["Custom1"] = {
 					["critFontSize"] = 13,
-					["direction"] = "Down",
-					["name"] = "Pet Incoming",
 					["scrollHeight"] = 100,
+					["name"] = "Pet Incoming",
+					["direction"] = "Down",
 					["stickyBehavior"] = "Jiggle",
 					["offsetY"] = -118,
 					["offsetX"] = -581,
@@ -387,8 +402,8 @@ MSBTProfiles_SavedVars = {
 				},
 				["Static"] = {
 					["offsetX"] = -19,
-					["animationSpeed"] = 100,
 					["stickyBehavior"] = "Jiggle",
+					["animationSpeed"] = 100,
 					["normalFontName"] = false,
 					["offsetY"] = 128,
 					["normalFontSize"] = false,
@@ -399,14 +414,19 @@ MSBTProfiles_SavedVars = {
 					["scrollWidth"] = 100,
 					["name"] = "Incoming Miss",
 					["stickyTextAlignIndex"] = 3,
-					["stickyBehavior"] = "Jiggle",
+					["offsetX"] = 59,
 					["offsetY"] = -118,
 					["animationStyle"] = "Parabola",
-					["offsetX"] = 59,
+					["stickyBehavior"] = "Jiggle",
 				},
-				["Notification"] = {
-					["scrollHeight"] = 180,
-					["offsetY"] = 262,
+				["Incoming"] = {
+					["stickyDirection"] = "Up",
+					["stickyTextAlignIndex"] = 1,
+					["offsetX"] = -161,
+					["scrollWidth"] = 100,
+					["offsetY"] = -119,
+					["textAlignIndex"] = 2,
+					["direction"] = "Up",
 				},
 			},
 			["normalFontName"] = "CalibriBold",
@@ -415,48 +435,30 @@ MSBTProfiles_SavedVars = {
 			},
 			["normalFontSize"] = 17,
 		},
-		["Default"] = {
-			["critFontSize"] = 24,
-			["critFontName"] = "Friz",
-			["normalFontName"] = "Friz",
-			["creationVersion"] = "5.3.24",
-			["triggers"] = {
-				["MSBT_TRIGGER_RAMPAGE"] = {
-					["disabled"] = true,
-				},
-				["MSBT_TRIGGER_BLOODSURGE"] = {
-					["disabled"] = true,
-				},
-				["MSBT_TRIGGER_OVERPOWER"] = {
-					["disabled"] = true,
-				},
-				["MSBT_TRIGGER_EXECUTE"] = {
-					["disabled"] = true,
-				},
-			},
-		},
-		["Alekk UI Heal"] = {
-			["shadow"] = {
-				["colorR"] = 0.388235294117647,
-				["colorG"] = 0.4,
-				["colorB"] = 0.454901960784314,
-			},
-			["critFontName"] = "MSBT Morpheus",
-			["cooldownThreshold"] = 3,
-			["animationSpeed"] = 50,
+		["Manriel UI Heal"] = {
 			["holy"] = {
 				["colorB"] = 0.466666666666667,
 				["colorG"] = 0.803921568627451,
 				["colorR"] = 0.862745098039216,
+			},
+			["critFontName"] = "MSBT Morpheus",
+			["cooldownThreshold"] = 3,
+			["animationSpeed"] = 50,
+			["shadow"] = {
+				["colorR"] = 0.388235294117647,
+				["colorG"] = 0.4,
+				["colorB"] = 0.454901960784314,
 			},
 			["dotThrottleDuration"] = 2,
 			["creationVersion"] = "5.3.24",
 			["critFontSize"] = 24,
 			["hotThrottleDuration"] = 2,
 			["events"] = {
-				["PET_INCOMING_SPELL_DAMAGE"] = {
-					["message"] = "(%s) -%a",
-					["scrollArea"] = "Custom1",
+				["OUTGOING_SPELL_BLOCK"] = {
+					["message"] = "Блок",
+					["colorR"] = 0.698039215686275,
+					["colorG"] = 0.301960784313726,
+					["colorB"] = 0.8,
 				},
 				["NOTIFICATION_BUFF_FADE"] = {
 					["disabled"] = true,
@@ -494,8 +496,9 @@ MSBTProfiles_SavedVars = {
 				["OUTGOING_SPELL_IMMUNE"] = {
 					["message"] = "Невосприимчивость (%s)",
 				},
-				["OUTGOING_SPELL_DAMAGE_CRIT"] = {
-					["message"] = "-- %a",
+				["PET_INCOMING_SPELL_MISS"] = {
+					["message"] = "(%s) Питомец промах",
+					["scrollArea"] = "Custom1",
 				},
 				["INCOMING_HEAL"] = {
 					["message"] = "(%n) ++ %a",
@@ -514,7 +517,8 @@ MSBTProfiles_SavedVars = {
 					["colorG"] = 0.4,
 					["scrollArea"] = "Custom3",
 				},
-				["PET_OUTGOING_DAMAGE"] = {
+				["PET_OUTGOING_EVADE"] = {
+					["message"] = "Питомец ускользание",
 					["scrollArea"] = "Custom2",
 				},
 				["NOTIFICATION_ITEM_BUFF"] = {
@@ -534,8 +538,8 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_HONOR_GAIN"] = {
 					["message"] = "+%a Чести",
 				},
-				["PET_OUTGOING_EVADE"] = {
-					["message"] = "Питомец ускользание",
+				["PET_OUTGOING_PARRY"] = {
+					["message"] = "Питомец парирование",
 					["scrollArea"] = "Custom2",
 				},
 				["INCOMING_SPELL_ABSORB"] = {
@@ -554,9 +558,9 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%n) Питомец +%a",
 					["scrollArea"] = "Custom1",
 				},
-				["PET_OUTGOING_PARRY"] = {
-					["message"] = "Питомец парирование",
-					["scrollArea"] = "Custom2",
+				["PET_INCOMING_SPELL_IMMUNE"] = {
+					["message"] = "(%s) Питомец невосприимчивость",
+					["scrollArea"] = "Custom1",
 				},
 				["INCOMING_IMMUNE"] = {
 					["message"] = "Невосприимчивость",
@@ -585,9 +589,9 @@ MSBTProfiles_SavedVars = {
 					["message"] = "Питомец невосприимчивость",
 					["scrollArea"] = "Custom2",
 				},
-				["PET_INCOMING_SPELL_IMMUNE"] = {
-					["message"] = "(%s) Питомец невосприимчивость",
-					["scrollArea"] = "Custom1",
+				["OUTGOING_SPELL_EVADE"] = {
+					["message"] = "Ускользание (%s)",
+					["fontSize"] = false,
 				},
 				["INCOMING_ABSORB"] = {
 					["message"] = "Поглощение",
@@ -608,9 +612,9 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_EXTRA_ATTACK"] = {
 					["fontSize"] = false,
 				},
-				["PET_INCOMING_SPELL_BLOCK"] = {
-					["message"] = "(%s) Питомец блок",
-					["scrollArea"] = "Custom1",
+				["NOTIFICATION_COMBAT_LEAVE"] = {
+					["message"] = "- бой",
+					["scrollArea"] = "Custom4",
 				},
 				["PET_INCOMING_SPELL_DAMAGE_CRIT"] = {
 					["message"] = "(%s) -%a",
@@ -643,11 +647,10 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Невосприимчивость",
 					["scrollArea"] = "Custom3",
 				},
-				["OUTGOING_SPELL_BLOCK"] = {
-					["message"] = "Блок",
-					["colorR"] = 0.698039215686275,
-					["colorG"] = 0.301960784313726,
-					["colorB"] = 0.8,
+				["OUTGOING_MISS"] = {
+					["message"] = "Промах",
+					["colorR"] = 0.4,
+					["colorG"] = 0.4,
 				},
 				["PET_OUTGOING_SPELL_RESIST"] = {
 					["message"] = "Питомец сопротивление",
@@ -656,9 +659,9 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_REP_GAIN"] = {
 					["message"] = "+%a Репутации (%e)",
 				},
-				["PET_INCOMING_SPELL_MISS"] = {
-					["message"] = "(%s) Питомец промах",
-					["scrollArea"] = "Custom1",
+				["NOTIFICATION_BUFF"] = {
+					["disabled"] = true,
+					["scrollArea"] = "Custom4",
 				},
 				["INCOMING_PARRY"] = {
 					["message"] = "Парирование",
@@ -690,11 +693,9 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Прерывание",
 					["scrollArea"] = "Custom3",
 				},
-				["OUTGOING_SPELL_DODGE"] = {
-					["message"] = "Уклон",
-					["colorR"] = 0.552941176470588,
-					["colorG"] = 0.349019607843137,
-					["colorB"] = 0.196078431372549,
+				["PET_OUTGOING_SPELL_MISS"] = {
+					["message"] = "Питомец промах",
+					["scrollArea"] = "Custom2",
 				},
 				["OUTGOING_EVADE"] = {
 					["message"] = "Ускользание",
@@ -707,9 +708,11 @@ MSBTProfiles_SavedVars = {
 					["scrollArea"] = "Custom3",
 					["colorR"] = 0.698039215686275,
 				},
-				["PET_OUTGOING_SPELL_MISS"] = {
-					["message"] = "Питомец промах",
-					["scrollArea"] = "Custom2",
+				["OUTGOING_SPELL_DODGE"] = {
+					["message"] = "Уклон",
+					["colorR"] = 0.552941176470588,
+					["colorG"] = 0.349019607843137,
+					["colorB"] = 0.196078431372549,
 				},
 				["OUTGOING_SPELL_ABSORB"] = {
 					["message"] = "Поглощение (%s)",
@@ -725,9 +728,8 @@ MSBTProfiles_SavedVars = {
 					["message"] = "Питомец невосприимчивость",
 					["scrollArea"] = "Custom1",
 				},
-				["PET_OUTGOING_DODGE"] = {
-					["message"] = "Питомец уклон",
-					["scrollArea"] = "Custom2",
+				["OUTGOING_SPELL_DEFLECT"] = {
+					["message"] = "Отклонение! (%s)",
 				},
 				["PET_OUTGOING_SPELL_DODGE"] = {
 					["message"] = "Питомец уклон",
@@ -753,8 +755,9 @@ MSBTProfiles_SavedVars = {
 					["scrollArea"] = "Custom3",
 					["colorB"] = 0.196078431372549,
 				},
-				["OUTGOING_SPELL_DEFLECT"] = {
-					["message"] = "Отклонение! (%s)",
+				["NOTIFICATION_CP_FULL"] = {
+					["fontSize"] = false,
+					["scrollArea"] = "Static",
 				},
 				["PET_OUTGOING_IMMUNE"] = {
 					["message"] = "Питомец невосприимчивость",
@@ -764,13 +767,12 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Питомец сопротивление",
 					["scrollArea"] = "Custom1",
 				},
-				["INCOMING_DAMAGE"] = {
-					["message"] = "-%a",
-					["colorB"] = 0.2,
-					["colorG"] = 0.2,
-				},
 				["OUTGOING_ABSORB"] = {
 					["message"] = "Поглощение",
+				},
+				["PET_INCOMING_SPELL_ABSORB"] = {
+					["message"] = "(%s) Питомец поглощение",
+					["scrollArea"] = "Custom1",
 				},
 				["OUTGOING_DISPEL"] = {
 					["message"] = "Рассеивание (%s)",
@@ -811,9 +813,10 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_REP_LOSS"] = {
 					["message"] = "-%a Репутации (%e)",
 				},
-				["PET_INCOMING_SPELL_ABSORB"] = {
-					["message"] = "(%s) Питомец поглощение",
-					["scrollArea"] = "Custom1",
+				["INCOMING_DAMAGE"] = {
+					["message"] = "-%a",
+					["colorB"] = 0.2,
+					["colorG"] = 0.2,
 				},
 				["INCOMING_MISS"] = {
 					["message"] = "Промах",
@@ -829,9 +832,9 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%n) ++ %a",
 					["scrollArea"] = "Custom4",
 				},
-				["NOTIFICATION_CP_FULL"] = {
-					["fontSize"] = false,
-					["scrollArea"] = "Static",
+				["PET_OUTGOING_DODGE"] = {
+					["message"] = "Питомец уклон",
+					["scrollArea"] = "Custom2",
 				},
 				["OUTGOING_DAMAGE_CRIT"] = {
 					["message"] = "-- %a",
@@ -849,17 +852,15 @@ MSBTProfiles_SavedVars = {
 					["message"] = "Питомец блок",
 					["scrollArea"] = "Custom2",
 				},
-				["OUTGOING_MISS"] = {
-					["message"] = "Промах",
-					["colorR"] = 0.4,
-					["colorG"] = 0.4,
+				["PET_INCOMING_SPELL_DAMAGE"] = {
+					["message"] = "(%s) -%a",
+					["scrollArea"] = "Custom1",
 				},
 				["OUTGOING_IMMUNE"] = {
 					["message"] = "Невосприимчивость",
 				},
-				["NOTIFICATION_COMBAT_LEAVE"] = {
-					["message"] = "- бой",
-					["scrollArea"] = "Custom4",
+				["OUTGOING_SPELL_DAMAGE_CRIT"] = {
+					["message"] = "-- %a",
 				},
 				["OUTGOING_BLOCK"] = {
 					["message"] = "Блок",
@@ -870,10 +871,8 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_POWER_GAIN"] = {
 					["scrollArea"] = "Custom4",
 				},
-				["OUTGOING_SPELL_MISS"] = {
-					["message"] = "Промах",
-					["colorR"] = 0.4,
-					["colorG"] = 0.4,
+				["PET_OUTGOING_DAMAGE"] = {
+					["scrollArea"] = "Custom2",
 				},
 				["OUTGOING_SPELL_REFLECT"] = {
 					["message"] = "Отражение (%s)",
@@ -888,9 +887,9 @@ MSBTProfiles_SavedVars = {
 				["OUTGOING_DEFLECT"] = {
 					["message"] = "Отклонение!",
 				},
-				["OUTGOING_SPELL_EVADE"] = {
-					["message"] = "Ускользание (%s)",
-					["fontSize"] = false,
+				["PET_INCOMING_SPELL_BLOCK"] = {
+					["message"] = "(%s) Питомец блок",
+					["scrollArea"] = "Custom1",
 				},
 				["PET_INCOMING_HOT"] = {
 					["message"] = "(%n) Питомец +%a",
@@ -903,9 +902,10 @@ MSBTProfiles_SavedVars = {
 				["OUTGOING_SPELL_DOT"] = {
 					["message"] = "-- %a",
 				},
-				["NOTIFICATION_BUFF"] = {
-					["disabled"] = true,
-					["scrollArea"] = "Custom4",
+				["OUTGOING_SPELL_MISS"] = {
+					["message"] = "Промах",
+					["colorR"] = 0.4,
+					["colorG"] = 0.4,
 				},
 				["NOTIFICATION_DEBUFF"] = {
 					["disabled"] = true,
@@ -914,15 +914,6 @@ MSBTProfiles_SavedVars = {
 			},
 			["powerThrottleDuration"] = 5,
 			["scrollAreas"] = {
-				["Incoming"] = {
-					["stickyDirection"] = "Up",
-					["direction"] = "Up",
-					["offsetX"] = -204,
-					["stickyTextAlignIndex"] = 1,
-					["offsetY"] = -147,
-					["textAlignIndex"] = 2,
-					["scrollWidth"] = 100,
-				},
 				["Outgoing"] = {
 					["stickyTextAlignIndex"] = 3,
 					["behavior"] = "MSBT_NORMAL",
@@ -934,22 +925,27 @@ MSBTProfiles_SavedVars = {
 					["textAlignIndex"] = 3,
 					["animationStyle"] = "Straight",
 				},
+				["Notification"] = {
+					["scrollHeight"] = 180,
+					["offsetX"] = -172,
+					["offsetY"] = 230,
+				},
 				["Custom4"] = {
 					["stickyTextAlignIndex"] = 1,
 					["stickyBehavior"] = "Jiggle",
 					["stickyDirection"] = "Up",
 					["scrollWidth"] = 200,
-					["name"] = "Healing",
+					["offsetX"] = -485,
 					["direction"] = "Up",
 					["offsetY"] = -30,
 					["textAlignIndex"] = 1,
-					["offsetX"] = -485,
+					["name"] = "Healing",
 				},
 				["Custom2"] = {
 					["critFontSize"] = 13,
-					["direction"] = "Up",
-					["offsetX"] = 604,
 					["scrollHeight"] = 100,
+					["offsetX"] = 604,
+					["direction"] = "Up",
 					["stickyBehavior"] = "Jiggle",
 					["offsetY"] = -77,
 					["name"] = "Pet Outgoing",
@@ -957,9 +953,9 @@ MSBTProfiles_SavedVars = {
 				},
 				["Custom1"] = {
 					["critFontSize"] = 13,
-					["direction"] = "Down",
-					["name"] = "Pet Incoming",
 					["scrollHeight"] = 100,
+					["name"] = "Pet Incoming",
+					["direction"] = "Down",
 					["stickyBehavior"] = "Jiggle",
 					["offsetY"] = -77,
 					["offsetX"] = -662,
@@ -968,8 +964,8 @@ MSBTProfiles_SavedVars = {
 				["Static"] = {
 					["scrollHeight"] = 80,
 					["offsetX"] = -16,
-					["animationSpeed"] = 100,
 					["stickyBehavior"] = "Jiggle",
+					["animationSpeed"] = 100,
 					["normalFontName"] = false,
 					["offsetY"] = 130,
 					["normalFontSize"] = false,
@@ -979,25 +975,29 @@ MSBTProfiles_SavedVars = {
 					["behavior"] = "CurvedRight",
 					["stickyBehavior"] = "Jiggle",
 					["scrollWidth"] = 100,
-					["name"] = "Incoming Miss",
+					["offsetX"] = 90,
 					["stickyTextAlignIndex"] = 3,
 					["iconAlign"] = "Right",
 					["offsetY"] = -147,
 					["animationStyle"] = "Parabola",
-					["offsetX"] = 90,
+					["name"] = "Incoming Miss",
 				},
-				["Notification"] = {
-					["scrollHeight"] = 180,
-					["offsetX"] = -172,
-					["offsetY"] = 230,
+				["Incoming"] = {
+					["stickyDirection"] = "Up",
+					["scrollWidth"] = 100,
+					["offsetX"] = -204,
+					["stickyTextAlignIndex"] = 1,
+					["offsetY"] = -147,
+					["textAlignIndex"] = 2,
+					["direction"] = "Up",
 				},
 			},
 			["normalFontName"] = "MSBT Morpheus",
 			["throttleList"] = {
-				["Отражающий щит"] = 3,
+				["Health Link"] = 3,
 				["Похищение жизни"] = 2,
 				["Темное лечение"] = 3,
-				["Health Link"] = 3,
+				["Отражающий щит"] = 3,
 				["Прикосновение вампира"] = 3,
 				["Источник маны"] = 3,
 				["Объятия вампира"] = 3,
@@ -1025,11 +1025,11 @@ MSBTProfiles_SavedVars = {
 					["fontSize"] = 26,
 					["alwaysSticky"] = true,
 					["mainEvents"] = "SPELL_AURA_APPLIED{recipientAffiliation;;eq;;4026531840;;skillName;;eq;;На изготовку!}",
-					["message"] = "На изготовку!",
+					["classes"] = "HUNTER",
 					["soundFile"] = "Wham!",
 					["colorG"] = 0.607843137254902,
 					["colorR"] = 0.36078431372549,
-					["classes"] = "HUNTER",
+					["message"] = "На изготовку!",
 					["colorB"] = 0.270588235294118,
 				},
 				["MSBT_TRIGGER_EXECUTE"] = {

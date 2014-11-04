@@ -1,7 +1,12 @@
 ﻿local xPosition, yPosition = 170, 320;
 local width, height, offset = 280, 45, 4
 
-local mediaLib = LibStub:GetLibrary("LibSharedMedia-3.0");
+local LSM = LibStub:GetLibrary("LibSharedMedia-3.0");
+
+local MediaType_BACKGROUND = LSM.MediaType.BACKGROUND
+local MediaType_BORDER = LSM.MediaType.BORDER
+local MediaType_FONT = LSM.MediaType.FONT
+local MediaType_STATUSBAR = LSM.MediaType.STATUSBAR
 
 local locale = GetLocale();
 local arStrings = {};
@@ -27,36 +32,38 @@ else
 	}
 end
 
-if not mediaLib then return end;
+if not LSM then return end;
 
-mediaLib:Register('background', 'Manriel-Health', "Interface\\AddOns\\oUF_AlekkUI\\textures\\Ruben");
-mediaLib:Register('background', 'Manriel-Rune', "Interface\\AddOns\\oUF_AlekkUI\\textures\\rothTex");
-mediaLib:Register('background', 'Manriel-Glow', "Interface\\Addons\\oUF_AlekkUI\\media\\glowTex");
-mediaLib:Register('border', 'Manriel-Border-Caith', "Interface\\AddOns\\oUF_AlekkUI\\textures\\Caith");
-mediaLib:Register('border', 'Manriel-Border-Bubble', "Interface\\Addons\\oUF_AlekkUI\\textures\\bubbleTex");
-mediaLib:Register('border', 'Manriel-Border-Castbar', "Interface\\AddOns\\oUF_AlekkUI\\textures\\border");
-mediaLib:Register('font', 'CalibriBold', "Interface\\AddOns\\oUF_AlekkUI\\fonts\\CalibriBold.ttf");
-mediaLib:Register('font', 'Calibri', "Interface\\AddOns\\oUF_AlekkUI\\fonts\\Calibri.ttf");
+LSM:Register(MediaType_BACKGROUND, 'Manriel-Health', "Interface\\AddOns\\oUF_AlekkUI\\textures\\Ruben");
+LSM:Register(MediaType_BACKGROUND, 'Manriel-Rune', "Interface\\AddOns\\oUF_AlekkUI\\textures\\rothTex");
+LSM:Register(MediaType_BACKGROUND, 'Manriel-Glow', "Interface\\Addons\\oUF_AlekkUI\\media\\glowTex");
+LSM:Register(MediaType_BORDER, 'Manriel-Border-Caith', "Interface\\AddOns\\oUF_AlekkUI\\textures\\Caith");
+LSM:Register(MediaType_BORDER, 'Manriel-Border-Bubble', "Interface\\Addons\\oUF_AlekkUI\\textures\\bubbleTex");
+LSM:Register(MediaType_BORDER, 'Manriel-Border-Castbar', "Interface\\AddOns\\oUF_AlekkUI\\textures\\border");
 
-local fontName = mediaLib:Fetch('font', 'CalibriBold');
-local fontNamePixel = mediaLib:Fetch('font', 'Calibri');
+LSM:Register(MediaType_FONT, 'Calibri Bold', [[Interface\AddOns\oUF_AlekkUI\fonts\CalibriBold.ttf]], LSM.LOCALE_BIT_ruRU + LSM.LOCALE_BIT_western);
+LSM:Register(MediaType_FONT, 'Calibri', [[Interface\AddOns\oUF_AlekkUI\fonts\Calibri.ttf]], LSM.LOCALE_BIT_ruRU + LSM.LOCALE_BIT_western);
+
+local fontName = LSM:Fetch(MediaType_FONT, 'Calibri Bold');
+local fontNamePixel = LSM:Fetch(MediaType_FONT, 'Calibri');
 local baseFontSize = height*0.25
 
-local textureHealthBar = mediaLib:Fetch('background', 'Manriel-Health');
-local textureRuneBar = mediaLib:Fetch('background', 'Manriel-Rune');
-local textureBorder = mediaLib:Fetch('border', 'Manriel-Border-Caith');
-local textureBubble = mediaLib:Fetch('border', 'Manriel-Border-Bubble');
-local textureCastBarBorder = mediaLib:Fetch('border', 'Manriel-Border-Castbar');
-local textureGlow = mediaLib:Fetch('background', 'Manriel-Glow');
+local textureHealthBar = LSM:Fetch(MediaType_BACKGROUND, 'Manriel-Health');
+local textureRuneBar = LSM:Fetch(MediaType_BACKGROUND, 'Manriel-Rune');
+local textureBorder = LSM:Fetch(MediaType_BORDER, 'Manriel-Border-Caith');
+local textureBubble = LSM:Fetch(MediaType_BORDER, 'Manriel-Border-Bubble');
+local textureCastBarBorder = LSM:Fetch(MediaType_BORDER, 'Manriel-Border-Castbar');
+local textureGlow = LSM:Fetch(MediaType_BACKGROUND, 'Manriel-Glow');
 
 local backdrop = {
-	bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
-	edgeFile = mediaLib:Fetch('border', 'Manriel-Border-Castbar'), edgeSize = 12,
+	bgFile = LSM:Fetch(MediaType_BACKGROUND, 'Blizzard Tooltip'),
+	edgeFile = textureCastBarBorder,
+	edgeSize = 12,
 	insets = {left = 0, right = 0, top = 0, bottom = 0},
 }
 
 local backdrophp = {
-	bgFile = mediaLib:Fetch('background', 'Manriel-Health'),
+	bgFile = textureHealthBar,
 	insets = {left = 0, right = 0, top = 0, bottom = 0},
 }
 
@@ -240,13 +247,22 @@ local function PostUpdatePower(Power, unit, min, max)-- (self, event, unit, bar,
 	self:UNIT_NAME_UPDATE(event, unit)
 end
 
+function UpdateAuraIcon(self, unit, icon, index, offset)
+	icon.icon:SetDesaturated( (unit == 'target') and (not icon.isPlayer) and (icon.isDebuff) );
+	if (icon.count) then
+		icon.count:SetFont(fontNamePixel, icon:GetHeight()/2.5, "OUTLINE");
+		icon.count:SetShadowColor(0,0,0)
+		icon.count:SetShadowOffset(0,0)
+	end
+end
+
 local UnitSpecific = {
 	player = function(self)
 
 		self.Health.value:SetPoint("RIGHT", -2, 0);
 		self.Power.value:SetPoint("RIGHT", self.Power, "RIGHT", -2, 0);
 
-		local ClassIconsFrame = CreateFrame("Frame", 'oUF_Manriel_Player_ClassIcons', self.Health);
+		local ClassIconsFrame = CreateFrame("Frame", 'oUF_Manriel_player_ClassIcons', self.Health);
 		ClassIconsFrame:SetAllPoints(self.Health);
 		local ClassIcons = {}
 		for index = 1, 6 do
@@ -271,6 +287,31 @@ local UnitSpecific = {
 		self.Class:SetPoint("LEFT", self.Lvl, "RIGHT",  1, 0);
 		self.Race:SetPoint("LEFT", self.Class, "RIGHT",  1, 0);
 
+		local Debuffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debufs', self)
+		Debuffs:SetBackdrop(backdrop);
+		Debuffs:SetSize(width, width/2);
+		Debuffs.size = height*0.7
+		Debuffs.spacing = 2.5
+		Debuffs.initialAnchor = "BOTTOMLEFT"
+		Debuffs["growth-x"] = "RIGHT"
+		Debuffs["growth-y"] = "UP"
+		Debuffs:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 10)
+		Debuffs.PostUpdateIcon = UpdateAuraIcon
+		
+		self.Debuffs = Debuffs
+
+		local Buffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debufs', self)
+		Buffs:SetSize(width, width/2);
+		Buffs.size = height*0.7
+		Buffs.spacing = 5
+		Buffs.initialAnchor = "TOPRIGHT"
+		Buffs["growth-x"] = "LEFT"
+		Buffs["growth-y"] = "DOWN"
+		Buffs:SetPoint("TOPRIGHT", self:GetParent(), "TOPRIGHT", -5, -10)
+		Buffs.PostUpdateIcon = UpdateAuraIcon
+		
+		self.Buffs = Buffs
+
 	end,
 
 	target = function(self)
@@ -278,9 +319,8 @@ local UnitSpecific = {
 		self.Health.value:SetPoint("LEFT", 2, 0);
 		self.Power.value:SetPoint("LEFT", self.Power, "LEFT", 2, 0)
 
-		local CPointsFrame = CreateFrame("Frame", 'oUF_Manriel_Target_CPoints', self);
+		local CPointsFrame = CreateFrame("Frame", 'oUF_Manriel_target_CPoints', self);
 		CPointsFrame:SetAllPoints(self);
-		-- CPointsFrame:SetBackdrop(backdrop);
 		local CPoints = {}
 		for index = 1, MAX_COMBO_POINTS do
 			local CPoint = CPointsFrame:CreateTexture(nil, 'OVERLAY')
@@ -307,6 +347,28 @@ local UnitSpecific = {
 		self.Class:SetPoint("RIGHT", self.Race, "LEFT",  -1, 0)
 		self.Lvl:SetPoint("RIGHT", self.Class, "LEFT", -1, 0)
 
+		local Auras = CreateFrame('StatusBar', nil, self)
+		Auras:SetBackdrop(backdrop)
+		Auras:SetSize(width, width/2);
+		Auras:SetPoint('BOTTOMRIGHT', self, 'TOPRIGHT', 0, 10)
+		Auras['growth-x'] = 'LEFT'
+		Auras['growth-y'] = 'UP' 
+		Auras['spacing-y'] = 10
+		Auras.initialAnchor = 'BOTTOMRIGHT'
+		Auras.size = height*0.7
+		Auras.spacing = 2.5
+		Auras.gap = true
+		-- Auras.filter = 
+		Auras.numBuffs = 18 
+		Auras.numDebuffs = 18 
+
+		Auras.PostUpdateIcon = UpdateAuraIcon
+		
+		self.Auras = Auras
+		
+		self.sortAuras = {}
+		self.sortAuras.selfFirst = true
+
 	end,
 
 	targattargat = function(self)
@@ -327,7 +389,7 @@ local Style = function(self, unit)
 	self:SetBackdropColor(0,0,0,1);
 
 	-- Position and size
-	local Health = CreateFrame("StatusBar", 'oUF_Manriel_Player_Health', self)
+	local Health = CreateFrame("StatusBar", 'oUF_Manriel_'..unit..'_Health', self)
 	Health:SetHeight( (height-offset-offset) * .8);
 	Health:SetPoint('TOP', 0, -offset)
 	Health:SetPoint('LEFT', offset, 0)
@@ -359,7 +421,7 @@ local Style = function(self, unit)
 	self.Health.bg = Background
 
 	-- Position and size
-	local Power = CreateFrame("StatusBar", 'oUF_Manriel_Player_Power', self)
+	local Power = CreateFrame("StatusBar", 'oUF_Manriel_'..unit..'_Power', self)
 	Power:SetHeight( (height-offset-offset) * .2);
 	Power:SetPoint("LEFT", self.Health)
 	Power:SetPoint("RIGHT", self.Health)
@@ -379,7 +441,7 @@ local Style = function(self, unit)
 	Power.colorDisconnected = true
 	Power.colorHappiness = true
 	Power.colorPower = true
-	Power.colorClass = true
+	-- Power.colorClass = true
 	Power.colorReaction = true
 	-- Special options
 	Power.Smooth = true

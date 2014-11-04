@@ -1,8 +1,1 @@
 Version: 1
-Frame: MSBTMainOptionsFrame
-FrameLevel: 25
-Anchor: TOPLEFT
-X: 176
-Y: -158
-W: 608
-H: 440
