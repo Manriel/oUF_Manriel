@@ -21,28 +21,29 @@ aPanels.PLAYER_LOGIN = function(self)
 	ChatFrames = CreateFrame('Frame', 'ChatFramesParent', aPanels);
 	for i=1, 10 do
 		local cF = _G[("%s%d"):format("ChatFrame", i)]
-		cF:SetParent(ChatFrames);
-		
-		local panel = CreateFrame('Frame', 'aPanels_ChatFrame'..i, cF);
-		panel:SetPoint("BOTTOMRIGHT", "ChatFrame"..i, "BOTTOMRIGHT", 4, -8);
-		panel:SetPoint("TOPLEFT", "ChatFrame"..i, "TOPLEFT", -4, 4);
-		local backdrop = {
-			bgFile = background,
-			tile = true,
-			tileSize = 256,
-			edgeFile = border32,
-			edgeSize = 32,
-			insets = {
-				left = 3,
-				right = 3,
-				top = 3,
-				bottom = 3
-			}
-		};
-		panel:SetBackdrop(backdrop);
-		panel:SetFrameStrata("BACKGROUND");
-		panel:SetFrameLevel(0);
-		panel:Show();
+		if cF then
+			cF:SetParent(ChatFrames);
+			local panel = CreateFrame('Frame', 'aPanels_ChatFrame'..i, cF);
+			panel:SetPoint("BOTTOMRIGHT", "ChatFrame"..i, "BOTTOMRIGHT", 4, -8);
+			panel:SetPoint("TOPLEFT", "ChatFrame"..i, "TOPLEFT", -4, 4);
+			local backdrop = {
+				bgFile = background,
+				tile = true,
+				tileSize = 256,
+				edgeFile = border32,
+				edgeSize = 32,
+				insets = {
+					left = 3,
+					right = 3,
+					top = 3,
+					bottom = 3
+				}
+			};
+			panel:SetBackdrop(backdrop);
+			panel:SetFrameStrata("BACKGROUND");
+			panel:SetFrameLevel(0);
+			panel:Show();
+		end;
 	end
 
 	local backdrop = {
@@ -61,6 +62,7 @@ aPanels.PLAYER_LOGIN = function(self)
 	for i=1, 10 do
 		local cF = _G[("%s%d%s"):format("ChatFrame", i, "EditBox")]
 		if cF then
+			cF:SetParent(ChatFrames);
 			cF:SetHeight(26);
 			cF:SetBackdrop(backdrop);
 			cF.focusLeft:SetTexture(nil);
