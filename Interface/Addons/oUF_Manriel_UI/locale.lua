@@ -1,4 +1,5 @@
 local parent, ns = ...
+local UI = ns.ManrielUI
 
 local locale = GetLocale();
 local arStrings = {};
@@ -11,7 +12,7 @@ if locale == "ruRU" then
 			'Мертва',
 		},
 		ghost = 'Призрак',
-		target = 'Цель'
+		target = 'Цель',
 		you = 'Вы',
 	}
 else
@@ -23,9 +24,9 @@ else
 			'Dead',
 		},
 		ghost = 'Ghost',
-		target = 'Target'
+		target = 'Target',
 		you = 'You',
 	}
 end
 
-ns.ManrielUI.localeStrings = arStrings
+UI.localeStrings = arStrings

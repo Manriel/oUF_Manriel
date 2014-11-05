@@ -49,7 +49,7 @@ function GameTooltip_UnitColor(unit)
 end
 
 ---------------------------------------------------- Unit tooltip styling
-local _, _, _, _, _, classification = unpack(config)
+local classification = config.classification
 
 local OnTooltipSetUnit = function(self)
 	local lines = self:NumLines()

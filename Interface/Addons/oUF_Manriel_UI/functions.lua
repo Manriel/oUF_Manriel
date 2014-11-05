@@ -1,6 +1,9 @@
 local parent, ns = ...
-local methods = ns.ManrielUI.methods
-local arStrings = ns.ManrielUI.localeStrings
+local oUF = ns.oUF
+local UI = ns.ManrielUI
+local methods = UI.methods
+local arStrings = UI.localeStrings
+local config = UI.config
 
 local formatVal = function(val)
 	if val >= 1e6 then
@@ -79,7 +82,7 @@ methods.OverrideUpdateName = function(self, event, unit)
 	
 	if(unit == 'player' or unit == 'target') then
 		local level = not UnitIsConnected(unit) and '??' or UnitLevel(unit) < 1 and '??' or UnitLevel(unit)
-		self.Lvl:SetFormattedText(classification[UnitClassification(unit)], level)
+		self.Lvl:SetFormattedText("%s%s", level, config.classification[UnitClassification(unit)])
 
 
 		if UnitCanAttack("player", unit) then
@@ -128,7 +131,7 @@ methods.PostUpdateHealth = function(Health, unit, min, max)
 		end
 	end
 	
-	methods.updateColor(self, unit, Health)
+	updateColor(self, unit, Health)
 	self:UNIT_NAME_UPDATE(event, unit)
 end
 
@@ -160,7 +163,7 @@ end
 methods.UpdateAuraIcon = function(self, unit, icon, index, offset)
 	icon.icon:SetDesaturated( (unit == 'target') and (not icon.isPlayer) and (icon.isDebuff) );
 	if (icon.count) then
-		icon.count:SetFont(fontNamePixel, icon:GetHeight()/2.5, "OUTLINE");
+		icon.count:SetFont(config.fontNamePixel, icon:GetHeight()/2.5, "OUTLINE");
 		icon.count:SetShadowColor(0,0,0)
 		icon.count:SetShadowOffset(0,0)
 	end

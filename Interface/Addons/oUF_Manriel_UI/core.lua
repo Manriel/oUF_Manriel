@@ -1,24 +1,14 @@
 ﻿local parent, ns = ...
+local oUF = ns.oUF
 local UI = ns.ManrielUI
 local config = UI.config
 
-local xPosition, yPosition, width, height, offset, classification = unpack(config)
-
-local LSM = UI.lib.LSM;
-
-local fontName = LSM:Fetch(LSM.MediaType.FONT, 'Calibri Bold');
-local fontNamePixel = LSM:Fetch(LSM.MediaType.FONT, 'Calibri');
-local baseFontSize = height*0.25
-
-local textureHealthBar = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Health');
-local textureRuneBar = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Rune');
-local textureBorder = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Caith');
-local textureBubble = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Bubble');
-local textureCastBarBorder = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Castbar');
-local textureGlow = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Glow');
+local xPosition, yPosition, width, height, offset, classification = config.xPosition, config.yPosition, config.width, config.height, config.offset, config.classification
+local fontName, fontNamePixel, baseFontSize = config.fontName, config.fontNamePixel, config.baseFontSize
+local textureHealthBar, textureRuneBar, textureBorder, textureBubble, textureCastBarBorder, textureGlow, textureBlizzardTooltip = config.textureHealthBar, config.textureRuneBar, config.textureBorder, config.textureBubble, config.textureCastBarBorder, config.textureGlow, config.textureBlizzardTooltip 
 
 local backdrop = {
-	bgFile = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Blizzard Tooltip'),
+	bgFile = textureBlizzardTooltip,
 	edgeFile = textureCastBarBorder,
 	edgeSize = 12,
 	insets = {left = 0, right = 0, top = 0, bottom = 0},
