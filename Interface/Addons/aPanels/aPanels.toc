@@ -1,7 +1,0 @@
-## Interface: 50400
-## Title: |cff25bb25aPanels|r
-## Notes: Panels
-## Author: Manriel
-## RequiredDeps: LibSharedMedia-3.0
-
-aPanels.lua

@@ -1,5 +1,19 @@
-﻿--[[     Options start here     ]]
--- "true" means enabled, "false" means disabled
+local parent, ns = ...
+ns.ManrielUI.config = {
+	xPosition	= 170,
+	yPosition	= 320,
+	width		= 280,
+	height		= 45,
+	offset		= 4,
+	classification = {
+		worldboss = '%s |cffffd700Boss|r',
+		rareelite = '%s |cffffd700R+|r',
+		elite = '%s |cffffd700++|r',
+		rare = '%s Rare',
+		normal = '%s',
+		trivial = '%s',
+	}
+}
 
 --[[ Changing some variables ]]
 SetCVar("screenshotQuality", 9)

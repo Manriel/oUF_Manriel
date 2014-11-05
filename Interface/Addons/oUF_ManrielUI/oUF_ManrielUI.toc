@@ -1,0 +1,18 @@
+## Interface: 60000
+## Title: oUF ManrielUI
+## Author: Manriel
+## Version: 1.1.beta2
+## Dependencies: 
+## OptionalDeps: Clique
+
+## DefaultState: enabled
+
+## Notes: oUF layout
+## Notes-ruRU: oUF фреймы
+
+## X-Credits: Alekk, Sosbek, Heldin
+## X-Website: http://github.com/Manriel/oUF_Manriel/
+## X-email: readytoban@gmail.com
+## X-oUF: oUF
+
+oUF_ManrielUI.xml

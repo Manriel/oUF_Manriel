@@ -16,3 +16,6 @@ Desktop.ini
 /Logs
 /Screenshots
 /run.bat
+
+*.sublime-project
+*.sublime-workspace
