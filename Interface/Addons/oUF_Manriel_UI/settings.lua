@@ -52,27 +52,8 @@ SetCVar("screenshotQuality", 9)
 SetCVar("cameraDistanceMax", 50)
 SetCVar("cameraDistanceMaxFactor", 2)
 
-local backdrop = {	
-	bgFile = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background'),
-	edgeFile = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border'),
-	edgeSize = 32,
-	insets = {left = 3, right = 3, top = 3, bottom = 3},
-	tile = true,
-	tileSize = 256
-}
-
-local sf = CreateFrame("Frame")
-sf:RegisterEvent("PLAYER_LOGIN")
-tt = _G["GameTooltip"]
-if tt then tt:SetBackdrop(backdrop) end
-tt = _G["ItemRefTooltip"]
-if tt then tt:SetBackdrop(backdrop) end
-tt = _G["ShoppingTooltip1"]
-if tt then tt:SetBackdrop(backdrop) end
-tt = _G["ShoppingTooltip2"]
-if tt then tt:SetBackdrop(backdrop) end
-tt = _G["ShoppingTooltip3"]
-if tt then tt:SetBackdrop(backdrop) end
+-- local sf = CreateFrame("Frame")
+-- sf:RegisterEvent("PLAYER_LOGIN")
 
 SlashCmdList["FRAME"] = function() print(GetMouseFocus():GetName()) end
 SLASH_FRAME1 = "/frame"
