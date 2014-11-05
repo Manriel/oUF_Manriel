@@ -14,7 +14,6 @@
 
 	<Script file='modules\panels.lua' />
 	<Script file='modules\tooltip.lua' />
-	<Include file="modules\GameTooltipTemplate.xml"/>
 
 	<Script file='core.lua' />
 
