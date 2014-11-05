@@ -12,9 +12,11 @@ local Panels		= CreateFrame("Frame", "oUF_ManrielUI_Panels", oUF_ManrielUI);
 Panels.PLAYER_LOGIN = function(self)
 	-- Chat frames
 	ChatFrames = CreateFrame('Frame', 'ChatFramesParent', Panels);
+	ChatFrames:SetScale(.71);
 	for i=1, 10 do
 		local cF = _G[("%s%d"):format("ChatFrame", i)]
 		if cF then
+			cF:SetParent(ChatFrames);
 			local panel = CreateFrame('Frame', 'Panel_ChatFrame'..i, cF);
 			panel:SetPoint("BOTTOMRIGHT", "ChatFrame"..i, "BOTTOMRIGHT", 4, -8);
 			panel:SetPoint("TOPLEFT", "ChatFrame"..i, "TOPLEFT", -4, 4);
