@@ -2,32 +2,22 @@
 local UI = ns.ManrielUI
 local config = UI.config
 local arStrings = UI.localeStrings
-local LSM = UI.lib.LSM
 
----------------------------------------------------- Backdrop
-local backdrop = {	
-	bgFile = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background'),
-	edgeFile = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border'),
-	edgeSize = 32,
-	insets = {left = 3, right = 3, top = 3, bottom = 3},
-	tile = true,
-	tileSize = 256
-}
 
 ---------------------------------------------------- Position
 GameTooltip_SetDefaultAnchor = function(self, parent)
 	self:SetOwner(parent, "ANCHOR_NONE")
 	self:SetPoint("TOPLEFT", oUF_ManrielUI, "TOPLEFT", 3, -30)
-	self:SetBackdrop(backdrop)
 	self.default = 1
 end
 
 ---------------------------------------------------- Statusbar
 local _G = getfenv(0)
 local sb = _G["GameTooltipStatusBar"]
-sb:SetPoint("TOPLEFT", GameTooltip, "BOTTOMLEFT", 2, 0)
-sb:SetPoint("TOPRIGHT", GameTooltip, "BOTTOMRIGHT", -2, 0)
-sb:SetHeight(5)
+sb:SetStatusBarTexture(config.textureHealthBar)
+sb:SetPoint("TOPLEFT", GameTooltip, "BOTTOMLEFT", 3, 11)
+sb:SetPoint("TOPRIGHT", GameTooltip, "BOTTOMRIGHT", -3, 11)
+sb:SetHeight(8)
 
 ---------------------------------------------------- Colors
 local RAID_CLASS_COLORS = RAID_CLASS_COLORS
