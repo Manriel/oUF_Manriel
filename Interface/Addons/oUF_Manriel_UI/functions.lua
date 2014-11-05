@@ -123,9 +123,9 @@ methods.PostUpdateHealth = function(Health, unit, min, max)
 		Health.value:SetText('|cffD7BEA5'..arStrings['ghost'])
 	else
 		if(unit=="player") then
-			Health.value:SetFormattedText("%d | %d | %d|cffffffff%%",min, max ,floor(min/max*100))
+			Health.value:SetFormattedText("%d | %d | %d|cffffffff%%", min, max, floor(min/max*100))
 		elseif (unit=="target") then
-			Health.value:SetFormattedText("%.1f|cffffffff%% | %s", (min/max*100),formatVal(max))
+			Health.value:SetFormattedText("%.1f|cffffffff%% | %s", (min/max*100), formatVal(max))
 		else
 			Health.value:SetFormattedText("%d|cffffffff%%", floor(min/max*100))
 		end

@@ -1,4 +1,5 @@
 local parent, ns = ...
+local oUF = ns.oUF
 local UI = ns.ManrielUI
 local LSM = UI.lib.LSM
 
@@ -30,7 +31,21 @@ UI.config = {
 	textureBlizzardTooltip = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Blizzard Tooltip'),
 }
 
+oUF.colors.power['MANA'] = {.30,.45,.65}
+oUF.colors.power['RAGE'] = {.70,.30,.30}
+oUF.colors.power['FOCUS'] = {.70,.45,.25}
+oUF.colors.power['ENERGY'] = {.65,.65,.35}
+oUF.colors.power['RUNIC_POWER'] = {.45,.45,.75}
 
+oUF.colors.runes = {
+		[1] = {.69, .31, .31},
+		[2] = {.33, .59, .33},
+		[3] = {.31, .45, .63},
+		[4] = {.84, .75, .05},
+}
+
+oUF.colors.tapped = {.55,.57,.61}
+oUF.colors.disconnected = {.5,.5,.5}
 
 --[[ Changing some variables ]]
 SetCVar("screenshotQuality", 9)

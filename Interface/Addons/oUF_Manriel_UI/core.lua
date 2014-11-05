@@ -28,8 +28,8 @@ local UpdateAuraIcon = UI.methods.UpdateAuraIcon
 local UnitSpecific = {
 	player = function(self)
 
-		self.Health.value:SetPoint("RIGHT", -2, 0);
-		self.Power.value:SetPoint("RIGHT", self.Power, "RIGHT", -2, 0);
+		self.Health.value:SetPoint("RIGHT", -2, -1)
+		self.Power.value:SetPoint("RIGHT", self.Power, "RIGHT", -2, -1)
 
 		local ClassIconsFrame = CreateFrame("Frame", 'oUF_Manriel_player_ClassIcons', self.Health);
 		ClassIconsFrame:SetAllPoints(self.Health);
@@ -51,8 +51,8 @@ local UnitSpecific = {
 		self.Leader:SetPoint("LEFT", self.Health, "TOPLEFT", 0, (self.Leader:GetHeight()*0.2));
 		self.MasterLooter:SetPoint("LEFT", self.Leader, "RIGHT", 0, (self.MasterLooter:GetHeight()*0.1));
 
-		self.Name:SetPoint("LEFT", self.Health, "LEFT", 2, 0);
-		self.Lvl:SetPoint("LEFT", self.Power, "LEFT", 2, 0);
+		self.Name:SetPoint("LEFT", self.Health, "LEFT", 2, -1);
+		self.Lvl:SetPoint("LEFT", self.Power, "LEFT", 2, -1);
 		self.Class:SetPoint("LEFT", self.Lvl, "RIGHT",  1, 0);
 		self.Race:SetPoint("LEFT", self.Class, "RIGHT",  1, 0);
 
@@ -85,8 +85,8 @@ local UnitSpecific = {
 
 	target = function(self)
 
-		self.Health.value:SetPoint("LEFT", 2, 0);
-		self.Power.value:SetPoint("LEFT", self.Power, "LEFT", 2, 0)
+		self.Health.value:SetPoint("LEFT", 2, -1)
+		self.Power.value:SetPoint("LEFT", self.Power, "LEFT", 2, -1)
 
 		local CPointsFrame = CreateFrame("Frame", 'oUF_Manriel_target_CPoints', self);
 		CPointsFrame:SetAllPoints(self);
@@ -110,9 +110,9 @@ local UnitSpecific = {
 		self.Leader:SetPoint("RIGHT", self.Health, "TOPRIGHT", 0, (self.Leader:GetHeight()*0.2));
 		self.MasterLooter:SetPoint("RIGHT", self.Leader, "LEFT", 0, (self.MasterLooter:GetHeight()*0.1));
 
-		self.Name:SetPoint("RIGHT", self.Health, "RIGHT", -2, 0);
+		self.Name:SetPoint("RIGHT", self.Health, "RIGHT", -2, -1);
 		self.Name:SetJustifyH("RIGHT");
-		self.Race:SetPoint("RIGHT", self.Power, "RIGHT",  -2, 0)
+		self.Race:SetPoint("RIGHT", self.Power, "RIGHT",  -2, -1)
 		self.Class:SetPoint("RIGHT", self.Race, "LEFT",  -1, 0)
 		self.Lvl:SetPoint("RIGHT", self.Class, "LEFT", -1, 0)
 
@@ -159,7 +159,7 @@ local Style = function(self, unit)
 
 	-- Position and size
 	local Health = CreateFrame("StatusBar", 'oUF_Manriel_'..unit..'_Health', self)
-	Health:SetHeight( (height-offset-offset) * .8);
+	Health:SetHeight( (height-offset-offset) * .7);
 	Health:SetPoint('TOP', 0, -offset)
 	Health:SetPoint('LEFT', offset, 0)
 	Health:SetPoint('RIGHT', -offset, 0)
@@ -191,7 +191,7 @@ local Style = function(self, unit)
 
 	-- Position and size
 	local Power = CreateFrame("StatusBar", 'oUF_Manriel_'..unit..'_Power', self)
-	Power:SetHeight( (height-offset-offset) * .2);
+	Power:SetHeight( (height-offset-offset) * 0.3);
 	Power:SetPoint("LEFT", self.Health)
 	Power:SetPoint("RIGHT", self.Health)
 	Power:SetPoint("TOP", self.Health, "BOTTOM", 0, 0)
