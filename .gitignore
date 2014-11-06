@@ -21,3 +21,9 @@ Desktop.ini
 *.sublime-workspace
 
 Interface/Addons/Blizzard*
+Blizzard_*.lua
+WTF/Config.wtf
+WTF/Account/*/macros-cache.txt
+WTF/Account/*/config-cache.wtf
+WTF/Account/*/cache.md5
+WTF/Account/*/bindings-cache.wtf
