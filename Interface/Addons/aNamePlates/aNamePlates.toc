@@ -1,4 +1,4 @@
-## Interface: 50400
+## Interface: 60000
 ## Author: Caellian, Manriel
 ## Title: |cff25bb25aNameplates|r
 ## Notes: Custom minimalistic nameplates
