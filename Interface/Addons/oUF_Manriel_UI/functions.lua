@@ -56,6 +56,21 @@ local updateColor = function(self, unit, sb)
 	end
 end
 
+local UpdateAuraTimer = function(self, elapsed)
+	if (self.duration) then
+		local startTime, duration = self.cd:GetCooldownTimes();
+		if (startTime > 0) and (duration) and (duration > 0) then
+			local sec = (startTime + duration)/1000 - GetTime()
+			local min = math.floor(sec/60)
+			sec = math.floor(sec - min*60)
+			self.duration:SetText(string.format("%d:%02d", min, sec))
+		else
+			self.duration:SetText('')
+			self:SetScript("OnUpdate", nil)
+		end
+	end
+end
+
 methods.setFontString = function(parent, fontStyle, fontHeight)
 	local fs = parent:CreateFontString(nil, "OVERLAY")
 	fs:SetFont(fontStyle, fontHeight)
@@ -160,11 +175,18 @@ methods.PostUpdatePower = function(Power, unit, min, max)-- (self, event, unit, 
 	self:UNIT_NAME_UPDATE(event, unit)
 end
 
-methods.UpdateAuraIcon = function(self, unit, icon, index, offset)
+methods.PostCreateIcon = function(icons, button)
+	button.duration = methods.setFontString(button, config.fontName, config.baseFontSize)
+	button.duration:SetJustifyH("CENTER")
+	button.duration:SetPoint("TOP", button, "BOTTOM", 0, 0)
+end
+
+methods.PostUpdateIcon = function(self, unit, icon, index, offset)
 	icon.icon:SetDesaturated( (unit == 'target') and (not icon.isPlayer) and (icon.isDebuff) );
 	if (icon.count) then
 		icon.count:SetFont(config.fontNamePixel, icon:GetHeight()/2.5, "OUTLINE");
 		icon.count:SetShadowColor(0,0,0)
 		icon.count:SetShadowOffset(0,0)
 	end
+	icon:SetScript('OnUpdate', UpdateAuraTimer)
 end

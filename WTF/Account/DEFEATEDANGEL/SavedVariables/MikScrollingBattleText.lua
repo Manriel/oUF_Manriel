@@ -211,16 +211,14 @@ MSBTProfiles_SavedVars = {
 				["PET_INCOMING_DAMAGE"] = {
 					["scrollArea"] = "Custom1",
 				},
-				["NOTIFICATION_COMBAT_ENTER"] = {
-					["scrollArea"] = "Custom4",
-				},
-				["NOTIFICATION_NPC_KILLING_BLOW"] = {
-					["fontSize"] = false,
-					["disabled"] = false,
-					["scrollArea"] = "Static",
-				},
 				["PET_OUTGOING_DISPEL"] = {
 					["message"] = "Pet Dispel!",
+				},
+				["INCOMING_SPELL_BLOCK"] = {
+					["scrollArea"] = "Custom3",
+				},
+				["NOTIFICATION_COMBAT_ENTER"] = {
+					["scrollArea"] = "Custom4",
 				},
 				["NOTIFICATION_PC_KILLING_BLOW"] = {
 					["scrollArea"] = "Static",
@@ -246,12 +244,12 @@ MSBTProfiles_SavedVars = {
 				["INCOMING_MISS"] = {
 					["scrollArea"] = "Custom3",
 				},
-				["OUTGOING_SPELL_RESIST"] = {
-					["message"] = "Resist! ",
-				},
 				["INCOMING_HEAL_CRIT"] = {
 					["message"] = "(%n) +%a",
 					["scrollArea"] = "Custom4",
+				},
+				["OUTGOING_SPELL_RESIST"] = {
+					["message"] = "Resist! ",
 				},
 				["INCOMING_DAMAGE"] = {
 					["message"] = "-%a",
@@ -276,8 +274,10 @@ MSBTProfiles_SavedVars = {
 				["PET_OUTGOING_EVADE"] = {
 					["scrollArea"] = "Custom2",
 				},
-				["INCOMING_SPELL_BLOCK"] = {
-					["scrollArea"] = "Custom3",
+				["NOTIFICATION_NPC_KILLING_BLOW"] = {
+					["fontSize"] = false,
+					["disabled"] = false,
+					["scrollArea"] = "Static",
 				},
 				["OUTGOING_HOT"] = {
 					["scrollArea"] = "Custom4",
@@ -337,9 +337,9 @@ MSBTProfiles_SavedVars = {
 					["stickyDirection"] = "Down",
 					["scrollWidth"] = 200,
 					["offsetX"] = 232,
-					["textAlignIndex"] = 2,
-					["offsetY"] = -20,
 					["animationStyle"] = "Straight",
+					["offsetY"] = -20,
+					["textAlignIndex"] = 2,
 					["stickyTextAlignIndex"] = 3,
 				},
 				["Notification"] = {
@@ -569,8 +569,8 @@ MSBTProfiles_SavedVars = {
 					["message"] = "Питомец парирование",
 					["scrollArea"] = "Custom2",
 				},
-				["PET_INCOMING_SPELL_BLOCK"] = {
-					["message"] = "(%s) Питомец блок",
+				["PET_INCOMING_SPELL_DOT"] = {
+					["message"] = "(%s) -%a",
 					["scrollArea"] = "Custom1",
 				},
 				["OUTGOING_DODGE"] = {
@@ -595,13 +595,12 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Питомец невосприимчивость",
 					["scrollArea"] = "Custom1",
 				},
-				["NOTIFICATION_EXPERIENCE_GAIN"] = {
-					["message"] = "%a Опыта",
-					["fontSize"] = false,
-					["disabled"] = false,
+				["INCOMING_ABSORB"] = {
+					["message"] = "Поглощение",
+					["scrollArea"] = "Custom3",
 				},
-				["PET_INCOMING_SPELL_DOT"] = {
-					["message"] = "(%s) -%a",
+				["PET_INCOMING_SPELL_BLOCK"] = {
+					["message"] = "(%s) Питомец блок",
 					["scrollArea"] = "Custom1",
 				},
 				["OUTGOING_DEFLECT"] = {
@@ -665,9 +664,9 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) -%a",
 					["scrollArea"] = "Custom1",
 				},
-				["PET_OUTGOING_SPELL_BLOCK"] = {
-					["message"] = "Питомец блок",
-					["scrollArea"] = "Custom2",
+				["OUTGOING_EVADE"] = {
+					["message"] = "Ускользание",
+					["fontSize"] = false,
 				},
 				["INCOMING_SPELL_REFLECT"] = {
 					["message"] = "(%s - %a) Отражение!",
@@ -693,9 +692,9 @@ MSBTProfiles_SavedVars = {
 					["colorG"] = 0.349019607843137,
 					["colorB"] = 0.196078431372549,
 				},
-				["OUTGOING_EVADE"] = {
-					["message"] = "Ускользание",
-					["fontSize"] = false,
+				["PET_OUTGOING_SPELL_BLOCK"] = {
+					["message"] = "Питомец блок",
+					["scrollArea"] = "Custom2",
 				},
 				["INCOMING_BLOCK"] = {
 					["message"] = "Блок",
@@ -711,29 +710,29 @@ MSBTProfiles_SavedVars = {
 				["OUTGOING_SPELL_ABSORB"] = {
 					["message"] = "Поглощение (%s)",
 				},
-				["OUTGOING_SPELL_DAMAGE"] = {
-					["message"] = "-- %a",
+				["PET_OUTGOING_SPELL_DODGE"] = {
+					["message"] = "Питомец уклон",
+					["scrollArea"] = "Custom2",
 				},
 				["PET_INCOMING_DODGE"] = {
 					["message"] = "Питомец уклон",
 					["scrollArea"] = "Custom1",
 				},
-				["OUTGOING_DAMAGE_CRIT"] = {
-					["message"] = "-- %a",
+				["PET_OUTGOING_DAMAGE_CRIT"] = {
+					["scrollArea"] = "Custom2",
 				},
 				["OUTGOING_SPELL_DEFLECT"] = {
 					["message"] = "Отклонение! (%s)",
 				},
-				["PET_OUTGOING_SPELL_DODGE"] = {
-					["message"] = "Питомец уклон",
-					["scrollArea"] = "Custom2",
+				["OUTGOING_SPELL_DAMAGE"] = {
+					["message"] = "-- %a",
 				},
 				["INCOMING_HEAL_CRIT"] = {
 					["message"] = "(%n) ++ %a",
 					["scrollArea"] = "Custom4",
 				},
-				["PET_OUTGOING_DAMAGE_CRIT"] = {
-					["scrollArea"] = "Custom2",
+				["OUTGOING_DAMAGE_CRIT"] = {
+					["message"] = "-- %a",
 				},
 				["OUTGOING_DAMAGE"] = {
 					["message"] = "-- %a",
@@ -890,9 +889,10 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Сопротивление",
 					["scrollArea"] = "Custom3",
 				},
-				["INCOMING_ABSORB"] = {
-					["message"] = "Поглощение",
-					["scrollArea"] = "Custom3",
+				["NOTIFICATION_EXPERIENCE_GAIN"] = {
+					["message"] = "%a Опыта",
+					["fontSize"] = false,
+					["disabled"] = false,
 				},
 				["PET_INCOMING_HOT"] = {
 					["message"] = "(%n) Питомец +%a",
@@ -920,9 +920,9 @@ MSBTProfiles_SavedVars = {
 					["stickyDirection"] = "Down",
 					["scrollWidth"] = 200,
 					["offsetX"] = 282,
-					["animationStyle"] = "Straight",
-					["offsetY"] = -30,
 					["textAlignIndex"] = 3,
+					["offsetY"] = -30,
+					["animationStyle"] = "Straight",
 					["direction"] = "Up",
 				},
 				["Notification"] = {
@@ -954,9 +954,9 @@ MSBTProfiles_SavedVars = {
 				["Custom3"] = {
 					["direction"] = "Up",
 					["behavior"] = "CurvedRight",
-					["name"] = "Incoming Miss",
-					["scrollWidth"] = 100,
 					["offsetX"] = 90,
+					["scrollWidth"] = 100,
+					["name"] = "Incoming Miss",
 					["stickyTextAlignIndex"] = 3,
 					["iconAlign"] = "Right",
 					["offsetY"] = -147,

@@ -20,10 +20,6 @@ local backdrophp = {
 }
 
 local setFontString = UI.methods.setFontString
-local OverrideUpdateName = UI.methods.OverrideUpdateName
-local PostUpdateHealth = UI.methods.PostUpdateHealth
-local PostUpdatePower = UI.methods.PostUpdatePower
-local UpdateAuraIcon = UI.methods.UpdateAuraIcon
 
 local UnitSpecific = {
 	player = function(self)
@@ -56,8 +52,7 @@ local UnitSpecific = {
 		self.Class:SetPoint("LEFT", self.Lvl, "RIGHT",  1, 0);
 		self.Race:SetPoint("LEFT", self.Class, "RIGHT",  1, 0);
 
-		local Debuffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debufs', self)
-		Debuffs:SetBackdrop(backdrop);
+		local Debuffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debuffs', self)
 		Debuffs:SetSize(width, width/2);
 		Debuffs.size = height*0.7
 		Debuffs.spacing = 2.5
@@ -65,11 +60,12 @@ local UnitSpecific = {
 		Debuffs["growth-x"] = "RIGHT"
 		Debuffs["growth-y"] = "UP"
 		Debuffs:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 10)
-		Debuffs.PostUpdateIcon = UpdateAuraIcon
+		Debuffs.PostCreateIcon = UI.methods.PostCreateIcon
+		Debuffs.PostUpdateIcon = UI.methods.PostUpdateIcon
 		
 		self.Debuffs = Debuffs
 
-		local Buffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debufs', self)
+		local Buffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Buffs', self)
 		Buffs:SetSize(width, width/2);
 		Buffs.size = height*0.7
 		Buffs.spacing = 5
@@ -77,7 +73,8 @@ local UnitSpecific = {
 		Buffs["growth-x"] = "LEFT"
 		Buffs["growth-y"] = "DOWN"
 		Buffs:SetPoint("TOPRIGHT", self:GetParent(), "TOPRIGHT", -5, -10)
-		Buffs.PostUpdateIcon = UpdateAuraIcon
+		Buffs.PostCreateIcon = UI.methods.PostCreateIcon
+		Buffs.PostUpdateIcon = UI.methods.PostUpdateIcon
 		
 		self.Buffs = Buffs
 
@@ -116,8 +113,7 @@ local UnitSpecific = {
 		self.Class:SetPoint("RIGHT", self.Race, "LEFT",  -1, 0)
 		self.Lvl:SetPoint("RIGHT", self.Class, "LEFT", -1, 0)
 
-		local Auras = CreateFrame('StatusBar', nil, self)
-		Auras:SetBackdrop(backdrop)
+		local Auras = CreateFrame('StatusBar', 'oUF_Manriel_target_Auras', self)
 		Auras:SetSize(width, width/2);
 		Auras:SetPoint('BOTTOMRIGHT', self, 'TOPRIGHT', 0, 10)
 		Auras['growth-x'] = 'LEFT'
@@ -127,16 +123,16 @@ local UnitSpecific = {
 		Auras.size = height*0.7
 		Auras.spacing = 2.5
 		Auras.gap = true
-		-- Auras.filter = 
 		Auras.numBuffs = 18 
 		Auras.numDebuffs = 18 
 
-		Auras.PostUpdateIcon = UpdateAuraIcon
+		Auras.PostCreateIcon = UI.methods.PostCreateIcon
+		Auras.PostUpdateIcon = UI.methods.PostUpdateIcon
 		
 		self.Auras = Auras
 		
-		self.sortAuras = {}
-		self.sortAuras.selfFirst = true
+		-- self.sortAuras = {}
+		-- self.sortAuras.selfFirst = true
 
 	end,
 
@@ -244,9 +240,9 @@ local Style = function(self, unit)
 	race = setFontString(self.Power, fontName, baseFontSize-1)
 	self.Race = race
 
-	self.UNIT_NAME_UPDATE = OverrideUpdateName
-	self.Health.PostUpdate = PostUpdateHealth
-	self.Power.PostUpdate = PostUpdatePower
+	self.UNIT_NAME_UPDATE = UI.methods.OverrideUpdateName
+	self.Health.PostUpdate = UI.methods.PostUpdateHealth
+	self.Power.PostUpdate = UI.methods.PostUpdatePower
 
 	if(UnitSpecific[unit]) then
 		return UnitSpecific[unit](self)

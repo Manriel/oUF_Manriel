@@ -158,35 +158,6 @@ GridDB = {
 		},
 		["GridStatusGroup"] = {
 		},
-		["GridStatusHealth"] = {
-			["profiles"] = {
-				["Default"] = {
-					["alert_offline"] = {
-						["color"] = {
-							["a"] = 1,
-							["r"] = 0.376470588235294,
-							["b"] = 0.376470588235294,
-							["g"] = 0.376470588235294,
-						},
-					},
-					["unit_healthDeficit"] = {
-						["threshold"] = 95,
-					},
-					["alert_lowHealth"] = {
-						["threshold"] = 15,
-						["priority"] = 15,
-					},
-					["alert_death"] = {
-						["color"] = {
-							["a"] = 0.8,
-							["b"] = 0.607843137254902,
-							["g"] = 0.607843137254902,
-							["r"] = 0.607843137254902,
-						},
-					},
-				},
-			},
-		},
 		["GridLayout"] = {
 			["profiles"] = {
 				["Default"] = {
@@ -224,6 +195,35 @@ GridDB = {
 				},
 			},
 		},
+		["GridStatusHealth"] = {
+			["profiles"] = {
+				["Default"] = {
+					["alert_offline"] = {
+						["color"] = {
+							["a"] = 1,
+							["r"] = 0.376470588235294,
+							["b"] = 0.376470588235294,
+							["g"] = 0.376470588235294,
+						},
+					},
+					["unit_healthDeficit"] = {
+						["threshold"] = 95,
+					},
+					["alert_lowHealth"] = {
+						["threshold"] = 15,
+						["priority"] = 15,
+					},
+					["alert_death"] = {
+						["color"] = {
+							["a"] = 0.8,
+							["b"] = 0.607843137254902,
+							["g"] = 0.607843137254902,
+							["r"] = 0.607843137254902,
+						},
+					},
+				},
+			},
+		},
 		["GridStatusMana"] = {
 		},
 		["GridStatusAuras"] = {
@@ -252,12 +252,12 @@ GridDB = {
 		},
 	},
 	["profileKeys"] = {
-		["Шепот - Ясеневый лес"] = "Default",
-		["Чивва - Ясеневый лес"] = "Default",
 		["Манриэль - Ясеневый лес"] = "Default",
-		["Лавлиэт - Ясеневый лес"] = "Default",
-		["Лотаниэль - Подземье"] = "Default",
+		["Чивва - Ясеневый лес"] = "Default",
+		["Шепот - Ясеневый лес"] = "Default",
 		["Ещеживая - Подземье"] = "Default",
+		["Лотаниэль - Подземье"] = "Default",
+		["Лавлиэт - Ясеневый лес"] = "Default",
 	},
 	["global"] = {
 		["debug"] = {
