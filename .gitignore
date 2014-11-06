@@ -19,3 +19,5 @@ Desktop.ini
 
 *.sublime-project
 *.sublime-workspace
+
+Interface\Addons\Blizzard*
