@@ -11,17 +11,13 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-/Cache
-/Errors
-/Logs
-/Screenshots
-/run.bat
-
-*.sublime-project
-*.sublime-workspace
-
+# Standart Blizzard addon folders
 /Interface/Addons/Blizzard*
+
+# Game config
 /WTF/Config.wtf
+
+# Game cache and config per account and standart Blizzard addon configs
 /WTF/Account/*/SavedVariables/Blizzard_*.lua
 /WTF/Account/*/Addons.txt
 /WTF/Account/*/bindings-cache.wtf
@@ -32,6 +28,7 @@ Desktop.ini
 /WTF/Account/*/layout-local.txt
 /WTF/Account/*/macros-cache.txt
 
+# Game cache and config per character and standart Blizzard addon configs
 /WTF/Account/*/*/*/SavedVariables/Blizzard_*.lua
 /WTF/Account/*/*/*/Addons.txt
 /WTF/Account/*/*/*/Blizzard_*.lua
@@ -42,3 +39,12 @@ Desktop.ini
 /WTF/Account/*/*/*/CUFProfiles.txt
 /WTF/Account/*/*/*/layout-local.txt
 /WTF/Account/*/*/*/macros-cache.txt
+
+/Cache
+/Errors
+/Logs
+/Screenshots
+
+/run.bat
+*.sublime-project
+*.sublime-workspace
