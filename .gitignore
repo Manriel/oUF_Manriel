@@ -23,6 +23,7 @@ Desktop.ini
 /Interface/Addons/Blizzard*
 /WTF/Config.wtf
 /WTF/Account/*/SavedVariables/Blizzard_*.lua
+/WTF/Account/*/Addons.txt
 /WTF/Account/*/bindings-cache.wtf
 /WTF/Account/*/cache.md5
 /WTF/Account/*/chat-cache.txt
@@ -32,6 +33,7 @@ Desktop.ini
 /WTF/Account/*/macros-cache.txt
 
 /WTF/Account/*/*/*/SavedVariables/Blizzard_*.lua
+/WTF/Account/*/*/*/Addons.txt
 /WTF/Account/*/*/*/Blizzard_*.lua
 /WTF/Account/*/*/*/bindings-cache.wtf
 /WTF/Account/*/*/*/cache.md5
