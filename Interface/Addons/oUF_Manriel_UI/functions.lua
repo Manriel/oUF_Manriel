@@ -86,13 +86,27 @@ methods.OverrideUpdateName = function(self, event, unit)
 	if(unit == 'player') then
 		self.Name:Hide()
 	else
-		self.Name:SetText(UnitName(unit))
+		-- self.Name:SetText(UnitName(unit))
+		if (unit == 'target') then
+			self.Name:SetFormattedText('%.49s', UnitName(unit))
+		else
+			self.Name:SetFormattedText('%.25s', UnitName(unit))
+		end
 	end
 
 	if (UnitClassification(unit)== "worldboss" or UnitClassification(unit)== "rareelite" or UnitClassification(unit)== "elite") then
-		self:SetBackdropBorderColor(1,0.84,0,1)
+		if UnitClassification(unit)== "worldboss" or UnitClassification(unit)== "rareelite" then
+			self:SetBackdropBorderColor(1,0.84,0,1)
+			self.elite.tex:SetVertexColor(1,0.84,0,1)
+		else
+			self:SetBackdropBorderColor(1,1,1,1)
+			self.elite.tex:SetVertexColor(1,1,1,1)
+		end
+		self.elite:Show()
 	else
 		self:SetBackdropBorderColor(1,1,1,1)
+		self.elite.tex:SetVertexColor(1,1,1,1)
+		self.elite:Hide()
 	end	
 	
 	if(unit == 'player' or unit == 'target') then
@@ -106,6 +120,7 @@ methods.OverrideUpdateName = function(self, event, unit)
 			self.Lvl:SetTextColor(1, 1, 1)
 		end
 
+		local locale = GetLocale()
 		local color
 		if UnitIsPlayer(unit) then	
 			color = RAID_CLASS_COLORS[select(2, UnitClass(unit))]
@@ -189,4 +204,20 @@ methods.PostUpdateIcon = function(self, unit, icon, index, offset)
 		icon.count:SetShadowOffset(0,0)
 	end
 	icon:SetScript('OnUpdate', UpdateAuraTimer)
+end
+
+methods.OverrideCastbarTime = function(self, duration)
+		if(self.channeling) then
+			self.Time:SetFormattedText('%.1f / %.2f', self.max - duration, self.max)
+		elseif(self.casting) then
+			self.Time:SetFormattedText('%.1f / %.2f', duration, self.max)
+		end	
+end
+
+methods.OverrideCastbarDelay = function(self, duration)
+		if(self.channeling) then
+			self.Time:SetFormattedText('%.1f / %.2f |cffff0000+ %.1f', self.max - duration, self.max, self.delay)
+		elseif(self.casting) then
+			self.Time:SetFormattedText('%.1f / %.2f |cffff0000+ %.1f', duration, self.max, self.delay)
+		end	
 end

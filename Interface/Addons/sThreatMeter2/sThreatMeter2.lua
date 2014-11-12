@@ -47,6 +47,16 @@ local data = {
 
 local threatguid, threatunit, threatlist, threatbars = "", "target", {}, {};
 
+local formatVal = function(val)
+	if val >= 1e6 then
+		return string.format("%.1fm", val/1e6)
+	elseif val >= 1e3 then
+		return string.format("%.1fk", val/1e3)
+	else
+		return val
+	end	
+end
+
 local function comma_value(n)
 	local left,num,right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
 	return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
@@ -89,7 +99,7 @@ local function GetThreat(unit, pet)
 		name = ( pet ) and UnitName(unit) .. ": " .. UnitName(pet) or UnitName(unit),
 		class = select(2, UnitClass(unit)),
 		scaledPercent = scaledPercent or 0,
-		threatValue = threatValue or 0,
+		threatValue = formatVal(threatValue) or 0,
 	});
 end
 
@@ -98,7 +108,7 @@ local function AddThreat(unit, pet)
 		GetThreat(unit);
 		GetThreat(unit, pet);
 	else
-		if ( GetNumPartyMembers() > 0 or GetNumPartyMembers() > 0 ) then
+		if ( GetNumGroupMembers() > 0 or GetNumGroupMembers() > 0 ) then
 			GetThreat(unit);
 		end
 	end
@@ -204,14 +214,9 @@ frame:SetScript("OnEvent", function(self, event, ...)
 	if ( event == "UNIT_THREAT_LIST_UPDATE" ) then
 		local unit = ...;
 		if ( unit and UnitExists(unit) and UnitGUID(unit) == threatguid and UnitCanAttack("player", threatunit)) then
-			if ( GetNumRaidMembers() > 0 ) then
-				for i=1, GetNumRaidMembers(), 1 do
-					AddThreat("raid"..i, "raid"..i.."pet");
-				end
-			elseif ( GetNumPartyMembers() > 0 ) then
-				AddThreat("player", "pet");
-				for i=1, GetNumPartyMembers(), 1 do
-					AddThreat("party"..i, "party"..i.."pet");
+			if ( GetNumGroupMembers() > 0 ) then
+				for i=1, GetNumGroupMembers(), 1 do
+					AddThreat("group"..i, "group"..i.."pet");
 				end
 			else
 				AddThreat("player", "pet");
@@ -221,10 +226,11 @@ frame:SetScript("OnEvent", function(self, event, ...)
 	elseif ( event == "PLAYER_TARGET_CHANGED" ) then
 		if ( UnitExists("target") and not UnitIsDead("target") and not UnitIsPlayer("target") ) then
 			threatguid = UnitGUID("target");
-			--[[threatunit = "target";
+			threatunit = "target";
 		elseif ( UnitExists("targettarget") and not UnitIsDead("targettarget") and not UnitIsPlayer("targettarget") and UnitCanAttack("player", "targettarget") ) then
 			threatguid = UnitGUID("targettarget");
-			threatunit = "targettarget";]] -- Mhhh... Man kann die Ziel des Ziels Bedrohnung auslesen, aber das Event dazu (UNIT_THREAT_LIST_UPDATE) feuert nicht... Keine Lust auf ein OnUpdate. :x
+			threatunit = "targettarget";
+			-- Mhhh... Man kann die Ziel des Ziels Bedrohnung auslesen, aber das Event dazu (UNIT_THREAT_LIST_UPDATE) feuert nicht... Keine Lust auf ein OnUpdate. :x
 		else
 			threatguid = "";
 		end

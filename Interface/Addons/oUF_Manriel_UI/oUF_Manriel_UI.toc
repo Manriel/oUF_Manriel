@@ -13,6 +13,6 @@
 ## X-Credits: Alekk, Sosbek, Heldin
 ## X-Website: http://github.com/Manriel/oUF_Manriel/
 ## X-email: readytoban@gmail.com
-## X-oUF: Manriel UI
+## X-oUF: ManrielUI
 
 oUF_Manriel_UI.xml
