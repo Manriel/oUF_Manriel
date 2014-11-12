@@ -1,0 +1,40 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Button name="MyBuffButtonTemplate" inherits="SecureActionButtonTemplate" virtual="true">
+		<Size x="400" y="32"/>
+		<Attributes>
+			<Attribute name="type" value="cancelaura"/>
+		</Attributes>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForClicks("RightButtonUp");
+			</OnLoad>
+			<OnEnter>
+				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMLEFT");
+				GameTooltip:SetFrameLevel(self:GetFrameLevel() + 2);
+				if self:GetAttribute("target-slot") == 16 or self:GetAttribute("target-slot") == 17 or self:GetAttribute("target-slot") == 18 then
+					GameTooltip:SetInventoryItem("player", self.slotID);
+				else
+					GameTooltip:SetUnitAura("player", self:GetID(), "HELPFUL");
+				end
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+	<Button name="MyDebuffButtonTemplate" inherits="SecureActionButtonTemplate" virtual="true">
+		<Size x="400" y="32"/>
+		<Scripts>
+			<OnEnter>
+				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMLEFT");
+				GameTooltip:SetFrameLevel(self:GetFrameLevel() + 2);
+				GameTooltip:SetUnitAura("player", self:GetID(), "HARMFUL");
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Button>
+	
+</Ui>

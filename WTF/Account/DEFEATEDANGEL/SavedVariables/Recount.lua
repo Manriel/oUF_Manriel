@@ -24,13 +24,12 @@ RecountDB = {
 				},
 				["RowSpacing"] = 0,
 			},
-			["MainWindowHeight"] = 185.999954223633,
 			["Colors"] = {
 				["Window"] = {
 					["Background"] = {
-						["b"] = 1,
-						["g"] = 1,
 						["r"] = 1,
+						["g"] = 1,
+						["b"] = 1,
 					},
 					["Title"] = {
 						["g"] = 1,
@@ -144,9 +143,10 @@ RecountDB = {
 					false, -- [8]
 				},
 			},
-			["Font"] = "Calibri Bold",
 			["CurDataSet"] = "OverallData",
+			["Font"] = "Calibri Bold",
 			["MainWindowWidth"] = 400,
+			["MainWindowHeight"] = 185.999954223633,
 		},
 	},
 }

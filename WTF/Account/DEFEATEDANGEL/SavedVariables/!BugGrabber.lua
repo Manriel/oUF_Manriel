@@ -1,7 +1,7 @@
 
 BugGrabberDB = {
+	["session"] = 1180,
 	["lastSanitation"] = 3,
-	["session"] = 1159,
 	["errors"] = {
 		{
 			["message"] = "Interface\\AddOns\\oUF_Manriel_UI\\functions.lua:90: invalid option in `format'",
@@ -74,5 +74,34 @@ BugGrabberDB = {
 			["session"] = 1157,
 			["counter"] = 3,
 		}, -- [9]
+		{
+			["message"] = "Interface\\FrameXML\\BuffFrame.lua:303: Usage: CancelUnitBuff(\"unit\", [index] or [\"name\", \"rank\"][, \"filter\"])",
+			["time"] = "2014/11/12 04:18:04",
+			["locals"] = "self = bBuffsAuraButton1 {\n 0 = <userdata>\n duration = bBuffsAuraButton1Duration {\n }\n text = <unnamed> {\n }\n bg = <unnamed> {\n }\n iconBorder = <unnamed> {\n }\n barUpdate = 0.027000000700355\n count = bBuffsAuraButton1Count {\n }\n filter = \"HELPFUL\"\n timer = <unnamed> {\n }\n timerUpdate = 0.53800001181662\n icon = <unnamed> {\n }\n bar = <unnamed> {\n }\n}\n",
+			["stack"] = "[C]: in function `CancelUnitBuff'\nInterface\\FrameXML\\BuffFrame.lua:303: in function `BuffButton_OnClick'\n[string \"*:OnClick\"]:1: in function <[string \"*:OnClick\"]:1>",
+			["session"] = 1170,
+			["counter"] = 66,
+		}, -- [10]
+		{
+			["message"] = "[ADDON_ACTION_BLOCKED] Аддон 'oUF_Manriel_UI' пытался вызвать защищенную функцию 'ActionButton11:Show()'.",
+			["time"] = "2014/11/12 04:56:08",
+			["stack"] = "Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:586: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:586>\n[C]: in function `Show'\nInterface\\FrameXML\\ActionButton.lua:301: in function <Interface\\FrameXML\\ActionButton.lua:275>\n[C]: ?\n[C]: in function `ActionButton_Update'\nInterface\\FrameXML\\ActionButton.lua:263: in function `ActionButton_UpdateAction'\nInterface\\FrameXML\\ActionBarController.lua:138: in function `ActionBarController_ResetToDefault'\nInterface\\FrameXML\\ActionBarController.lua:127: in function `ActionBarController_UpdateAll'\nInterface\\FrameXML\\ActionBarController.lua:56: in function <Interface\\FrameXML\\ActionBarController.lua:45>\n[C]: in function `ChangeActionBarPage'\n[string \"ACTIONPAGE2\"]:1: in function <[string \"ACTIONPAGE2\"]:1>",
+			["session"] = 1175,
+			["counter"] = 1,
+		}, -- [11]
+		{
+			["message"] = "[ADDON_ACTION_BLOCKED] Аддон 'oUF_Manriel_UI' пытался вызвать защищенную функцию 'MultiBarBottomLeftButton12:Show()'.",
+			["time"] = "2014/11/12 04:56:51",
+			["stack"] = "Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:586: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:586>\n[C]: in function `Show'\nInterface\\FrameXML\\ActionButton.lua:301: in function <Interface\\FrameXML\\ActionButton.lua:275>\n[C]: ?\n[C]: in function `ActionButton_Update'\nInterface\\FrameXML\\ActionButton.lua:577: in function `ActionButton_OnEvent'\nInterface\\FrameXML\\ActionButton.lua:137: in function <Interface\\FrameXML\\ActionButton.lua:134>",
+			["session"] = 1179,
+			["counter"] = 2,
+		}, -- [12]
+		{
+			["message"] = "[ADDON_ACTION_BLOCKED] Аддон 'oUF_Manriel_UI' пытался вызвать защищенную функцию 'MultiBarBottomLeftButton11:Show()'.",
+			["time"] = "2014/11/12 04:57:43",
+			["stack"] = "Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:586: in function <Interface\\AddOns\\!BugGrabber\\BugGrabber.lua:586>\n[C]: in function `Show'\nInterface\\FrameXML\\ActionButton.lua:301: in function <Interface\\FrameXML\\ActionButton.lua:275>\n[C]: ?\n[C]: in function `ActionButton_Update'\nInterface\\FrameXML\\ActionButton.lua:577: in function `ActionButton_OnEvent'\nInterface\\FrameXML\\ActionButton.lua:137: in function <Interface\\FrameXML\\ActionButton.lua:134>",
+			["session"] = 1180,
+			["counter"] = 2,
+		}, -- [13]
 	},
 }
