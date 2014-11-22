@@ -7,8 +7,8 @@ local background	= LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background');
 local border32		= LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border');
 local border16		= LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Light');
 
-local Panels		= CreateFrame("Frame", "oUF_ManrielUI_Panels", oUF_ManrielUI);
-Panels:SetAllPoints(oUF_ManrielUI);
+local Panels		= CreateFrame("Frame", "oUF_ManrielUI_Panels", UIParent);
+Panels:SetAllPoints(UIParent);
 
 Panels.PLAYER_LOGIN = function(self)
 
@@ -68,7 +68,6 @@ Panels.PLAYER_LOGIN = function(self)
 	};
 
 	ChatFrames = CreateFrame('Frame', 'ChatFramesParent', Panels);
-	ChatFrames:SetScale(.71);
 	ChatFrames:SetPoint('TOPRIGHT', Panel_Bar2, 'TOPLEFT', -4/0.71, -3/0.71)
 	ChatFrames:SetPoint('BOTTOMLEFT', oUF_ManrielUI_Panels, 'BOTTOMLEFT', 4/0.71, 7/0.71)
 	for i=1, 10 do
@@ -127,6 +126,14 @@ Panels.PLAYER_LOGIN = function(self)
 		Recount_MainWindow.Title:SetHeight(20);
 		Recount_MainWindow:SetPoint('TOPLEFT', Panel_Bar3, 'TOPRIGHT', 2, 0)
 		Recount_MainWindow:SetPoint('BOTTOMLEFT', Panel_Bar3, 'BOTTOMRIGHT', 2, 0)
+	end;
+
+	if Minimap then
+		local MinimapPanel = CreateFrame('Frame', 'Panel_Minimap', Minimap)
+		MinimapPanel:SetFrameStrata('BACKGROUND');
+		MinimapPanel:SetPoint('TOPLEFT', Minimap, 'TOPLEFT', -4, 4)
+		MinimapPanel:SetPoint('BOTTOMRIGHT', Minimap, 'BOTTOMRIGHT', 4, -4)
+		MinimapPanel:SetBackdrop(backdrop)
 	end;
 end
 
