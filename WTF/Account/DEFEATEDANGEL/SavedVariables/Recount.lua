@@ -2,6 +2,8 @@
 RecountDB = {
 	["profileKeys"] = {
 		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
+		["Тиндэлен - Свежеватель Душ"] = "Тиндэлен - Свежеватель Душ",
+		["Чивва - Ясеневый лес"] = "Чивва - Ясеневый лес",
 	},
 	["profiles"] = {
 		["Манриэль - Ясеневый лес"] = {
@@ -17,19 +19,20 @@ RecountDB = {
 					["NumFormat"] = 2,
 				},
 				["Position"] = {
-					["y"] = -443.999816894531,
-					["x"] = 562.000061035156,
+					["y"] = -444.499862670898,
+					["x"] = 562.000183105469,
 					["w"] = 400,
-					["h"] = 185.999954223633,
+					["h"] = 187.000015258789,
 				},
 				["RowSpacing"] = 0,
 			},
+			["MainWindowHeight"] = 185.999954223633,
 			["Colors"] = {
 				["Window"] = {
 					["Background"] = {
-						["r"] = 1,
-						["g"] = 1,
 						["b"] = 1,
+						["g"] = 1,
+						["r"] = 1,
 					},
 					["Title"] = {
 						["g"] = 1,
@@ -49,7 +52,7 @@ RecountDB = {
 			["DetailWindowX"] = 0,
 			["GraphWindowX"] = 0,
 			["Locked"] = true,
-			["BarTextColorSwap"] = false,
+			["LastInstanceName"] = "Шлаковые шахты Кровавого Молота",
 			["BarTexture"] = "Manriel-Health",
 			["RealtimeWindows"] = {
 				["Realtime_!RAID_HEALINGTAKEN"] = {
@@ -143,10 +146,59 @@ RecountDB = {
 					false, -- [8]
 				},
 			},
-			["CurDataSet"] = "OverallData",
 			["Font"] = "Calibri Bold",
+			["CurDataSet"] = "CurrentFightData",
+			["BarTextColorSwap"] = false,
 			["MainWindowWidth"] = 400,
-			["MainWindowHeight"] = 185.999954223633,
+		},
+		["Тиндэлен - Свежеватель Душ"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["y"] = -284.114402770996,
+					["x"] = 325.099243164063,
+					["w"] = 241.000122070313,
+					["h"] = 187.000030517578,
+				},
+			},
+			["DetailWindowX"] = 0,
+			["MainWindowHeight"] = 182.000030517578,
+			["CurDataSet"] = "OverallData",
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["MainWindowWidth"] = 241.000030517578,
+			["GraphWindowX"] = 0,
+		},
+		["Чивва - Ясеневый лес"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000015258789,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["DetailWindowX"] = 0,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
 		},
 	},
 }

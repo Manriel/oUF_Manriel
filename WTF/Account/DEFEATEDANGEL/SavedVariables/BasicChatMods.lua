@@ -25,12 +25,12 @@ bcmDB = {
 		"[RW]", -- [16]
 		"[%1]", -- [17]
 	},
+	["playerRBrack"] = "]",
 	["sticky"] = {
 		["EMOTE"] = 1,
 		["YELL"] = 1,
 		["RAID_WARNING"] = 1,
 	},
-	["playerRBrack"] = "]",
 	["noEditBoxBG"] = true,
 	["playerSeparator"] = ":",
 }
