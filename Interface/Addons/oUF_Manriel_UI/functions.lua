@@ -191,6 +191,8 @@ methods.PostUpdatePower = function(Power, unit, min, max)-- (self, event, unit, 
 end
 
 methods.PostCreateIcon = function(icons, button)
+	button.overlay:SetTexture(config.textureBorder)
+	button.overlay:SetVertexColor(.5, .5, .5, 1)
 	button.duration = methods.setFontString(button, config.fontName, config.baseFontSize)
 	button.duration:SetJustifyH("CENTER")
 	button.duration:SetPoint("TOP", button, "BOTTOM", 0, 0)
@@ -220,4 +222,15 @@ methods.OverrideCastbarDelay = function(self, duration)
 		elseif(self.casting) then
 			self.Time:SetFormattedText('%.1f / %.2f |cffff0000+ %.1f', duration, self.max, self.delay)
 		end	
+end
+
+methods.DruidManaPreUpdate = function(unit)
+	local offset = config.offset
+	if(unit == 'player' and UnitPowerType(unit) == SPELL_POWER_MANA) then
+		oUF_ManrielUIPlayer.Power:SetHeight( (oUF_ManrielUIPlayer:GetHeight()-offset-offset) * 0.3)
+		oUF_ManrielUIPlayer.DruidMana:Hide()
+	else
+		oUF_ManrielUIPlayer.Power:SetHeight( (oUF_ManrielUIPlayer:GetHeight()-offset-offset) * 0.15)
+		oUF_ManrielUIPlayer.DruidMana:Show()
+	end
 end

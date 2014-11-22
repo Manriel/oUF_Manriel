@@ -27,3 +27,26 @@ LSM:Register(LSM.MediaType.FONT, 'Calibri Bold', [[Interface\AddOns\oUF_Manriel_
 LSM:Register(LSM.MediaType.FONT, 'Calibri', [[Interface\AddOns\oUF_Manriel_UI\fonts\Calibri.ttf]], LSM.LOCALE_BIT_ruRU + LSM.LOCALE_BIT_western);
 
 ns.ManrielUI = UI
+
+
+local function HideBlizzardAuraFrames(self, event)
+   -- Initially seperated out to provide better Entering/Exiting Vehicle support, but that currently taints. Leaving it in because hey why not, it saves an if statement.
+   BuffFrame:UnregisterEvent("UNIT_AURA")
+   TemporaryEnchantFrame:UnregisterEvent("UNIT_AURA")
+   TemporaryEnchantFrame:Hide()
+   BuffFrame:Hide()
+   ConsolidatedBuffs:Hide()
+end
+
+local sf = CreateFrame("Frame")
+sf.PLAYER_ENTERING_WORLD = function(self)
+	local scale = GetScreenWidth() * UIParent:GetEffectiveScale() / 1920;
+	print(GetScreenWidth());
+	print(scale);
+	UIParent:SetScale(scale);
+
+	-- HideBlizzardAuraFrames(self)
+end
+
+sf:RegisterEvent("PLAYER_ENTERING_WORLD")
+sf:SetScript("OnEvent", function(self, event, ...) sf[event](self, ...) end)

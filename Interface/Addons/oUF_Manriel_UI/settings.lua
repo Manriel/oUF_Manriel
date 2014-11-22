@@ -16,6 +16,7 @@ UI.config = {
 		rare = ' Rare',
 		normal = '',
 		trivial = '',
+		minus = '',
 	},
 
 	fontName = LSM:Fetch(LSM.MediaType.FONT, 'Calibri Bold'),
@@ -24,6 +25,7 @@ UI.config = {
 
 	textureHealthBar = LSM:Fetch(LSM.MediaType.STATUSBAR, 'Manriel-Health'),
 	textureRuneBar = LSM:Fetch(LSM.MediaType.STATUSBAR, 'Manriel-Rune'),
+	texturePanel = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background');
 	textureBorder = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Caith'),
 	textureBubble = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Bubble'),
 	textureCastBarBorder = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Light'),
@@ -86,12 +88,3 @@ SLASH_RELOADUI1 = "/rl"
 SlashCmdList["RCSLASH"] = function() DoReadyCheck() end
 SLASH_RCSLASH1 = "/rc"
 
-
-local sf = CreateFrame("Frame")
-sf:SetScript("OnEvent", function()
-	local scale = UIParent:GetWidth() / 1923;
-	print(UIParent:GetWidth());
-	print(scale);
-	UIParent:SetScale(scale);
-end)
-sf:RegisterEvent("PLAYER_LOGIN")

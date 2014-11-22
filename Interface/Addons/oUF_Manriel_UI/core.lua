@@ -5,7 +5,7 @@ local config = UI.config
 
 local xPosition, yPosition, width, height, offset, classification = config.xPosition, config.yPosition, config.width, config.height, config.offset, config.classification
 local fontName, fontNamePixel, baseFontSize = config.fontName, config.fontNamePixel, config.baseFontSize
-local textureHealthBar, textureRuneBar, textureBorder, textureBubble, textureCastBarBorder, textureGlow, textureBlizzardTooltip = config.textureHealthBar, config.textureRuneBar, config.textureBorder, config.textureBubble, config.textureCastBarBorder, config.textureGlow, config.textureBlizzardTooltip 
+local textureHealthBar, textureRuneBar, textureBorder, textureBubble, textureCastBarBorder, textureGlow, textureBlizzardTooltip, texturePanel = config.textureHealthBar, config.textureRuneBar, config.textureBorder, config.textureBubble, config.textureCastBarBorder, config.textureGlow, config.textureBlizzardTooltip, config.texturePanel
 
 local backdrop = {
 	bgFile = textureBlizzardTooltip,
@@ -18,6 +18,20 @@ local backdrophp = {
 	bgFile = textureHealthBar,
 	insets = {left = 0, right = 0, top = 0, bottom = 0},
 }
+
+local backdropPanel = {
+	bgFile = texturePanel,
+	tile = true,
+	tileSize = 256,
+	edgeFile = textureCastBarBorder,
+	edgeSize = 12,
+	insets = {
+		left = 3,
+		right = 3,
+		top = 3,
+		bottom = 3
+	}
+};
 
 local setFontString = UI.methods.setFontString
 
@@ -64,7 +78,54 @@ local UnitSpecific = {
 				Runes[index] = Rune
 			end
 			self.Runes = Runes
-		end;
+		elseif select(2, UnitClass('player')) == 'DRUID' then
+			-- Position and size
+			local DruidMana = CreateFrame("StatusBar", nil, self)
+			DruidMana:SetPoint('BOTTOMLEFT', self.Power, 'BOTTOMLEFT', 0, 0)
+			DruidMana:SetPoint('BOTTOMRIGHT', self.Power, 'BOTTOMRIGHT', 0, 0)
+			DruidMana:SetHeight( (self:GetHeight()-offset-offset) * 0.15)
+			DruidMana:SetStatusBarTexture(textureHealthBar)
+			DruidMana.colorPower = true
+
+			-- Add a background
+			local Background = DruidMana:CreateTexture(nil, 'BACKGROUND')
+			Background:SetAllPoints(DruidMana)
+			Background:SetTexture(textureHealthBar)
+			Background.multiplier = .5
+
+			-- Register it with oUF
+			self.DruidMana = DruidMana
+			self.DruidMana.bg = Background
+
+			local EclipseBar = CreateFrame('Frame', nil, self)
+			EclipseBar:SetPoint('BOTTOM', self.Power, 'BOTTOM', 0, 0)
+			EclipseBar:SetSize(self:GetWidth()-offset-offset , (self:GetHeight()-offset-offset) * 0.15)
+			-- EclipseBar:SetAlpha(1);
+
+			-- Position and size
+			local LunarBar = CreateFrame('StatusBar', nil, self)
+			LunarBar:SetPoint('LEFT', EclipseBar, 'LEFT')
+			LunarBar:SetSize(self:GetWidth()-offset-offset , (self:GetHeight()-offset-offset) * 0.15)
+			LunarBar:SetStatusBarTexture(textureHealthBar)
+			LunarBar:SetStatusBarColor(0, 0, 1)
+
+			local SolarBar = CreateFrame('StatusBar', nil, self)
+			SolarBar:SetPoint('LEFT', LunarBar:GetStatusBarTexture(), 'RIGHT')
+			SolarBar:SetSize(self:GetWidth()-offset-offset , (self:GetHeight()-offset-offset) * 0.15)
+			SolarBar:SetStatusBarTexture(textureHealthBar)
+			SolarBar:SetStatusBarColor(1, 1, 0)
+
+			print(EclipseBar:GetFrameLevel())
+			print(DruidMana:GetFrameLevel())
+			print(self.Power:GetFrameLevel())
+			print(EclipseBar:GetFrameStrata())
+			print(DruidMana:GetFrameStrata())
+			print(self.Power:GetFrameStrata())
+			-- Register with oUF
+			EclipseBar.LunarBar = LunarBar
+			EclipseBar.SolarBar = SolarBar
+			self.EclipseBar = EclipseBar
+		end
 
 		local Combat = self.Health:CreateTexture(nil, 'OVERLAY')
 		Combat:SetSize(height*0.5, height*0.5)
@@ -81,7 +142,15 @@ local UnitSpecific = {
 		self.Race:SetPoint("LEFT", self.Class, "RIGHT",  1, 0);
 		self.PvP:SetPoint('CENTER', self, 'TOPRIGHT', height*0.1, -height*0.2)
 
-		local Debuffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debuffs', self, 'SecureActionButtonTemplate')
+		local Debuffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debuffs', self)
+		-- local Debuffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Debuffs', self, 'SecureAuraHeaderTemplate')
+		-- Debuffs:SetAttribute("unit", "player")
+		-- Debuffs:SetAttribute("filter", "HARMFUL")
+		-- Debuffs:SetAttribute("template", "MyDebuffButtonTemplate")
+		-- Debuffs:SetAttribute("minWidth", width)
+		-- Debuffs:SetAttribute("minHeight", height)
+		-- Debuffs:Show();
+
 		Debuffs:SetSize(width, width/2);
 		Debuffs.size = height*0.7
 		Debuffs.spacing = 2.5
@@ -94,25 +163,48 @@ local UnitSpecific = {
 		
 		self.Debuffs = Debuffs
 
-		local Buffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Buffs', self)
-		Buffs:SetSize(width, width/2);
-		Buffs.size = height*0.7
-		Buffs.spacing = 5
-		Buffs.initialAnchor = "TOPRIGHT"
-		Buffs["growth-x"] = "LEFT"
-		Buffs["growth-y"] = "DOWN"
-		Buffs:SetPoint("TOPRIGHT", self:GetParent(), "TOPRIGHT", -5, -10)
-		Buffs.PostCreateIcon = UI.methods.PostCreateIcon
-		Buffs.PostUpdateIcon = UI.methods.PostUpdateIcon
+		-- local Buffs =  CreateFrame("StatusBar", 'oUF_Manriel_player_Buffs', self, 'SecureAuraHeaderTemplate')
+		-- Buffs:SetAttribute("unit", "player")
+		-- Buffs:SetAttribute("filter", "HELPFUL")
+		-- Buffs:SetAttribute("template", "MyBuffButtonTemplate")
+		-- Buffs:SetAttribute("minWidth", width)
+		-- Buffs:SetAttribute("minHeight", height)
+
+		-- Buffs:SetAttribute("point", "TOPRIGHT")
+		-- Buffs:SetAttribute("xOffset", -width)
+		-- Buffs:SetAttribute("yOffset", 0)
+
+		-- Buffs:SetAttribute("separateOwn", 0)
+		-- Buffs:SetAttribute("sortMethod", "TIME")
+		-- Buffs:SetAttribute("sortDirection","-")
+		-- Buffs:SetAttribute("wrapAfter",3)
+		-- Buffs:SetAttribute("wrapXOffset", 0)
+		-- Buffs:SetAttribute("wrapYOffset", -height)
+		-- Buffs:SetAttribute("maxWraps", 10)
+
+		-- Buffs:SetAttribute("includeWeapons", 1)
+		-- Buffs:SetAttribute("weaponTemplate", "MyBuffButtonTemplate")
+
+		-- Buffs:Show()
+
+		-- Buffs:SetSize(width, width/2);
+		-- Buffs.size = height*0.7
+		-- Buffs.spacing = 5
+		-- Buffs.initialAnchor = "TOPRIGHT"
+		-- Buffs["growth-x"] = "LEFT"
+		-- Buffs["growth-y"] = "DOWN"
+		-- Buffs:SetPoint("TOPRIGHT", self:GetParent(), "TOPRIGHT", -5, -10)
+		-- Buffs.PostCreateIcon = UI.methods.PostCreateIcon
+		-- Buffs.PostUpdateIcon = UI.methods.PostUpdateIcon
 		
-		self.Buffs = Buffs
+		-- self.Buffs = Buffs
 
 		local colorcb
 		local _, classcb = UnitClass('player')
 		colorcb = oUF.colors.class[classcb]
 
 		local Castbar = CreateFrame('StatusBar', 'oUF_Manriel_player_Castbar', self)
-		Castbar:SetPoint('BOTTOM', UIParent, 'BOTTOM', 0, yPosition+offset)
+		Castbar:SetPoint('BOTTOM', UIParent, 'BOTTOM', 0, yPosition+3)
 		Castbar:SetStatusBarTexture(textureHealthBar)
 		Castbar:SetStatusBarColor(colorcb[1], colorcb[2], colorcb[3])
 		Castbar:SetBackdrop(backdrophp)
@@ -150,6 +242,18 @@ local UnitSpecific = {
 
 		self.Castbar = Castbar
 		-- self.Castbar2 = Castbar2
+
+		local ExperienceFrame = CreateFrame('Frame', 'oUF_Manriel_player_XP_', self)
+		ExperienceFrame:SetPoint('TOPLEFT', UIParent, 'TOPLEFT', 4, -4)
+		ExperienceFrame:SetPoint('TOPRIGHT', UIParent, 'TOPRIGHT', -4, -4)
+		ExperienceFrame:SetHeight(height/2);
+		ExperienceFrame:SetBackdrop(backdropPanel);
+		local Experience = CreateFrame('StatusBar', 'oUF_Manriel_player_XP', ExperienceFrame)
+		Experience:SetPoint('TOPLEFT', 3, -3)
+		Experience:SetPoint('BOTTOMRIGHT', -3, 3)
+		Experience:SetStatusBarTexture(textureHealthBar);
+		Experience:SetStatusBarColor(1,1,1,1)
+		self.Experience = Experience
 	end,
 
 	target = function(self)
@@ -207,6 +311,45 @@ local UnitSpecific = {
 		-- self.sortAuras = {}
 		-- self.sortAuras.selfFirst = true
 
+		local Castbar = CreateFrame('StatusBar', 'oUF_Manriel_target_Castbar', self)
+		Castbar:SetPoint('BOTTOM', oUF_Manriel_player_Castbar, 'TOP', 0, 6)
+		Castbar:SetStatusBarTexture(textureHealthBar)
+		Castbar:SetStatusBarColor(.81,.81,.25)
+		Castbar:SetBackdrop(backdrophp)
+		Castbar:SetBackdropColor(.81/3,.81/3,.25/3)
+		Castbar:SetHeight(height*0.4 - offset)
+		Castbar:SetWidth(xPosition*2 - offset*2)
+		
+		Castbar.Spark = Castbar:CreateTexture(nil,'OVERLAY')
+		Castbar.Spark:SetBlendMode("ADD")
+		Castbar.Spark:SetHeight(Castbar:GetHeight()*1.5)
+		Castbar.Spark:SetWidth(Castbar.Spark:GetHeight()*0.6)
+		Castbar.Spark:SetVertexColor(.69,.31,.31)
+		
+		Castbar.Text = setFontString(Castbar, fontName, baseFontSize)
+		Castbar.Text:SetPoint('LEFT', Castbar, 2, 0)
+
+		Castbar.Time = setFontString(Castbar, fontName, baseFontSize)
+		Castbar.Time:SetPoint('RIGHT', Castbar, -2, 0)
+		Castbar.CustomTimeText = OverrideCastbarTime
+		Castbar.CustomDelayText = OverrideCastbarDelay
+		
+		local Castbar2 = CreateFrame('Frame', 'oUF_Manriel_player_Castbar_', Castbar)
+		Castbar2:SetPoint('TOPLEFT', Castbar, 'TOPLEFT', -4, 3)
+		Castbar2:SetPoint('BOTTOMRIGHT', Castbar, 'BOTTOMRIGHT', 4, -3)
+		Castbar2:SetBackdrop(backdrop)
+		Castbar2:SetBackdropColor(0,0,0,1)
+		Castbar2:SetFrameLevel(0)
+		
+		Castbar.SafeZone = Castbar:CreateTexture(nil,'BACKGROUND')
+		Castbar.SafeZone:SetPoint('TOPRIGHT')
+		Castbar.SafeZone:SetPoint('BOTTOMRIGHT')
+		Castbar.SafeZone:SetHeight(20)
+		Castbar.SafeZone:SetTexture(textureHealthBar)
+		Castbar.SafeZone:SetVertexColor(1,1,.01,0.5)
+
+		self.Castbar = Castbar
+
 	end,
 
 	targettarget = function(self)
@@ -229,6 +372,45 @@ local UnitSpecific = {
 		self.Power.value:Hide();
 
 		self.Name:SetPoint("LEFT", self.Health, "LEFT", 2, 0);
+
+		local Castbar = CreateFrame('StatusBar', 'oUF_Manriel_target_Castbar', self)
+		Castbar:SetPoint('TOP', oUF_Manriel_player_Castbar, 'BOTTOM', 0, -6)
+		Castbar:SetStatusBarTexture(textureHealthBar)
+		Castbar:SetStatusBarColor(.79,.41,.31)
+		Castbar:SetBackdrop(backdrophp)
+		Castbar:SetBackdropColor(.79/3,.41/3,.31/3)
+		Castbar:SetHeight(height*0.4 - offset*2)
+		Castbar:SetWidth(xPosition*2 - offset*2)
+		
+		Castbar.Spark = Castbar:CreateTexture(nil,'OVERLAY')
+		Castbar.Spark:SetBlendMode("ADD")
+		Castbar.Spark:SetHeight(Castbar:GetHeight()*1.5)
+		Castbar.Spark:SetWidth(Castbar.Spark:GetHeight()*0.6)
+		Castbar.Spark:SetVertexColor(.69,.31,.31)
+		
+		Castbar.Text = setFontString(Castbar, fontName, baseFontSize)
+		Castbar.Text:SetPoint('LEFT', Castbar, 2, 0)
+
+		Castbar.Time = setFontString(Castbar, fontName, baseFontSize)
+		Castbar.Time:SetPoint('RIGHT', Castbar, -2, 0)
+		Castbar.CustomTimeText = OverrideCastbarTime
+		Castbar.CustomDelayText = OverrideCastbarDelay
+		
+		local Castbar2 = CreateFrame('Frame', 'oUF_Manriel_player_Castbar_', Castbar)
+		Castbar2:SetPoint('TOPLEFT', Castbar, 'TOPLEFT', -4, 3)
+		Castbar2:SetPoint('BOTTOMRIGHT', Castbar, 'BOTTOMRIGHT', 4, -3)
+		Castbar2:SetBackdrop(backdrop)
+		Castbar2:SetBackdropColor(0,0,0,1)
+		Castbar2:SetFrameLevel(0)
+		
+		Castbar.SafeZone = Castbar:CreateTexture(nil,'BACKGROUND')
+		Castbar.SafeZone:SetPoint('TOPRIGHT')
+		Castbar.SafeZone:SetPoint('BOTTOMRIGHT')
+		Castbar.SafeZone:SetHeight(20)
+		Castbar.SafeZone:SetTexture(textureHealthBar)
+		Castbar.SafeZone:SetVertexColor(1,1,.01,0.5)
+
+		self.Castbar = Castbar
 	end,
 	
 	focustarget = function(self)
@@ -240,13 +422,26 @@ local UnitSpecific = {
 
 		self.Name:SetPoint("RIGHT", self.Health, "RIGHT", -2, 0);
 		self.Name:SetJustifyH("RIGHT");
+	end,
+
+	pet = function(self)
+		self.Health:SetHeight( (self:GetHeight()-offset-offset) * .8);
+		self.Power:SetHeight( (self:GetHeight()-offset-offset) * .2);
+
+		self.Health.value:SetPoint("LEFT", 2, 0)
+		self.Power.value:Hide();
+
+		self.Name:SetPoint("RIGHT", self.Health, "RIGHT", -2, 0);
+		self.Name:SetJustifyH("RIGHT");
 	end
+
+
 }
 
 local UnitSpecificSizes = function(self, unit)
 	if unit == 'player' or unit == 'target' then
 		self:SetSize(width, height);
-	elseif unit == 'targettarget' or unit == 'focus' or unit == 'focustarget' then
+	elseif unit == 'targettarget' or unit == 'focus' or unit == 'focustarget' or unit == 'pet' then
 		self:SetSize(width/2, height/1.75);
 	end
 end
@@ -380,5 +575,6 @@ oUF:Factory(function(self)
 	self:Spawn("targettarget"):SetPoint("TOPRIGHT",			oUF_ManrielUITarget,	'BOTTOMRIGHT',	0,	0);
 	self:Spawn("focus"):SetPoint(		"TOPRIGHT",			oUF_ManrielUIPlayer,	'BOTTOMRIGHT',	0,	0);
 	self:Spawn("focustarget"):SetPoint(	"TOPLEFT",			oUF_ManrielUITarget,	'BOTTOMLEFT',	0,	0);
+	self:Spawn("pet"):SetPoint(			"TOPLEFT",			oUF_ManrielUIPlayer,	'BOTTOMLEFT',	0,	0);
 
 end);
