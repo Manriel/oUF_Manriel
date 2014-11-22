@@ -3,12 +3,15 @@ local Scale = 1.095              -- Minimap scale
 local ClassColorBorder = false  -- Should border around minimap be classcolored? Enabling it disables color settings below
 local r, g, b, a = 0, 0, 0, 1   -- Border colors and alhpa. More info: http://www.wowwiki.com/API_Frame_SetBackdropColor
 local BGThickness = 0           -- Border thickness in pixels
-local MapPosition = {"BOTTOMRIGHT", "UIParent", "BOTTOMRIGHT", -4, 4}
 
 -- Shape, location and scale
 function GetMinimapShape() return "SQUARE" end
 Minimap:ClearAllPoints()
-Minimap:SetPoint(MapPosition[1], MapPosition[2], MapPosition[3], MapPosition[4] / Scale, MapPosition[5] / Scale)
+Minimap:SetPoint('BOTTOMRIGHT', UIParent, 'BOTTOMRIGHT', -4 / Scale, 4 / Scale)
+Minimap:SetSize(165, 165)
+-- if Recount_MainWindow then
+--     Minimap:SetPoint('TOPLEFT', Recount_MainWindow, 'TOPLEFT', -4 / Scale, 4 / Scale)
+-- end
 MinimapCluster:SetScale(Scale)
 --Minimap:SetFrameStrata("BACKGROUND")
 Minimap:SetFrameLevel(10)
@@ -134,21 +137,21 @@ end
 -- Creating right click menu
 local menuFrame = CreateFrame("Frame", "m_MinimapRightClickMenu", UIParent, "UIDropDownMenuTemplate")
 local menuList = {
-    {text = "Character",
+    {text = CHARACTER_BUTTON,
     func = function() ToggleCharacter("PaperDollFrame") end},
-    {text = "Spells",
+    {text = SPELLBOOK_ABILITIES_BUTTON,
     func = function() ToggleSpellBook("spell") end},
-    {text = "Talents",
+    {text = TALENTS_BUTTON,
     func = function() ToggleTalentFrame() end},
-    {text = "Achievements",
+    {text = ACHIEVEMENT_BUTTON,
     func = function() ToggleAchievementFrame() end},
-    {text = "Quests",
+    {text = QUESTLOG_BUTTON,
     func = function() ToggleFrame(QuestLogFrame) end},
-    {text = "Friends",
+    {text = FRIENDS,
     func = function() ToggleFriendsFrame(1) end},
-    {text = "Guild",
+    {text = GUILD,
     func = function() ToggleGuildFrame(1) end},
-    {text = "PvP",
+    {text = PLAYER_V_PLAYER,
     func = function() 
         --ToggleFrame(PVPUIFrame) 
         if PVPUIFrame then
@@ -164,19 +167,21 @@ local menuList = {
             ShowUIPanel(PVPUIFrame)
         end
     end},
-    {text = "Dungeon Finder",
+    {text = DUNGEONS_BUTTON,
     func = function() ToggleLFDParentFrame() end},
-    {text = "Pets and Mounts",
+    {text = COLLECTIONS,
     func = function() TogglePetJournal(1) end},
-    {text = "Help",
-    func = function() ToggleHelpFrame() end},
+    {text = ENCOUNTER_JOURNAL,
+    func = function() ToggleEncounterJournal() end},
     {text = "Calendar",
     func = function()
     if(not CalendarFrame) then LoadAddOn("Blizzard_Calendar") end
         Calendar_Toggle()
     end},
-    {text = "Dungeon Journal",
-    func = function() ToggleEncounterJournal() end},
+    -- {text = BLIZZARD_STORE
+    -- func = function()  end},
+    {text = GAMEMENU_HELP,
+    func = function() ToggleHelpFrame() end},
 }
 
 -- Click func
