@@ -44,7 +44,7 @@ cfg.bars = {
 		show_on_mouseover = true,		bar_alpha = 1,			fadeout_alpha = 0.3,
 		orientation = "VERTICAL",		rows = 1,					buttons = 12,	
 		button_size = 35,				button_spacing = cfg.mAB.spacing,
-		position = {a="RIGHT", x=-41, y=-100},
+		position = {a="BOTTOMRIGHT", x=-41, y=190},
 		custom_visibility_macro = false
 		},
 	["Bar5"] = {
@@ -52,7 +52,7 @@ cfg.bars = {
 		show_on_mouseover = true,		bar_alpha = 1,			fadeout_alpha = 0.3,
 		orientation = "VERTICAL",		rows = 1,					buttons = 12,	
 		button_size = 35,				button_spacing = cfg.mAB.spacing,
-		position = {a="RIGHT", x=-4, y=-100},
+		position = {a="BOTTOMRIGHT", x=-4, y=190},
 		custom_visibility_macro = false
 		},
 	["Bar6"] = {
@@ -64,11 +64,11 @@ cfg.bars = {
 		custom_visibility_macro = false
 		},
 	["StanceBar"] = {
-		hide_bar = true,				show_in_combat = false,
+		hide_bar = false,				show_in_combat = false,
 		show_on_mouseover = false,		bar_alpha = 1,				fadeout_alpha = 1,
 		orientation = "HORIZONTAL",		rows = 1,					buttons = 6,	
 		button_size = 30,				button_spacing = cfg.mAB.spacing,
-		position = {a="BOTTOMRIGHT", x=-218, y=295},
+		position = {a="BOTTOM", x=-188, y=52},
 		custom_visibility_macro = false
 		},
 	["PetBar"] = {
@@ -87,7 +87,7 @@ cfg.bars = {
 		
 	["ExitVehicleButton"] = {
 		disable = false,				user_placed = false,	
-		position = {a="BOTTOMRIGHT", x=-25, y=300},
+		position = {a="BOTTOM", x=-188, y=102},
 		},
 	["ExtraButton"] = {
 		disable = false,
@@ -106,7 +106,7 @@ cfg.bars = {
 		show_on_mouseover = true,		bar_alpha = 1,				fadeout_alpha = 0,
 		orientation = "HORIZONTAL",		rows = 1,
 		button_size = 19,				button_spacing = 1,
-		position = {a="BOTTOM", x=-257, y=10},
+		position = {a="TOP", x=0, y=-30},
 		},
 	}
 	

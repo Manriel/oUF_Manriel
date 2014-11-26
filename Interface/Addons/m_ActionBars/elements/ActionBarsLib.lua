@@ -33,7 +33,7 @@ mAB.SetBar = function(bar, btn, num, cfgn)
 		button:SetSize(bsize, bsize)
 		button:ClearAllPoints()
 		if i == 1 then
-			button:SetPoint("BOTTOMLEFT", bar, 0, 0)
+			button:SetPoint("TOPLEFT", bar, 0, 0)
 		else
 			local previous = _G[btn..i-1]
 
@@ -51,14 +51,14 @@ mAB.SetBar = function(bar, btn, num, cfgn)
 				end
 			else
 				if rows == 1 then
-					button:SetPoint("BOTTOMLEFT", previous, "TOPLEFT", 0, pad)
+					button:SetPoint("TOPLEFT", previous, "BOTTOMLEFT", 0, -pad)
 				else
-					button:SetPoint("BOTTOMLEFT", previous, "TOPLEFT", 0, pad)
+					button:SetPoint("TOPLEFT", previous, "BOTTOMLEFT", 0, -pad)
 					if i == first_row_num+1 then
-						button:SetPoint("BOTTOMLEFT", _G[btn..(i-first_row_num)], "BOTTOMRIGHT", pad, 0)
+						button:SetPoint("TOPLEFT", _G[btn..(i-first_row_num)], "TOPRIGHT", pad, 0)
 					end
 					if i==first_row_num*2+1 then
-						button:SetPoint("BOTTOMLEFT", _G[btn..(i-first_row_num)], "BOTTOMRIGHT", pad, 0)
+						button:SetPoint("TOPLEFT", _G[btn..(i-first_row_num)], "TOPRIGHT", pad, 0)
 					end
 				end
 			end

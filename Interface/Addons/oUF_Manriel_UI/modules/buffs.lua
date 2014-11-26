@@ -8,7 +8,7 @@ local ConsolidatedBuffs = _G["ConsolidatedBuffs"]
 
 local lsBuffHeader = CreateFrame("Frame", "lsBuffHeader", UIParent)
 lsBuffHeader:SetSize(28, 28)
-lsBuffHeader:SetPoint("TOPRIGHT", "UIParent", "TOPRIGHT", -6, -60)
+lsBuffHeader:SetPoint("TOPRIGHT", "UIParent", "TOPRIGHT", -6, -30)
 
 local lsDebuffHeader = CreateFrame("Frame", "lsDebuffHeader", UIParent)
 lsDebuffHeader:SetSize(28, 28)
@@ -19,7 +19,7 @@ lsTemporaryEnchantHeader:SetSize(28, 28)
 lsTemporaryEnchantHeader:SetPoint("TOPRIGHT", "UIParent", "TOPRIGHT", -6, -180)
 
 local function SetDurationText(duration, arg1, arg2)
-	duration:SetText(format(gsub(arg1, "[ .]", ""), arg2))
+	duration:SetText('|cffffffff'..format(gsub(arg1, "[ .]", ""), arg2)..'|r')
 end
 
 local function UpdateBuffAnchors()

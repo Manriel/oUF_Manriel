@@ -10,6 +10,7 @@ if IsAddOnLoaded("Dominos") then return end
 -- compatibility
 -- for 1280*XXX, 1360*XXX, 1440*XXX resolutions
 local width, _ = string.match((({GetScreenResolutions()})[GetCurrentResolution()] or ""), "(%d+).-(%d+)")
+--[[
 if width == "1280" or width == "1360" or width == "1440" then
 	if cfg.bars["Bar6"].position.a == "BOTTOMRIGHT" and cfg.bars["Bar6"].position.x == -26 and cfg.bars["Bar6"].position.y == 260 and cfg.bars["Bar6"].orientation == "HORIZONTAL" then
 		cfg.bars["Bar6"].orientation = "VERTICAL" 
@@ -31,6 +32,7 @@ if width == "1280" or width == "1360" or width == "1440" then
 		cfg.bars["MicroMenu"].position = {a= "BOTTOMRIGHT", x=	-150,	y= 200}
 	end
 end
+]]
 
 -- enabling default action bars
 local f = CreateFrame"Frame"
@@ -104,7 +106,7 @@ local rightbar = mAB.CreateHolder("Bar5_holder", cfg.bars["Bar5"].position)
 local extrabar = mAB.CreateHolder("Bar6_holder", cfg.bars["Bar6"].position)
 local stancebar = mAB.CreateHolder("StanceBar_holder", cfg.bars["StanceBar"].position)
 local petbar = mAB.CreateHolder("PetBar_holder", {a= cfg.bars["PetBar"].position.a, x=	cfg.bars["PetBar"].position.x*1.25, y= cfg.bars["PetBar"].position.y*1.25})
---local extrabtn = mAB.CreateHolder("ExtraBtn_holder", cfg.ExtraButton["Position"])
+-- local extrabtn = mAB.CreateHolder("ExtraBtn_holder", cfg.ExtraButton["Position"])
 
 ---- Forging action bars
 -- parenting action buttons to our holders

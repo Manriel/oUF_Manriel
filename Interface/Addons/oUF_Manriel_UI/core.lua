@@ -98,7 +98,7 @@ local UnitSpecific = {
 			self.DruidMana.bg = Background
 
 			local EclipseBar = CreateFrame('Frame', nil, self)
-			EclipseBar:SetPoint('BOTTOM', self.Power, 'BOTTOM', 0, 0)
+			EclipseBar:SetPoint('TOP', self, 'TOP', 0, -4)
 			EclipseBar:SetSize(self:GetWidth()-offset-offset , (self:GetHeight()-offset-offset) * 0.15)
 			-- EclipseBar:SetAlpha(1);
 
@@ -115,12 +115,6 @@ local UnitSpecific = {
 			SolarBar:SetStatusBarTexture(textureHealthBar)
 			SolarBar:SetStatusBarColor(1, 1, 0)
 
-			print(EclipseBar:GetFrameLevel())
-			print(DruidMana:GetFrameLevel())
-			print(self.Power:GetFrameLevel())
-			print(EclipseBar:GetFrameStrata())
-			print(DruidMana:GetFrameStrata())
-			print(self.Power:GetFrameStrata())
 			-- Register with oUF
 			EclipseBar.LunarBar = LunarBar
 			EclipseBar.SolarBar = SolarBar
