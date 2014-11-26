@@ -147,7 +147,7 @@ RecountDB = {
 				},
 			},
 			["Font"] = "Calibri Bold",
-			["CurDataSet"] = "CurrentFightData",
+			["CurDataSet"] = "LastFightData",
 			["BarTextColorSwap"] = false,
 			["MainWindowWidth"] = 400,
 		},

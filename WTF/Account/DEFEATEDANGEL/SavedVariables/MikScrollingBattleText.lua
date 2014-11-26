@@ -153,11 +153,11 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_SOUL_SHARD_CREATED"] = {
 					["fontSize"] = false,
 				},
-				["PET_INCOMING_DAMAGE_CRIT"] = {
-					["scrollArea"] = "Custom1",
-				},
 				["PET_OUTGOING_ABSORB"] = {
 					["scrollArea"] = "Custom2",
+				},
+				["PET_INCOMING_ABSORB"] = {
+					["scrollArea"] = "Custom1",
 				},
 				["NOTIFICATION_COMBAT_LEAVE"] = {
 					["scrollArea"] = "Custom4",
@@ -338,7 +338,7 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%n) Pet +%a",
 					["scrollArea"] = "Custom1",
 				},
-				["PET_INCOMING_ABSORB"] = {
+				["PET_INCOMING_DAMAGE_CRIT"] = {
 					["scrollArea"] = "Custom1",
 				},
 				["OUTGOING_SPELL_DOT"] = {
@@ -355,18 +355,20 @@ MSBTProfiles_SavedVars = {
 			},
 			["soundsDisabled"] = true,
 			["scrollAreas"] = {
+				["Outgoing"] = {
+					["direction"] = "Up",
+					["behavior"] = "MSBT_NORMAL",
+					["stickyDirection"] = "Down",
+					["scrollWidth"] = 200,
+					["offsetX"] = 232,
+					["stickyTextAlignIndex"] = 3,
+					["offsetY"] = -20,
+					["textAlignIndex"] = 2,
+					["animationStyle"] = "Straight",
+				},
 				["Notification"] = {
 					["scrollHeight"] = 180,
 					["offsetY"] = 262,
-				},
-				["Incoming"] = {
-					["stickyDirection"] = "Up",
-					["stickyTextAlignIndex"] = 1,
-					["offsetX"] = -161,
-					["scrollWidth"] = 100,
-					["offsetY"] = -119,
-					["textAlignIndex"] = 2,
-					["direction"] = "Up",
 				},
 				["Custom4"] = {
 					["stickyDirection"] = "Up",
@@ -417,16 +419,14 @@ MSBTProfiles_SavedVars = {
 					["animationStyle"] = "Parabola",
 					["stickyBehavior"] = "Jiggle",
 				},
-				["Outgoing"] = {
-					["direction"] = "Up",
-					["behavior"] = "MSBT_NORMAL",
-					["stickyDirection"] = "Down",
-					["scrollWidth"] = 200,
-					["offsetX"] = 232,
-					["stickyTextAlignIndex"] = 3,
-					["offsetY"] = -20,
+				["Incoming"] = {
+					["stickyDirection"] = "Up",
+					["stickyTextAlignIndex"] = 1,
+					["offsetX"] = -161,
+					["scrollWidth"] = 100,
+					["offsetY"] = -119,
 					["textAlignIndex"] = 2,
-					["animationStyle"] = "Straight",
+					["direction"] = "Up",
 				},
 			},
 			["normalFontName"] = "CalibriBold",
@@ -728,9 +728,8 @@ MSBTProfiles_SavedVars = {
 					["message"] = "Питомец невосприимчивость",
 					["scrollArea"] = "Custom1",
 				},
-				["NOTIFICATION_CP_FULL"] = {
-					["fontSize"] = false,
-					["scrollArea"] = "Static",
+				["OUTGOING_SPELL_DEFLECT"] = {
+					["message"] = "Отклонение! (%s)",
 				},
 				["OUTGOING_SPELL_DAMAGE"] = {
 					["message"] = "-- %a",
@@ -755,9 +754,9 @@ MSBTProfiles_SavedVars = {
 					["scrollArea"] = "Custom3",
 					["colorB"] = 0.196078431372549,
 				},
-				["PET_OUTGOING_DODGE"] = {
-					["message"] = "Питомец уклон",
-					["scrollArea"] = "Custom2",
+				["NOTIFICATION_CP_FULL"] = {
+					["fontSize"] = false,
+					["scrollArea"] = "Static",
 				},
 				["PET_OUTGOING_IMMUNE"] = {
 					["message"] = "Питомец невосприимчивость",
@@ -767,14 +766,12 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%s) Питомец сопротивление",
 					["scrollArea"] = "Custom1",
 				},
+				["OUTGOING_ABSORB"] = {
+					["message"] = "Поглощение",
+				},
 				["PET_INCOMING_SPELL_ABSORB"] = {
 					["message"] = "(%s) Питомец поглощение",
 					["scrollArea"] = "Custom1",
-				},
-				["INCOMING_DAMAGE"] = {
-					["message"] = "-%a",
-					["colorB"] = 0.2,
-					["colorG"] = 0.2,
 				},
 				["OUTGOING_DISPEL"] = {
 					["message"] = "Рассеивание (%s)",
@@ -815,8 +812,10 @@ MSBTProfiles_SavedVars = {
 				["NOTIFICATION_REP_LOSS"] = {
 					["message"] = "-%a Репутации (%e)",
 				},
-				["OUTGOING_ABSORB"] = {
-					["message"] = "Поглощение",
+				["INCOMING_DAMAGE"] = {
+					["message"] = "-%a",
+					["colorB"] = 0.2,
+					["colorG"] = 0.2,
 				},
 				["INCOMING_MISS"] = {
 					["message"] = "Промах",
@@ -832,8 +831,9 @@ MSBTProfiles_SavedVars = {
 					["message"] = "(%n) ++ %a",
 					["scrollArea"] = "Custom4",
 				},
-				["OUTGOING_SPELL_DEFLECT"] = {
-					["message"] = "Отклонение! (%s)",
+				["PET_OUTGOING_DODGE"] = {
+					["message"] = "Питомец уклон",
+					["scrollArea"] = "Custom2",
 				},
 				["PET_OUTGOING_DAMAGE_CRIT"] = {
 					["scrollArea"] = "Custom2",
@@ -914,19 +914,21 @@ MSBTProfiles_SavedVars = {
 			},
 			["powerThrottleDuration"] = 5,
 			["scrollAreas"] = {
+				["Outgoing"] = {
+					["stickyTextAlignIndex"] = 3,
+					["behavior"] = "MSBT_NORMAL",
+					["stickyDirection"] = "Down",
+					["scrollWidth"] = 200,
+					["offsetX"] = 282,
+					["direction"] = "Up",
+					["offsetY"] = -30,
+					["animationStyle"] = "Straight",
+					["textAlignIndex"] = 3,
+				},
 				["Notification"] = {
 					["scrollHeight"] = 180,
 					["offsetX"] = -172,
 					["offsetY"] = 230,
-				},
-				["Incoming"] = {
-					["stickyDirection"] = "Up",
-					["scrollWidth"] = 100,
-					["offsetX"] = -204,
-					["stickyTextAlignIndex"] = 1,
-					["offsetY"] = -147,
-					["textAlignIndex"] = 2,
-					["direction"] = "Up",
 				},
 				["Custom4"] = {
 					["stickyTextAlignIndex"] = 1,
@@ -980,16 +982,14 @@ MSBTProfiles_SavedVars = {
 					["animationStyle"] = "Parabola",
 					["offsetX"] = 90,
 				},
-				["Outgoing"] = {
-					["stickyTextAlignIndex"] = 3,
-					["behavior"] = "MSBT_NORMAL",
-					["stickyDirection"] = "Down",
-					["scrollWidth"] = 200,
-					["offsetX"] = 282,
+				["Incoming"] = {
+					["stickyDirection"] = "Up",
+					["scrollWidth"] = 100,
+					["offsetX"] = -204,
+					["stickyTextAlignIndex"] = 1,
+					["offsetY"] = -147,
+					["textAlignIndex"] = 2,
 					["direction"] = "Up",
-					["offsetY"] = -30,
-					["animationStyle"] = "Straight",
-					["textAlignIndex"] = 3,
 				},
 			},
 			["normalFontName"] = "MSBT Morpheus",

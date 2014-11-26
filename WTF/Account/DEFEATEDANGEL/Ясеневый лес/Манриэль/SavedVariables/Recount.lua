@@ -32,7 +32,7 @@ RecountPerCharDB = {
 			["LastFightIn"] = 90,
 			["type"] = "Ungrouped",
 			["FightsSaved"] = 5,
-			["LastAbility"] = 36865.767,
+			["LastAbility"] = 111176.621,
 			["Owner"] = false,
 			["LastEventTimes"] = {
 				38050.548, -- [1]
@@ -77,43 +77,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -121,16 +119,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -142,22 +141,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -180,43 +180,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -224,16 +222,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -245,22 +244,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -543,7 +543,7 @@ RecountPerCharDB = {
 			},
 			["type"] = "Pet",
 			["FightsSaved"] = 5,
-			["LastAbility"] = 27664.913,
+			["LastAbility"] = 111176.621,
 			["LastEventTimes"] = {
 				26790.696, -- [1]
 				26791.383, -- [2]
@@ -781,43 +781,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -825,16 +823,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -846,22 +845,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -884,43 +884,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -928,16 +926,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -949,22 +948,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -1746,6 +1746,17 @@ RecountPerCharDB = {
 						["Physical"] = 1233,
 					},
 					["ElementHitsTaken"] = {
+						["Physical"] = {
+							["Details"] = {
+								["Absorb"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 2,
+								},
+							},
+							["amount"] = 3,
+						},
 						["Holy"] = {
 							["Details"] = {
 								["Miss"] = {
@@ -1753,26 +1764,6 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 1,
-						},
-						["Shadow"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 12,
-								},
-								["Hit"] = {
-									["count"] = 28,
-								},
-								["Tick"] = {
-									["count"] = 16,
-								},
-								["Miss"] = {
-									["count"] = 3,
-								},
-								["Parry"] = {
-									["count"] = 1,
-								},
-							},
-							["amount"] = 60,
 						},
 						["Melee"] = {
 							["Details"] = {
@@ -1797,16 +1788,25 @@ RecountPerCharDB = {
 							},
 							["amount"] = 112,
 						},
-						["Physical"] = {
+						["Shadow"] = {
 							["Details"] = {
 								["Absorb"] = {
-									["count"] = 1,
+									["count"] = 12,
 								},
 								["Hit"] = {
-									["count"] = 2,
+									["count"] = 28,
+								},
+								["Tick"] = {
+									["count"] = 16,
+								},
+								["Miss"] = {
+									["count"] = 3,
+								},
+								["Parry"] = {
+									["count"] = 1,
 								},
 							},
-							["amount"] = 3,
+							["amount"] = 60,
 						},
 					},
 				},
@@ -1853,13 +1853,20 @@ RecountPerCharDB = {
 			["LastFightIn"] = 81,
 			["type"] = "Boss",
 			["FightsSaved"] = 5,
-			["TimeLast"] = {
-				["OVERALL"] = 1416438888,
-				["TimeDamage"] = 1416438888,
-				["ActiveTime"] = 1416438888,
-			},
+			["LastAbility"] = 111176.621,
 			["Owner"] = false,
-			["LastAbility"] = 34782.411,
+			["LastEventTimes"] = {
+				34777.557, -- [1]
+				34777.557, -- [2]
+				34778.762, -- [3]
+				34778.762, -- [4]
+				34779.988, -- [5]
+				34779.988, -- [6]
+				34781.189, -- [7]
+				34781.189, -- [8]
+				34782.411, -- [9]
+				34782.411, -- [10]
+			},
 			["NextEventNum"] = 11,
 			["LastEventHealthNum"] = {
 				0, -- [1]
@@ -1898,17 +1905,10 @@ RecountPerCharDB = {
 				false, -- [9]
 				false, -- [10]
 			},
-			["LastEventTimes"] = {
-				34777.557, -- [1]
-				34777.557, -- [2]
-				34778.762, -- [3]
-				34778.762, -- [4]
-				34779.988, -- [5]
-				34779.988, -- [6]
-				34781.189, -- [7]
-				34781.189, -- [8]
-				34782.411, -- [9]
-				34782.411, -- [10]
+			["TimeLast"] = {
+				["OVERALL"] = 1416438888,
+				["TimeDamage"] = 1416438888,
+				["ActiveTime"] = 1416438888,
 			},
 			["Fights"] = {
 				["LastFightData"] = {
@@ -1924,43 +1924,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -1968,16 +1966,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -1989,22 +1988,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -2027,43 +2027,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -2071,16 +2069,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -2092,22 +2091,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -2295,7 +2295,7 @@ RecountPerCharDB = {
 			["LastFightIn"] = 45,
 			["type"] = "Pet",
 			["FightsSaved"] = 5,
-			["LastAbility"] = 27664.913,
+			["LastAbility"] = 111176.621,
 			["Owner"] = "Манриэль",
 			["LastEventTimes"] = {
 				38356.808, -- [1]
@@ -2528,43 +2528,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -2572,16 +2570,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -2593,22 +2592,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -2631,43 +2631,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -2675,16 +2673,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -2696,22 +2695,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -2748,37 +2748,33 @@ RecountPerCharDB = {
 							["amount"] = 1.95,
 						},
 					},
-					["Attacks"] = {
-						["Атака ближнего боя"] = {
-							["Details"] = {
-								["Multistrike"] = {
-									["max"] = 302,
-									["min"] = 269,
-									["count"] = 2,
-									["amount"] = 571,
-								},
-								["Hit"] = {
-									["max"] = 1306,
-									["min"] = 830,
-									["count"] = 15,
-									["amount"] = 16415,
-								},
-							},
-							["count"] = 17,
-							["amount"] = 16986,
-						},
+					["ElementDone"] = {
+						["Melee"] = 16986,
 					},
-					["ElementHitsDone"] = {
-						["Melee"] = {
+					["DamagedWho"] = {
+						["Стручлинг-пяткокус"] = {
 							["Details"] = {
-								["Multistrike"] = {
-									["count"] = 2,
-								},
-								["Hit"] = {
-									["count"] = 15,
+								["Атака ближнего боя"] = {
+									["count"] = 830,
 								},
 							},
-							["amount"] = 17,
+							["amount"] = 830,
+						},
+						["Стручлинг-зверолов"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 14958,
+								},
+							},
+							["amount"] = 14958,
+						},
+						["Стручлинг-брызгун"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 1198,
+								},
+							},
+							["amount"] = 1198,
 						},
 					},
 					["WhoDamaged"] = {
@@ -2850,68 +2846,24 @@ RecountPerCharDB = {
 					},
 					["DamageTaken"] = 33495,
 					["TimeDamage"] = 20.75,
-					["PartialResist"] = {
-						["Ядовитые брызги"] = {
-							["Details"] = {
-								["Нет сопротивлений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 6,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 6,
-							["amount"] = 0,
-						},
+					["Attacks"] = {
 						["Атака ближнего боя"] = {
 							["Details"] = {
-								["Нет сопротивлений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 40,
-									["amount"] = 0,
+								["Multistrike"] = {
+									["max"] = 302,
+									["min"] = 269,
+									["count"] = 2,
+									["amount"] = 571,
+								},
+								["Hit"] = {
+									["max"] = 1306,
+									["min"] = 830,
+									["count"] = 15,
+									["amount"] = 16415,
 								},
 							},
-							["count"] = 40,
-							["amount"] = 0,
-						},
-						["Гнев"] = {
-							["Details"] = {
-								["Нет сопротивлений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 3,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 3,
-							["amount"] = 0,
-						},
-					},
-					["DamagedWho"] = {
-						["Стручлинг-пяткокус"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 830,
-								},
-							},
-							["amount"] = 830,
-						},
-						["Стручлинг-зверолов"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 14958,
-								},
-							},
-							["amount"] = 14958,
-						},
-						["Стручлинг-брызгун"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 1198,
-								},
-							},
-							["amount"] = 1198,
+							["count"] = 17,
+							["amount"] = 16986,
 						},
 					},
 					["PartialAbsorb"] = {
@@ -2952,6 +2904,19 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
+					["ElementHitsDone"] = {
+						["Melee"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 2,
+								},
+								["Hit"] = {
+									["count"] = 15,
+								},
+							},
+							["amount"] = 17,
+						},
+					},
 					["ActiveTime"] = 20.75,
 					["TimeDamaging"] = {
 						["Стручлинг-пяткокус"] = {
@@ -2983,8 +2948,43 @@ RecountPerCharDB = {
 						["Melee"] = 23760,
 						["Nature"] = 9735,
 					},
-					["ElementDone"] = {
-						["Melee"] = 16986,
+					["PartialResist"] = {
+						["Ядовитые брызги"] = {
+							["Details"] = {
+								["Нет сопротивлений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 6,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 6,
+							["amount"] = 0,
+						},
+						["Атака ближнего боя"] = {
+							["Details"] = {
+								["Нет сопротивлений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 40,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 40,
+							["amount"] = 0,
+						},
+						["Гнев"] = {
+							["Details"] = {
+								["Нет сопротивлений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 3,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 3,
+							["amount"] = 0,
+						},
 					},
 					["Damage"] = 16986,
 				},
@@ -3051,7 +3051,7 @@ RecountPerCharDB = {
 			["LastFightIn"] = 19,
 			["type"] = "Pet",
 			["FightsSaved"] = 5,
-			["LastAbility"] = 27664.913,
+			["LastAbility"] = 111176.621,
 			["LastEventTimes"] = {
 				26273.998, -- [1]
 				26275.411, -- [2]
@@ -3155,43 +3155,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -3199,16 +3197,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -3220,22 +3219,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -3258,43 +3258,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -3302,16 +3300,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -3323,22 +3322,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -6069,7 +6069,6 @@ RecountPerCharDB = {
 					},
 				}, -- [8]
 			},
-			["GUID"] = "Player-1923-03448721",
 			["TimeLast"] = {
 				["TimeHeal"] = 1416443513,
 				["Healing"] = 1416443513,
@@ -6077,12 +6076,12 @@ RecountPerCharDB = {
 				["Overhealing"] = 1416443463,
 				["OVERALL"] = 1416443597,
 				["DamageTaken"] = 1416443597,
-				["Interrupts"] = 1416443061,
+				["ActiveTime"] = 1416443513,
 				["Absorbs"] = 1416443519,
 				["HealingTaken"] = 1416443513,
 				["HOT_Time"] = 1416441637,
+				["Interrupts"] = 1416443061,
 				["TimeDamage"] = 1416443513,
-				["ActiveTime"] = 1416443513,
 				["ManaGain"] = 1416441844,
 				["DOT_Time"] = 1416443511,
 				["Damage"] = 1416443513,
@@ -6144,11 +6143,11 @@ RecountPerCharDB = {
 				["TimeHeal"] = {
 					479.23, -- [1]
 				},
-				["ActiveTime"] = {
-					3525.02, -- [1]
-				},
 				["DeathCount"] = {
 					8, -- [1]
+				},
+				["Overhealing"] = {
+					1539496, -- [1]
 				},
 				["Healing"] = {
 					2565326, -- [1]
@@ -6156,8 +6155,8 @@ RecountPerCharDB = {
 				["DamageTaken"] = {
 					3384580, -- [1]
 				},
-				["Overhealing"] = {
-					1539496, -- [1]
+				["ActiveTime"] = {
+					3525.02, -- [1]
 				},
 				["Absorbs"] = {
 					1417802, -- [1]
@@ -6186,57 +6185,58 @@ RecountPerCharDB = {
 			},
 			["enClass"] = "PRIEST",
 			["LastDamageTaken"] = 1230,
-			["LastEventHealth"] = {
-				"65540 (86%)", -- [1]
-				"65540 (86%)", -- [2]
-				"65540 (86%)", -- [3]
-				"65540 (86%)", -- [4]
-				"66553 (88%)", -- [5]
-				"66553 (88%)", -- [6]
-				"66553 (88%)", -- [7]
-				"66553 (88%)", -- [8]
-				"66553 (88%)", -- [9]
-				"66553 (88%)", -- [10]
-				"66553 (88%)", -- [11]
-				"66553 (88%)", -- [12]
-				"66553 (88%)", -- [13]
-				"66553 (88%)", -- [14]
-				"66553 (88%)", -- [15]
-				"67327 (89%)", -- [16]
-				"68756 (90%)", -- [17]
-				"74395 (98%)", -- [18]
-				"58823 (77%)", -- [19]
-				"58823 (77%)", -- [20]
-				"59597 (78%)", -- [21]
-				"59597 (78%)", -- [22]
-				"59621 (78%)", -- [23]
-				"59621 (78%)", -- [24]
-				"59633 (78%)", -- [25]
-				"59633 (78%)", -- [26]
-				"55145 (72%)", -- [27]
-				"55145 (72%)", -- [28]
-				"55145 (72%)", -- [29]
-				"54393 (71%)", -- [30]
-				"54393 (71%)", -- [31]
-				"48194 (63%)", -- [32]
-				"48968 (64%)", -- [33]
-				"48968 (64%)", -- [34]
-				"48968 (64%)", -- [35]
-				"48968 (64%)", -- [36]
-				"62746 (82%)", -- [37]
-				"62746 (82%)", -- [38]
-				"62746 (82%)", -- [39]
-				"62746 (82%)", -- [40]
-				"62746 (82%)", -- [41]
-				"63521 (83%)", -- [42]
-				"63521 (83%)", -- [43]
-				"63753 (84%)", -- [44]
-				"63753 (84%)", -- [45]
-				"63753 (84%)", -- [46]
-				"64527 (85%)", -- [47]
-				"64527 (85%)", -- [48]
-				"65540 (86%)", -- [49]
-				"65540 (86%)", -- [50]
+			["LastAbility"] = 111176.621,
+			["LastEventTimes"] = {
+				39403.314, -- [1]
+				39403.6, -- [2]
+				39403.784, -- [3]
+				39404.011, -- [4]
+				39404.011, -- [5]
+				39404.175, -- [6]
+				39405.411, -- [7]
+				39405.593, -- [8]
+				39405.858, -- [9]
+				39406.285, -- [10]
+				39406.428, -- [11]
+				39406.428, -- [12]
+				39408.437, -- [13]
+				39408.437, -- [14]
+				39408.437, -- [15]
+				39408.437, -- [16]
+				39431.745, -- [17]
+				39491.258, -- [18]
+				39391.292, -- [19]
+				39391.292, -- [20]
+				39391.292, -- [21]
+				39391.738, -- [22]
+				39391.738, -- [23]
+				39392.288, -- [24]
+				39392.288, -- [25]
+				39392.814, -- [26]
+				39393.909, -- [27]
+				39394.132, -- [28]
+				39394.234, -- [29]
+				39394.234, -- [30]
+				39395.761, -- [31]
+				39396.306, -- [32]
+				39396.306, -- [33]
+				39396.964, -- [34]
+				39397.316, -- [35]
+				39397.75, -- [36]
+				39399.264, -- [37]
+				39399.78, -- [38]
+				39399.965, -- [39]
+				39400.23, -- [40]
+				39400.64, -- [41]
+				39400.64, -- [42]
+				39401.008, -- [43]
+				39401.008, -- [44]
+				39401.822, -- [45]
+				39402.044, -- [46]
+				39402.044, -- [47]
+				39402.044, -- [48]
+				39402.044, -- [49]
+				39402.577, -- [50]
 			},
 			["unit"] = "Манриэль",
 			["level"] = 92,
@@ -6261,18 +6261,18 @@ RecountPerCharDB = {
 				1.02347107438017, -- [16]
 				8.26446280991736, -- [17]
 				1.62644628099174, -- [18]
-				[21] = 1.02347107438017,
-				[23] = 0.0317355371900826,
 				[25] = 0.0158677685950413,
 				[27] = 5.93454545454546,
 				[30] = 0.994380165289256,
 				[31] = 8.19702479338843,
-				[33] = 1.02347107438017,
-				[37] = 18.2188429752066,
-				[42] = 1.02479338842975,
-				[44] = 0.306776859504132,
 				[47] = 1.02347107438017,
 				[49] = 1.33950413223141,
+				[33] = 1.02347107438017,
+				[23] = 0.0317355371900826,
+				[21] = 1.02347107438017,
+				[42] = 1.02479338842975,
+				[44] = 0.306776859504132,
+				[37] = 18.2188429752066,
 			},
 			["type"] = "Self",
 			["FightsSaved"] = 5,
@@ -6301,7 +6301,7 @@ RecountPerCharDB = {
 					},
 				},
 			},
-			["LastAbility"] = 39408.437,
+			["GUID"] = "Player-1923-03448721",
 			["Owner"] = false,
 			["Pet"] = {
 				"Исчадие Тьмы <Манриэль>", -- [1]
@@ -6469,57 +6469,57 @@ RecountPerCharDB = {
 				false, -- [50]
 			},
 			["Name"] = "Манриэль",
-			["LastEventTimes"] = {
-				39403.314, -- [1]
-				39403.6, -- [2]
-				39403.784, -- [3]
-				39404.011, -- [4]
-				39404.011, -- [5]
-				39404.175, -- [6]
-				39405.411, -- [7]
-				39405.593, -- [8]
-				39405.858, -- [9]
-				39406.285, -- [10]
-				39406.428, -- [11]
-				39406.428, -- [12]
-				39408.437, -- [13]
-				39408.437, -- [14]
-				39408.437, -- [15]
-				39408.437, -- [16]
-				39431.745, -- [17]
-				39491.258, -- [18]
-				39391.292, -- [19]
-				39391.292, -- [20]
-				39391.292, -- [21]
-				39391.738, -- [22]
-				39391.738, -- [23]
-				39392.288, -- [24]
-				39392.288, -- [25]
-				39392.814, -- [26]
-				39393.909, -- [27]
-				39394.132, -- [28]
-				39394.234, -- [29]
-				39394.234, -- [30]
-				39395.761, -- [31]
-				39396.306, -- [32]
-				39396.306, -- [33]
-				39396.964, -- [34]
-				39397.316, -- [35]
-				39397.75, -- [36]
-				39399.264, -- [37]
-				39399.78, -- [38]
-				39399.965, -- [39]
-				39400.23, -- [40]
-				39400.64, -- [41]
-				39400.64, -- [42]
-				39401.008, -- [43]
-				39401.008, -- [44]
-				39401.822, -- [45]
-				39402.044, -- [46]
-				39402.044, -- [47]
-				39402.044, -- [48]
-				39402.044, -- [49]
-				39402.577, -- [50]
+			["LastEventHealth"] = {
+				"65540 (86%)", -- [1]
+				"65540 (86%)", -- [2]
+				"65540 (86%)", -- [3]
+				"65540 (86%)", -- [4]
+				"66553 (88%)", -- [5]
+				"66553 (88%)", -- [6]
+				"66553 (88%)", -- [7]
+				"66553 (88%)", -- [8]
+				"66553 (88%)", -- [9]
+				"66553 (88%)", -- [10]
+				"66553 (88%)", -- [11]
+				"66553 (88%)", -- [12]
+				"66553 (88%)", -- [13]
+				"66553 (88%)", -- [14]
+				"66553 (88%)", -- [15]
+				"67327 (89%)", -- [16]
+				"68756 (90%)", -- [17]
+				"74395 (98%)", -- [18]
+				"58823 (77%)", -- [19]
+				"58823 (77%)", -- [20]
+				"59597 (78%)", -- [21]
+				"59597 (78%)", -- [22]
+				"59621 (78%)", -- [23]
+				"59621 (78%)", -- [24]
+				"59633 (78%)", -- [25]
+				"59633 (78%)", -- [26]
+				"55145 (72%)", -- [27]
+				"55145 (72%)", -- [28]
+				"55145 (72%)", -- [29]
+				"54393 (71%)", -- [30]
+				"54393 (71%)", -- [31]
+				"48194 (63%)", -- [32]
+				"48968 (64%)", -- [33]
+				"48968 (64%)", -- [34]
+				"48968 (64%)", -- [35]
+				"48968 (64%)", -- [36]
+				"62746 (82%)", -- [37]
+				"62746 (82%)", -- [38]
+				"62746 (82%)", -- [39]
+				"62746 (82%)", -- [40]
+				"62746 (82%)", -- [41]
+				"63521 (83%)", -- [42]
+				"63521 (83%)", -- [43]
+				"63753 (84%)", -- [44]
+				"63753 (84%)", -- [45]
+				"63753 (84%)", -- [46]
+				"64527 (85%)", -- [47]
+				"64527 (85%)", -- [48]
+				"65540 (86%)", -- [49]
+				"65540 (86%)", -- [50]
 			},
 			["Fights"] = {
 				["Fight3"] = {
@@ -6621,7 +6621,8 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
-					["ElementTakenResist"] = {
+					["ElementDoneAbsorb"] = {
+						["Holy"] = 0,
 					},
 					["DOTs"] = {
 						["Прикосновение вампира (УЗВ)"] = {
@@ -6685,13 +6686,13 @@ RecountPerCharDB = {
 								["Лягушка Сумрачной рощи"] = {
 									["count"] = 0,
 								},
-								["Ветроклыкий бегун"] = {
-									["count"] = 0,
-								},
 								["Грибной монстр Сумрачной рощи"] = {
 									["count"] = 0,
 								},
 								["Железный щитоносец"] = {
+									["count"] = 0,
+								},
+								["Ветроклыкий бегун"] = {
 									["count"] = 0,
 								},
 								["Грибной великан"] = {
@@ -6744,11 +6745,11 @@ RecountPerCharDB = {
 								["Истерзанный Бездной дух"] = {
 									["count"] = 0,
 								},
-								["Временная ярость"] = {
-									["count"] = 18,
-								},
 								["Командир Ворка"] = {
 									["count"] = 0,
+								},
+								["Временная ярость"] = {
+									["count"] = 18,
 								},
 								["Сущность страдания"] = {
 									["count"] = 0,
@@ -6785,10 +6786,10 @@ RecountPerCharDB = {
 								["Завыватель Сумрачной рощи"] = {
 									["count"] = 0,
 								},
-								["Ревнительница из клана Призрачной Луны"] = {
+								["Лезвие Бездны из клана Призрачной Луны"] = {
 									["count"] = 0,
 								},
-								["Лезвие Бездны из клана Призрачной Луны"] = {
+								["Ревнительница из клана Призрачной Луны"] = {
 									["count"] = 0,
 								},
 								["Ревнитель из клана Призрачной Луны"] = {
@@ -6844,7 +6845,7 @@ RecountPerCharDB = {
 					},
 					["Ressed"] = 0,
 					["DamageTaken"] = 48499,
-					["RageGainedFrom"] = {
+					["ElementTakenResist"] = {
 					},
 					["Absorbs"] = 24199,
 					["DeathCount"] = 0,
@@ -6957,692 +6958,49 @@ RecountPerCharDB = {
 						["Shadow"] = 6611,
 						["Holy"] = 46260,
 					},
+					["ElementHitsDone"] = {
+						["Shadow"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 2,
+								},
+								["Immune"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Tick"] = {
+									["count"] = 6,
+								},
+							},
+							["amount"] = 9,
+						},
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 14,
+								},
+								["Multistrike"] = {
+									["count"] = 6,
+								},
+								["Crit"] = {
+									["count"] = 3,
+								},
+								["Hit"] = {
+									["count"] = 21,
+								},
+							},
+							["amount"] = 44,
+						},
+					},
 					["ManaGainedFrom"] = {
 						["Манриэль"] = {
 							["Details"] = {
 								["Благосклонность наару"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["DamagedWho"] = {
-						["Оскверненный предок"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Лягушка Сумрачной рощи"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ревнительница из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Сущность страдания"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный громила"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-брызгун"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный щитоносец"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сущность К'ары"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ветроклыкий бегун"] = {
-							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Временная ярость"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 1832,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 4779,
-								},
-								["Исповедь"] = {
-									["count"] = 13739,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 1097,
-								},
-								["Кара"] = {
-									["count"] = 24507,
-								},
-								["Священный огонь"] = {
-									["count"] = 6917,
-								},
-							},
-							["amount"] = 52871,
-						},
-						["Истерзанный Бездной дух"] = {
-							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Владыка Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Горен Зашедшей Луны"] = {
-							["Details"] = {
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железная ружейница"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Пророк из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ревнитель из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Жрица Пустоты из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-плевун"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Тотем щита Бездны"] = {
-							["Details"] = {
-								["Кара"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-сторож"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Лезвие Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ритуалист из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Чаротворец клана Призрачной Луны"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Страж Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Сущность К'ары"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-пяткокус"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Грибной великан"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный резервист"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Сущность К'ары"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Завыватель Сумрачной рощи"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Цепкий усик"] = {
-							["Details"] = {
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Детеныш горена Зашедшей Луны"] = {
-							["Details"] = {
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Фрагмент тьмы"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Грибной монстр Сумрачной рощи"] = {
-							["Details"] = {
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный рубака"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченный Бездной провидец"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Сущность К'ары"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Командир Ворка"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 							},
@@ -7856,9 +7214,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Железный флот"] = {
+						["Фрагмент тьмы"] = {
 							["Details"] = {
-								["Черные небеса"] = {
+								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
@@ -7872,7 +7230,7 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Фрагмент тьмы"] = {
+						["Цепкий усик"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
 									["count"] = 0,
@@ -7888,12 +7246,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Детеныш горена Зашедшей Луны"] = {
+						["Environment"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-								["Разъедающий доспехи укус"] = {
+								["Falling"] = {
 									["count"] = 0,
 								},
 							},
@@ -7943,9 +7298,12 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Цепкий усик"] = {
+						["Детеныш горена Зашедшей Луны"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+								["Разъедающий доспехи укус"] = {
 									["count"] = 0,
 								},
 							},
@@ -7995,9 +7353,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Environment"] = {
+						["Железный флот"] = {
 							["Details"] = {
-								["Falling"] = {
+								["Черные небеса"] = {
 									["count"] = 0,
 								},
 							},
@@ -8053,9 +7411,39 @@ RecountPerCharDB = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["CCBroken"] = {
+					["Absorbed"] = {
+						["Божественное покровительство"] = {
+							["Details"] = {
+								["Ирель"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Манриэль"] = {
+									["max"] = 34,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 55,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 55,
+						},
+						["Слово силы: Щит"] = {
+							["Details"] = {
+								["Манриэль"] = {
+									["max"] = 24144,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 24144,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 24144,
+						},
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -8947,7 +8335,7 @@ RecountPerCharDB = {
 						},
 						["Истерзанный Бездной дух"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
@@ -8956,7 +8344,7 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Священный огонь"] = {
+								["Священный огонь (УЗВ)"] = {
 									["count"] = 0,
 								},
 								["Кара"] = {
@@ -9224,9 +8612,36 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Цепкий усик"] = {
+						["Грибной великан"] = {
 							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
 								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 							},
@@ -9269,36 +8684,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Грибной великан"] = {
+						["Цепкий усик"] = {
 							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
 								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 							},
@@ -10156,18 +9544,6 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Каскад"] = {
-							["Details"] = {
-								["Hit"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
 						["Быстрое исцеление"] = {
 							["Details"] = {
 								["Hit"] = {
@@ -10181,6 +9557,18 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 						["Исповедь"] = {
+							["Details"] = {
+								["Hit"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Исцеление"] = {
 							["Details"] = {
 								["Hit"] = {
 									["max"] = 0,
@@ -10222,7 +9610,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Исцеление"] = {
+						["Каскад"] = {
 							["Details"] = {
 								["Hit"] = {
 									["max"] = 0,
@@ -10236,75 +9624,688 @@ RecountPerCharDB = {
 						},
 					},
 					["Healing"] = 35043,
-					["Absorbed"] = {
-						["Божественное покровительство"] = {
-							["Details"] = {
-								["Ирель"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Манриэль"] = {
-									["max"] = 34,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 55,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 55,
-						},
-						["Слово силы: Щит"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 24144,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 24144,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 24144,
-						},
+					["RunicPowerGained"] = {
 					},
-					["ElementHitsDone"] = {
-						["Shadow"] = {
+					["DamagedWho"] = {
+						["Оскверненный предок"] = {
 							["Details"] = {
-								["Multistrike"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 2,
-								},
-								["Immune"] = {
+								["Иссушение разума"] = {
 									["count"] = 0,
 								},
-								["Crit"] = {
+								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Tick"] = {
-									["count"] = 6,
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
 								},
 							},
-							["amount"] = 9,
+							["amount"] = 0,
 						},
-						["Holy"] = {
+						["Лягушка Сумрачной рощи"] = {
 							["Details"] = {
-								["Tick"] = {
-									["count"] = 14,
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
 								},
-								["Multistrike"] = {
-									["count"] = 6,
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
 								},
-								["Crit"] = {
-									["count"] = 3,
-								},
-								["Hit"] = {
-									["count"] = 21,
+								["Всепожирающая чума"] = {
+									["count"] = 0,
 								},
 							},
-							["amount"] = 44,
+							["amount"] = 0,
+						},
+						["Ревнительница из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Сущность страдания"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный громила"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-брызгун"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный щитоносец"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сущность К'ары"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Ветроклыкий бегун"] = {
+							["Details"] = {
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Временная ярость"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 1832,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 4779,
+								},
+								["Исповедь"] = {
+									["count"] = 13739,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 1097,
+								},
+								["Кара"] = {
+									["count"] = 24507,
+								},
+								["Священный огонь"] = {
+									["count"] = 6917,
+								},
+							},
+							["amount"] = 52871,
+						},
+						["Истерзанный Бездной дух"] = {
+							["Details"] = {
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Владыка Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Горен Зашедшей Луны"] = {
+							["Details"] = {
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Кольцо света"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железная ружейница"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Пророк из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Ревнитель из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Жрица Пустоты из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-плевун"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Тотем щита Бездны"] = {
+							["Details"] = {
+								["Кара"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-сторож"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Лезвие Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Ритуалист из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Чаротворец клана Призрачной Луны"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Страж Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Сущность К'ары"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-пяткокус"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Грибной великан"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный резервист"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Сущность К'ары"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Завыватель Сумрачной рощи"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Цепкий усик"] = {
+							["Details"] = {
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Детеныш горена Зашедшей Луны"] = {
+							["Details"] = {
+								["Кольцо света"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Фрагмент тьмы"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Грибной монстр Сумрачной рощи"] = {
+							["Details"] = {
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный рубака"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Отмеченный Бездной провидец"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Сущность К'ары"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Командир Ворка"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
 						},
 					},
 					["Attacks"] = {
@@ -10904,7 +10905,7 @@ RecountPerCharDB = {
 						},
 						["Истерзанный Бездной дух"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
@@ -10913,7 +10914,7 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Священный огонь"] = {
+								["Священный огонь (УЗВ)"] = {
 									["count"] = 0,
 								},
 								["Кара"] = {
@@ -11195,9 +11196,24 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Цепкий усик"] = {
+						["Завыватель Сумрачной рощи"] = {
 							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
 								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
 									["count"] = 0,
 								},
 							},
@@ -11221,29 +11237,6 @@ RecountPerCharDB = {
 									["count"] = 0,
 								},
 								["Сущность К'ары"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Завыватель Сумрачной рощи"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль"] = {
@@ -11282,6 +11275,14 @@ RecountPerCharDB = {
 									["count"] = 0,
 								},
 								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Цепкий усик"] = {
+							["Details"] = {
+								["Слово Тьмы: Смерть"] = {
 									["count"] = 0,
 								},
 							},
@@ -11406,8 +11407,7 @@ RecountPerCharDB = {
 						},
 					},
 					["ManaGain"] = 0,
-					["ElementDoneAbsorb"] = {
-						["Holy"] = 0,
+					["RageGainedFrom"] = {
 					},
 					["DispelledWho"] = {
 					},
@@ -11499,7 +11499,7 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
-					["ElementTakenResist"] = {
+					["ElementDoneAbsorb"] = {
 					},
 					["DOTs"] = {
 						["Прикосновение вампира (УЗВ)"] = {
@@ -11522,10 +11522,10 @@ RecountPerCharDB = {
 								["Железный ружейник"] = {
 									["count"] = 0,
 								},
-								["Железный щитоносец"] = {
+								["Аркеддон"] = {
 									["count"] = 0,
 								},
-								["Аркеддон"] = {
+								["Железный щитоносец"] = {
 									["count"] = 0,
 								},
 								["Чаротворец клана Призрачной Луны"] = {
@@ -11642,10 +11642,10 @@ RecountPerCharDB = {
 								["Железный ружейник"] = {
 									["count"] = 0,
 								},
-								["Железный щитоносец"] = {
+								["Аркеддон"] = {
 									["count"] = 0,
 								},
-								["Аркеддон"] = {
+								["Железный щитоносец"] = {
 									["count"] = 0,
 								},
 								["Лезвие Бездны из клана Призрачной Луны"] = {
@@ -11686,7 +11686,7 @@ RecountPerCharDB = {
 					},
 					["Ressed"] = 0,
 					["DamageTaken"] = 10323,
-					["RageGainedFrom"] = {
+					["ElementTakenResist"] = {
 					},
 					["Absorbs"] = 37245,
 					["DeathCount"] = 0,
@@ -11804,569 +11804,46 @@ RecountPerCharDB = {
 						["Shadow"] = 11351,
 						["Holy"] = 72213,
 					},
+					["ElementHitsDone"] = {
+						["Shadow"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 12,
+								},
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 2,
+								},
+							},
+							["amount"] = 14,
+						},
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 25,
+								},
+								["Multistrike"] = {
+									["count"] = 8,
+								},
+								["Crit"] = {
+									["count"] = 6,
+								},
+								["Hit"] = {
+									["count"] = 27,
+								},
+							},
+							["amount"] = 66,
+						},
+					},
 					["ManaGainedFrom"] = {
 						["Манриэль"] = {
 							["Details"] = {
 								["Благосклонность наару"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["DamagedWho"] = {
-						["Горен Зашедшей Луны"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Пророк из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Послушник из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ревнитель из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Призрачный жемчужношкурый элекк"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Завыватель Сумрачной рощи"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-зверолов"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Лезвие Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-брызгун"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ритуалист из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Запятнанный легкокрыл"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Чаротворец клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Страж Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-пяткокус"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Король Бутон Смерти"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченный Бездной провидец"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Истерзанный Бездной дух"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Темный маг из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный щитоносец"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный ружейник"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Фрагмент тьмы"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Морва Исказительница Душ"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 1877,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 9474,
-								},
-								["Исповедь"] = {
-									["count"] = 26870,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 1770,
-								},
-								["Кара"] = {
-									["count"] = 34351,
-								},
-								["Священный огонь"] = {
-									["count"] = 9222,
-								},
-							},
-							["amount"] = 83564,
-						},
-						["Оскверненный предок"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Аркеддон"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Лесной паучонок"] = {
-							["Details"] = {
-								["Сияние"] = {
 									["count"] = 0,
 								},
 							},
@@ -12442,6 +11919,33 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
+						["Оскверненный предок"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-брызгун"] = {
+							["Details"] = {
+								["Ядовитые брызги"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Темный маг из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+								["Потрескивание Бездны (УЗВ)"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 						["Морва Исказительница Душ"] = {
 							["Details"] = {
 								["Шторм Бездны"] = {
@@ -12455,30 +11959,6 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 10323,
-						},
-						["Истерзанный Бездной дух"] = {
-							["Details"] = {
-								["Удар духов стихии"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Фрагмент тьмы"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Оскверненный предок"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
 						},
 						["Стручлинг-зверолов"] = {
 							["Details"] = {
@@ -12502,9 +11982,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Стручлинг-брызгун"] = {
+						["Запятнанный легкокрыл"] = {
 							["Details"] = {
-								["Ядовитые брызги"] = {
+								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
@@ -12521,9 +12001,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Железный флот"] = {
+						["Фрагмент тьмы"] = {
 							["Details"] = {
-								["Черные небеса"] = {
+								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
@@ -12578,20 +12058,17 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["No One"] = {
+						["Истерзанный Бездной дух"] = {
 							["Details"] = {
-								["Вспышка (УЗВ)"] = {
+								["Удар духов стихии"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Темный маг из клана Призрачной Луны"] = {
+						["No One"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-								["Потрескивание Бездны (УЗВ)"] = {
+								["Вспышка (УЗВ)"] = {
 									["count"] = 0,
 								},
 							},
@@ -12632,9 +12109,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Ловчий Призрачной Луны"] = {
+						["Железный флот"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
+								["Черные небеса"] = {
 									["count"] = 0,
 								},
 							},
@@ -12651,7 +12128,7 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Запятнанный легкокрыл"] = {
+						["Ловчий Призрачной Луны"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
 									["count"] = 0,
@@ -12662,9 +12139,33 @@ RecountPerCharDB = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["CCBroken"] = {
+					["Absorbed"] = {
+						["Божественное покровительство"] = {
+							["Details"] = {
+								["Манриэль"] = {
+									["max"] = 1431,
+									["min"] = 0,
+									["count"] = 5,
+									["amount"] = 4702,
+								},
+							},
+							["count"] = 5,
+							["amount"] = 4702,
+						},
+						["Слово силы: Щит"] = {
+							["Details"] = {
+								["Манриэль"] = {
+									["max"] = 18670,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 32543,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 32543,
+						},
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -12677,9 +12178,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Раненая защитница Карабора"] = {
+						["Ружейница Зашедшей Луны"] = {
 							["Details"] = {
-								["Быстрое исцеление"] = {
+								["Каскад"] = {
 									["count"] = 0,
 								},
 							},
@@ -12699,9 +12200,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Ружейница Зашедшей Луны"] = {
+						["Раненая защитница Карабора"] = {
 							["Details"] = {
-								["Каскад"] = {
+								["Быстрое исцеление"] = {
 									["count"] = 0,
 								},
 							},
@@ -12782,9 +12283,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Раненая защитница Карабора"] = {
+						["Ружейница Зашедшей Луны"] = {
 							["Details"] = {
-								["Быстрое исцеление"] = {
+								["Каскад"] = {
 									["count"] = 0,
 								},
 							},
@@ -12804,9 +12305,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Ружейница Зашедшей Луны"] = {
+						["Раненая защитница Карабора"] = {
 							["Details"] = {
-								["Каскад"] = {
+								["Быстрое исцеление"] = {
 									["count"] = 0,
 								},
 							},
@@ -13003,26 +12504,26 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Шторм Бездны"] = {
+						["Прикосновение Бездны"] = {
 							["Details"] = {
-								["Поглощено"] = {
-									["max"] = 5004,
-									["min"] = 4102,
-									["count"] = 5,
-									["amount"] = 23419,
-								},
 								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 1,
+									["count"] = 0,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 6,
-							["amount"] = 23419,
+							["count"] = 0,
+							["amount"] = 0,
 						},
-						["Удары Пустоты"] = {
+						["Потрескивание Бездны (УЗВ)"] = {
 							["Details"] = {
+								["Поглощено"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
 								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
@@ -13075,7 +12576,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Прикосновение Бездны"] = {
+						["Удары Пустоты"] = {
 							["Details"] = {
 								["Нет поглощений"] = {
 									["max"] = 0,
@@ -13087,15 +12588,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Потрескивание Бездны (УЗВ)"] = {
+						["Импульс Бездны"] = {
 							["Details"] = {
 								["Поглощено"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -13213,18 +12708,6 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Импульс Бездны"] = {
-							["Details"] = {
-								["Поглощено"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
 						["Falling"] = {
 							["Details"] = {
 								["Нет поглощений"] = {
@@ -13236,6 +12719,24 @@ RecountPerCharDB = {
 							},
 							["count"] = 0,
 							["amount"] = 0,
+						},
+						["Шторм Бездны"] = {
+							["Details"] = {
+								["Поглощено"] = {
+									["max"] = 5004,
+									["min"] = 4102,
+									["count"] = 5,
+									["amount"] = 23419,
+								},
+								["Нет поглощений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 6,
+							["amount"] = 23419,
 						},
 						["Удар головой"] = {
 							["Details"] = {
@@ -14193,19 +13694,19 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Шторм Бездны"] = {
+						["Прикосновение Бездны"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 6,
+									["count"] = 0,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 6,
+							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Удары Пустоты"] = {
+						["Потрескивание Бездны (УЗВ)"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -14253,7 +13754,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Прикосновение Бездны"] = {
+						["Удары Пустоты"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -14265,7 +13766,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Потрескивание Бездны (УЗВ)"] = {
+						["Импульс Бездны"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -14373,7 +13874,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Импульс Бездны"] = {
+						["Falling"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -14385,16 +13886,16 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Falling"] = {
+						["Шторм Бездны"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 0,
+									["count"] = 6,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 0,
+							["count"] = 6,
 							["amount"] = 0,
 						},
 						["Удар головой"] = {
@@ -14535,66 +14036,565 @@ RecountPerCharDB = {
 						},
 					},
 					["Healing"] = 41374,
-					["Absorbed"] = {
-						["Божественное покровительство"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 1431,
-									["min"] = 0,
-									["count"] = 5,
-									["amount"] = 4702,
-								},
-							},
-							["count"] = 5,
-							["amount"] = 4702,
-						},
-						["Слово силы: Щит"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 18670,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 32543,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 32543,
-						},
+					["RunicPowerGained"] = {
 					},
-					["ElementHitsDone"] = {
-						["Shadow"] = {
+					["DamagedWho"] = {
+						["Горен Зашедшей Луны"] = {
 							["Details"] = {
-								["Tick"] = {
-									["count"] = 12,
-								},
-								["Multistrike"] = {
+								["Иссушение разума"] = {
 									["count"] = 0,
 								},
-								["Crit"] = {
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
-								["Hit"] = {
-									["count"] = 2,
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Кольцо света"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
 								},
 							},
-							["amount"] = 14,
+							["amount"] = 0,
 						},
-						["Holy"] = {
+						["Пророк из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Tick"] = {
-									["count"] = 25,
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
 								},
-								["Multistrike"] = {
-									["count"] = 8,
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
 								},
-								["Crit"] = {
-									["count"] = 6,
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
 								},
-								["Hit"] = {
-									["count"] = 27,
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
 								},
 							},
-							["amount"] = 66,
+							["amount"] = 0,
+						},
+						["Послушник из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Ревнитель из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Призрачный жемчужношкурый элекк"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Завыватель Сумрачной рощи"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-зверолов"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Лезвие Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-брызгун"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Ритуалист из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Запятнанный легкокрыл"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Чаротворец клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Страж Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-пяткокус"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Король Бутон Смерти"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Отмеченный Бездной провидец"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Истерзанный Бездной дух"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Темный маг из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный щитоносец"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный ружейник"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Фрагмент тьмы"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Морва Исказительница Душ"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 1877,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 9474,
+								},
+								["Исповедь"] = {
+									["count"] = 26870,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 1770,
+								},
+								["Кара"] = {
+									["count"] = 34351,
+								},
+								["Священный огонь"] = {
+									["count"] = 9222,
+								},
+							},
+							["amount"] = 83564,
+						},
+						["Оскверненный предок"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Аркеддон"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Лесной паучонок"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
 						},
 					},
 					["Attacks"] = {
@@ -15511,7 +15511,7 @@ RecountPerCharDB = {
 						},
 					},
 					["ManaGain"] = 0,
-					["ElementDoneAbsorb"] = {
+					["RageGainedFrom"] = {
 					},
 					["DispelledWho"] = {
 					},
@@ -15595,7 +15595,8 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
-					["ElementTakenResist"] = {
+					["ElementDoneAbsorb"] = {
+						["Holy"] = 0,
 					},
 					["DOTs"] = {
 						["Прикосновение вампира (УЗВ)"] = {
@@ -15638,13 +15639,13 @@ RecountPerCharDB = {
 						},
 						["Всепожирающая чума (УЗВ)"] = {
 							["Details"] = {
+								["Нер'зул"] = {
+									["count"] = 0,
+								},
 								["Ужас Бездны"] = {
 									["count"] = 0,
 								},
 								["Флокс"] = {
-									["count"] = 0,
-								},
-								["Нер'зул"] = {
 									["count"] = 0,
 								},
 								["Завыватель Сумрачной рощи"] = {
@@ -15749,7 +15750,7 @@ RecountPerCharDB = {
 					},
 					["Ressed"] = 0,
 					["DamageTaken"] = 0,
-					["RageGainedFrom"] = {
+					["ElementTakenResist"] = {
 					},
 					["Absorbs"] = 0,
 					["DeathCount"] = 0,
@@ -15799,10 +15800,10 @@ RecountPerCharDB = {
 									["count"] = 0,
 								},
 								["Слово силы: Щит"] = {
-									["count"] = 1,
+									["count"] = 3,
 								},
 							},
-							["amount"] = 1,
+							["amount"] = 3,
 						},
 						["Ирель"] = {
 							["Details"] = {
@@ -15860,474 +15861,54 @@ RecountPerCharDB = {
 						["Melee"] = 0,
 						["Shadow"] = 0,
 					},
-					["ManaGainedFrom"] = {
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 0,
+								},
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Shadow"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Immune"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Tick"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 					},
-					["DamagedWho"] = {
-						["Горен Зашедшей Луны"] = {
-							["Details"] = {
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ужас Бездны"] = {
-							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Сущность тьмы"] = {
-							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ревнитель из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Камнезуб"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Аберрация Бездны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Пузатая жаба"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Лезвие Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Паук"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Жрица Пустоты из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Истерзанный Бездной дух"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Страж Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-пяткокус"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченный Бездной провидец"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченная Бездной провидица"] = {
-							["Details"] = {
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный щитоносец"] = {
-							["Details"] = {
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Темный маг из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Флокс"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Проницатель Бездны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Нер'зул"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Цепкий усик"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Детеныш горена Зашедшей Луны"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Восставший дух"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Завыватель Сумрачной рощи"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
+					["ManaGainedFrom"] = {
 					},
 					["RunicPowerGainedFrom"] = {
 					},
@@ -16429,17 +16010,28 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Истерзанный Бездной дух"] = {
+						["Детеныш горена Зашедшей Луны"] = {
 							["Details"] = {
-								["Удар духов стихии"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+								["Разъедающий доспехи укус"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Отмеченный Бездной провидец"] = {
+						["Ужас Бездны"] = {
 							["Details"] = {
-								["Потрескивание Бездны (УЗВ)"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Пророк из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Молния Бездны"] = {
 									["count"] = 0,
 								},
 							},
@@ -16456,20 +16048,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Отмеченная Бездной провидица"] = {
+						["Стручлинг-брызгун"] = {
 							["Details"] = {
-								["Потрескивание Бездны (УЗВ)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Детеныш горена Зашедшей Луны"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-								["Разъедающий доспехи укус"] = {
+								["Ядовитые брызги"] = {
 									["count"] = 0,
 								},
 							},
@@ -16489,9 +16070,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Стручлинг-брызгун"] = {
+						["Запятнанный легкокрыл"] = {
 							["Details"] = {
-								["Ядовитые брызги"] = {
+								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
@@ -16505,17 +16086,17 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["No One"] = {
+						["Истерзанный Бездной дух"] = {
 							["Details"] = {
-								["Смоляной взрыв"] = {
+								["Удар духов стихии"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Ужас Бездны"] = {
+						["Отмеченный Бездной провидец"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
+								["Потрескивание Бездны (УЗВ)"] = {
 									["count"] = 0,
 								},
 							},
@@ -16540,9 +16121,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Пророк из клана Призрачной Луны"] = {
+						["Отмеченная Бездной провидица"] = {
 							["Details"] = {
-								["Молния Бездны"] = {
+								["Потрескивание Бездны (УЗВ)"] = {
 									["count"] = 0,
 								},
 							},
@@ -16586,12 +16167,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Некролит из клана Призрачной Луны"] = {
+						["No One"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-								["Удары Пустоты"] = {
+								["Смоляной взрыв"] = {
 									["count"] = 0,
 								},
 							},
@@ -16616,6 +16194,17 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
+						["Некролит из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+								["Удары Пустоты"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 						["Ловчий Призрачной Луны"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
@@ -16635,20 +16224,36 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Запятнанный легкокрыл"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["CCBroken"] = {
+					["Absorbed"] = {
+						["Божественное покровительство"] = {
+							["Details"] = {
+								["Манриэль"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Слово силы: Щит"] = {
+							["Details"] = {
+								["Манриэль"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -16974,8 +16579,14 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Удары Пустоты"] = {
+						["Прикосновение Бездны"] = {
 							["Details"] = {
+								["Поглощено"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
 								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
@@ -16986,15 +16597,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Прикосновение Бездны"] = {
+						["Фиал яда"] = {
 							["Details"] = {
 								["Поглощено"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -17016,9 +16621,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Фиал яда"] = {
+						["Удары Пустоты"] = {
 							["Details"] = {
-								["Поглощено"] = {
+								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -17255,13 +16860,13 @@ RecountPerCharDB = {
 								["Взрыв разума"] = {
 									["count"] = 0,
 								},
-								["Слово Тьмы: Смерть"] = {
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Пронзание разума"] = {
+								["Слово Тьмы: Смерть"] = {
 									["count"] = 0,
 								},
 								["Пытка разума (УЗВ)"] = {
@@ -17369,32 +16974,56 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Истерзанный Бездной дух"] = {
+						["Восставший дух"] = {
 							["Details"] = {
-								["Слово Тьмы: Боль"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Исповедь"] = {
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
+								["Слово Тьмы: Боль"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Отмеченный Бездной провидец"] = {
+						["Ужас Бездны"] = {
 							["Details"] = {
-								["Иссушение разума"] = {
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 							},
@@ -17431,32 +17060,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Восставший дух"] = {
+						["Отмеченный Бездной провидец"] = {
 							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченная Бездной провидица"] = {
-							["Details"] = {
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
+								["Иссушение разума"] = {
 									["count"] = 0,
 								},
 							},
@@ -17468,6 +17074,29 @@ RecountPerCharDB = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Истерзанный Бездной дух"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 							},
@@ -17604,36 +17233,12 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Ужас Бездны"] = {
+						["Отмеченная Бездной провидица"] = {
 							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
 								["Пытка разума (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
+								["Взрыв разума"] = {
 									["count"] = 0,
 								},
 							},
@@ -18061,7 +17666,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Удары Пустоты"] = {
+						["Прикосновение Бездны"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -18073,7 +17678,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Прикосновение Бездны"] = {
+						["Фиал яда"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -18097,7 +17702,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Фиал яда"] = {
+						["Удары Пустоты"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -18379,73 +17984,469 @@ RecountPerCharDB = {
 						},
 					},
 					["Healing"] = 0,
-					["Absorbed"] = {
-						["Божественное покровительство"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
-						["Слово силы: Щит"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
+					["RunicPowerGained"] = {
 					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
+					["DamagedWho"] = {
+						["Горен Зашедшей Луны"] = {
 							["Details"] = {
-								["Tick"] = {
+								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Multistrike"] = {
+								["Иссушение разума"] = {
 									["count"] = 0,
 								},
-								["Crit"] = {
+								["Кара"] = {
 									["count"] = 0,
 								},
-								["Hit"] = {
+								["Кольцо света"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Melee"] = {
+						["Ужас Бездны"] = {
 							["Details"] = {
-								["Hit"] = {
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Shadow"] = {
+						["Сущность тьмы"] = {
 							["Details"] = {
-								["Multistrike"] = {
+								["Взрыв разума"] = {
 									["count"] = 0,
 								},
-								["Hit"] = {
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
-								["Immune"] = {
+								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Crit"] = {
+								["Слово Тьмы: Смерть"] = {
 									["count"] = 0,
 								},
-								["Tick"] = {
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Ревнитель из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Камнезуб"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кольцо света"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Аберрация Бездны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Пузатая жаба"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Лезвие Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Паук"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Жрица Пустоты из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный щитоносец"] = {
+							["Details"] = {
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Страж Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-пяткокус"] = {
+							["Details"] = {
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Отмеченный Бездной провидец"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Отмеченная Бездной провидица"] = {
+							["Details"] = {
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Истерзанный Бездной дух"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Темный маг из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Флокс"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Проницатель Бездны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Нер'зул"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Цепкий усик"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Детеныш горена Зашедшей Луны"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Кольцо света"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Восставший дух"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Завыватель Сумрачной рощи"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
 									["count"] = 0,
 								},
 							},
@@ -18930,13 +18931,13 @@ RecountPerCharDB = {
 								["Взрыв разума"] = {
 									["count"] = 0,
 								},
-								["Слово Тьмы: Смерть"] = {
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Пронзание разума"] = {
+								["Слово Тьмы: Смерть"] = {
 									["count"] = 0,
 								},
 								["Пытка разума (УЗВ)"] = {
@@ -19082,24 +19083,12 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Истерзанный Бездной дух"] = {
+						["Железный щитоносец"] = {
 							["Details"] = {
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
 									["count"] = 0,
 								},
 							},
@@ -19152,12 +19141,24 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Железный щитоносец"] = {
+						["Истерзанный Бездной дух"] = {
 							["Details"] = {
-								["Всепожирающая чума"] = {
+								["Слово Тьмы: Боль"] = {
 									["count"] = 0,
 								},
-								["Слово Тьмы: Боль"] = {
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 							},
@@ -19352,14 +19353,27 @@ RecountPerCharDB = {
 						},
 					},
 					["ManaGain"] = 0,
-					["ElementDoneAbsorb"] = {
-						["Holy"] = 0,
+					["RageGainedFrom"] = {
 					},
 					["DispelledWho"] = {
 					},
 				},
 				["Fight1"] = {
 					["ElementHitsTaken"] = {
+						["Physical"] = {
+							["Details"] = {
+								["Absorb"] = {
+									["count"] = 0,
+								},
+								["Dodge"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 						["Fire"] = {
 							["Details"] = {
 								["Absorb"] = {
@@ -19369,6 +19383,26 @@ RecountPerCharDB = {
 									["count"] = 0,
 								},
 								["Tick"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Absorb"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Dodge"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Miss"] = {
 									["count"] = 0,
 								},
 							},
@@ -19391,42 +19425,8 @@ RecountPerCharDB = {
 							},
 							["amount"] = 1,
 						},
-						["Melee"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
 					},
-					["ElementTakenBlock"] = {
+					["ElementTakenResist"] = {
 					},
 					["DOTs"] = {
 						["Прикосновение вампира (УЗВ)"] = {
@@ -19594,15 +19594,14 @@ RecountPerCharDB = {
 					["Absorbs"] = 16362,
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementDoneAbsorb"] = {
-						["Holy"] = 0,
-					},
 					["DOT_Time"] = 0,
+					["ElementTakenBlock"] = {
+					},
 					["ElementTaken"] = {
-						["Fire"] = 0,
-						["Shadow"] = 6250,
-						["Melee"] = 0,
 						["Physical"] = 0,
+						["Fire"] = 0,
+						["Melee"] = 0,
+						["Shadow"] = 6250,
 					},
 					["HOTs"] = {
 						["Объятия вампира"] = {
@@ -19615,7 +19614,7 @@ RecountPerCharDB = {
 						},
 					},
 					["Damage"] = 0,
-					["RunicPowerGainedFrom"] = {
+					["PartialBlock"] = {
 					},
 					["TimeHeal"] = 0,
 					["ShieldedWho"] = {
@@ -19633,42 +19632,25 @@ RecountPerCharDB = {
 					},
 					["Dispels"] = 0,
 					["HealingTaken"] = 0,
-					["ElementHitsDone"] = {
-						["Holy"] = {
+					["WhoHealed"] = {
+						["Манриэль"] = {
 							["Details"] = {
-								["Multistrike"] = {
+								["Благосклонность наару"] = {
 									["count"] = 0,
 								},
-								["Hit"] = {
+								["Быстрое исцеление"] = {
 									["count"] = 0,
 								},
-								["Tick"] = {
+								["Объятия вампира"] = {
 									["count"] = 0,
 								},
-								["Crit"] = {
+								["Искупление вины"] = {
 									["count"] = 0,
 								},
-								["Evade"] = {
+								["Всепожирающая чума"] = {
 									["count"] = 0,
 								},
-							},
-							["amount"] = 0,
-						},
-						["Shadow"] = {
-							["Details"] = {
-								["Multistrike"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Tick"] = {
+								["Молитва восстановления"] = {
 									["count"] = 0,
 								},
 							},
@@ -19677,13 +19659,21 @@ RecountPerCharDB = {
 					},
 					["FAttacks"] = {
 					},
-					["PartialBlock"] = {
+					["RageGained"] = {
 					},
 					["ElementDone"] = {
 						["Holy"] = 0,
 						["Shadow"] = 0,
 					},
-					["CCBroken"] = {
+					["ManaGainedFrom"] = {
+						["Манриэль"] = {
+							["Details"] = {
+								["Благосклонность наару"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 					},
 					["DamagedWho"] = {
 						["Раи'вош"] = {
@@ -20088,7 +20078,7 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
-					["RageGained"] = {
+					["RunicPowerGainedFrom"] = {
 					},
 					["WhoDamaged"] = {
 						["Пророк из клана Призрачной Луны"] = {
@@ -20318,33 +20308,9 @@ RecountPerCharDB = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
-					["Absorbed"] = {
-						["Божественное покровительство"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 16362,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 16362,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 16362,
-						},
-						["Слово силы: Щит"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
+					["RunicPowerGained"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -20382,13 +20348,13 @@ RecountPerCharDB = {
 								["Благосклонность наару"] = {
 									["count"] = 0,
 								},
-								["Искупление вины"] = {
+								["Молитва восстановления"] = {
 									["count"] = 0,
 								},
 								["Быстрое исцеление"] = {
 									["count"] = 0,
 								},
-								["Молитва восстановления"] = {
+								["Искупление вины"] = {
 									["count"] = 0,
 								},
 								["Божественное покровительство"] = {
@@ -20409,10 +20375,10 @@ RecountPerCharDB = {
 					},
 					["CCBreak"] = 0,
 					["ElementTakenAbsorb"] = {
-						["Fire"] = 0,
-						["Physical"] = 0,
-						["Melee"] = 0,
 						["Shadow"] = 0,
+						["Fire"] = 0,
+						["Melee"] = 0,
+						["Physical"] = 0,
 					},
 					["FDamage"] = 0,
 					["EnergyGain"] = 0,
@@ -21143,9 +21109,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Искупление вины"] = {
+						["Молитва восстановления"] = {
 							["Details"] = {
-								["Crit"] = {
+								["Multistrike"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -21173,9 +21139,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Молитва восстановления"] = {
+						["Искупление вины"] = {
 							["Details"] = {
-								["Multistrike"] = {
+								["Crit"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -21472,32 +21438,6 @@ RecountPerCharDB = {
 					},
 					["EnergyGained"] = {
 					},
-					["WhoHealed"] = {
-						["Манриэль"] = {
-							["Details"] = {
-								["Благосклонность наару"] = {
-									["count"] = 0,
-								},
-								["Быстрое исцеление"] = {
-									["count"] = 0,
-								},
-								["Объятия вампира"] = {
-									["count"] = 0,
-								},
-								["Искупление вины"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Молитва восстановления"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Healing"] = 0,
 					["OverHeals"] = {
 						["Молитва восстановления"] = {
 							["Details"] = {
@@ -21554,10 +21494,69 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
-					["ManaGainedFrom"] = {
-						["Манриэль"] = {
+					["Healing"] = 0,
+					["Absorbed"] = {
+						["Божественное покровительство"] = {
 							["Details"] = {
-								["Благосклонность наару"] = {
+								["Манриэль"] = {
+									["max"] = 16362,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 16362,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 16362,
+						},
+						["Слово силы: Щит"] = {
+							["Details"] = {
+								["Манриэль"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Tick"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Evade"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Shadow"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Immune"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Tick"] = {
 									["count"] = 0,
 								},
 							},
@@ -22309,7 +22308,8 @@ RecountPerCharDB = {
 						},
 					},
 					["ManaGain"] = 0,
-					["ElementTakenResist"] = {
+					["ElementDoneAbsorb"] = {
+						["Holy"] = 0,
 					},
 					["DispelledWho"] = {
 					},
@@ -22401,7 +22401,7 @@ RecountPerCharDB = {
 							["amount"] = 2,
 						},
 					},
-					["ElementTakenResist"] = {
+					["ElementDoneAbsorb"] = {
 					},
 					["DOTs"] = {
 						["Прикосновение вампира (УЗВ)"] = {
@@ -22424,13 +22424,13 @@ RecountPerCharDB = {
 								["Отмеченный Бездной провидец"] = {
 									["count"] = 0,
 								},
+								["Пророк Бездны Калург"] = {
+									["count"] = 0,
+								},
 								["Ревнитель из клана Призрачной Луны"] = {
 									["count"] = 0,
 								},
 								["Арнокк Сжигатель"] = {
-									["count"] = 0,
-								},
-								["Пророк Бездны Калург"] = {
 									["count"] = 0,
 								},
 								["Грибной монстр Сумрачной рощи"] = {
@@ -22550,10 +22550,10 @@ RecountPerCharDB = {
 								["Ревнитель из клана Призрачной Луны"] = {
 									["count"] = 0,
 								},
-								["Отмеченный Бездной провидец"] = {
+								["Грибной монстр Сумрачной рощи"] = {
 									["count"] = 0,
 								},
-								["Грибной монстр Сумрачной рощи"] = {
+								["Арнокк Сжигатель"] = {
 									["count"] = 0,
 								},
 								["Лягушка Сумрачной рощи"] = {
@@ -22562,7 +22562,7 @@ RecountPerCharDB = {
 								["Пророк Бездны Калург"] = {
 									["count"] = 0,
 								},
-								["Арнокк Сжигатель"] = {
+								["Отмеченный Бездной провидец"] = {
 									["count"] = 0,
 								},
 							},
@@ -22600,7 +22600,7 @@ RecountPerCharDB = {
 					},
 					["Ressed"] = 0,
 					["DamageTaken"] = 11130,
-					["RageGainedFrom"] = {
+					["ElementTakenResist"] = {
 					},
 					["Absorbs"] = 5656,
 					["DeathCount"] = 0,
@@ -22719,556 +22719,57 @@ RecountPerCharDB = {
 						["Melee"] = 139,
 						["Shadow"] = 3983,
 					},
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Tick"] = {
+									["count"] = 9,
+								},
+								["Multistrike"] = {
+									["count"] = 4,
+								},
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 6,
+								},
+							},
+							["amount"] = 20,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Hit"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 1,
+						},
+						["Shadow"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Tick"] = {
+									["count"] = 4,
+								},
+								["Immune"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 1,
+								},
+							},
+							["amount"] = 5,
+						},
+					},
 					["ManaGainedFrom"] = {
 						["Манриэль"] = {
 							["Details"] = {
 								["Благосклонность наару"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["DamagedWho"] = {
-						["Оскверненный предок"] = {
-							["Details"] = {
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Изначальный ужас"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Детеныш горена Зашедшей Луны"] = {
-							["Details"] = {
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Ревнитель из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Призрачный жемчужношкурый элекк"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Аберрация Бездны"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Арнокк Сжигатель"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Тотем магмы"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 139,
-								},
-							},
-							["amount"] = 139,
-						},
-						["Лезвие Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-брызгун"] = {
-							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Шаман из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Кара"] = {
-									["count"] = 5574,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 3186,
-								},
-								["Исповедь"] = {
-									["count"] = 5270,
-								},
-								["Священный огонь"] = {
-									["count"] = 2306,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 626,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 797,
-								},
-							},
-							["amount"] = 17759,
-						},
-						["Детеныш призрачного жемчужношкурого элекка"] = {
-							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Чаротворец клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Страж Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-пяткокус"] = {
-							["Details"] = {
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченный Бездной провидец"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченная Бездной провидица"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный резервист"] = {
-							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Истерзанный Бездной дух"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Железный щитоносец"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Горен Зашедшей Луны"] = {
-							["Details"] = {
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Лягушка Сумрачной рощи"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Грибной монстр Сумрачной рощи"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Пророк Бездны Калург"] = {
-							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Сияние"] = {
-									["count"] = 0,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Стручлинг-плевун"] = {
-							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Запятнанный легкокрыл"] = {
-							["Details"] = {
-								["Слово Тьмы: Смерть"] = {
 									["count"] = 0,
 								},
 							},
@@ -23360,7 +22861,7 @@ RecountPerCharDB = {
 							},
 							["amount"] = 10674,
 						},
-						["Детеныш призрачного жемчужношкурого элекка"] = {
+						["Горен Зашедшей Луны"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
 									["count"] = 0,
@@ -23382,7 +22883,7 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Горен Зашедшей Луны"] = {
+						["Цепкий усик"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
 									["count"] = 0,
@@ -23398,17 +22899,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Стручлинг-брызгун"] = {
+						["Детеныш призрачного жемчужношкурого элекка"] = {
 							["Details"] = {
-								["Ядовитые брызги"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Отмеченный Бездной провидец"] = {
-							["Details"] = {
-								["Потрескивание Бездны (УЗВ)"] = {
+								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
@@ -23417,6 +22910,14 @@ RecountPerCharDB = {
 						["Железный флот"] = {
 							["Details"] = {
 								["Черные небеса"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-брызгун"] = {
+							["Details"] = {
+								["Ядовитые брызги"] = {
 									["count"] = 0,
 								},
 							},
@@ -23452,9 +22953,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Цепкий усик"] = {
+						["Отмеченный Бездной провидец"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
+								["Потрескивание Бездны (УЗВ)"] = {
 									["count"] = 0,
 								},
 							},
@@ -23522,17 +23023,17 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Стручлинг-плевун"] = {
+						["Запятнанный легкокрыл"] = {
 							["Details"] = {
-								["Ядовитые брызги"] = {
+								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Запятнанный легкокрыл"] = {
+						["Стручлинг-плевун"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
+								["Ядовитые брызги"] = {
 									["count"] = 0,
 								},
 							},
@@ -23552,9 +23053,51 @@ RecountPerCharDB = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["CCBroken"] = {
+					["Absorbed"] = {
+						["Божественное покровительство"] = {
+							["Details"] = {
+								["Ирель"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Манриэль"] = {
+									["max"] = 28,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 28,
+								},
+								["Пехотинец Зашедшей Луны"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 28,
+						},
+						["Слово силы: Щит"] = {
+							["Details"] = {
+								["Ирель"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Манриэль"] = {
+									["max"] = 5628,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 5628,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 5628,
+						},
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -23918,18 +23461,6 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Удары Пустоты"] = {
-							["Details"] = {
-								["Нет поглощений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
 						["Щит молний"] = {
 							["Details"] = {
 								["Нет поглощений"] = {
@@ -23942,7 +23473,25 @@ RecountPerCharDB = {
 							["count"] = 2,
 							["amount"] = 0,
 						},
-						["Falling"] = {
+						["Прикосновение Бездны"] = {
+							["Details"] = {
+								["Поглощено"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Нет поглощений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Удары Пустоты"] = {
 							["Details"] = {
 								["Нет поглощений"] = {
 									["max"] = 0,
@@ -23978,14 +23527,8 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Рывок"] = {
+						["Цепкие усики"] = {
 							["Details"] = {
-								["Поглощено"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
 								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
@@ -23996,15 +23539,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Прикосновение Бездны"] = {
+						["Оскверненные ветры"] = {
 							["Details"] = {
 								["Поглощено"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -24056,7 +23593,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Цепкие усики"] = {
+						["Falling"] = {
 							["Details"] = {
 								["Нет поглощений"] = {
 									["max"] = 0,
@@ -24158,9 +23695,15 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Оскверненные ветры"] = {
+						["Рывок"] = {
 							["Details"] = {
 								["Поглощено"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -24295,8 +23838,8 @@ RecountPerCharDB = {
 						},
 						["Шаман из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Кара"] = {
-									["count"] = 1.2,
+								["Священный огонь"] = {
+									["count"] = 1.42,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 1.82,
@@ -24304,8 +23847,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 4.69,
 								},
-								["Священный огонь"] = {
-									["count"] = 1.42,
+								["Кара"] = {
+									["count"] = 1.2,
 								},
 								["Священный огонь (УЗВ)"] = {
 									["count"] = 6.39,
@@ -24560,7 +24103,7 @@ RecountPerCharDB = {
 						},
 						["Детеныш призрачного жемчужношкурого элекка"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
@@ -24569,7 +24112,7 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Священный огонь"] = {
+								["Священный огонь (УЗВ)"] = {
 									["count"] = 0,
 								},
 								["Кара"] = {
@@ -25129,18 +24672,6 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Удары Пустоты"] = {
-							["Details"] = {
-								["Нет сопротивлений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
 						["Щит молний"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
@@ -25153,7 +24684,19 @@ RecountPerCharDB = {
 							["count"] = 2,
 							["amount"] = 0,
 						},
-						["Falling"] = {
+						["Прикосновение Бездны"] = {
+							["Details"] = {
+								["Нет сопротивлений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+						["Удары Пустоты"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -25189,7 +24732,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Рывок"] = {
+						["Цепкие усики"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -25201,7 +24744,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Прикосновение Бездны"] = {
+						["Оскверненные ветры"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -25249,7 +24792,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Цепкие усики"] = {
+						["Falling"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -25333,7 +24876,7 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Оскверненные ветры"] = {
+						["Рывок"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
@@ -25501,95 +25044,552 @@ RecountPerCharDB = {
 						},
 					},
 					["Healing"] = 5712,
-					["Absorbed"] = {
-						["Божественное покровительство"] = {
-							["Details"] = {
-								["Ирель"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Манриэль"] = {
-									["max"] = 28,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 28,
-								},
-								["Пехотинец Зашедшей Луны"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 28,
-						},
-						["Слово силы: Щит"] = {
-							["Details"] = {
-								["Ирель"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-								["Манриэль"] = {
-									["max"] = 5628,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 5628,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 5628,
-						},
+					["RunicPowerGained"] = {
 					},
-					["ElementHitsDone"] = {
-						["Holy"] = {
+					["DamagedWho"] = {
+						["Оскверненный предок"] = {
 							["Details"] = {
-								["Tick"] = {
-									["count"] = 9,
+								["Сияние"] = {
+									["count"] = 0,
 								},
-								["Multistrike"] = {
-									["count"] = 4,
-								},
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 6,
+								["Иссушение разума"] = {
+									["count"] = 0,
 								},
 							},
-							["amount"] = 20,
+							["amount"] = 0,
 						},
-						["Melee"] = {
+						["Изначальный ужас"] = {
 							["Details"] = {
-								["Hit"] = {
-									["count"] = 1,
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
 								},
 							},
-							["amount"] = 1,
+							["amount"] = 0,
 						},
-						["Shadow"] = {
+						["Детеныш горена Зашедшей Луны"] = {
 							["Details"] = {
-								["Multistrike"] = {
+								["Кольцо света"] = {
 									["count"] = 0,
-								},
-								["Tick"] = {
-									["count"] = 4,
-								},
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 1,
 								},
 							},
-							["amount"] = 5,
+							["amount"] = 0,
+						},
+						["Ревнитель из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Призрачный жемчужношкурый элекк"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Аберрация Бездны"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Арнокк Сжигатель"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Тотем магмы"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 139,
+								},
+							},
+							["amount"] = 139,
+						},
+						["Лезвие Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-брызгун"] = {
+							["Details"] = {
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Шаман из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Священный огонь"] = {
+									["count"] = 2306,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 3186,
+								},
+								["Исповедь"] = {
+									["count"] = 5270,
+								},
+								["Кара"] = {
+									["count"] = 5574,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 626,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 797,
+								},
+							},
+							["amount"] = 17759,
+						},
+						["Детеныш призрачного жемчужношкурого элекка"] = {
+							["Details"] = {
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Чаротворец клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Страж Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-пяткокус"] = {
+							["Details"] = {
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Отмеченный Бездной провидец"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Отмеченная Бездной провидица"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный резервист"] = {
+							["Details"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Истерзанный Бездной дух"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кара"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Железный щитоносец"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Горен Зашедшей Луны"] = {
+							["Details"] = {
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
+									["count"] = 0,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Кольцо света"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Лягушка Сумрачной рощи"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Грибной монстр Сумрачной рощи"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Пророк Бездны Калург"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Сияние"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Стручлинг-плевун"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Запятнанный легкокрыл"] = {
+							["Details"] = {
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
 						},
 					},
 					["Attacks"] = {
@@ -26192,8 +26192,8 @@ RecountPerCharDB = {
 						},
 						["Шаман из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Кара"] = {
-									["count"] = 1.2,
+								["Священный огонь"] = {
+									["count"] = 1.42,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 1.82,
@@ -26201,8 +26201,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 4.69,
 								},
-								["Священный огонь"] = {
-									["count"] = 1.42,
+								["Кара"] = {
+									["count"] = 1.2,
 								},
 								["Священный огонь (УЗВ)"] = {
 									["count"] = 6.39,
@@ -26215,7 +26215,7 @@ RecountPerCharDB = {
 						},
 						["Детеныш призрачного жемчужношкурого элекка"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
@@ -26224,7 +26224,7 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Священный огонь"] = {
+								["Священный огонь (УЗВ)"] = {
 									["count"] = 0,
 								},
 								["Кара"] = {
@@ -26530,13 +26530,27 @@ RecountPerCharDB = {
 						},
 					},
 					["ManaGain"] = 0,
-					["ElementDoneAbsorb"] = {
+					["RageGainedFrom"] = {
 					},
 					["DispelledWho"] = {
 					},
 				},
 				["LastFightData"] = {
 					["ElementHitsTaken"] = {
+						["Physical"] = {
+							["Details"] = {
+								["Absorb"] = {
+									["count"] = 0,
+								},
+								["Dodge"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 						["Fire"] = {
 							["Details"] = {
 								["Absorb"] = {
@@ -26546,6 +26560,26 @@ RecountPerCharDB = {
 									["count"] = 0,
 								},
 								["Tick"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Absorb"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Dodge"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Miss"] = {
 									["count"] = 0,
 								},
 							},
@@ -26568,42 +26602,8 @@ RecountPerCharDB = {
 							},
 							["amount"] = 1,
 						},
-						["Melee"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Miss"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Physical"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["count"] = 0,
-								},
-								["Dodge"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
 					},
-					["ElementTakenBlock"] = {
+					["ElementTakenResist"] = {
 					},
 					["DOTs"] = {
 						["Прикосновение вампира (УЗВ)"] = {
@@ -26771,15 +26771,14 @@ RecountPerCharDB = {
 					["Absorbs"] = 16362,
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementDoneAbsorb"] = {
-						["Holy"] = 0,
-					},
 					["DOT_Time"] = 0,
+					["ElementTakenBlock"] = {
+					},
 					["ElementTaken"] = {
-						["Fire"] = 0,
-						["Shadow"] = 6250,
-						["Melee"] = 0,
 						["Physical"] = 0,
+						["Fire"] = 0,
+						["Melee"] = 0,
+						["Shadow"] = 6250,
 					},
 					["HOTs"] = {
 						["Объятия вампира"] = {
@@ -26792,7 +26791,7 @@ RecountPerCharDB = {
 						},
 					},
 					["Damage"] = 0,
-					["RunicPowerGainedFrom"] = {
+					["PartialBlock"] = {
 					},
 					["TimeHeal"] = 0,
 					["ShieldedWho"] = {
@@ -26810,42 +26809,25 @@ RecountPerCharDB = {
 					},
 					["Dispels"] = 0,
 					["HealingTaken"] = 0,
-					["ElementHitsDone"] = {
-						["Holy"] = {
+					["WhoHealed"] = {
+						["Манриэль"] = {
 							["Details"] = {
-								["Multistrike"] = {
+								["Благосклонность наару"] = {
 									["count"] = 0,
 								},
-								["Hit"] = {
+								["Быстрое исцеление"] = {
 									["count"] = 0,
 								},
-								["Tick"] = {
+								["Объятия вампира"] = {
 									["count"] = 0,
 								},
-								["Crit"] = {
+								["Искупление вины"] = {
 									["count"] = 0,
 								},
-								["Evade"] = {
+								["Всепожирающая чума"] = {
 									["count"] = 0,
 								},
-							},
-							["amount"] = 0,
-						},
-						["Shadow"] = {
-							["Details"] = {
-								["Multistrike"] = {
-									["count"] = 0,
-								},
-								["Hit"] = {
-									["count"] = 0,
-								},
-								["Immune"] = {
-									["count"] = 0,
-								},
-								["Crit"] = {
-									["count"] = 0,
-								},
-								["Tick"] = {
+								["Молитва восстановления"] = {
 									["count"] = 0,
 								},
 							},
@@ -26854,13 +26836,21 @@ RecountPerCharDB = {
 					},
 					["FAttacks"] = {
 					},
-					["PartialBlock"] = {
+					["RageGained"] = {
 					},
 					["ElementDone"] = {
 						["Holy"] = 0,
 						["Shadow"] = 0,
 					},
-					["CCBroken"] = {
+					["ManaGainedFrom"] = {
+						["Манриэль"] = {
+							["Details"] = {
+								["Благосклонность наару"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 					},
 					["DamagedWho"] = {
 						["Раи'вош"] = {
@@ -27265,7 +27255,7 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
-					["RageGained"] = {
+					["RunicPowerGainedFrom"] = {
 					},
 					["WhoDamaged"] = {
 						["Пророк из клана Призрачной Луны"] = {
@@ -27495,33 +27485,9 @@ RecountPerCharDB = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["RunicPowerGained"] = {
+					["CCBroken"] = {
 					},
-					["Absorbed"] = {
-						["Божественное покровительство"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 16362,
-									["min"] = 0,
-									["count"] = 1,
-									["amount"] = 16362,
-								},
-							},
-							["count"] = 1,
-							["amount"] = 16362,
-						},
-						["Слово силы: Щит"] = {
-							["Details"] = {
-								["Манриэль"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 0,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 0,
-							["amount"] = 0,
-						},
+					["RunicPowerGained"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -27559,13 +27525,13 @@ RecountPerCharDB = {
 								["Благосклонность наару"] = {
 									["count"] = 0,
 								},
-								["Искупление вины"] = {
+								["Молитва восстановления"] = {
 									["count"] = 0,
 								},
 								["Быстрое исцеление"] = {
 									["count"] = 0,
 								},
-								["Молитва восстановления"] = {
+								["Искупление вины"] = {
 									["count"] = 0,
 								},
 								["Божественное покровительство"] = {
@@ -27586,10 +27552,10 @@ RecountPerCharDB = {
 					},
 					["CCBreak"] = 0,
 					["ElementTakenAbsorb"] = {
-						["Fire"] = 0,
-						["Physical"] = 0,
-						["Melee"] = 0,
 						["Shadow"] = 0,
+						["Fire"] = 0,
+						["Melee"] = 0,
+						["Physical"] = 0,
 					},
 					["FDamage"] = 0,
 					["EnergyGain"] = 0,
@@ -28320,9 +28286,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Искупление вины"] = {
+						["Молитва восстановления"] = {
 							["Details"] = {
-								["Crit"] = {
+								["Multistrike"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -28350,9 +28316,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Молитва восстановления"] = {
+						["Искупление вины"] = {
 							["Details"] = {
-								["Multistrike"] = {
+								["Crit"] = {
 									["max"] = 0,
 									["min"] = 0,
 									["count"] = 0,
@@ -28649,32 +28615,6 @@ RecountPerCharDB = {
 					},
 					["EnergyGained"] = {
 					},
-					["WhoHealed"] = {
-						["Манриэль"] = {
-							["Details"] = {
-								["Благосклонность наару"] = {
-									["count"] = 0,
-								},
-								["Быстрое исцеление"] = {
-									["count"] = 0,
-								},
-								["Объятия вампира"] = {
-									["count"] = 0,
-								},
-								["Искупление вины"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Молитва восстановления"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-					},
-					["Healing"] = 0,
 					["OverHeals"] = {
 						["Молитва восстановления"] = {
 							["Details"] = {
@@ -28731,10 +28671,69 @@ RecountPerCharDB = {
 							["amount"] = 0,
 						},
 					},
-					["ManaGainedFrom"] = {
-						["Манриэль"] = {
+					["Healing"] = 0,
+					["Absorbed"] = {
+						["Божественное покровительство"] = {
 							["Details"] = {
-								["Благосклонность наару"] = {
+								["Манриэль"] = {
+									["max"] = 16362,
+									["min"] = 0,
+									["count"] = 1,
+									["amount"] = 16362,
+								},
+							},
+							["count"] = 1,
+							["amount"] = 16362,
+						},
+						["Слово силы: Щит"] = {
+							["Details"] = {
+								["Манриэль"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 0,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 0,
+							["amount"] = 0,
+						},
+					},
+					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Tick"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Evade"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Shadow"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 0,
+								},
+								["Hit"] = {
+									["count"] = 0,
+								},
+								["Immune"] = {
+									["count"] = 0,
+								},
+								["Crit"] = {
+									["count"] = 0,
+								},
+								["Tick"] = {
 									["count"] = 0,
 								},
 							},
@@ -29486,7 +29485,8 @@ RecountPerCharDB = {
 						},
 					},
 					["ManaGain"] = 0,
-					["ElementTakenResist"] = {
+					["ElementDoneAbsorb"] = {
+						["Holy"] = 0,
 					},
 					["DispelledWho"] = {
 					},
@@ -29495,25 +29495,25 @@ RecountPerCharDB = {
 					["DOTs"] = {
 						["Прикосновение вампира (УЗВ)"] = {
 							["Details"] = {
-								["Аберрация Бездны"] = {
+								["Некролит из клана Призрачной Луны"] = {
 									["count"] = 0,
 								},
 								["Чаротворец клана Призрачной Луны"] = {
 									["count"] = 0,
 								},
-								["Железный резервист"] = {
+								["Лягушка Сумрачной рощи"] = {
 									["count"] = 0,
 								},
 								["Железный щитоносец"] = {
 									["count"] = 0,
 								},
-								["Некролит из клана Призрачной Луны"] = {
+								["Железный резервист"] = {
 									["count"] = 0,
 								},
 								["Ветроклыкий бегун"] = {
 									["count"] = 0,
 								},
-								["Завыватель Сумрачной рощи"] = {
+								["Аберрация Бездны"] = {
 									["count"] = 0,
 								},
 								["Теневой скелет"] = {
@@ -29531,7 +29531,7 @@ RecountPerCharDB = {
 								["Грибной монстр Сумрачной рощи"] = {
 									["count"] = 0,
 								},
-								["Лягушка Сумрачной рощи"] = {
+								["Завыватель Сумрачной рощи"] = {
 									["count"] = 0,
 								},
 								["Лезвие Бездны из клана Призрачной Луны"] = {
@@ -29548,13 +29548,13 @@ RecountPerCharDB = {
 								["Арнокк Сжигатель"] = {
 									["count"] = 0,
 								},
+								["Чаротворец клана Призрачной Луны"] = {
+									["count"] = 0,
+								},
 								["Ветроклыкий бегун"] = {
 									["count"] = 0,
 								},
 								["Некролит из клана Призрачной Луны"] = {
-									["count"] = 0,
-								},
-								["Чаротворец клана Призрачной Луны"] = {
 									["count"] = 0,
 								},
 							},
@@ -29831,8 +29831,8 @@ RecountPerCharDB = {
 						},
 						["Саргерайский посвященный"] = {
 							["Details"] = {
-								["Кара"] = {
-									["count"] = 32169,
+								["Священный огонь"] = {
+									["count"] = 9222,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11343,
@@ -29840,8 +29840,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 23021,
 								},
-								["Священный огонь"] = {
-									["count"] = 9222,
+								["Кара"] = {
+									["count"] = 32169,
 								},
 								["Священный огонь (УЗВ)"] = {
 									["count"] = 2197,
@@ -30033,24 +30033,18 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Истерзанный Бездной дух"] = {
+						["Аберрация Бездны"] = {
 							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Исповедь"] = {
+								["Взрыв разума"] = {
 									["count"] = 0,
 								},
-								["Кара"] = {
+								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
+								["Слово Тьмы: Боль"] = {
 									["count"] = 0,
 								},
 							},
@@ -30116,18 +30110,24 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Аберрация Бездны"] = {
+						["Истерзанный Бездной дух"] = {
 							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Взрыв разума"] = {
+								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Прикосновение вампира (УЗВ)"] = {
+								["Кара"] = {
 									["count"] = 0,
 								},
-								["Слово Тьмы: Боль"] = {
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 							},
@@ -30401,17 +30401,20 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Истерзанный Бездной дух"] = {
+						["Завыватель Сумрачной рощи"] = {
 							["Details"] = {
-								["Удар духов стихии"] = {
+								["Ранение бедра (УЗВ)"] = {
 									["count"] = 0,
 								},
 							},
 							["amount"] = 0,
 						},
-						["Завыватель Сумрачной рощи"] = {
+						["Ветроклыкий бегун"] = {
 							["Details"] = {
-								["Ранение бедра (УЗВ)"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+								["Свирепый укус"] = {
 									["count"] = 0,
 								},
 							},
@@ -30425,12 +30428,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Ветроклыкий бегун"] = {
+						["Стручлинг-пяткокус"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-								["Свирепый укус"] = {
 									["count"] = 0,
 								},
 							},
@@ -30450,9 +30450,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Отмеченный Бездной провидец"] = {
+						["Цепкий усик"] = {
 							["Details"] = {
-								["Потрескивание Бездны (УЗВ)"] = {
+								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
@@ -30491,9 +30491,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Цепкий усик"] = {
+						["Отмеченный Бездной провидец"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
+								["Потрескивание Бездны (УЗВ)"] = {
 									["count"] = 0,
 								},
 							},
@@ -30521,20 +30521,20 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Стручлинг-пяткокус"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
 						["Железный щитоносец"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 								["Устрашение"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Истерзанный Бездной дух"] = {
+							["Details"] = {
+								["Удар духов стихии"] = {
 									["count"] = 0,
 								},
 							},
@@ -30602,20 +30602,20 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
+						["Запятнанный легкокрыл"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
 						["Детеныш горена Зашедшей Луны"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 								["Разъедающий доспехи укус"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
-						["Запятнанный легкокрыл"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
 									["count"] = 0,
 								},
 							},
@@ -31183,10 +31183,10 @@ RecountPerCharDB = {
 						},
 					},
 					["ElementTakenAbsorb"] = {
-						["Fire"] = 0,
-						["Shadow"] = 44130,
-						["Melee"] = 76066,
 						["Physical"] = 0,
+						["Fire"] = 0,
+						["Melee"] = 76066,
+						["Shadow"] = 44130,
 					},
 					["ActiveTime"] = 92.34,
 					["Heals"] = {
@@ -31390,8 +31390,8 @@ RecountPerCharDB = {
 						},
 						["Саргерайский посвященный"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 27.99,
+								["Слово Тьмы: Боль"] = {
+									["count"] = 4.15,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11.66,
@@ -31399,8 +31399,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 15.63,
 								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 4.15,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 27.99,
 								},
 								["Кара"] = {
 									["count"] = 26.36,
@@ -31451,29 +31451,6 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Истерзанный Бездной дух"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0,
-								},
-								["Кара"] = {
-									["count"] = 0,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
-									["count"] = 0,
-								},
-							},
-							["amount"] = 0,
-						},
 						["Пророк из клана Призрачной Луны"] = {
 							["Details"] = {
 								["Прикосновение вампира (УЗВ)"] = {
@@ -31486,6 +31463,29 @@ RecountPerCharDB = {
 									["count"] = 0,
 								},
 								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+							},
+							["amount"] = 0,
+						},
+						["Некролит из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль"] = {
@@ -31569,12 +31569,33 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Страдающий скелет"] = {
+						["Ветроклыкий бегун"] = {
 							["Details"] = {
-								["Иссушение разума"] = {
+								["Слово Тьмы: Смерть"] = {
 									["count"] = 0,
 								},
-								["Слово Тьмы: Смерть"] = {
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
 									["count"] = 0,
 								},
 							},
@@ -31664,9 +31685,12 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Раненая защитница Карабора"] = {
+						["Страдающий скелет"] = {
 							["Details"] = {
-								["Быстрое исцеление"] = {
+								["Иссушение разума"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Смерть"] = {
 									["count"] = 0,
 								},
 							},
@@ -31732,33 +31756,24 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Ветроклыкий бегун"] = {
+						["Истерзанный Бездной дух"] = {
 							["Details"] = {
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
+								["Слово Тьмы: Боль"] = {
 									["count"] = 0,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Пытка разума (УЗВ)"] = {
+								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Всепожирающая чума"] = {
+								["Кара"] = {
 									["count"] = 0,
 								},
-								["Слово Тьмы: Боль"] = {
+								["Священный огонь (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Пронзание разума"] = {
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 							},
@@ -31852,24 +31867,9 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Некролит из клана Призрачной Луны"] = {
+						["Раненая защитница Карабора"] = {
 							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 0,
-								},
-								["Слово Тьмы: Боль"] = {
+								["Быстрое исцеление"] = {
 									["count"] = 0,
 								},
 							},
@@ -32213,9 +32213,9 @@ RecountPerCharDB = {
 							["count"] = 7,
 							["amount"] = 9222,
 						},
-						["Прикосновение вампира"] = {
+						["Прерывание"] = {
 							["Details"] = {
-								["Evade"] = {
+								["Immune"] = {
 									["count"] = 0,
 									["amount"] = 0,
 								},
@@ -32275,9 +32275,9 @@ RecountPerCharDB = {
 							["count"] = 0,
 							["amount"] = 0,
 						},
-						["Прерывание"] = {
+						["Прикосновение вампира"] = {
 							["Details"] = {
-								["Immune"] = {
+								["Evade"] = {
 									["count"] = 0,
 									["amount"] = 0,
 								},
@@ -32443,8 +32443,8 @@ RecountPerCharDB = {
 						},
 						["Саргерайский посвященный"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 27.99,
+								["Слово Тьмы: Боль"] = {
+									["count"] = 4.15,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11.66,
@@ -32452,8 +32452,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 15.63,
 								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 4.15,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 27.99,
 								},
 								["Кара"] = {
 									["count"] = 26.36,
@@ -32663,24 +32663,18 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Истерзанный Бездной дух"] = {
+						["Аберрация Бездны"] = {
 							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
-								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Исповедь"] = {
+								["Взрыв разума"] = {
 									["count"] = 0,
 								},
-								["Кара"] = {
+								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Священный огонь"] = {
+								["Слово Тьмы: Боль"] = {
 									["count"] = 0,
 								},
 							},
@@ -32746,18 +32740,24 @@ RecountPerCharDB = {
 							},
 							["amount"] = 0,
 						},
-						["Аберрация Бездны"] = {
+						["Истерзанный Бездной дух"] = {
 							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
+								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 0,
 								},
-								["Взрыв разума"] = {
+								["Исповедь"] = {
 									["count"] = 0,
 								},
-								["Прикосновение вампира (УЗВ)"] = {
+								["Кара"] = {
 									["count"] = 0,
 								},
-								["Слово Тьмы: Боль"] = {
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Священный огонь"] = {
 									["count"] = 0,
 								},
 							},
@@ -33532,26 +33532,26 @@ RecountPerCharDB = {
 								["Флокс"] = {
 									["count"] = 24,
 								},
-								["Пророк Бездны Калург"] = {
-									["count"] = 63,
-								},
 								["Отмеченный Бездной провидец"] = {
 									["count"] = 36,
-								},
-								["Ужас Бездны"] = {
-									["count"] = 39,
 								},
 								["Некролит из клана Призрачной Луны"] = {
 									["count"] = 15,
 								},
+								["Ужас Бездны"] = {
+									["count"] = 39,
+								},
 								["Железный ружейник"] = {
 									["count"] = 15,
+								},
+								["Стручлинг-плевун"] = {
+									["count"] = 6,
 								},
 								["Ревнитель из клана Призрачной Луны"] = {
 									["count"] = 57,
 								},
-								["Стручлинг-плевун"] = {
-									["count"] = 6,
+								["Цепкий усик"] = {
+									["count"] = 3,
 								},
 								["Восставший дух"] = {
 									["count"] = 12,
@@ -33559,17 +33559,17 @@ RecountPerCharDB = {
 								["Аберрация Бездны"] = {
 									["count"] = 12,
 								},
-								["Цепкий усик"] = {
-									["count"] = 3,
-								},
 								["Сущность тьмы"] = {
 									["count"] = 42,
 								},
-								["Грибной великан"] = {
-									["count"] = 42,
+								["Пророк Бездны Калург"] = {
+									["count"] = 63,
 								},
 								["Арнокк Сжигатель"] = {
 									["count"] = 162,
+								},
+								["Грибной великан"] = {
+									["count"] = 42,
 								},
 								["Матриарх ветроклыков"] = {
 									["count"] = 51,
@@ -33728,29 +33728,29 @@ RecountPerCharDB = {
 								["Призыватель смерти Призрачной Луны"] = {
 									["count"] = 33,
 								},
-								["Саргерайский посвященный"] = {
-									["count"] = 51,
+								["Шаман из клана Призрачной Луны"] = {
+									["count"] = 12,
 								},
 								["Железный громила"] = {
 									["count"] = 27,
 								},
-								["Временная ярость"] = {
-									["count"] = 18,
-								},
-								["Шаман из клана Призрачной Луны"] = {
-									["count"] = 12,
-								},
-								["Стручлинг-плевун"] = {
-									["count"] = 3,
-								},
-								["Ветроклыкий бегун"] = {
-									["count"] = 18,
+								["Ужас Бездны"] = {
+									["count"] = 42,
 								},
 								["Стручлинг-брызгун"] = {
 									["count"] = 3,
 								},
-								["Жрица Пустоты из клана Призрачной Луны"] = {
-									["count"] = 48,
+								["Железный ружейник"] = {
+									["count"] = 12,
+								},
+								["Раи'вош"] = {
+									["count"] = 15,
+								},
+								["Запятнанный легкокрыл"] = {
+									["count"] = 3,
+								},
+								["Отмеченный Бездной провидец"] = {
+									["count"] = 36,
 								},
 								["Сущность тени"] = {
 									["count"] = 27,
@@ -33758,20 +33758,20 @@ RecountPerCharDB = {
 								["Истерзанный Бездной дух"] = {
 									["count"] = 27,
 								},
-								["Раи'вош"] = {
-									["count"] = 15,
+								["Сущность тьмы"] = {
+									["count"] = 36,
 								},
 								["Железный щитоносец"] = {
 									["count"] = 48,
 								},
-								["Отмеченный Бездной провидец"] = {
-									["count"] = 36,
+								["Проницатель Бездны"] = {
+									["count"] = 12,
 								},
-								["Дол'мак"] = {
-									["count"] = 15,
+								["Ветроклыкий бегун"] = {
+									["count"] = 18,
 								},
-								["Шпион Орды"] = {
-									["count"] = 60,
+								["Временная ярость"] = {
+									["count"] = 18,
 								},
 								["Темный маг из клана Призрачной Луны"] = {
 									["count"] = 39,
@@ -33782,17 +33782,17 @@ RecountPerCharDB = {
 								["Разоритель из клана Призрачной Луны"] = {
 									["count"] = 12,
 								},
-								["Некролит из клана Призрачной Луны"] = {
-									["count"] = 15,
+								["Пророк из клана Призрачной Луны"] = {
+									["count"] = 18,
 								},
 								["Морва Исказительница Душ"] = {
 									["count"] = 36,
 								},
-								["Запятнанный легкокрыл"] = {
-									["count"] = 3,
+								["Аберрация Бездны"] = {
+									["count"] = 12,
 								},
-								["Арнокк Сжигатель"] = {
-									["count"] = 165,
+								["Камнезуб"] = {
+									["count"] = 24,
 								},
 								["Владыка Бездны из клана Призрачной Луны"] = {
 									["count"] = 21,
@@ -33800,41 +33800,41 @@ RecountPerCharDB = {
 								["Горен Зашедшей Луны"] = {
 									["count"] = 27,
 								},
-								["Проницатель Бездны"] = {
-									["count"] = 12,
+								["Саргерайский посвященный"] = {
+									["count"] = 51,
 								},
-								["Пророк из клана Призрачной Луны"] = {
-									["count"] = 18,
-								},
-								["Темный призрак"] = {
-									["count"] = 33,
-								},
-								["Ревнитель из клана Призрачной Луны"] = {
-									["count"] = 54,
-								},
-								["Железный ружейник"] = {
-									["count"] = 12,
-								},
-								["Камнезуб"] = {
-									["count"] = 24,
+								["Некролит из клана Призрачной Луны"] = {
+									["count"] = 15,
 								},
 								["Завыватель Сумрачной рощи"] = {
 									["count"] = 42,
 								},
-								["Ужас Бездны"] = {
-									["count"] = 42,
+								["Ревнитель из клана Призрачной Луны"] = {
+									["count"] = 54,
 								},
-								["Восставший дух"] = {
-									["count"] = 18,
+								["Пророк Бездны Калург"] = {
+									["count"] = 60,
+								},
+								["Жрица Пустоты из клана Призрачной Луны"] = {
+									["count"] = 48,
+								},
+								["Стручлинг-плевун"] = {
+									["count"] = 3,
 								},
 								["Волк Бездны"] = {
 									["count"] = 3,
 								},
+								["Темный призрак"] = {
+									["count"] = 33,
+								},
+								["Лезвие Бездны из клана Призрачной Луны"] = {
+									["count"] = 177,
+								},
 								["Темнокрыл-падальщик"] = {
 									["count"] = 15,
 								},
-								["Матриарх ветроклыков"] = {
-									["count"] = 42,
+								["Арнокк Сжигатель"] = {
+									["count"] = 165,
 								},
 								["Стручлинг-зверолов"] = {
 									["count"] = 3,
@@ -33848,8 +33848,8 @@ RecountPerCharDB = {
 								["Ритуалист из клана Призрачной Луны"] = {
 									["count"] = 69,
 								},
-								["Лезвие Бездны из клана Призрачной Луны"] = {
-									["count"] = 177,
+								["Матриарх ветроклыков"] = {
+									["count"] = 42,
 								},
 								["Чаротворец клана Призрачной Луны"] = {
 									["count"] = 51,
@@ -33857,8 +33857,8 @@ RecountPerCharDB = {
 								["Страж Бездны из клана Призрачной Луны"] = {
 									["count"] = 21,
 								},
-								["Пророк Бездны Калург"] = {
-									["count"] = 60,
+								["Восставший дух"] = {
+									["count"] = 18,
 								},
 								["Король Бутон Смерти"] = {
 									["count"] = 57,
@@ -33872,11 +33872,11 @@ RecountPerCharDB = {
 								["Теневой скелет"] = {
 									["count"] = 6,
 								},
-								["Аберрация Бездны"] = {
-									["count"] = 12,
+								["Шпион Орды"] = {
+									["count"] = 60,
 								},
-								["Сущность тьмы"] = {
-									["count"] = 36,
+								["Дол'мак"] = {
+									["count"] = 15,
 								},
 								["Нер'зул"] = {
 									["count"] = 60,
@@ -33934,20 +33934,20 @@ RecountPerCharDB = {
 								["Аберрация Бездны"] = {
 									["count"] = 2,
 								},
-								["Пророк Бездны Калург"] = {
-									["count"] = 16,
-								},
 								["Завыватель Сумрачной рощи"] = {
 									["count"] = 19,
 								},
 								["Отмеченный Бездной провидец"] = {
 									["count"] = 9,
 								},
+								["Стручлинг-плевун"] = {
+									["count"] = 5,
+								},
 								["Матриарх ветроклыков"] = {
 									["count"] = 15,
 								},
-								["Стручлинг-плевун"] = {
-									["count"] = 5,
+								["Пророк Бездны Калург"] = {
+									["count"] = 16,
 								},
 								["Лезвие Бездны из клана Призрачной Луны"] = {
 									["count"] = 17,
@@ -34147,8 +34147,8 @@ RecountPerCharDB = {
 						},
 						["Шаман из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Кара"] = {
-									["count"] = 1.2,
+								["Священный огонь"] = {
+									["count"] = 1.42,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 1.82,
@@ -34156,8 +34156,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 4.69,
 								},
-								["Священный огонь"] = {
-									["count"] = 1.42,
+								["Кара"] = {
+									["count"] = 1.2,
 								},
 								["Священный огонь (УЗВ)"] = {
 									["count"] = 6.39,
@@ -35066,29 +35066,6 @@ RecountPerCharDB = {
 							},
 							["amount"] = 22.54,
 						},
-						["Саргерайский посвященный"] = {
-							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 27.99,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 11.66,
-								},
-								["Исповедь"] = {
-									["count"] = 15.63,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 4.15,
-								},
-								["Кара"] = {
-									["count"] = 26.36,
-								},
-								["Священный огонь"] = {
-									["count"] = 3.37,
-								},
-							},
-							["amount"] = 89.16,
-						},
 						["Тотем магмы"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
@@ -35099,8 +35076,8 @@ RecountPerCharDB = {
 						},
 						["Детеныш призрачного жемчужношкурого элекка"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 4.33,
+								["Священный огонь"] = {
+									["count"] = 1.19,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 2.16,
@@ -35108,8 +35085,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 2.62,
 								},
-								["Священный огонь"] = {
-									["count"] = 1.19,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 4.33,
 								},
 								["Кара"] = {
 									["count"] = 4.59,
@@ -35119,6 +35096,14 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 15.02,
+						},
+						["Пузатая жаба"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 3.5,
+								},
+							},
+							["amount"] = 3.5,
 						},
 						["Железный щитоносец"] = {
 							["Details"] = {
@@ -35155,28 +35140,28 @@ RecountPerCharDB = {
 							},
 							["amount"] = 78.26,
 						},
-						["Жрица Пустоты из клана Призрачной Луны"] = {
+						["Ружейник Зашедшей Луны"] = {
 							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0.65,
+								["Быстрое исцеление"] = {
+									["count"] = 3.8,
 								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 1.38,
+								["Кольцо света"] = {
+									["count"] = 0,
 								},
 								["Исповедь"] = {
-									["count"] = 14.32,
+									["count"] = 0.88,
 								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 46.45,
+								["Искупление вины"] = {
+									["count"] = 0.06,
 								},
-								["Кара"] = {
-									["count"] = 36.96,
+								["Помощь предводителя"] = {
+									["count"] = 5.84,
 								},
-								["Священный огонь"] = {
-									["count"] = 1.77,
+								["Каскад"] = {
+									["count"] = 3.91,
 								},
 							},
-							["amount"] = 101.53,
+							["amount"] = 14.49,
 						},
 						["Дол'мак"] = {
 							["Details"] = {
@@ -35297,27 +35282,36 @@ RecountPerCharDB = {
 							},
 							["amount"] = 31.79,
 						},
-						["Пузатая жаба"] = {
+						["Проницатель Бездны"] = {
 							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 3.5,
+								["Исповедь"] = {
+									["count"] = 0,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 6.17,
+								},
+								["Кара"] = {
+									["count"] = 22.14,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0,
 								},
 							},
-							["amount"] = 3.5,
+							["amount"] = 28.31,
 						},
 						["Сущность тьмы"] = {
 							["Details"] = {
 								["Взрыв разума"] = {
 									["count"] = 4.07,
 								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0.4,
+								["Пронзание разума"] = {
+									["count"] = 0.66,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11.4,
 								},
-								["Пронзание разума"] = {
-									["count"] = 0.66,
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0.4,
 								},
 								["Пытка разума (УЗВ)"] = {
 									["count"] = 11.29,
@@ -35331,28 +35325,13 @@ RecountPerCharDB = {
 							},
 							["amount"] = 35.82,
 						},
-						["Отмеченная Бездной провидица"] = {
+						["Железная ружейница"] = {
 							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 0.38,
-								},
-								["Взрыв разума"] = {
-									["count"] = 3.27,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 1.82,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 3.26,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 5.47,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0.45,
+								["Сияние"] = {
+									["count"] = 1.25,
 								},
 							},
-							["amount"] = 14.65,
+							["amount"] = 1.25,
 						},
 						["Восставший страж"] = {
 							["Details"] = {
@@ -35362,13 +35341,19 @@ RecountPerCharDB = {
 							},
 							["amount"] = 3.16,
 						},
-						["Раненый защитник Карабора"] = {
+						["Детеныш горена Зашедшей Луны"] = {
 							["Details"] = {
-								["Быстрое исцеление"] = {
-									["count"] = 25.83,
+								["Иссушение разума"] = {
+									["count"] = 24.01,
+								},
+								["Кольцо света"] = {
+									["count"] = 1.91,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 2.67,
 								},
 							},
-							["amount"] = 25.83,
+							["amount"] = 28.59,
 						},
 						["Владыка Бездны из клана Призрачной Луны"] = {
 							["Details"] = {
@@ -35425,40 +35410,28 @@ RecountPerCharDB = {
 							},
 							["amount"] = 111.98,
 						},
-						["Ужас Бездны"] = {
+						["Саргерайский посвященный"] = {
 							["Details"] = {
-								["Взрыв разума"] = {
-									["count"] = 2.18,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 2.86,
+								["Слово Тьмы: Боль"] = {
+									["count"] = 4.15,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 6.67,
+									["count"] = 11.66,
 								},
-								["Сияние"] = {
-									["count"] = 0.4,
+								["Исповедь"] = {
+									["count"] = 15.63,
 								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 7.04,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 27.99,
 								},
-								["Всепожирающая чума"] = {
-									["count"] = 0.85,
+								["Кара"] = {
+									["count"] = 26.36,
 								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 2.17,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 2.87,
-								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0.55,
-								},
-								["Пронзание разума"] = {
-									["count"] = 0.5,
+								["Священный огонь"] = {
+									["count"] = 3.37,
 								},
 							},
-							["amount"] = 26.09,
+							["amount"] = 89.16,
 						},
 						["Пророк из клана Призрачной Луны"] = {
 							["Details"] = {
@@ -35489,71 +35462,68 @@ RecountPerCharDB = {
 							},
 							["amount"] = 44.17,
 						},
-						["Ружейник Зашедшей Луны"] = {
+						["Раненый защитник Карабора"] = {
 							["Details"] = {
 								["Быстрое исцеление"] = {
-									["count"] = 3.8,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0.88,
-								},
-								["Искупление вины"] = {
-									["count"] = 0.06,
-								},
-								["Помощь предводителя"] = {
-									["count"] = 5.84,
-								},
-								["Каскад"] = {
-									["count"] = 3.91,
+									["count"] = 25.83,
 								},
 							},
-							["amount"] = 14.49,
+							["amount"] = 25.83,
 						},
-						["Отмеченный Бездной провидец"] = {
+						["Некролит из клана Призрачной Луны"] = {
 							["Details"] = {
 								["Иссушение разума"] = {
-									["count"] = 1.15,
+									["count"] = 4.11,
 								},
 								["Взрыв разума"] = {
-									["count"] = 0.02,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 7.64,
-								},
-								["Сияние"] = {
-									["count"] = 0.38,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 9.51,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 10.5,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 10.49,
-								},
-								["Сумеречный призрак"] = {
-									["count"] = 1.76,
-								},
-								["Сущность К'ары"] = {
 									["count"] = 0,
 								},
-								["Пронзание разума"] = {
-									["count"] = 1.58,
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 0.11,
 								},
-							},
-							["amount"] = 43.03,
-						},
-						["Железная ружейница"] = {
-							["Details"] = {
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0.44,
+								},
 								["Сияние"] = {
-									["count"] = 1.25,
+									["count"] = 2.43,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0.51,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 3.94,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 2.19,
+								},
+								["Сумеречный призрак"] = {
+									["count"] = 0.69,
 								},
 							},
-							["amount"] = 1.25,
+							["amount"] = 14.42,
+						},
+						["Жрица Пустоты из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Боль"] = {
+									["count"] = 0.65,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 1.38,
+								},
+								["Исповедь"] = {
+									["count"] = 14.32,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 46.45,
+								},
+								["Кара"] = {
+									["count"] = 36.96,
+								},
+								["Священный огонь"] = {
+									["count"] = 1.77,
+								},
+							},
+							["amount"] = 101.53,
 						},
 						["Камнезуб"] = {
 							["Details"] = {
@@ -35993,37 +35963,28 @@ RecountPerCharDB = {
 							},
 							["amount"] = 37.5,
 						},
-						["Некролит из клана Призрачной Луны"] = {
+						["Аберрация Бездны"] = {
 							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 4.11,
-								},
-								["Взрыв разума"] = {
-									["count"] = 0,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 0.11,
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 6.21,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0.44,
+									["count"] = 0,
 								},
-								["Сияние"] = {
-									["count"] = 2.43,
+								["Взрыв разума"] = {
+									["count"] = 3.28,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 0.92,
 								},
 								["Всепожирающая чума"] = {
-									["count"] = 0.51,
+									["count"] = 2.08,
 								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 3.94,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 2.19,
-								},
-								["Сумеречный призрак"] = {
-									["count"] = 0.69,
+									["count"] = 11.06,
 								},
 							},
-							["amount"] = 14.42,
+							["amount"] = 23.55,
 						},
 						["Раненая защитница Карабора"] = {
 							["Details"] = {
@@ -36041,8 +36002,8 @@ RecountPerCharDB = {
 								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 6.43,
 								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 2.45,
+								["Пронзание разума"] = {
+									["count"] = 0.43,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 3.9,
@@ -36050,8 +36011,8 @@ RecountPerCharDB = {
 								["Сияние"] = {
 									["count"] = 5.13,
 								},
-								["Пронзание разума"] = {
-									["count"] = 0.43,
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 2.45,
 								},
 								["Сущность К'ары"] = {
 									["count"] = 0.48,
@@ -36062,22 +36023,40 @@ RecountPerCharDB = {
 							},
 							["amount"] = 25.11,
 						},
-						["Проницатель Бездны"] = {
+						["Ужас Бездны"] = {
 							["Details"] = {
-								["Исповедь"] = {
-									["count"] = 0,
+								["Взрыв разума"] = {
+									["count"] = 2.18,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 2.86,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 6.17,
+									["count"] = 6.67,
 								},
-								["Кара"] = {
-									["count"] = 22.14,
+								["Сияние"] = {
+									["count"] = 0.4,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 7.04,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 0.85,
 								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 0,
+									["count"] = 2.17,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 2.87,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0.55,
+								},
+								["Пронзание разума"] = {
+									["count"] = 0.5,
 								},
 							},
-							["amount"] = 28.31,
+							["amount"] = 26.09,
 						},
 						["Ирель <Манриэль>"] = {
 							["Details"] = {
@@ -36090,19 +36069,40 @@ RecountPerCharDB = {
 							},
 							["amount"] = 27.78,
 						},
-						["Детеныш горена Зашедшей Луны"] = {
+						["Отмеченный Бездной провидец"] = {
 							["Details"] = {
 								["Иссушение разума"] = {
-									["count"] = 24.01,
+									["count"] = 1.15,
 								},
-								["Кольцо света"] = {
-									["count"] = 1.91,
+								["Взрыв разума"] = {
+									["count"] = 0.02,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 7.64,
+								},
+								["Сияние"] = {
+									["count"] = 0.38,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 9.51,
 								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 2.67,
+									["count"] = 10.5,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 10.49,
+								},
+								["Сумеречный призрак"] = {
+									["count"] = 1.76,
+								},
+								["Сущность К'ары"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 1.58,
 								},
 							},
-							["amount"] = 28.59,
+							["amount"] = 43.03,
 						},
 						["Нер'зул"] = {
 							["Details"] = {
@@ -36183,28 +36183,28 @@ RecountPerCharDB = {
 							},
 							["amount"] = 42.83,
 						},
-						["Аберрация Бездны"] = {
+						["Отмеченная Бездной провидица"] = {
 							["Details"] = {
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 6.21,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
+								["Сумеречный призрак"] = {
+									["count"] = 0.38,
 								},
 								["Взрыв разума"] = {
-									["count"] = 3.28,
+									["count"] = 3.27,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 1.82,
 								},
 								["Пытка разума (УЗВ)"] = {
-									["count"] = 0.92,
+									["count"] = 3.26,
 								},
-								["Всепожирающая чума"] = {
-									["count"] = 2.08,
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 5.47,
 								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 11.06,
+									["count"] = 0.45,
 								},
 							},
-							["amount"] = 23.55,
+							["amount"] = 14.65,
 						},
 						["Аркеддон"] = {
 							["Details"] = {
@@ -36313,15 +36313,15 @@ RecountPerCharDB = {
 							},
 							["amount"] = 10,
 						},
-						["Сержант Краулер"] = {
+						["Рейчел Блэк"] = {
 							["Details"] = {
 								["Божественное покровительство"] = {
-									["count"] = 2,
+									["count"] = 1,
 								},
 							},
-							["amount"] = 2,
+							["amount"] = 1,
 						},
-						["Страж Зашедшей Луны"] = {
+						["Сержант Краулер"] = {
 							["Details"] = {
 								["Божественное покровительство"] = {
 									["count"] = 2,
@@ -36335,10 +36335,10 @@ RecountPerCharDB = {
 									["count"] = 85,
 								},
 								["Слово силы: Щит"] = {
-									["count"] = 161,
+									["count"] = 163,
 								},
 							},
-							["amount"] = 246,
+							["amount"] = 248,
 						},
 						["Ружейница Зашедшей Луны"] = {
 							["Details"] = {
@@ -36364,13 +36364,13 @@ RecountPerCharDB = {
 							},
 							["amount"] = 14,
 						},
-						["Рейчел Блэк"] = {
+						["Страж Зашедшей Луны"] = {
 							["Details"] = {
 								["Божественное покровительство"] = {
-									["count"] = 1,
+									["count"] = 2,
 								},
 							},
-							["amount"] = 1,
+							["amount"] = 2,
 						},
 					},
 					["ElementDone"] = {
@@ -36379,6 +36379,29 @@ RecountPerCharDB = {
 						["Holy"] = 1287573,
 					},
 					["ElementHitsDone"] = {
+						["Holy"] = {
+							["Details"] = {
+								["Multistrike"] = {
+									["count"] = 79,
+								},
+								["Hit"] = {
+									["count"] = 683,
+								},
+								["Miss"] = {
+									["count"] = 24,
+								},
+								["Tick"] = {
+									["count"] = 464,
+								},
+								["Crit"] = {
+									["count"] = 113,
+								},
+								["Evade"] = {
+									["count"] = 2,
+								},
+							},
+							["amount"] = 1365,
+						},
 						["Physical"] = {
 							["Details"] = {
 								["Immune"] = {
@@ -36386,6 +36409,17 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 1,
+						},
+						["Melee"] = {
+							["Details"] = {
+								["Crit"] = {
+									["count"] = 1,
+								},
+								["Hit"] = {
+									["count"] = 8,
+								},
+							},
+							["amount"] = 9,
 						},
 						["Shadow"] = {
 							["Details"] = {
@@ -36412,40 +36446,6 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 3548,
-						},
-						["Melee"] = {
-							["Details"] = {
-								["Crit"] = {
-									["count"] = 1,
-								},
-								["Hit"] = {
-									["count"] = 8,
-								},
-							},
-							["amount"] = 9,
-						},
-						["Holy"] = {
-							["Details"] = {
-								["Multistrike"] = {
-									["count"] = 79,
-								},
-								["Hit"] = {
-									["count"] = 683,
-								},
-								["Miss"] = {
-									["count"] = 24,
-								},
-								["Tick"] = {
-									["count"] = 464,
-								},
-								["Crit"] = {
-									["count"] = 113,
-								},
-								["Evade"] = {
-									["count"] = 2,
-								},
-							},
-							["amount"] = 1365,
 						},
 					},
 					["WhoDamaged"] = {
@@ -36738,14 +36738,14 @@ RecountPerCharDB = {
 						},
 						["No One"] = {
 							["Details"] = {
+								["Смоляной взрыв"] = {
+									["count"] = 4084,
+								},
 								["Пылающие стрелы (УЗВ)"] = {
 									["count"] = 62451,
 								},
 								["Вспышка (УЗВ)"] = {
 									["count"] = 2496,
-								},
-								["Смоляной взрыв"] = {
-									["count"] = 4084,
 								},
 							},
 							["amount"] = 69031,
@@ -37037,6 +37037,22 @@ RecountPerCharDB = {
 							},
 							["amount"] = 25697,
 						},
+						["Железный флот"] = {
+							["Details"] = {
+								["Черные небеса"] = {
+									["count"] = 132759,
+								},
+							},
+							["amount"] = 132759,
+						},
+						["Завыватель Бездны"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 1404,
+								},
+							},
+							["amount"] = 1404,
+						},
 						["Отмеченный Бездной провидец"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
@@ -37047,22 +37063,6 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 104670,
-						},
-						["Завыватель Бездны"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 1404,
-								},
-							},
-							["amount"] = 1404,
-						},
-						["Железный флот"] = {
-							["Details"] = {
-								["Черные небеса"] = {
-									["count"] = 132759,
-								},
-							},
-							["amount"] = 132759,
 						},
 						["Темнокрыл-падальщик"] = {
 							["Details"] = {
@@ -37210,6 +37210,14 @@ RecountPerCharDB = {
 							},
 							["amount"] = 80460,
 						},
+						["Грибной великан"] = {
+							["Details"] = {
+								["Атака ближнего боя"] = {
+									["count"] = 5718,
+								},
+							},
+							["amount"] = 5718,
+						},
 						["Детеныш горена Зашедшей Луны"] = {
 							["Details"] = {
 								["Атака ближнего боя"] = {
@@ -37220,14 +37228,6 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 65247,
-						},
-						["Грибной великан"] = {
-							["Details"] = {
-								["Атака ближнего боя"] = {
-									["count"] = 5718,
-								},
-							},
-							["amount"] = 5718,
 						},
 						["Пророк из клана Призрачной Луны"] = {
 							["Details"] = {
@@ -38252,16 +38252,16 @@ RecountPerCharDB = {
 							["count"] = 9,
 							["amount"] = 0,
 						},
-						["Ранение бедра (УЗВ)"] = {
+						["Временной взрыв"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 12,
+									["count"] = 43,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 12,
+							["count"] = 43,
 							["amount"] = 0,
 						},
 						["Fire"] = {
@@ -38288,16 +38288,16 @@ RecountPerCharDB = {
 							["count"] = 37,
 							["amount"] = 0,
 						},
-						["Временной взрыв"] = {
+						["Ранение бедра (УЗВ)"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 43,
+									["count"] = 12,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 43,
+							["count"] = 12,
 							["amount"] = 0,
 						},
 						["Брызги яда"] = {
@@ -38336,18 +38336,6 @@ RecountPerCharDB = {
 							["count"] = 6,
 							["amount"] = 0,
 						},
-						["Щит молний"] = {
-							["Details"] = {
-								["Нет сопротивлений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
 						["Удар головой"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
@@ -38358,6 +38346,18 @@ RecountPerCharDB = {
 								},
 							},
 							["count"] = 3,
+							["amount"] = 0,
+						},
+						["Прикосновение Бездны"] = {
+							["Details"] = {
+								["Нет сопротивлений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 49,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 49,
 							["amount"] = 0,
 						},
 						["Порча"] = {
@@ -38372,28 +38372,28 @@ RecountPerCharDB = {
 							["count"] = 8,
 							["amount"] = 0,
 						},
-						["Ранение бедра"] = {
+						["Горение"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 11,
+									["count"] = 9,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 11,
+							["count"] = 9,
 							["amount"] = 0,
 						},
-						["Прикосновение Бездны"] = {
+						["Щит молний"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 49,
+									["count"] = 2,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 49,
+							["count"] = 2,
 							["amount"] = 0,
 						},
 						["Дождь Тьмы"] = {
@@ -38420,18 +38420,6 @@ RecountPerCharDB = {
 							["count"] = 8,
 							["amount"] = 0,
 						},
-						["Горение"] = {
-							["Details"] = {
-								["Нет сопротивлений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 9,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 9,
-							["amount"] = 0,
-						},
 						["Обугленная земля"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
@@ -38442,6 +38430,18 @@ RecountPerCharDB = {
 								},
 							},
 							["count"] = 2,
+							["amount"] = 0,
+						},
+						["Перекат вперед"] = {
+							["Details"] = {
+								["Нет сопротивлений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 9,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 9,
 							["amount"] = 0,
 						},
 						["Неуклюжий удар"] = {
@@ -38456,16 +38456,16 @@ RecountPerCharDB = {
 							["count"] = 5,
 							["amount"] = 0,
 						},
-						["Перекат вперед"] = {
+						["Ранение бедра"] = {
 							["Details"] = {
 								["Нет сопротивлений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 9,
+									["count"] = 11,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 9,
+							["count"] = 11,
 							["amount"] = 0,
 						},
 						["Поганочное гниение (УЗВ)"] = {
@@ -39344,23 +39344,23 @@ RecountPerCharDB = {
 							["count"] = 9,
 							["amount"] = 2404,
 						},
-						["Ранение бедра (УЗВ)"] = {
+						["Временной взрыв"] = {
 							["Details"] = {
 								["Поглощено"] = {
-									["max"] = 119,
-									["min"] = 119,
-									["count"] = 1,
-									["amount"] = 119,
+									["max"] = 1774,
+									["min"] = 33,
+									["count"] = 16,
+									["amount"] = 21793,
 								},
 								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 11,
+									["count"] = 27,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 12,
-							["amount"] = 119,
+							["count"] = 43,
+							["amount"] = 21793,
 						},
 						["Fire"] = {
 							["Details"] = {
@@ -39386,23 +39386,23 @@ RecountPerCharDB = {
 							["count"] = 37,
 							["amount"] = 0,
 						},
-						["Временной взрыв"] = {
+						["Ранение бедра (УЗВ)"] = {
 							["Details"] = {
 								["Поглощено"] = {
-									["max"] = 1774,
-									["min"] = 33,
-									["count"] = 16,
-									["amount"] = 21793,
+									["max"] = 119,
+									["min"] = 119,
+									["count"] = 1,
+									["amount"] = 119,
 								},
 								["Нет поглощений"] = {
 									["max"] = 0,
 									["min"] = 0,
-									["count"] = 27,
+									["count"] = 11,
 									["amount"] = 0,
 								},
 							},
-							["count"] = 43,
-							["amount"] = 21793,
+							["count"] = 12,
+							["amount"] = 119,
 						},
 						["Брызги яда"] = {
 							["Details"] = {
@@ -39446,18 +39446,6 @@ RecountPerCharDB = {
 							["count"] = 6,
 							["amount"] = 17689,
 						},
-						["Щит молний"] = {
-							["Details"] = {
-								["Нет поглощений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 2,
-									["amount"] = 0,
-								},
-							},
-							["count"] = 2,
-							["amount"] = 0,
-						},
 						["Удар головой"] = {
 							["Details"] = {
 								["Поглощено"] = {
@@ -39476,30 +39464,6 @@ RecountPerCharDB = {
 							["count"] = 3,
 							["amount"] = 1669,
 						},
-						["Порча"] = {
-							["Details"] = {
-								["Поглощено"] = {
-									["max"] = 1075,
-									["min"] = 751,
-									["count"] = 8,
-									["amount"] = 6658,
-								},
-							},
-							["count"] = 8,
-							["amount"] = 6658,
-						},
-						["Ранение бедра"] = {
-							["Details"] = {
-								["Поглощено"] = {
-									["max"] = 848,
-									["min"] = 423,
-									["count"] = 11,
-									["amount"] = 7206,
-								},
-							},
-							["count"] = 11,
-							["amount"] = 7206,
-						},
 						["Прикосновение Бездны"] = {
 							["Details"] = {
 								["Поглощено"] = {
@@ -39517,6 +39481,42 @@ RecountPerCharDB = {
 							},
 							["count"] = 49,
 							["amount"] = 20574,
+						},
+						["Порча"] = {
+							["Details"] = {
+								["Поглощено"] = {
+									["max"] = 1075,
+									["min"] = 751,
+									["count"] = 8,
+									["amount"] = 6658,
+								},
+							},
+							["count"] = 8,
+							["amount"] = 6658,
+						},
+						["Горение"] = {
+							["Details"] = {
+								["Поглощено"] = {
+									["max"] = 11484,
+									["min"] = 1109,
+									["count"] = 9,
+									["amount"] = 30645,
+								},
+							},
+							["count"] = 9,
+							["amount"] = 30645,
+						},
+						["Щит молний"] = {
+							["Details"] = {
+								["Нет поглощений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 2,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 2,
+							["amount"] = 0,
 						},
 						["Дождь Тьмы"] = {
 							["Details"] = {
@@ -39548,18 +39548,6 @@ RecountPerCharDB = {
 							["count"] = 8,
 							["amount"] = 7407,
 						},
-						["Горение"] = {
-							["Details"] = {
-								["Поглощено"] = {
-									["max"] = 11484,
-									["min"] = 1109,
-									["count"] = 9,
-									["amount"] = 30645,
-								},
-							},
-							["count"] = 9,
-							["amount"] = 30645,
-						},
 						["Обугленная земля"] = {
 							["Details"] = {
 								["Поглощено"] = {
@@ -39571,6 +39559,24 @@ RecountPerCharDB = {
 							},
 							["count"] = 2,
 							["amount"] = 14321,
+						},
+						["Перекат вперед"] = {
+							["Details"] = {
+								["Поглощено"] = {
+									["max"] = 1751,
+									["min"] = 1242,
+									["count"] = 2,
+									["amount"] = 2993,
+								},
+								["Нет поглощений"] = {
+									["max"] = 0,
+									["min"] = 0,
+									["count"] = 7,
+									["amount"] = 0,
+								},
+							},
+							["count"] = 9,
+							["amount"] = 2993,
 						},
 						["Неуклюжий удар"] = {
 							["Details"] = {
@@ -39590,23 +39596,17 @@ RecountPerCharDB = {
 							["count"] = 5,
 							["amount"] = 2618,
 						},
-						["Перекат вперед"] = {
+						["Ранение бедра"] = {
 							["Details"] = {
 								["Поглощено"] = {
-									["max"] = 1751,
-									["min"] = 1242,
-									["count"] = 2,
-									["amount"] = 2993,
-								},
-								["Нет поглощений"] = {
-									["max"] = 0,
-									["min"] = 0,
-									["count"] = 7,
-									["amount"] = 0,
+									["max"] = 848,
+									["min"] = 423,
+									["count"] = 11,
+									["amount"] = 7206,
 								},
 							},
-							["count"] = 9,
-							["amount"] = 2993,
+							["count"] = 11,
+							["amount"] = 7206,
 						},
 						["Поганочное гниение (УЗВ)"] = {
 							["Details"] = {
@@ -40069,23 +40069,17 @@ RecountPerCharDB = {
 							["count"] = 15,
 							["amount"] = 27224,
 						},
-						["Кольцо света"] = {
+						["Божественное покровительство"] = {
 							["Details"] = {
-								["Crit"] = {
-									["max"] = 1729,
-									["min"] = 4,
-									["count"] = 17,
-									["amount"] = 18140,
-								},
-								["Hit"] = {
-									["max"] = 1881,
-									["min"] = 365,
-									["count"] = 88,
-									["amount"] = 122388,
+								["Absorb"] = {
+									["max"] = 19687,
+									["min"] = 5,
+									["count"] = 92,
+									["amount"] = 173637,
 								},
 							},
-							["count"] = 105,
-							["amount"] = 140528,
+							["count"] = 92,
+							["amount"] = 173637,
 						},
 						["Каскад"] = {
 							["Details"] = {
@@ -40105,35 +40099,23 @@ RecountPerCharDB = {
 							["count"] = 28,
 							["amount"] = 40413,
 						},
-						["Шип боли"] = {
+						["Кольцо света"] = {
 							["Details"] = {
-								["Tick"] = {
-									["max"] = 1326,
-									["min"] = 1246,
-									["count"] = 3,
-									["amount"] = 3898,
+								["Crit"] = {
+									["max"] = 1729,
+									["min"] = 4,
+									["count"] = 17,
+									["amount"] = 18140,
 								},
-								["Multistrike"] = {
-									["max"] = 398,
-									["min"] = 398,
-									["count"] = 1,
-									["amount"] = 398,
+								["Hit"] = {
+									["max"] = 1881,
+									["min"] = 365,
+									["count"] = 88,
+									["amount"] = 122388,
 								},
 							},
-							["count"] = 4,
-							["amount"] = 4296,
-						},
-						["Божественное покровительство"] = {
-							["Details"] = {
-								["Absorb"] = {
-									["max"] = 19687,
-									["min"] = 5,
-									["count"] = 92,
-									["amount"] = 173637,
-								},
-							},
-							["count"] = 92,
-							["amount"] = 173637,
+							["count"] = 105,
+							["amount"] = 140528,
 						},
 						["Исповедь"] = {
 							["Details"] = {
@@ -40152,6 +40134,24 @@ RecountPerCharDB = {
 							},
 							["count"] = 24,
 							["amount"] = 146293,
+						},
+						["Шип боли"] = {
+							["Details"] = {
+								["Tick"] = {
+									["max"] = 1326,
+									["min"] = 1246,
+									["count"] = 3,
+									["amount"] = 3898,
+								},
+								["Multistrike"] = {
+									["max"] = 398,
+									["min"] = 398,
+									["count"] = 1,
+									["amount"] = 398,
+								},
+							},
+							["count"] = 4,
+							["amount"] = 4296,
 						},
 						["Молитва исцеления"] = {
 							["Details"] = {
@@ -40236,14 +40236,14 @@ RecountPerCharDB = {
 								["Молитва восстановления"] = {
 									["count"] = 17834,
 								},
-								["Искупление вины"] = {
-									["count"] = 294664,
+								["Шип боли"] = {
+									["count"] = 4296,
 								},
 								["Каскад"] = {
 									["count"] = 3034,
 								},
-								["Шип боли"] = {
-									["count"] = 4296,
+								["Кольцо света"] = {
+									["count"] = 62966,
 								},
 								["Исповедь"] = {
 									["count"] = 90237,
@@ -40254,8 +40254,8 @@ RecountPerCharDB = {
 								["Молитва исцеления"] = {
 									["count"] = 4895,
 								},
-								["Кольцо света"] = {
-									["count"] = 62966,
+								["Искупление вины"] = {
+									["count"] = 294664,
 								},
 							},
 							["amount"] = 3230960,
@@ -40471,8 +40471,8 @@ RecountPerCharDB = {
 						},
 						["Шаман из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Кара"] = {
-									["count"] = 5574,
+								["Священный огонь"] = {
+									["count"] = 2306,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 3186,
@@ -40480,8 +40480,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 5270,
 								},
-								["Священный огонь"] = {
-									["count"] = 2306,
+								["Кара"] = {
+									["count"] = 5574,
 								},
 								["Священный огонь (УЗВ)"] = {
 									["count"] = 626,
@@ -40494,14 +40494,14 @@ RecountPerCharDB = {
 						},
 						["Железный громила"] = {
 							["Details"] = {
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 5987,
+								},
 								["Взрыв разума"] = {
 									["count"] = 4634,
 								},
 								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 7286,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 5987,
 								},
 								["Слово Тьмы: Боль"] = {
 									["count"] = 2282,
@@ -41566,14 +41566,14 @@ RecountPerCharDB = {
 								["Взрыв разума"] = {
 									["count"] = 13764,
 								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 1348,
+								["Пронзание разума"] = {
+									["count"] = 4053,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11240,
 								},
-								["Пронзание разума"] = {
-									["count"] = 4053,
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 1348,
 								},
 								["Пытка разума (УЗВ)"] = {
 									["count"] = 14370,
@@ -41589,8 +41589,8 @@ RecountPerCharDB = {
 						},
 						["Саргерайский посвященный"] = {
 							["Details"] = {
-								["Кара"] = {
-									["count"] = 32169,
+								["Священный огонь"] = {
+									["count"] = 9222,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11343,
@@ -41598,8 +41598,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 23021,
 								},
-								["Священный огонь"] = {
-									["count"] = 9222,
+								["Кара"] = {
+									["count"] = 32169,
 								},
 								["Священный огонь (УЗВ)"] = {
 									["count"] = 2197,
@@ -41620,8 +41620,8 @@ RecountPerCharDB = {
 						},
 						["Детеныш призрачного жемчужношкурого элекка"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 444,
+								["Священный огонь"] = {
+									["count"] = 2198,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 3045,
@@ -41629,8 +41629,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 12194,
 								},
-								["Священный огонь"] = {
-									["count"] = 2198,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 444,
 								},
 								["Кара"] = {
 									["count"] = 9003,
@@ -41641,34 +41641,28 @@ RecountPerCharDB = {
 							},
 							["amount"] = 28402,
 						},
-						["Камнезуб"] = {
+						["Жрица Пустоты из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 3568,
-								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 1697,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 496,
-								},
-								["Кольцо света"] = {
-									["count"] = 1995,
-								},
-								["Исповедь"] = {
-									["count"] = 5630,
+									["count"] = 4168,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 5443,
+									["count"] = 11066,
+								},
+								["Исповедь"] = {
+									["count"] = 47867,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 3724,
 								},
 								["Кара"] = {
-									["count"] = 9459,
+									["count"] = 67252,
 								},
 								["Священный огонь"] = {
-									["count"] = 4270,
+									["count"] = 14981,
 								},
 							},
-							["amount"] = 32558,
+							["amount"] = 149058,
 						},
 						["Завыватель Сумрачной рощи"] = {
 							["Details"] = {
@@ -41702,29 +41696,6 @@ RecountPerCharDB = {
 							},
 							["amount"] = 163493,
 						},
-						["Жрица Пустоты из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 4168,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 11066,
-								},
-								["Исповедь"] = {
-									["count"] = 47867,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 3724,
-								},
-								["Кара"] = {
-									["count"] = 67252,
-								},
-								["Священный огонь"] = {
-									["count"] = 14981,
-								},
-							},
-							["amount"] = 149058,
-						},
 						["Ритуалист из клана Призрачной Луны"] = {
 							["Details"] = {
 								["Иссушение разума"] = {
@@ -41753,6 +41724,35 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 148639,
+						},
+						["Пророк из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 12831,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 11915,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 8902,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 6511,
+								},
+								["Взрыв разума"] = {
+									["count"] = 31080,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 10709,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 18176,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 5979,
+								},
+							},
+							["amount"] = 106103,
 						},
 						["Отмеченная Бездной провидица"] = {
 							["Details"] = {
@@ -42109,8 +42109,8 @@ RecountPerCharDB = {
 								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 5936,
 								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 10806,
+								["Пронзание разума"] = {
+									["count"] = 4254,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 4112,
@@ -42118,8 +42118,8 @@ RecountPerCharDB = {
 								["Сияние"] = {
 									["count"] = 41189,
 								},
-								["Пронзание разума"] = {
-									["count"] = 4254,
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 10806,
 								},
 								["Сущность К'ары"] = {
 									["count"] = 13342,
@@ -42143,6 +42143,41 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 103426,
+						},
+						["Грибной великан"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 1744,
+								},
+								["Взрыв разума"] = {
+									["count"] = 29725,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 12749,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 14123,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 21383,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 12751,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 2021,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 16985,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 5238,
+								},
+								["Пронзание разума"] = {
+									["count"] = 9056,
+								},
+							},
+							["amount"] = 125775,
 						},
 						["Некролит из клана Призрачной Луны"] = {
 							["Details"] = {
@@ -42175,35 +42210,6 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 50317,
-						},
-						["Пророк из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 12831,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 11915,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 8902,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 6511,
-								},
-								["Взрыв разума"] = {
-									["count"] = 31080,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 10709,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 18176,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 5979,
-								},
-							},
-							["amount"] = 106103,
 						},
 						["Нер'зул"] = {
 							["Details"] = {
@@ -42272,40 +42278,34 @@ RecountPerCharDB = {
 							},
 							["amount"] = 120440,
 						},
-						["Грибной великан"] = {
+						["Камнезуб"] = {
 							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 1744,
-								},
-								["Взрыв разума"] = {
-									["count"] = 29725,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 12749,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 14123,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 21383,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 12751,
+								["Иссушение разума"] = {
+									["count"] = 3568,
 								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 2021,
+									["count"] = 1697,
 								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 16985,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 496,
 								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 5238,
+								["Кольцо света"] = {
+									["count"] = 1995,
 								},
-								["Пронзание разума"] = {
-									["count"] = 9056,
+								["Исповедь"] = {
+									["count"] = 5630,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 5443,
+								},
+								["Кара"] = {
+									["count"] = 9459,
+								},
+								["Священный огонь"] = {
+									["count"] = 4270,
 								},
 							},
-							["amount"] = 125775,
+							["amount"] = 32558,
 						},
 						["Аркеддон"] = {
 							["Details"] = {
@@ -42389,22 +42389,6 @@ RecountPerCharDB = {
 							},
 							["amount"] = 5066,
 						},
-						["Аркеддон"] = {
-							["Details"] = {
-								["Молот Света"] = {
-									["count"] = 5893,
-								},
-							},
-							["amount"] = 5893,
-						},
-						["Лезвие Бездны из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Молот Света"] = {
-									["count"] = 1877,
-								},
-							},
-							["amount"] = 1877,
-						},
 						["Манриэль"] = {
 							["Details"] = {
 								["Объятия вампира"] = {
@@ -42445,6 +42429,22 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 1860895,
+						},
+						["Аркеддон"] = {
+							["Details"] = {
+								["Молот Света"] = {
+									["count"] = 5893,
+								},
+							},
+							["amount"] = 5893,
+						},
+						["Лезвие Бездны из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Молот Света"] = {
+									["count"] = 1877,
+								},
+							},
+							["amount"] = 1877,
 						},
 					},
 					["ElementTakenAbsorb"] = {
@@ -43189,8 +43189,8 @@ RecountPerCharDB = {
 						},
 						["Шаман из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Кара"] = {
-									["count"] = 1.2,
+								["Священный огонь"] = {
+									["count"] = 1.42,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 1.82,
@@ -43198,8 +43198,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 4.69,
 								},
-								["Священный огонь"] = {
-									["count"] = 1.42,
+								["Кара"] = {
+									["count"] = 1.2,
 								},
 								["Священный огонь (УЗВ)"] = {
 									["count"] = 6.39,
@@ -44290,14 +44290,14 @@ RecountPerCharDB = {
 								["Взрыв разума"] = {
 									["count"] = 4.07,
 								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0.4,
+								["Пронзание разума"] = {
+									["count"] = 0.66,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11.4,
 								},
-								["Пронзание разума"] = {
-									["count"] = 0.66,
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0.4,
 								},
 								["Пытка разума (УЗВ)"] = {
 									["count"] = 11.29,
@@ -44313,8 +44313,8 @@ RecountPerCharDB = {
 						},
 						["Саргерайский посвященный"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 27.99,
+								["Слово Тьмы: Боль"] = {
+									["count"] = 4.15,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 11.66,
@@ -44322,8 +44322,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 15.63,
 								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 4.15,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 27.99,
 								},
 								["Кара"] = {
 									["count"] = 26.36,
@@ -44344,8 +44344,8 @@ RecountPerCharDB = {
 						},
 						["Детеныш призрачного жемчужношкурого элекка"] = {
 							["Details"] = {
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 4.33,
+								["Священный огонь"] = {
+									["count"] = 1.19,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 2.16,
@@ -44353,8 +44353,8 @@ RecountPerCharDB = {
 								["Исповедь"] = {
 									["count"] = 2.62,
 								},
-								["Священный огонь"] = {
-									["count"] = 1.19,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 4.33,
 								},
 								["Кара"] = {
 									["count"] = 4.59,
@@ -44365,34 +44365,28 @@ RecountPerCharDB = {
 							},
 							["amount"] = 15.02,
 						},
-						["Камнезуб"] = {
+						["Жрица Пустоты из клана Призрачной Луны"] = {
 							["Details"] = {
-								["Иссушение разума"] = {
-									["count"] = 5.92,
-								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 3.82,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 6.43,
-								},
-								["Кольцо света"] = {
-									["count"] = 0,
-								},
-								["Исповедь"] = {
-									["count"] = 0.89,
+									["count"] = 0.65,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 5.22,
+									["count"] = 1.38,
+								},
+								["Исповедь"] = {
+									["count"] = 14.32,
+								},
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 46.45,
 								},
 								["Кара"] = {
-									["count"] = 5.18,
+									["count"] = 36.96,
 								},
 								["Священный огонь"] = {
-									["count"] = 1.53,
+									["count"] = 1.77,
 								},
 							},
-							["amount"] = 28.99,
+							["amount"] = 101.53,
 						},
 						["Завыватель Сумрачной рощи"] = {
 							["Details"] = {
@@ -44426,29 +44420,6 @@ RecountPerCharDB = {
 							},
 							["amount"] = 67.62,
 						},
-						["Жрица Пустоты из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Боль"] = {
-									["count"] = 0.65,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 1.38,
-								},
-								["Исповедь"] = {
-									["count"] = 14.32,
-								},
-								["Священный огонь (УЗВ)"] = {
-									["count"] = 46.45,
-								},
-								["Кара"] = {
-									["count"] = 36.96,
-								},
-								["Священный огонь"] = {
-									["count"] = 1.77,
-								},
-							},
-							["amount"] = 101.53,
-						},
 						["Ритуалист из клана Призрачной Луны"] = {
 							["Details"] = {
 								["Иссушение разума"] = {
@@ -44477,6 +44448,35 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 96.07,
+						},
+						["Пророк из клана Призрачной Луны"] = {
+							["Details"] = {
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0.73,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 13.4,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 3.35,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 0,
+								},
+								["Взрыв разума"] = {
+									["count"] = 1.06,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 7.97,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 7.32,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 10.34,
+								},
+							},
+							["amount"] = 44.17,
 						},
 						["Отмеченная Бездной провидица"] = {
 							["Details"] = {
@@ -44845,8 +44845,8 @@ RecountPerCharDB = {
 								["Прикосновение вампира (УЗВ)"] = {
 									["count"] = 6.43,
 								},
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 2.45,
+								["Пронзание разума"] = {
+									["count"] = 0.43,
 								},
 								["Слово Тьмы: Боль (УЗВ)"] = {
 									["count"] = 3.9,
@@ -44854,8 +44854,8 @@ RecountPerCharDB = {
 								["Сияние"] = {
 									["count"] = 5.13,
 								},
-								["Пронзание разума"] = {
-									["count"] = 0.43,
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 2.45,
 								},
 								["Сущность К'ары"] = {
 									["count"] = 0.48,
@@ -44879,6 +44879,41 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 28.59,
+						},
+						["Грибной великан"] = {
+							["Details"] = {
+								["Сумеречный призрак"] = {
+									["count"] = 1.25,
+								},
+								["Взрыв разума"] = {
+									["count"] = 5.49,
+								},
+								["Всепожирающая чума (УЗВ)"] = {
+									["count"] = 8.46,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 2.75,
+								},
+								["Пытка разума (УЗВ)"] = {
+									["count"] = 9.38,
+								},
+								["Всепожирающая чума"] = {
+									["count"] = 2.28,
+								},
+								["Слово Тьмы: Боль"] = {
+									["count"] = 3.68,
+								},
+								["Прикосновение вампира (УЗВ)"] = {
+									["count"] = 9.19,
+								},
+								["Слово Тьмы: Смерть"] = {
+									["count"] = 0,
+								},
+								["Пронзание разума"] = {
+									["count"] = 1.22,
+								},
+							},
+							["amount"] = 43.7,
 						},
 						["Некролит из клана Призрачной Луны"] = {
 							["Details"] = {
@@ -44911,35 +44946,6 @@ RecountPerCharDB = {
 								},
 							},
 							["amount"] = 14.42,
-						},
-						["Пророк из клана Призрачной Луны"] = {
-							["Details"] = {
-								["Слово Тьмы: Смерть"] = {
-									["count"] = 0.73,
-								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 13.4,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 3.35,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 0,
-								},
-								["Взрыв разума"] = {
-									["count"] = 1.06,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 7.97,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 7.32,
-								},
-								["Слово Тьмы: Боль"] = {
-									["count"] = 10.34,
-								},
-							},
-							["amount"] = 44.17,
 						},
 						["Нер'зул"] = {
 							["Details"] = {
@@ -45020,40 +45026,34 @@ RecountPerCharDB = {
 							},
 							["amount"] = 42.83,
 						},
-						["Грибной великан"] = {
+						["Камнезуб"] = {
 							["Details"] = {
-								["Сумеречный призрак"] = {
-									["count"] = 1.25,
-								},
-								["Взрыв разума"] = {
-									["count"] = 5.49,
-								},
-								["Всепожирающая чума (УЗВ)"] = {
-									["count"] = 8.46,
-								},
-								["Слово Тьмы: Боль (УЗВ)"] = {
-									["count"] = 2.75,
-								},
-								["Пытка разума (УЗВ)"] = {
-									["count"] = 9.38,
-								},
-								["Всепожирающая чума"] = {
-									["count"] = 2.28,
+								["Иссушение разума"] = {
+									["count"] = 5.92,
 								},
 								["Слово Тьмы: Боль"] = {
-									["count"] = 3.68,
+									["count"] = 3.82,
 								},
-								["Прикосновение вампира (УЗВ)"] = {
-									["count"] = 9.19,
+								["Священный огонь (УЗВ)"] = {
+									["count"] = 6.43,
 								},
-								["Слово Тьмы: Смерть"] = {
+								["Кольцо света"] = {
 									["count"] = 0,
 								},
-								["Пронзание разума"] = {
-									["count"] = 1.22,
+								["Исповедь"] = {
+									["count"] = 0.89,
+								},
+								["Слово Тьмы: Боль (УЗВ)"] = {
+									["count"] = 5.22,
+								},
+								["Кара"] = {
+									["count"] = 5.18,
+								},
+								["Священный огонь"] = {
+									["count"] = 1.53,
 								},
 							},
-							["amount"] = 43.7,
+							["amount"] = 28.99,
 						},
 						["Аркеддон"] = {
 							["Details"] = {
@@ -45320,43 +45320,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -45364,16 +45362,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -45385,22 +45384,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -45423,43 +45423,41 @@ RecountPerCharDB = {
 					},
 					["DeathCount"] = 0,
 					["HOT_Time"] = 0,
-					["ElementHitsDone"] = {
-					},
-					["ElementTakenAbsorb"] = {
-					},
+					["Damage"] = 0,
+					["RunicPowerGain"] = 0,
 					["ElementTaken"] = {
 					},
 					["DOT_Time"] = 0,
-					["Damage"] = 0,
 					["ElementTakenBlock"] = {
+					},
+					["ElementDoneAbsorb"] = {
 					},
 					["TimeHeal"] = 0,
 					["RessedWho"] = {
 					},
 					["Dispels"] = 0,
-					["ElementTakenResist"] = {
+					["PartialBlock"] = {
 					},
-					["ElementDoneAbsorb"] = {
+					["ElementHitsDone"] = {
 					},
 					["FAttacks"] = {
 					},
-					["RunicPowerGainedFrom"] = {
-					},
+					["HealingTaken"] = 0,
 					["ElementDone"] = {
-					},
-					["PartialAbsorb"] = {
 					},
 					["DamagedWho"] = {
 					},
-					["PartialBlock"] = {
+					["ManaGainedFrom"] = {
+					},
+					["RunicPowerGained"] = {
 					},
 					["WhoDamaged"] = {
 					},
 					["EnergyGainedFrom"] = {
 					},
-					["PartialResist"] = {
-					},
 					["CCBroken"] = {
+					},
+					["RunicPowerGainedFrom"] = {
 					},
 					["ElementDoneBlock"] = {
 					},
@@ -45467,16 +45465,17 @@ RecountPerCharDB = {
 					},
 					["OverHeals"] = {
 					},
-					["ManaGainedFrom"] = {
-					},
-					["RunicPowerGained"] = {
-					},
-					["CCBreak"] = 0,
-					["RageGained"] = {
+					["WhoHealed"] = {
 					},
 					["HealedWho"] = {
 					},
-					["EnergyGain"] = 0,
+					["CCBreak"] = 0,
+					["ElementTakenAbsorb"] = {
+					},
+					["PartialAbsorb"] = {
+					},
+					["PartialResist"] = {
+					},
 					["ManaGained"] = {
 					},
 					["FDamage"] = 0,
@@ -45488,22 +45487,23 @@ RecountPerCharDB = {
 					},
 					["InterruptData"] = {
 					},
-					["RunicPowerGain"] = 0,
+					["ElementTakenResist"] = {
+					},
 					["Heals"] = {
 					},
-					["WhoHealed"] = {
-					},
+					["ActiveTime"] = 0,
 					["EnergyGained"] = {
 					},
-					["ActiveTime"] = 0,
+					["EnergyGain"] = 0,
 					["Healing"] = 0,
-					["FDamagedWho"] = {
-					},
 					["Dispelled"] = 0,
+					["RageGained"] = {
+					},
 					["Attacks"] = {
 					},
-					["HealingTaken"] = 0,
 					["RageGain"] = 0,
+					["FDamagedWho"] = {
+					},
 					["TimeDamage"] = 0,
 					["TimeDamaging"] = {
 					},
@@ -45639,7 +45639,7 @@ RecountPerCharDB = {
 			},
 			["LastDamageTaken"] = 459,
 			["UnitLockout"] = 1416348665,
-			["LastAbility"] = 27664.913,
+			["LastAbility"] = 111176.621,
 		},
 	},
 	["FightNum"] = 122,
