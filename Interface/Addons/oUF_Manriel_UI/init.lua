@@ -50,3 +50,5 @@ end
 
 sf:RegisterEvent("PLAYER_ENTERING_WORLD")
 sf:SetScript("OnEvent", function(self, event, ...) sf[event](self, ...) end)
+
+UI.sf = sf;

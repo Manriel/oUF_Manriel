@@ -7,6 +7,7 @@
 	<Include file='libs\oUF\oUF.xml'/>
 	<Script file='libs\oUF_Smooth\oUF_Smooth.lua' />
 	<Script file='libs\oUF_Experience\oUF_Experience.lua' />
+	<Script file='libs\oUF_Reputation\oUF_Reputation.lua' />
 	
 	<Script file='init.lua' />
 	<Script file='settings.lua' />

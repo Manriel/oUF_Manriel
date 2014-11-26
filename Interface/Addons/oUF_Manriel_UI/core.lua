@@ -243,17 +243,51 @@ local UnitSpecific = {
 		self.Castbar = Castbar
 		-- self.Castbar2 = Castbar2
 
-		local ExperienceFrame = CreateFrame('Frame', 'oUF_Manriel_player_XP_', self)
+		local ExperienceFrame = CreateFrame('Frame', 'oUF_Manriel_player_XP_bg', self)
 		ExperienceFrame:SetPoint('TOPLEFT', UIParent, 'TOPLEFT', 4, -4)
 		ExperienceFrame:SetPoint('TOPRIGHT', UIParent, 'TOPRIGHT', -4, -4)
 		ExperienceFrame:SetHeight(height/2);
 		ExperienceFrame:SetBackdrop(backdropPanel);
+
 		local Experience = CreateFrame('StatusBar', 'oUF_Manriel_player_XP', ExperienceFrame)
 		Experience:SetPoint('TOPLEFT', 3, -3)
 		Experience:SetPoint('BOTTOMRIGHT', -3, 3)
 		Experience:SetStatusBarTexture(textureHealthBar);
 		Experience:SetStatusBarColor(1,1,1,1)
+		local Rested = CreateFrame('StatusBar', nil, Experience)
+		Rested:SetAllPoints(Experience)
+		Rested:SetStatusBarTexture(textureHealthBar);
+		Rested:SetStatusBarColor(.7,1,.7,.5)
+
+		local Value = Experience:CreateFontString(nil, 'OVERLAY')
+		Value:SetAllPoints(Experience)
+		Value:SetFont(fontName, baseFontSize)
+		self:Tag(Value, '[curxp] | [maxxp] ([perxp]%)')
+
 		self.Experience = Experience
+		self.Experience.Rested = Rested
+
+		local ReputationFrame = CreateFrame('Frame', 'oUF_Manriel_player_Rep_bg', self)
+		ReputationFrame:SetAllPoints(ExperienceFrame)
+		ReputationFrame:SetHeight(height/2);
+		ReputationFrame:SetBackdrop(backdropPanel);
+		ReputationFrame:Hide();
+
+		local Reputation = CreateFrame('StatusBar', 'oUF_Manriel_player_Rep', ReputationFrame)
+		Reputation:SetPoint('TOPLEFT', 3, -3)
+		Reputation:SetPoint('BOTTOMRIGHT', -3, 3)
+		Reputation:SetStatusBarTexture(textureHealthBar);
+		Reputation.colorStanding = true
+
+		local Value = Reputation:CreateFontString(nil, 'OVERLAY')
+		Value:SetAllPoints(Reputation)
+		Value:SetFont(fontName, baseFontSize)
+		self:Tag(Value, '[reputation] ([standing]): [currep] | [maxrep] ([perrep]%)')
+
+		self.Reputation = Reputation
+
+		ExperienceFrame:SetScript('OnEnter', function(self, motion) ExperienceFrame:Hide(); ReputationFrame:Show(); end);
+		ReputationFrame:SetScript('OnLeave', function(self, motion) ExperienceFrame:Show(); ReputationFrame:Hide(); end);
 	end,
 
 	target = function(self)
