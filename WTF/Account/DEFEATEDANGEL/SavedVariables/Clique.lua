@@ -15,15 +15,17 @@ CliqueDB3 = {
 		},
 	},
 	["profileKeys"] = {
-		["Тиндэлен - Свежеватель Душ"] = "Тиндэлен - Свежеватель Душ",
-		["Чивва - Ясеневый лес"] = "Чивва - Ясеневый лес",
-		["Манриэль - Ясеневый лес"] = "Manriel Shadow",
+		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
+		["Манриэль - Голдринн"] = "Манриэль - Голдринн",
 		["Лавлиэт - Ясеневый лес"] = "Лавлиэт - Ясеневый лес",
-		["Лотаниэль - Подземье"] = "Лотаниэль - Подземье",
+		["Чивва - Ясеневый лес"] = "Чивва - Ясеневый лес",
+		["Шепот - Ясеневый лес"] = "Шепот - Ясеневый лес",
 		["Ещеживая - Подземье"] = "Ещеживая - Подземье",
+		["Лотаниэль - Подземье"] = "Лотаниэль - Подземье",
+		["Тиндэлен - Свежеватель Душ"] = "Тиндэлен - Свежеватель Душ",
 	},
 	["profiles"] = {
-		["Тиндэлен - Свежеватель Душ"] = {
+		["Манриэль - Голдринн"] = {
 			["bindings"] = {
 				{
 					["type"] = "target",
@@ -42,105 +44,70 @@ CliqueDB3 = {
 				}, -- [2]
 			},
 		},
-		["Manriel Shadow"] = {
-			["bindings"] = {
-				{
-					["type"] = "menu",
-					["key"] = "CTRL-SHIFT-BUTTON2",
-					["sets"] = {
-						["default"] = true,
-					},
-				}, -- [1]
-				{
-					["spell"] = "Уход в тень",
-					["key"] = "BUTTON4",
-					["sets"] = {
-						["default"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Magic_LesserInvisibilty",
-					["type"] = "spell",
-				}, -- [2]
-				{
-					["spell"] = "Молитва восстановления",
-					["key"] = "SHIFT-BUTTON2",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
-					["type"] = "spell",
-				}, -- [3]
-				{
-					["spell"] = "Божественное перышко",
-					["key"] = "ALT-BUTTON2",
-					["sets"] = {
-						["global"] = true,
-					},
-					["icon"] = "Interface\\Icons\\ability_priest_angelicfeather",
-					["type"] = "spell",
-				}, -- [4]
-				{
-					["spell"] = "Ментальный крик",
-					["key"] = "SHIFT-BUTTON4",
-					["sets"] = {
-						["global"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Shadow_PsychicScream",
-					["type"] = "spell",
-				}, -- [5]
-				{
-					["spell"] = "Левитация",
-					["key"] = "ALT-BUTTON4",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_LayOnHands",
-					["type"] = "spell",
-				}, -- [6]
-				{
-					["spell"] = "Быстрое исцеление",
-					["key"] = "BUTTON1",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_FlashHeal",
-					["type"] = "spell",
-				}, -- [7]
-				{
-					["spell"] = "Духовное рвение",
-					["key"] = "ALT-BUTTON1",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "INTERFACE\\ICONS\\priest_spell_leapoffaith_a",
-					["type"] = "spell",
-				}, -- [8]
-				{
-					["spell"] = "Слово Тьмы: Смерть",
-					["key"] = "BUTTON5",
-					["sets"] = {
-						["enemy"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Shadow_DemonicFortitude",
-					["type"] = "spell",
-				}, -- [9]
-				{
-					["spell"] = "Слово силы: Щит",
-					["key"] = "BUTTON5",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
-					["type"] = "spell",
-				}, -- [10]
-			},
-		},
 		["Чивва - Ясеневый лес"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Лотаниэль - Подземье"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Тиндэлен - Свежеватель Душ"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Шепот - Ясеневый лес"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -409,25 +376,6 @@ CliqueDB3 = {
 		["Ещеживая - Подземье"] = {
 			["bindings"] = {
 				{
-					["sets"] = {
-						["default"] = true,
-					},
-					["type"] = "target",
-					["key"] = "BUTTON1",
-					["unit"] = "mouseover",
-				}, -- [1]
-				{
-					["type"] = "menu",
-					["key"] = "BUTTON2",
-					["sets"] = {
-						["default"] = true,
-					},
-				}, -- [2]
-			},
-		},
-		["Лотаниэль - Подземье"] = {
-			["bindings"] = {
-				{
 					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
@@ -447,10 +395,10 @@ CliqueDB3 = {
 		["Лавлиэт - Ясеневый лес"] = {
 			["bindings"] = {
 				{
-					["type"] = "target",
 					["sets"] = {
 						["default"] = true,
 					},
+					["type"] = "target",
 					["key"] = "BUTTON1",
 					["unit"] = "mouseover",
 				}, -- [1]
@@ -461,6 +409,133 @@ CliqueDB3 = {
 						["default"] = true,
 					},
 				}, -- [2]
+			},
+		},
+		["Manriel Shadow"] = {
+			["bindings"] = {
+				{
+					["type"] = "menu",
+					["key"] = "CTRL-SHIFT-BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [1]
+				{
+					["spell"] = "Уход в тень",
+					["key"] = "BUTTON4",
+					["sets"] = {
+						["default"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Magic_LesserInvisibilty",
+					["type"] = "spell",
+				}, -- [2]
+				{
+					["macrotext"] = "/focus [@mouseover]",
+					["type"] = "macro",
+					["key"] = "CTRL-SHIFT-BUTTON3",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [3]
+				{
+					["spell"] = "Призрачный облик",
+					["key"] = "SHIFT-BUTTON4",
+					["sets"] = {
+						["default"] = true,
+					},
+					["icon"] = "Interface\\Icons\\spell_priest_spectralguise",
+					["type"] = "spell",
+				}, -- [4]
+				{
+					["spell"] = "Безмолвие",
+					["key"] = "SHIFT-BUTTON5",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = "INTERFACE\\ICONS\\ability_priest_silence",
+					["type"] = "spell",
+				}, -- [5]
+				{
+					["spell"] = "Духовное рвение",
+					["key"] = "ALT-BUTTON1",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "INTERFACE\\ICONS\\priest_spell_leapoffaith_a",
+					["type"] = "spell",
+				}, -- [6]
+				{
+					["spell"] = "Глубинный ужас",
+					["key"] = "CTRL-BUTTON5",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Shadow_PsychicHorrors",
+					["type"] = "spell",
+				}, -- [7]
+				{
+					["spell"] = "Молитва восстановления",
+					["key"] = "SHIFT-BUTTON2",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
+					["type"] = "spell",
+				}, -- [8]
+				{
+					["spell"] = "Ментальный крик",
+					["key"] = "SHIFT-BUTTON4",
+					["sets"] = {
+						["global"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Shadow_PsychicScream",
+					["type"] = "spell",
+				}, -- [9]
+				{
+					["spell"] = "Левитация",
+					["key"] = "ALT-BUTTON4",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_LayOnHands",
+					["type"] = "spell",
+				}, -- [10]
+				{
+					["spell"] = "Быстрое исцеление",
+					["key"] = "BUTTON1",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_FlashHeal",
+					["type"] = "spell",
+				}, -- [11]
+				{
+					["spell"] = "Божественное перышко",
+					["key"] = "ALT-BUTTON2",
+					["sets"] = {
+						["global"] = true,
+					},
+					["icon"] = "Interface\\Icons\\ability_priest_angelicfeather",
+					["type"] = "spell",
+				}, -- [12]
+				{
+					["spell"] = "Слово силы: Щит",
+					["key"] = "BUTTON5",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
+					["type"] = "spell",
+				}, -- [13]
+				{
+					["spell"] = "Слово Тьмы: Смерть",
+					["key"] = "BUTTON5",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Shadow_DemonicFortitude",
+					["type"] = "spell",
+				}, -- [14]
 			},
 		},
 	},

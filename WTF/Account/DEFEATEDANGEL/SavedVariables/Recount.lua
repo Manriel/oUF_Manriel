@@ -1,11 +1,63 @@
 
 RecountDB = {
 	["profileKeys"] = {
-		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
 		["Тиндэлен - Свежеватель Душ"] = "Тиндэлен - Свежеватель Душ",
 		["Чивва - Ясеневый лес"] = "Чивва - Ясеневый лес",
+		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
+		["Лавлиэт - Ясеневый лес"] = "Лавлиэт - Ясеневый лес",
+		["Шепот - Ясеневый лес"] = "Шепот - Ясеневый лес",
+		["Манриэль - Голдринн"] = "Манриэль - Голдринн",
 	},
 	["profiles"] = {
+		["Тиндэлен - Свежеватель Душ"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["y"] = -284.114402770996,
+					["x"] = 325.099243164063,
+					["w"] = 241.000122070313,
+					["h"] = 187.000030517578,
+				},
+			},
+			["DetailWindowX"] = 0,
+			["MainWindowHeight"] = 182.000030517578,
+			["CurDataSet"] = "OverallData",
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["MainWindowWidth"] = 241.000030517578,
+			["GraphWindowX"] = 0,
+		},
+		["Чивва - Ясеневый лес"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000015258789,
+				},
+			},
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
+		},
 		["Манриэль - Ясеневый лес"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
@@ -19,10 +71,10 @@ RecountDB = {
 					["NumFormat"] = 2,
 				},
 				["Position"] = {
-					["y"] = -444.499862670898,
-					["x"] = 562.000183105469,
-					["w"] = 400,
-					["h"] = 187.000015258789,
+					["y"] = -444.499855737118,
+					["x"] = 562.000127610589,
+					["w"] = 400.000005470979,
+					["h"] = 187.000010873571,
 				},
 				["RowSpacing"] = 0,
 			},
@@ -30,9 +82,9 @@ RecountDB = {
 			["Colors"] = {
 				["Window"] = {
 					["Background"] = {
-						["b"] = 1,
-						["g"] = 1,
 						["r"] = 1,
+						["g"] = 1,
+						["b"] = 1,
 					},
 					["Title"] = {
 						["g"] = 1,
@@ -52,7 +104,7 @@ RecountDB = {
 			["DetailWindowX"] = 0,
 			["GraphWindowX"] = 0,
 			["Locked"] = true,
-			["LastInstanceName"] = "Шлаковые шахты Кровавого Молота",
+			["BarTextColorSwap"] = false,
 			["BarTexture"] = "Manriel-Health",
 			["RealtimeWindows"] = {
 				["Realtime_!RAID_HEALINGTAKEN"] = {
@@ -148,21 +200,21 @@ RecountDB = {
 			},
 			["Font"] = "Calibri Bold",
 			["CurDataSet"] = "LastFightData",
-			["BarTextColorSwap"] = false,
+			["LastInstanceName"] = "Арена испытаний",
 			["MainWindowWidth"] = 400,
 		},
-		["Тиндэлен - Свежеватель Душ"] = {
+		["Лавлиэт - Ясеневый лес"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
 				["Position"] = {
-					["y"] = -284.114402770996,
-					["x"] = 325.099243164063,
-					["w"] = 241.000122070313,
-					["h"] = 187.000030517578,
+					["y"] = -443.999862670898,
+					["x"] = 502.000183105469,
+					["w"] = 280.000030517578,
+					["h"] = 186,
 				},
 			},
 			["DetailWindowX"] = 0,
-			["MainWindowHeight"] = 182.000030517578,
+			["MainWindowHeight"] = 186.000015258789,
 			["CurDataSet"] = "OverallData",
 			["Colors"] = {
 				["Bar"] = {
@@ -175,14 +227,42 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["MainWindowWidth"] = 241.000030517578,
+			["MainWindowWidth"] = 280.000122070313,
 			["GraphWindowX"] = 0,
 		},
-		["Чивва - Ясеневый лес"] = {
+		["Шепот - Ясеневый лес"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
 				["Position"] = {
-					["w"] = 140.000015258789,
+					["y"] = -444.500118344118,
+					["x"] = 562.000057582056,
+					["w"] = 400.000005470979,
+					["h"] = 186.999993366438,
+				},
+			},
+			["DetailWindowX"] = 0,
+			["MainWindowHeight"] = 186.999993366438,
+			["CurDataSet"] = "OverallData",
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["MainWindowWidth"] = 400.000005470979,
+			["GraphWindowX"] = 0,
+		},
+		["Манриэль - Голдринн"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["w"] = 140.000019421976,
+					["h"] = 200.00000273549,
 				},
 			},
 			["Colors"] = {
