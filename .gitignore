@@ -28,10 +28,13 @@ Desktop.ini
 /Interface/Addons/Stubby/
 
 # Game config
-/WTF/Config.wtf
+/WTF/*
 
 # Game cache and config per account and standart Blizzard addon configs
-/WTF/
+!/WTF/Account/
+/WTF/Account/*
+!/WTF/Account/DEFEATEDANGEL/
+/WTF/Account/DEFEATEDANGEL/*
 !/WTF/Account/DEFEATEDANGEL/SavedVariables/
 /WTF/Account/DEFEATEDANGEL/SavedVariables/Blizzard_*.lua
 # Other adons config
@@ -48,6 +51,10 @@ Desktop.ini
 /WTF/Account/DEFEATEDANGEL/SavedVariables/Stubby*
 
 # Game cache and config per character and standart Blizzard addon configs
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/*
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/*
 !/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_*.lua
 # Other adons config
