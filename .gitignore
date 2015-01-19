@@ -17,19 +17,45 @@ Desktop.ini
 /Interface/Addons/DBM*
 /Interface/Addons/HandyNotes*
 /Interface/Addons/PassLoot/
-/Interface/Addons/m_ActionBars/*
+/Interface/Addons/m_ActionBars/
+# Auctioneer
+/Interface/Addons/!Swatter/
+/Interface/Addons/Auc*
+/Interface/Addons/BeanCounter/
+/Interface/Addons/Enchantrix*
+/Interface/Addons/Informant/
+/Interface/Addons/SlideBar/
+/Interface/Addons/Stubby/
 
 # Game config
 /WTF/Config.wtf
 
 # Game cache and config per account and standart Blizzard addon configs
-/WTF/Account/*
+/WTF/Account/
+/WTF/Account/DEFEATEDANGEL/
 !/WTF/Account/DEFEATEDANGEL/SavedVariables/
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Blizzard_*.lua
+# Auctioneer
+/WTF/Account/DEFEATEDANGEL/SavedVariables/!Swatter*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Auc*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/BeanCounter*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Enchantrix*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Informant*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/SlideBar*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Stubby*
 
 # Game cache and config per character and standart Blizzard addon configs
-/WTF/Account/DEFEATEDANGEL/Ясеневый лес/
-!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_*.lua
+# Auctioneer
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/!Swatter*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Auc*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/BeanCounter*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Enchantrix*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Informant*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/SlideBar*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Stubby*
 
 /Cache/
 /Errors/
