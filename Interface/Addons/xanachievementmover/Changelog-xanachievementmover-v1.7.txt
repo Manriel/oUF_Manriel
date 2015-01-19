@@ -1,0 +1,12 @@
+tag v1.7
+774209592e81b13f07d097fd8c71a5ffcd344767
+Xruptor <xruptor@manaflux.com>
+2014-11-16 13:39:04 -0600
+
+v1.7
+
+
+--------------------
+
+Xruptor:
+	- -Added the Garrison Alert Frames
