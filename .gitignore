@@ -31,7 +31,7 @@ Desktop.ini
 /WTF/Config.wtf
 
 # Game cache and config per account and standart Blizzard addon configs
-/WTF/Account/
+/WTF/
 !/WTF/Account/DEFEATEDANGEL/SavedVariables/
 /WTF/Account/DEFEATEDANGEL/SavedVariables/Blizzard_*.lua
 # Auctioneer
