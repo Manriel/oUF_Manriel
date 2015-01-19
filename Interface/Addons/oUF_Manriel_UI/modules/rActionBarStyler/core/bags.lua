@@ -32,7 +32,7 @@
 
   --create the frame to hold the buttons
   local frame = CreateFrame("Frame", "rABS_BagFrame", UIParent, "SecureHandlerStateTemplate")
-  if only1st then
+  if cfg.only1st then
     frame:SetWidth(buttonWidth + 2*cfg.padding)
   else
     frame:SetWidth(NUM_BAG_BUTTONS*buttonWidth + (NUM_BAG_BUTTONS-1)*gap + 2*cfg.padding)
