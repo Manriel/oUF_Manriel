@@ -131,6 +131,7 @@ RecountDB = {
 				},
 				["RowSpacing"] = 0,
 			},
+			["MainWindowMode"] = 5,
 			["MainWindowHeight"] = 187.000028380704,
 			["FrameStrata"] = "3-MEDIUM",
 			["Colors"] = {
@@ -253,7 +254,6 @@ RecountDB = {
 				},
 			},
 			["CurDataSet"] = "OverallData",
-			["MainWindowMode"] = 5,
 			["BarTextColorSwap"] = false,
 			["MainWindowWidth"] = 379.000164060987,
 			["Font"] = "Calibri Bold",

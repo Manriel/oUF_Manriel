@@ -138,20 +138,28 @@ end
 local menuFrame = CreateFrame("Frame", "m_MinimapRightClickMenu", UIParent, "UIDropDownMenuTemplate")
 local menuList = {
     {text = CHARACTER_BUTTON,
+    notCheckable = true,
     func = function() ToggleCharacter("PaperDollFrame") end},
     {text = SPELLBOOK_ABILITIES_BUTTON,
+    notCheckable = true,
     func = function() ToggleSpellBook("spell") end},
     {text = TALENTS_BUTTON,
+    notCheckable = true,
     func = function() ToggleTalentFrame() end},
     {text = ACHIEVEMENT_BUTTON,
+    notCheckable = true,
     func = function() ToggleAchievementFrame() end},
     {text = QUESTLOG_BUTTON,
+    notCheckable = true,
     func = function() ToggleFrame(QuestLogFrame) end},
     {text = FRIENDS,
+    notCheckable = true,
     func = function() ToggleFriendsFrame(1) end},
     {text = GUILD,
+    notCheckable = true,
     func = function() ToggleGuildFrame(1) end},
     {text = PLAYER_V_PLAYER,
+    notCheckable = true,
     func = function() 
         --ToggleFrame(PVPUIFrame) 
         if PVPUIFrame then
@@ -168,21 +176,37 @@ local menuList = {
         end
     end},
     {text = DUNGEONS_BUTTON,
+    notCheckable = true,
     func = function() ToggleLFDParentFrame() end},
     {text = COLLECTIONS,
+    notCheckable = true,
     func = function() TogglePetJournal(1) end},
     {text = ENCOUNTER_JOURNAL,
+    notCheckable = true,
     func = function() ToggleEncounterJournal() end},
-    {text = "Calendar",
+    {text = GAMETIME_TOOLTIP_TOGGLE_CALENDAR,
+    notCheckable = true,
     func = function()
     if(not CalendarFrame) then LoadAddOn("Blizzard_Calendar") end
         Calendar_Toggle()
     end},
-    -- {text = BLIZZARD_STORE
-    -- func = function()  end},
     {text = GAMEMENU_HELP,
+    notCheckable = true,
     func = function() ToggleHelpFrame() end},
 }
+if ( C_StorePublic.IsEnabled() and not IsTrialAccount() and StoreMicroButton ) then
+    item = {
+        text = BLIZZARD_STORE,
+        notCheckable = true,
+        func = 
+            function()
+                if StoreMicroButton then
+                    StoreMicroButton:Click()
+                end
+            end
+    }
+    table.insert(menuList, #menuList, item);
+end
 
 -- Click func
 Minimap:SetScript("OnMouseUp", function(_, btn)

@@ -23,7 +23,7 @@ CliqueDB3 = {
 		["Лотаниэль - Подземье"] = "Лотаниэль - Подземье",
 		["Эксплорер - Подземье"] = "Эксплорер - Подземье",
 		["Тиндэлен - Свежеватель Душ"] = "Тиндэлен - Свежеватель Душ",
-		["Манриэль - Ясеневый лес"] = "Manriel Shadow",
+		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
 		["Лавлиэт - Ясеневый лес"] = "Лавлиэт - Ясеневый лес",
 		["Шепот - Ясеневый лес"] = "Шепот - Ясеневый лес",
 		["Ещеживая - Подземье"] = "Ещеживая - Подземье",
@@ -143,42 +143,6 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [4]
 				{
-					["spell"] = "Духовное рвение",
-					["key"] = "ALT-CTRL-BUTTON1",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "INTERFACE\\ICONS\\priest_spell_leapoffaith_a",
-					["type"] = "spell",
-				}, -- [5]
-				{
-					["spell"] = "Ментальный крик",
-					["key"] = "SHIFT-BUTTON4",
-					["sets"] = {
-						["global"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Shadow_PsychicScream",
-					["type"] = "spell",
-				}, -- [6]
-				{
-					["spell"] = "Левитация",
-					["key"] = "ALT-BUTTON4",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_LayOnHands",
-					["type"] = "spell",
-				}, -- [7]
-				{
-					["spell"] = "Божественное перышко",
-					["key"] = "ALT-BUTTON2",
-					["sets"] = {
-						["global"] = true,
-					},
-					["icon"] = "Interface\\Icons\\ability_priest_angelicfeather",
-					["type"] = "spell",
-				}, -- [8]
-				{
 					["spell"] = "Безмолвие",
 					["key"] = "SHIFT-BUTTON5",
 					["sets"] = {
@@ -186,16 +150,16 @@ CliqueDB3 = {
 					},
 					["icon"] = "INTERFACE\\ICONS\\ability_priest_silence",
 					["type"] = "spell",
-				}, -- [9]
+				}, -- [5]
 				{
-					["spell"] = "Быстрое исцеление",
-					["key"] = "BUTTON1",
+					["spell"] = "Духовное рвение",
+					["key"] = "ALT-CTRL-BUTTON1",
 					["sets"] = {
 						["friend"] = true,
 					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_FlashHeal",
+					["icon"] = "INTERFACE\\ICONS\\priest_spell_leapoffaith_a",
 					["type"] = "spell",
-				}, -- [10]
+				}, -- [6]
 				{
 					["spell"] = "Глубинный ужас",
 					["key"] = "CTRL-BUTTON5",
@@ -204,16 +168,7 @@ CliqueDB3 = {
 					},
 					["icon"] = "Interface\\Icons\\Spell_Shadow_PsychicHorrors",
 					["type"] = "spell",
-				}, -- [11]
-				{
-					["spell"] = "Слово силы: Щит",
-					["key"] = "BUTTON5",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
-					["type"] = "spell",
-				}, -- [12]
+				}, -- [7]
 				{
 					["spell"] = "Молитва восстановления",
 					["key"] = "SHIFT-BUTTON2",
@@ -221,6 +176,51 @@ CliqueDB3 = {
 						["friend"] = true,
 					},
 					["icon"] = "Interface\\Icons\\Spell_Holy_PrayerOfMendingtga",
+					["type"] = "spell",
+				}, -- [8]
+				{
+					["spell"] = "Ментальный крик",
+					["key"] = "SHIFT-BUTTON4",
+					["sets"] = {
+						["global"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Shadow_PsychicScream",
+					["type"] = "spell",
+				}, -- [9]
+				{
+					["spell"] = "Левитация",
+					["key"] = "ALT-BUTTON4",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_LayOnHands",
+					["type"] = "spell",
+				}, -- [10]
+				{
+					["spell"] = "Быстрое исцеление",
+					["key"] = "BUTTON1",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_FlashHeal",
+					["type"] = "spell",
+				}, -- [11]
+				{
+					["spell"] = "Божественное перышко",
+					["key"] = "ALT-BUTTON2",
+					["sets"] = {
+						["global"] = true,
+					},
+					["icon"] = "Interface\\Icons\\ability_priest_angelicfeather",
+					["type"] = "spell",
+				}, -- [12]
+				{
+					["spell"] = "Слово силы: Щит",
+					["key"] = "BUTTON5",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_PowerWordShield",
 					["type"] = "spell",
 				}, -- [13]
 				{
@@ -423,12 +423,12 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [14]
 				{
-					["spell"] = "Духовное рвение",
-					["key"] = "ALT-CTRL-BUTTON1",
+					["spell"] = "Щупальца Бездны",
+					["key"] = "BUTTON4",
 					["sets"] = {
-						["friend"] = true,
+						["enemy"] = true,
 					},
-					["icon"] = "INTERFACE\\ICONS\\priest_spell_leapoffaith_a",
+					["icon"] = "Interface\\Icons\\spell_priest_voidtendrils",
 					["type"] = "spell",
 				}, -- [15]
 				{
@@ -448,21 +448,21 @@ CliqueDB3 = {
 					},
 				}, -- [17]
 				{
+					["spell"] = "Кара",
+					["key"] = "BUTTON1",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_HolySmite",
+					["type"] = "spell",
+				}, -- [18]
+				{
 					["spell"] = "Безмолвие",
 					["key"] = "BUTTON5",
 					["sets"] = {
 						["enemy"] = true,
 					},
 					["icon"] = "INTERFACE\\ICONS\\ability_priest_silence",
-					["type"] = "spell",
-				}, -- [18]
-				{
-					["spell"] = "Очищение",
-					["key"] = "BUTTON3",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_DispelMagic",
 					["type"] = "spell",
 				}, -- [19]
 				{
@@ -484,12 +484,12 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [21]
 				{
-					["spell"] = "Кара",
-					["key"] = "BUTTON1",
+					["spell"] = "Иссушение разума",
+					["key"] = "CTRL-BUTTON1",
 					["sets"] = {
 						["enemy"] = true,
 					},
-					["icon"] = "Interface\\Icons\\Spell_Holy_HolySmite",
+					["icon"] = "Interface\\Icons\\Spell_Shadow_MindShear",
 					["type"] = "spell",
 				}, -- [22]
 				{
@@ -529,11 +529,13 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [26]
 				{
-					["type"] = "target",
-					["key"] = "BUTTON1",
+					["spell"] = "Очищение",
+					["key"] = "BUTTON3",
 					["sets"] = {
-						["global"] = true,
+						["friend"] = true,
 					},
+					["icon"] = "Interface\\Icons\\Spell_Holy_DispelMagic",
+					["type"] = "spell",
 				}, -- [27]
 				{
 					["spell"] = "Быстрое исцеление",
@@ -545,21 +547,19 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [28]
 				{
-					["spell"] = "Щупальца Бездны",
-					["key"] = "BUTTON4",
+					["type"] = "target",
+					["key"] = "BUTTON1",
 					["sets"] = {
-						["enemy"] = true,
+						["global"] = true,
 					},
-					["icon"] = "Interface\\Icons\\spell_priest_voidtendrils",
-					["type"] = "spell",
 				}, -- [29]
 				{
-					["spell"] = "Иссушение разума",
-					["key"] = "CTRL-BUTTON1",
+					["spell"] = "Духовное рвение",
+					["key"] = "ALT-CTRL-BUTTON1",
 					["sets"] = {
-						["enemy"] = true,
+						["friend"] = true,
 					},
-					["icon"] = "Interface\\Icons\\Spell_Shadow_MindShear",
+					["icon"] = "INTERFACE\\ICONS\\priest_spell_leapoffaith_a",
 					["type"] = "spell",
 				}, -- [30]
 				{
