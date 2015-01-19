@@ -34,6 +34,10 @@ Desktop.ini
 /WTF/
 !/WTF/Account/DEFEATEDANGEL/SavedVariables/
 /WTF/Account/DEFEATEDANGEL/SavedVariables/Blizzard_*.lua
+# Other adons config
+/WTF/Account/DEFEATEDANGEL/SavedVariables/!BugGrabber*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/HandyNotes*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/PassLoot*
 # Auctioneer
 /WTF/Account/DEFEATEDANGEL/SavedVariables/!Swatter*
 /WTF/Account/DEFEATEDANGEL/SavedVariables/Auc*
@@ -46,6 +50,10 @@ Desktop.ini
 # Game cache and config per character and standart Blizzard addon configs
 !/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_*.lua
+# Other adons config
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/!BugGrabber*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/HandyNotes*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/PassLoot*
 # Auctioneer
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/!Swatter*
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Auc*
