@@ -29,6 +29,8 @@ Desktop.ini
 # Game cache and config per character and standart Blizzard addon configs
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/
 !/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_*.lua
 
 /Cache/
@@ -40,3 +42,9 @@ Desktop.ini
 *.sublime-project
 *.sublime-workspace
 
+WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_BattlefieldMinimap.lua
+WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_BattlefieldMinimap.lua
+WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_BattlefieldMinimap.lua
+WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_ClientSavedVariables.lua
+WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_RaidUI.lua
+WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_TimeManager.lua

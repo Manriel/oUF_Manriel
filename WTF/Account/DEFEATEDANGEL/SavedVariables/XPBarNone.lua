@@ -1,2 +1,0 @@
-
-XPBarNoneDB = nil
