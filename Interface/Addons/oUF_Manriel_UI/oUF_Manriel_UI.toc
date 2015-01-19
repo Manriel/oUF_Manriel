@@ -10,7 +10,7 @@
 ## Notes: oUF layout
 ## Notes-ruRU: oUF фреймы
 
-## X-Credits: Alekk, Sosbek, Heldin
+## X-Credits: Alekk, Sosbek, zork, Heldin
 ## X-Website: http://github.com/Manriel/oUF_Manriel/
 ## X-email: readytoban@gmail.com
 ## X-oUF: ManrielUI

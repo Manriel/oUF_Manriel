@@ -86,8 +86,8 @@ cfg.bars = {
 		},
 		
 	["ExitVehicleButton"] = {
-		disable = false,				user_placed = false,	
-		position = {a="BOTTOM", x=-188, y=102},
+		hide_bar = false,               disable = false,				user_placed = true,	
+		position = {a="BOTTOM", x=255, y=52},
 		},
 	["ExtraButton"] = {
 		disable = false,

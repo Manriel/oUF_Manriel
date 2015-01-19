@@ -13,38 +13,30 @@ Desktop.ini
 
 # Standart Blizzard addon folders
 /Interface/Addons/Blizzard*
+# Other Addons
+/Interface/Addons/DBM*
+/Interface/Addons/HandyNotes*
+/Interface/Addons/PassLoot/
+/Interface/Addons/m_ActionBars/*
 
 # Game config
 /WTF/Config.wtf
 
 # Game cache and config per account and standart Blizzard addon configs
-/WTF/Account/*/SavedVariables/Blizzard_*.lua
-/WTF/Account/*/Addons.txt
-/WTF/Account/*/bindings-cache.wtf
-/WTF/Account/*/cache.md5
-/WTF/Account/*/chat-cache.txt
-/WTF/Account/*/config-cache.wtf
-/WTF/Account/*/CUFProfiles.txt
-/WTF/Account/*/layout-local.txt
-/WTF/Account/*/macros-cache.txt
+/WTF/Account/*
+!/WTF/Account/DEFEATEDANGEL/SavedVariables/
 
 # Game cache and config per character and standart Blizzard addon configs
-/WTF/Account/*/*/*/SavedVariables/Blizzard_*.lua
-/WTF/Account/*/*/*/Addons.txt
-/WTF/Account/*/*/*/Blizzard_*.lua
-/WTF/Account/*/*/*/bindings-cache.wtf
-/WTF/Account/*/*/*/cache.md5
-/WTF/Account/*/*/*/chat-cache.txt
-/WTF/Account/*/*/*/config-cache.wtf
-/WTF/Account/*/*/*/CUFProfiles.txt
-/WTF/Account/*/*/*/layout-local.txt
-/WTF/Account/*/*/*/macros-cache.txt
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_*.lua
 
-/Cache
-/Errors
-/Logs
-/Screenshots
+/Cache/
+/Errors/
+/Logs/
+/Screenshots/
 
 /run.bat
 *.sublime-project
 *.sublime-workspace
+

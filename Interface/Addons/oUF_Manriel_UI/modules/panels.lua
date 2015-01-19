@@ -26,28 +26,28 @@ Panels.PLAYER_LOGIN = function(self)
 			bottom = 3
 		}
 	};
-	if Bar1_holder then
-		local panel = CreateFrame('Frame', 'Panel_Bar1', Bar1_holder);
-		panel:SetPoint("BOTTOMRIGHT", Bar1_holder, "BOTTOMRIGHT", 2, -2);
-		panel:SetPoint("TOPLEFT", Bar1_holder, "TOPLEFT", -2, 2);
+	if rABS_MainMenuBar then
+		local panel = CreateFrame('Frame', 'Panel_Bar1', rABS_MainMenuBar);
+		panel:SetPoint("BOTTOMRIGHT", rABS_MainMenuBar, "BOTTOMRIGHT", 0, 0);
+		panel:SetPoint("TOPLEFT", rABS_MainMenuBar, "TOPLEFT", 0, 0);
 		panel:SetBackdrop(backdrop);
-		panel:SetFrameStrata("BACKGROUND");
+		panel:SetFrameStrata("LOW");
 		panel:SetFrameLevel(0);
 	end;
-	if Bar2_holder then
-		local panel = CreateFrame('Frame', 'Panel_Bar2', Bar2_holder);
-		panel:SetPoint("BOTTOMRIGHT", Bar2_holder, "BOTTOMRIGHT", 2, -2);
-		panel:SetPoint("TOPLEFT", Bar2_holder, "TOPLEFT", -2, 2);
+	if rABS_MultiBarBottomLeft then
+		local panel = CreateFrame('Frame', 'Panel_Bar2', rABS_MultiBarBottomLeft);
+		panel:SetPoint("BOTTOMRIGHT", rABS_MultiBarBottomLeft, "BOTTOMRIGHT", 0, 0);
+		panel:SetPoint("TOPLEFT", rABS_MultiBarBottomLeft, "TOPLEFT", 0, 0);
 		panel:SetBackdrop(backdrop);
-		panel:SetFrameStrata("BACKGROUND");
+		panel:SetFrameStrata("LOW");
 		panel:SetFrameLevel(0);
 	end;
-	if Bar3_holder then
-		local panel = CreateFrame('Frame', 'Panel_Bar3', Bar3_holder);
-		panel:SetPoint("BOTTOMRIGHT", Bar3_holder, "BOTTOMRIGHT", 2, -2);
-		panel:SetPoint("TOPLEFT", Bar3_holder, "TOPLEFT", -2, 2);
+	if rABS_MultiBarBottomRight then
+		local panel = CreateFrame('Frame', 'Panel_Bar3', rABS_MultiBarBottomRight);
+		panel:SetPoint("BOTTOMRIGHT", rABS_MultiBarBottomRight, "BOTTOMRIGHT", 0, 0);
+		panel:SetPoint("TOPLEFT", rABS_MultiBarBottomRight, "TOPLEFT", 0, 0);
 		panel:SetBackdrop(backdrop);
-		panel:SetFrameStrata("BACKGROUND");
+		panel:SetFrameStrata("LOW");
 		panel:SetFrameLevel(0);
 	end;
 
@@ -79,7 +79,7 @@ Panels.PLAYER_LOGIN = function(self)
 			panel:SetPoint("BOTTOMRIGHT", "ChatFrame"..i, "BOTTOMRIGHT", 4, -8);
 			panel:SetPoint("TOPLEFT", "ChatFrame"..i, "TOPLEFT", -4, 4);
 			panel:SetBackdrop(backdrop);
-			panel:SetFrameStrata("BACKGROUND");
+			panel:SetFrameStrata("LOW");
 			panel:SetFrameLevel(0);
 			panel:Show();
 		end;

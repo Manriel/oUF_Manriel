@@ -61,9 +61,7 @@ local UpdateAuraTimer = function(self, elapsed)
 		local startTime, duration = self.cd:GetCooldownTimes();
 		if (startTime > 0) and (duration) and (duration > 0) then
 			local sec = (startTime + duration)/1000 - GetTime()
-			local min = math.floor(sec/60)
-			sec = math.floor(sec - min*60)
-			self.duration:SetText(string.format("%d:%02d", min, sec))
+			self.duration:SetText(gsub(format(SecondsToTimeAbbrev(sec)), "[ .]", ""))
 		else
 			self.duration:SetText('')
 			self:SetScript("OnUpdate", nil)
@@ -192,14 +190,21 @@ end
 
 methods.PostCreateIcon = function(icons, button)
 	button.overlay:SetTexture(config.textureBorder)
-	button.overlay:SetVertexColor(.5, .5, .5, 1)
+	button.overlay:SetTexCoord(0, 0, 0, 0)
+	button.overlay:ClearAllPoints()
+	button.overlay:SetPoint("TOPLEFT", button, "TOPLEFT", -3, 3)
+	button.overlay:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 3, -3)
+	button.overlay:SetDrawLayer("OVERLAY", 7)
+
 	button.duration = methods.setFontString(button, config.fontName, config.baseFontSize)
 	button.duration:SetJustifyH("CENTER")
 	button.duration:SetPoint("TOP", button, "BOTTOM", 0, 0)
+	button.cd:SetHideCountdownNumbers(true)
 end
 
 methods.PostUpdateIcon = function(self, unit, icon, index, offset)
-	icon.icon:SetDesaturated( (unit == 'target') and (not icon.isPlayer) and (icon.isDebuff) );
+	icon.icon:SetTexCoord(.1, .9, .1, .9)
+	icon.icon:SetDesaturated( (unit == 'target') and (UnitIsEnemy("player","target")) and (not icon.isPlayer) and (icon.isDebuff) );
 	if (icon.count) then
 		icon.count:SetFont(config.fontNamePixel, icon:GetHeight()/2.5, "OUTLINE");
 		icon.count:SetShadowColor(0,0,0)
