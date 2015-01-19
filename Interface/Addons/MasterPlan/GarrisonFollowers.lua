@@ -1,11 +1,12 @@
 local _, T = ...
+if T.Mark ~= 23 then return end
 local G, L = T.Garrison, T.L
 
 local function countFreeFollowers(f, finfo)
 	local ret = 0
-	for i=1,#f do
+	for i=1,f and #f or 0 do
 		local st = finfo[f[i]].status
-		if not (st == GARRISON_FOLLOWER_INACTIVE or st == GARRISON_FOLLOWER_WORKING) then
+		if not (st == GARRISON_FOLLOWER_INACTIVE or st == GARRISON_FOLLOWER_WORKING or T.config.ignore[f[i]]) then
 			ret = ret + 1
 		end
 	end
@@ -15,9 +16,10 @@ end
 local mechanicsFrame = CreateFrame("Frame")
 mechanicsFrame:SetSize(1,1) mechanicsFrame:Hide()
 local floatingMechanics = CreateFrame("Frame", nil, mechanicsFrame)
+floatingMechanics:EnableMouse(true)
 local CreateMechanicButton do
 	local function Mechanic_OnEnter(self)
-		local ci, fi = self.info, G.GetFollowerInfo()
+		local ci, finfo = self.info, G.GetFollowerInfo()
 		GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
 		local ico = "|T" .. self.Icon:GetTexture() .. ":0:0:0:0:64:64:4:60:4:60|t "
 		if self.isTrait then
@@ -25,29 +27,44 @@ local CreateMechanicButton do
 			GameTooltip:AddLine(C_Garrison.GetFollowerAbilityDescription(self.id), 1,1,1, 1)
 			if ci and #ci > 0 then
 				GameTooltip:AddLine("|n" .. L"Followers with this trait:", NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
-				G.sortByFollowerLevels(ci, fi)
+				G.sortByFollowerLevels(ci, finfo)
 				for i=1,#ci do
-					GameTooltip:AddLine(G.GetFollowerLevelDescription(ci[i], nil, fi[ci[i]]), 1,1,1)
+					GameTooltip:AddLine(G.GetFollowerLevelDescription(ci[i], nil, finfo[ci[i]]), 1,1,1)
 				end
 			else
 				GameTooltip:AddLine("|n" .. L"You have no followers with this trait.", 1,0.50,0, 1)
 			end
+			if not ci then
+			elseif ci.activated and ci.activated ~= true then
+				GameTooltip:AddLine("|n" .. L"Followers activating this trait:", NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
+				local ci = ci.activated
+				G.sortByFollowerLevels(ci, finfo)
+				for i=1,#ci do
+					GameTooltip:AddLine(G.GetFollowerLevelDescription(ci[i], nil, finfo[ci[i]]), 1,1,1)
+				end
+			elseif ci.activated == true and self.id ~= 78 then
+				GameTooltip:AddLine("|n" .. L"You have no followers who activate this trait.", 1,0.50,0, 1)
+			end
 		elseif self.isTraitGroup then
-			floatingMechanics:SetOwner(self, ci, fi)
+			floatingMechanics:SetOwner(self, ci, finfo)
 			return
 		else
 			GameTooltip:AddLine(ico .. self.name)
 			if ci and #ci > 0 then
 				GameTooltip:AddLine(L"Can be countered by:", 1,1,1)
-				G.sortByFollowerLevels(ci, fi)
+				G.sortByFollowerLevels(ci, finfo)
 				for i=1,#ci do
-					GameTooltip:AddLine(G.GetFollowerLevelDescription(ci[i], nil, fi[ci[i]]), 1,1,1)
+					GameTooltip:AddLine(G.GetFollowerLevelDescription(ci[i], nil, finfo[ci[i]]), 1,1,1)
 				end
 			else
 				GameTooltip:AddLine(L"You have no followers to counter this mechanic.", 1,0.50,0, 1)
 			end
 		end
 		GameTooltip:Show()
+		if GameTooltip:GetRight() > GarrisonMissionFrame:GetRight() then
+			GameTooltip:ClearAllPoints()
+			GameTooltip:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT")
+		end
 	end
 	local function Mechanic_OnLeave(self)
 		if GameTooltip:IsOwned(self) then
@@ -82,7 +99,7 @@ floatingMechanics:SetFrameStrata("DIALOG")
 floatingMechanics:SetBackdrop({edgeFile="Interface/Tooltips/UI-Tooltip-Border", bgFile="Interface/DialogFrame/UI-DialogBox-Background-Dark", tile=true, edgeSize=16, tileSize=16, insets={left=4,right=4,bottom=4,top=4}})
 floatingMechanics:SetBackdropBorderColor(1, 0.85, 0.6)
 floatingMechanics.buttons = {}
-function floatingMechanics:SetOwner(owner, info)
+function floatingMechanics:SetOwner(owner, info, finfo)
 	self.owner, self.expire = owner
 	self:SetPoint("TOPRIGHT", owner, "BOTTOMRIGHT", 16, -2)
 	self:SetSize(10 + 24 * #info, 34)
@@ -94,7 +111,8 @@ function floatingMechanics:SetOwner(owner, info)
 			self.buttons[i] = ico
 		end
 		ico.Icon:SetTexture(C_Garrison.GetFollowerAbilityIcon(ci.id))
-		ico.Count:SetText(#ci > 0 and #ci or "")
+		local nf = countFreeFollowers(ci, finfo)
+		ico.Count:SetText(nf > 0 and nf or "")
 		ico.id, ico.name, ico.isTrait, ico.info = ci.id, C_Garrison.GetFollowerAbilityName(ci.id), true, ci
 		ico:Show()
 	end
@@ -130,8 +148,8 @@ local icons = setmetatable({}, {__index=function(self, k)
 	return f
 end})
 local traits, traitGroups = {221, 76, 77, 79}, {
-	{80, 236, icon="Interface\\Icons\\XPBonus_Icon"},
-	{63,64,65,66,67,68,69,70,71,72,73,74,75,78, icon="Interface\\Icons\\PetBattle_Health"},
+	{80, 236, 29, icon="Interface\\Icons\\XPBonus_Icon"},
+	{63,64,65,66,67,68,69,70,71,72,73,74,75,78, icon="Interface\\Icons\\PetBattle_Health", affinities=true},
 	{4,36,37,38,39,40,41,42,43, icon="Interface\\Icons\\Ability_Hunter_MarkedForDeath"},
 	{7,8,9,44,45,46,48,49, icon="Interface\\Icons\\Achievement_Zone_Stonetalon_01"},
 	{52,53,54,55,56,57,58,59,60,61,62,227,231, icon="Interface\\Icons\\Trade_Engineering"},
@@ -157,8 +175,9 @@ local function syncTotals()
 	for k=1,#traitGroups do
 		local ico, c, tg, m = icons[i], 0, traitGroups[k], {g=traitGroups[k]}
 		for i=1,#tg do
-			local v = tinfo[tg[i]] or {}
-			m[#m+1], c, v.id = v, c + countFreeFollowers(v, finfo), tg[i]
+			local tid = tg[i]
+			local v = tinfo[tid] or {}
+			m[#m+1], c, v.id, v.activated = v, c + countFreeFollowers(v, finfo), tid, tinfo[-tid] or tg.affinities
 		end
 		ico.Icon:SetTexture(tg.icon or C_Garrison.GetFollowerAbilityIcon(tg[1]))
 		ico.Count:SetText(c > 0 and c or "")
@@ -180,7 +199,10 @@ GarrisonLandingPage.FollowerTab:HookScript("OnShow", function(self)
 	mechanicsFrame:Show()
 	syncTotals()
 end)
-
+hooksecurefunc(C_Garrison, "SetFollowerInactive", function()
+	C_Timer.After(0.25, syncTotals)
+	C_Timer.After(1, syncTotals)
+end)
 
 local UpgradesFrame = CreateFrame("FRAME")
 UpgradesFrame:SetSize(237, 42)
@@ -211,7 +233,7 @@ T.Evie.RegisterEvent("PLAYER_REGEN_DISABLED", function()
 	UpgradesFrame:ClearAllPoints()
 end)
 T.Evie.RegisterEvent("BAG_UPDATE_DELAYED", function()
-	if UpgradesFrame:IsShown() then
+	if UpgradesFrame:IsVisible() then
 		UpgradesFrame:Update()
 	end
 end)
@@ -226,14 +248,14 @@ local function UpgradeItem_SetItem(self, id)
 		self.Name:SetTextColor(GetItemQualityColor(itemQuality))
 		self.ItemLevel:SetFormattedText("")
 	end
-	self:SetAttribute("macrotext", "/use item:" .. id)
+	self:SetAttribute("macrotext", SLASH_STOPSPELLTARGET1 .. "\n" .. SLASH_USE1 .. " item:" .. id)
 	self:Show()
 end
 local function UpgradeItem_OnClick(self)
 	C_Garrison.CastSpellOnFollower(GarrisonMissionFrame.FollowerTab.followerID)
 end
 local function UpgradeItem_OnEvent(self)
-	if self:IsShown() and self.itemID then
+	if self:IsVisible() and self.itemID then
 		UpgradeItem_SetItem(self, self.itemID)
 	end
 end
@@ -340,11 +362,151 @@ hooksecurefunc("GarrisonFollowerPage_SetItem", function(self, itemID, iLevel)
 		self.HighlightBorder[i]:SetShown(self.hasUpgrade)
 	end
 end)
-GarrisonMissionFrame.FollowerTab:HookScript("OnUpdate", function(self)
+local function resetOnShow(self)
+	if self.itemID and self.itemLevel then
+		GarrisonFollowerPage_SetItem(self, self.itemID, self.itemLevel)
+	end
+end
+GarrisonMissionFrame.FollowerTab.ItemWeapon:HookScript("OnShow", resetOnShow)
+GarrisonMissionFrame.FollowerTab.ItemArmor:HookScript("OnShow", resetOnShow)
+GarrisonMissionFrame.FollowerTab.ItemWeapon:HookScript("OnUpdate", function()
+	local self = GarrisonMissionFrame.FollowerTab
 	if self.ItemWeapon.hasUpgrade and GetItemCount(self.ItemWeapon.hasUpgrade) == 0 then
 		GarrisonFollowerPage_SetItem(self.ItemWeapon, self.ItemWeapon.itemID, self.ItemWeapon.itemLevel)
 	end
 	if self.ItemArmor.hasUpgrade and GetItemCount(self.ItemArmor.hasUpgrade) == 0 then
 		GarrisonFollowerPage_SetItem(self.ItemArmor, self.ItemArmor.itemID, self.ItemArmor.itemLevel)
+	end
+end)
+GarrisonMissionFrame.FollowerTab.AbilitiesFrame.Counters[1]:SetScript("OnEnter", GarrisonMissionMechanic_OnEnter)
+GarrisonMissionFrame.FollowerTab.AbilitiesFrame.Counters[1]:SetScript("OnLeave", function(self)
+	GarrisonMissionMechanicTooltip:Hide()
+end)
+
+local function ShowPotentialAbilityTooltip(owner, classSpec, dropCounter, altTitle)
+	local c = T.SpecCounters[classSpec]
+	if c then
+		GameTooltip:SetOwner(owner, "ANCHOR_NONE")
+		GameTooltip:AddLine(altTitle or (ITEM_QUALITY_COLORS[4].hex .. L"Epic Ability"), 1,1,1)
+		if not altTitle then
+			GameTooltip:AddLine(L"An additional random ability is unlocked when this follower reaches epic quality.", 1,1,1, 1)
+		end
+		GameTooltip:AddLine((altTitle and "" or "|n") .. L"Potential counters:")
+		local ci, finfo = G.GetCounterInfo(), G.GetFollowerInfo()
+		for i=1,#c do
+			if c[i] == dropCounter then
+				dropCounter = nil
+			else
+				local _, name, ico = G.GetMechanicInfo(c[i])
+				GameTooltip:AddDoubleLine("|TInterface\\Buttons\\UI-Quickslot2:18:2:-1:0:64:64:31:32:31:32|t|T" .. ico .. ":16:16:0:0:64:64:5:59:5:59|t " .. name,  "(" .. countFreeFollowers(ci[c[i]], finfo) .. ")", 1,1,1, 1,1,1)
+			end
+		end
+		GameTooltip:SetBackdropColor(0,0,0)
+		GameTooltip:Show()
+	end
+end
+local function RecruitAbility_OnEnter(self)
+	if self.abilityID == -1 then
+		local cs, other, p = self.classSpec, self.otherCounter, self:GetParent()
+		if p and not cs then cs, other = p.classSpec, p.otherCounter end
+		if cs then
+			ShowPotentialAbilityTooltip(self, cs, other)
+			GameTooltip:SetPoint("TOPLEFT", self.Icon, "BOTTOMRIGHT")
+		end
+	elseif self.abilityID and self.abilityID > 0 then
+		GarrisonFollowerAbilityTooltip:ClearAllPoints()
+		GarrisonFollowerAbilityTooltip:SetPoint("TOPLEFT", self.Icon, "BOTTOMRIGHT")
+		GarrisonFollowerAbilityTooltip_Show(self.abilityID)
+	end
+end
+local function RecruitAbility_OnLeave(self)
+	if GameTooltip:IsOwned(self) then
+		GameTooltip:Hide()
+	else
+		GarrisonFollowerAbilityTooltip:Hide()
+	end
+end
+hooksecurefunc("GarrisonRecruitSelectFrame_UpdateRecruits", function(waiting)
+	if not waiting then
+		local followers, rf = C_Garrison.GetAvailableRecruits(), GarrisonRecruitSelectFrame.FollowerSelection
+		for i=1,3 do
+			local f, ff = followers[i], rf["Recruit" .. i]
+			if f and ff and f.quality < 4 then
+				local af = GarrisonRecruitSelectFrame_GetAbilityUIEntry(ff.Abilities, 2)
+				af.abilityID, af.classSpec, af.otherCounter = -1, f.classSpec, C_Garrison.GetFollowerAbilityCounterMechanicInfo(ff.Abilities.Entries[1].abilityID)
+				af.Icon:SetTexture("Interface/Icons/INV_Misc_QuestionMark")
+				af.Name:SetText(L"Epic Ability")
+				af:SetScript("OnEnter", RecruitAbility_OnEnter)
+				af:SetScript("OnLeave", RecruitAbility_OnLeave)
+				af:Show()
+				ff.Abilities:SetHeight(16 + 28*2)
+			end
+		end
+	end
+end)
+local function ClassSpecFrame_OnEnter(self)
+	local cs = self:GetParent().classSpec
+	if cs then
+		ShowPotentialAbilityTooltip(self, cs, nil, self:GetParent().ClassSpec:GetText())
+		GameTooltip:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT")
+	end
+end
+hooksecurefunc("GarrisonMissionFrame_SetFollowerPortrait", function(port, fi)
+	if not (port == GarrisonMissionFrame.FollowerTab.PortraitFrame or port == GarrisonLandingPage.FollowerTab.PortraitFrame) then
+		return
+	end
+	local p = port:GetParent()
+	if fi and fi.classSpec then
+		local c, hadAbilities = T.SpecCounters[fi.classSpec], fi.abilities
+		if c then
+			fi.abilities = fi.abilities or C_Garrison.GetFollowerAbilities(fi.followerID)
+			local na, oi = 0
+			for i=1,#fi.abilities do
+				local a = fi.abilities[i]
+				if not a.isTrait then
+					oi, na = oi or i, na + 1
+				end
+			end
+			
+			local other = C_Garrison.GetFollowerAbilityCounterMechanicInfo(fi.abilities[oi].id)
+			if p then
+				p.classSpec, p.otherCounter = fi.classSpec, other
+			end
+			
+			if na < 2 and not hadAbilities then
+				local at = {name=L"Epic Ability", description=L"An additional random ability is unlocked when this follower reaches epic quality.", id=-1, spec=fi.classSpec, other=other, isTrait=false, icon="Interface\\Icons\\INV_Misc_QuestionMark", counters={}}
+				for i=1,#c do
+					if c[i] == other then
+						other = nil
+					elseif not at.counters[c[i]] then
+						local desc, _, name, icon = G.GetMechanicDescription(c[i]), G.GetMechanicInfo(c[i])
+						at.counters[c[i]] = {icon=icon, name=name, description=desc}
+					end
+				end
+				table.insert(fi.abilities, (oi or 0) + 1, at)
+			end
+		end
+	end
+	if p and p.Class and p.ClassSpec then
+		if not p.Class.HoverFrame then
+			local hf = CreateFrame("Frame", nil, p)
+			hf:SetAllPoints(p.Class)
+			hf:SetScript("OnEnter", ClassSpecFrame_OnEnter)
+			hf:SetScript("OnLeave", RecruitAbility_OnLeave)
+			p.Class.HoverFrame = hf
+		end
+		p.Class.HoverFrame:SetShown(not not p.classSpec)
+	end
+end)
+local function FollowerPageAbility_OnEnter(self)
+	local ppp = self:GetParent():GetParent():GetParent()
+	self.classSpec, self.otherCounter = ppp.classSpec, ppp.otherCounter
+	return RecruitAbility_OnEnter(self)
+end
+hooksecurefunc("GarrisonFollowerPage_ShowFollower", function(self, fid)
+	local af = self.AbilitiesFrame.Abilities
+	for i=1,#af do
+		af[i].IconButton:SetScript("OnEnter", FollowerPageAbility_OnEnter)
+		af[i].IconButton:SetScript("OnLeave", RecruitAbility_OnLeave)
 	end
 end)

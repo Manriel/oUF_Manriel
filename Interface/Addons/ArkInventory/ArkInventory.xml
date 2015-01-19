@@ -251,9 +251,19 @@
 			</Anchors>
 		</PushedTexture>
 		
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentArkNewText" inherits="ARKINV_NewItemFont" hidden="true" parentKey="ArkNewText">
+					<Anchors>
+						<Anchor point="TOPLEFT" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		
 		<Frames>
 			
-			<Frame name="$parentArkBorder" inherits="ARKINV_Border" />
+			<Frame name="$parentArkBorder" inherits="ARKINV_Border" parentKey="ArkBorder" />
 			
 		</Frames>
 		
