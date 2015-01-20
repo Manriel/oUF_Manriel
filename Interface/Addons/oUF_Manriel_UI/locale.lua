@@ -14,6 +14,8 @@ if locale == "ruRU" then
 		ghost = 'Призрак',
 		target = 'Цель',
 		you = 'Вы',
+		unsupportedRealm = 'Неподдерживаемый сервер.',
+		armoryLink = "Ссылка на оружейную",
 	}
 else
 	arStrings = {
@@ -26,6 +28,8 @@ else
 		ghost = 'Ghost',
 		target = 'Target',
 		you = 'You',
+		unsupportedRealm = 'Unsupported realm location.',
+		armoryLink = "Armory Link",
 	}
 end
 

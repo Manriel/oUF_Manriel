@@ -31,7 +31,7 @@ end
 
 do
 	--[[ Start popup creation ]]--
-	local frame = CreateFrame("Frame", nil, UIParent)
+	local frame = CreateFrame("Frame", 'BCM_URLCopyFrame', UIParent)
 	frame:SetBackdrop({bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
 		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
 		tile = true, tileSize = 16, edgeSize = 16,
@@ -48,6 +48,7 @@ do
 	editBox:SetPoint("LEFT", frame, "LEFT", 10, 0)
 	local hide = function(f) f:GetParent():Hide() end
 	editBox:SetScript("OnEscapePressed", hide)
+	frame.editBox = editBox
 
 	local close = CreateFrame("Button", nil, frame)
 	close:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -56,6 +57,7 @@ do
 	close:SetSize(32, 32)
 	close:SetPoint("RIGHT", frame, "RIGHT", -5, 0)
 	close:SetScript("OnClick", hide)
+	frame.closeBtn = close
 	--[[ End popup creation ]]--
 
 	-- Avoiding StaticPopup taints by making our own popup, rather that adding to the StaticPopup list

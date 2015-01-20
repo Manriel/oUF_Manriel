@@ -20,6 +20,7 @@
 	<Script file='modules\buffs.lua' />
 	<Script file='modules\panels.lua' />
 	<Script file='modules\tooltip.lua' />
+	<Script file='modules\armory.lua' />
 
 	<Script file='core.lua' />
 
