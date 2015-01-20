@@ -1,7 +1,7 @@
 ## Interface: 60000
 ## Title: oUF |cffffffffManriel UI|r
 ## Author: Manriel
-## Version: 1.2.beta1
+## Version: 1.2.beta3
 ## Dependencies: 
 ## OptionalDeps: Clique
 
