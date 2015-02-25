@@ -1,4 +1,4 @@
-## Interface: 40200
+## Interface: 60100
 ## X-Curse-Packaged-Version: 4.2.0.8-Release
 ## X-Curse-Project-Name: VendorBait
 ## X-Curse-Project-ID: vendorbait
