@@ -16,7 +16,12 @@ if locale == "ruRU" then
 		you = 'Вы',
 		unsupportedRealm = 'Неподдерживаемый сервер.',
 		armoryLink = "Ссылка на оружейную",
+		wowheadQuestLink = 'Показать на Wowhead',
+		cursor = 'Указатель',
+
 	}
+
+	BINDING_NAME_MANRIEL_DEBUG = 'Дебаг интерфейса'
 else
 	arStrings = {
 		offline = 'Offline',
@@ -30,7 +35,12 @@ else
 		you = 'You',
 		unsupportedRealm = 'Unsupported realm location.',
 		armoryLink = "Armory Link",
+		wowheadQuestLink = 'Show quest on Wowhead',
+		cursor = 'Cursor',
+
 	}
+	
+	BINDING_NAME_MANRIEL_DEBUG = 'ManrielUI Debug'
 end
 
 UI.localeStrings = arStrings
