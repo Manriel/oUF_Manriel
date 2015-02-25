@@ -5,8 +5,8 @@ RecountDB = {
 		["Чивва - Ясеневый лес"] = "Чивва - Ясеневый лес",
 		["Эксплорер - Подземье"] = "Эксплорер - Подземье",
 		["Тиндэлен - Свежеватель Душ"] = "Тиндэлен - Свежеватель Душ",
-		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
 		["Шепот - Ясеневый лес"] = "Шепот - Ясеневый лес",
+		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
 		["Лавлиэт - Ясеневый лес"] = "Лавлиэт - Ясеневый лес",
 		["Лейреи - Ясеневый лес"] = "Лейреи - Ясеневый лес",
 		["Аскелла - Свежеватель Душ"] = "Аскелла - Свежеватель Душ",
@@ -31,9 +31,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
 			["DetailWindowX"] = 0,
+			["GraphWindowX"] = 0,
+			["CurDataSet"] = "OverallData",
 		},
 		["Чивва - Ясеневый лес"] = {
 			["GraphWindowY"] = 0,
@@ -53,9 +53,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
 		},
 		["Эксплорер - Подземье"] = {
 			["GraphWindowY"] = 0,
@@ -111,6 +111,33 @@ RecountDB = {
 			["MainWindowWidth"] = 241.000030517578,
 			["GraphWindowX"] = 0,
 		},
+		["Шепот - Ясеневый лес"] = {
+			["GraphWindowY"] = 0,
+			["MainWindow"] = {
+				["Position"] = {
+					["y"] = -444.500135851251,
+					["x"] = 561.999987553522,
+					["w"] = 400.000005470979,
+					["h"] = 187.000010873571,
+				},
+			},
+			["DetailWindowX"] = 0,
+			["MainWindowHeight"] = 186.999993366438,
+			["CurDataSet"] = "OverallData",
+			["Colors"] = {
+				["Bar"] = {
+					["Bar Text"] = {
+						["a"] = 1,
+					},
+					["Total Bar"] = {
+						["a"] = 1,
+					},
+				},
+			},
+			["DetailWindowY"] = 0,
+			["MainWindowWidth"] = 400.000005470979,
+			["GraphWindowX"] = 0,
+		},
 		["Манриэль - Ясеневый лес"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
@@ -131,15 +158,13 @@ RecountDB = {
 				},
 				["RowSpacing"] = 0,
 			},
-			["MainWindowMode"] = 5,
 			["MainWindowHeight"] = 187.000028380704,
-			["FrameStrata"] = "3-MEDIUM",
 			["Colors"] = {
 				["Window"] = {
 					["Background"] = {
-						["b"] = 1,
-						["g"] = 1,
 						["r"] = 1,
+						["g"] = 1,
+						["b"] = 1,
 					},
 					["Title"] = {
 						["g"] = 1,
@@ -155,11 +180,11 @@ RecountDB = {
 					},
 				},
 			},
-			["DetailWindowY"] = -20.000000273549,
+			["DetailWindowY"] = -20.0000177806823,
 			["DetailWindowX"] = 6.9999996580638,
 			["GraphWindowX"] = 0,
 			["Locked"] = true,
-			["LastInstanceName"] = "Железные доки",
+			["BarTextColorSwap"] = false,
 			["BarTexture"] = "Manriel-Health",
 			["RealtimeWindows"] = {
 				["Realtime_!RAID_HEALINGTAKEN"] = {
@@ -253,37 +278,11 @@ RecountDB = {
 					false, -- [8]
 				},
 			},
-			["CurDataSet"] = "OverallData",
-			["BarTextColorSwap"] = false,
-			["MainWindowWidth"] = 379.000164060987,
 			["Font"] = "Calibri Bold",
-		},
-		["Шепот - Ясеневый лес"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["y"] = -444.500135851251,
-					["x"] = 561.999987553522,
-					["w"] = 400.000005470979,
-					["h"] = 187.000010873571,
-				},
-			},
-			["DetailWindowX"] = 0,
-			["MainWindowHeight"] = 186.999993366438,
-			["CurDataSet"] = "OverallData",
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["MainWindowWidth"] = 400.000005470979,
-			["GraphWindowX"] = 0,
+			["CurDataSet"] = "LastFightData",
+			["FrameStrata"] = "3-MEDIUM",
+			["LastInstanceName"] = "Зул'Фаррак",
+			["MainWindowWidth"] = 379.000164060987,
 		},
 		["Лавлиэт - Ясеневый лес"] = {
 			["GraphWindowY"] = 0,
@@ -324,7 +323,7 @@ RecountDB = {
 			},
 			["DetailWindowX"] = 0,
 			["LastInstanceName"] = "Мертвые копи",
-			["CurDataSet"] = "CurrentFightData",
+			["CurDataSet"] = "LastFightData",
 			["Colors"] = {
 				["Bar"] = {
 					["Bar Text"] = {
@@ -336,9 +335,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["GraphWindowX"] = 0,
-			["MainWindowWidth"] = 400.000005470979,
 			["MainWindowHeight"] = 186.000020926495,
+			["MainWindowWidth"] = 400.000005470979,
+			["GraphWindowX"] = 0,
 		},
 		["Аскелла - Свежеватель Душ"] = {
 			["GraphWindowY"] = 0,
@@ -359,9 +358,9 @@ RecountDB = {
 				},
 			},
 			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["GraphWindowX"] = 0,
 			["CurDataSet"] = "OverallData",
+			["GraphWindowX"] = 0,
+			["DetailWindowX"] = 0,
 		},
 	},
 }

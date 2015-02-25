@@ -1064,7 +1064,11 @@ function ArkInventory:LISTEN_PET_BATTLE_OPENING_DONE( event, ... )
 									--info = string.format( "- " )
 								end
 								
-								info = string.format( "%s%s %s", info, pd.link, pd.breed )
+								info = string.format( "%s%s", info, pd.link )
+								
+								if pd.breed then
+									info = string.format( "%s  %s", info, pd.breed )
+								end
 								
 							end
 						end
@@ -1148,7 +1152,7 @@ end
 
 -- runtime
 PetJournal:HookScript( "OnHide", ArkInventory.PetJournal.OnHide )
-PetJournalParent:HookScript( "OnHide", ArkInventory.PetJournal.OnHide )
+--CollectionsJournal:HookScript( "OnHide", ArkInventory.PetJournal.OnHide )
 
 --PetJournalParent:Show( )
 --PetJournalParent:Hide( )

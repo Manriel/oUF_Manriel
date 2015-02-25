@@ -11,7 +11,7 @@ local FilterSize	= 20
 local RampUp		= 5
 local RampDown		= 10
 
-Recount.Version = tonumber(string.sub("$Revision: 1290 $", 12, -3))
+Recount.Version = tonumber(string.sub("$Revision: 1301 $", 12, -3))
 
 local _G = _G
 local abs = abs
@@ -150,7 +150,7 @@ local Default_Profile = {
 				--["GUARDIAN"] = { r = 0.61, g = 0.09, b = 0.09 },
 				["MOB"] = { r = 0.58, g = 0.24, b = 0.63, a = 1 },
 				["UNKNOWN"] = { r = 0.1, g = 0.1, b = 0.1, a = 1 },
-				["HOSTILE"] = { r = 0.7, g = 0.1, b = 0.1, a = 1 },
+				["HOSTILE"] = { r = 0.5, g = 0, b = 0, a = 1 },
 				["UNGROUPED"] = { r = 0.63, g = 0.58, b = 0.24, a = 1 },
 			},
 			["Realtime"] = {
@@ -1221,6 +1221,10 @@ function Recount:AddCombatant(name, owner, nameGUID, nameFlags, ownerGUID)
 			--Recount:DPrint(debugstack(2, 3, 2))
 		end]]
 		Recount:SetOwner(combatant, name, owner, ownerGUID, Recount:CreateOwnerFlags(nameFlags))
+		if Recount.db.profile.MergePets then
+			Recount:AddAmount(dbCombatants[owner], "Damage", 0)
+			Recount:AddAmount(dbCombatants[owner], "Healing", 0)
+		end
 		combatant.type = "Pet"
 		combatant.enClass = "PET"
 		combatant.level = 1

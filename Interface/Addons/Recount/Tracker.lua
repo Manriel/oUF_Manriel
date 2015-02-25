@@ -4,7 +4,7 @@ local AceLocale = LibStub("AceLocale-3.0")
 local L = AceLocale:GetLocale("Recount")
 local BossIDs = LibStub("LibBossIDs-1.0")
 
-local revision = tonumber(string.sub("$Revision: 1294 $", 12, -3))
+local revision = tonumber(string.sub("$Revision: 1298 $", 12, -3))
 if Recount.Version < revision then
 	Recount.Version = revision
 end
@@ -30,6 +30,7 @@ local GetFramerate = GetFramerate
 local GetNetStats = GetNetStats
 local GetSpellInfo = GetSpellInfo
 local GetTime = GetTime
+local UnitExists = UnitExists
 local UnitHealth = UnitHealth
 local UnitHealthMax = UnitHealthMax
 local UnitIsFeignDeath = UnitIsFeignDeath
@@ -654,8 +655,6 @@ function Recount:SpellMissed(timestamp, eventtype, srcGUID, srcName, srcFlags, d
 		absorbed = amountMissed
 	elseif missType == "BLOCK" then
 		blocked = amountMissed
-	elseif missType == "REFLECT" then
-
 	end
 
 	--last_timestamp = timestamp
@@ -672,7 +671,6 @@ function Recount:SpellHeal(timestamp, eventtype, srcGUID, srcName, srcFlags, dst
 	local healtype = "Hit" -- Elsia: Do NOT localize this, it breaks functionality!!! If you need this localized contact me on WowAce or Curse.
 	local isHot
 	if eventtype == "SPELL_PERIODIC_HEAL" then
-
 		healtype = "Tick" -- Elsia: Do NOT localize this, it breaks functionality!!! If you need this localized contact me on WowAce or Curse.
 		isHot = true
 		-- Not activated yet: spellName = spellName.." ("..L["HoT"]..")"
@@ -893,8 +891,8 @@ function Recount:SpellAbsorbed(...)
 	local _, _, _, _, _, _, _, _, srcSpellId = ...
 	if type(srcSpellId) == "number" then
 		local timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, srcSpellId, srcSpellName, srcSpellSchool, casterGUID, casterName, casterFlags, casterRaidFlags, spellId, spellName, spellSchool, absorbed = ...
-		-- Stance of the Sturdy Ox, Purgatory
-		if spellId == 115069 or spellId == 114556 then
+		-- Spirit of Redemption, Stance of the Sturdy Ox, Purgatory
+		if spellId == 20711 or spellId == 115069 or spellId == 114556 then
 			return
 		end
 		local sourceData = dbCombatants[casterName]
@@ -902,8 +900,8 @@ function Recount:SpellAbsorbed(...)
 		Recount:AddAbsorbCredit(casterName, dstName, spellName, spellId, absorbed)
 	else
 		local timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, casterGUID, casterName, casterFlags, casterRaidFlags, spellId, spellName, spellSchool, absorbed = ...
-		-- Stance of the Sturdy Ox, Purgatory
-		if spellId == 115069 or spellId == 114556 then
+		-- Spirit of Redemption, Stance of the Sturdy Ox, Purgatory
+		if spellId == 20711 or spellId == 115069 or spellId == 114556 then
 			return
 		end
 		local sourceData = dbCombatants[casterName]
@@ -1116,7 +1114,7 @@ function Recount:CombatLogEvent(_, timestamp, eventtype, hideCaster, srcGUID, sr
 	if parsefunc then
 		parsefunc(self, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
 	else
-		Recount:DPrint("Unknown combat log event type: "..eventtype) -- Changed to a debug statement until SPELL_ABSORBED events are handled properly
+		Recount:DPrint("Unknown combat log event type: "..eventtype)
 	end
 end
 
@@ -2050,8 +2048,8 @@ function Recount:AddHealData(source, victim, ability, healtype, amount, overheal
 
 	--if not sourceData then Recount:DPrint("Source-less heal: "..(ability or "nil")..(source or "nil").." "..(victim or "nil").." Please report!") end
 
-	if Recount:IsFriend(dstFlags) then -- Only record heals of friends as heals.
-
+	--if Recount:IsFriend(dstFlags) then -- Only record heals of friends as heals.
+	if dstRetention and victimData then
 		if overheal == nil then
 			overheal = 0
 		elseif overheal > 0 then
@@ -2063,7 +2061,6 @@ function Recount:AddHealData(source, victim, ability, healtype, amount, overheal
 		end
 
 		if srcRetention and sourceData then
-
 			sourceData.LastFightIn = Recount.db2.FightNum
 
 			if Recount.db.profile.EnableSync then
@@ -2112,10 +2109,9 @@ function Recount:AddHealData(source, victim, ability, healtype, amount, overheal
 				Recount:AddTableDataStats(sourceData, "OverHeals", ability, healtype, overheal)
 			end
 		end
-	end
+	--end
 
-	if dstRetention and victimData then
-
+	--if dstRetention and victimData then
 		victimData.LastFightIn = Recount.db2.FightNum
 
 		--[[local VictimUnit = victimData.unit

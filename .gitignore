@@ -15,6 +15,7 @@ Desktop.ini
 /Interface/Addons/Blizzard*
 # Other Addons
 /Interface/Addons/DBM*
+/Interface/Addons/Grid2*
 /Interface/Addons/HandyNotes*
 /Interface/Addons/PassLoot/
 /Interface/Addons/m_ActionBars/
@@ -40,6 +41,7 @@ Desktop.ini
 # Other adons config
 /WTF/Account/DEFEATEDANGEL/SavedVariables/!BugGrabber*
 /WTF/Account/DEFEATEDANGEL/SavedVariables/BugSack*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Grid2*
 /WTF/Account/DEFEATEDANGEL/SavedVariables/HandyNotes*
 /WTF/Account/DEFEATEDANGEL/SavedVariables/PassLoot*
 # Auctioneer
@@ -61,6 +63,7 @@ Desktop.ini
 # Other adons config
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/!BugGrabber*
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/BugSack*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Grid2*
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/HandyNotes*
 /WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/PassLoot*
 # Auctioneer
@@ -80,3 +83,5 @@ Desktop.ini
 /run.bat
 *.sublime-project
 *.sublime-workspace
+
+

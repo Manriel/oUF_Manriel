@@ -1,6 +1,6 @@
 ﻿-- (c) 2009-2014, all rights reserved.
--- $Revision: 1288 $
--- $Date: 2015-01-04 11:08:45 +1100 (Sun, 04 Jan 2015) $
+-- $Revision: 1310 $
+-- $Date: 2015-02-25 07:11:34 +1100 (Wed, 25 Feb 2015) $
 
 
 local _G = _G
@@ -1088,9 +1088,9 @@ function ArkInventoryRules.System.location( ... )
 		local k = string.lower( string.trim( arg ) )
 		if k == "bag" or k == string.lower( ArkInventory.Localise["LOCATION_BAG"] ) then
 			k = ArkInventory.Const.Location.Bag
-		elseif k == "bank" or k == string.lower( ArkInventory.Localise["BANK"] ) then
+		elseif k == "bank" or k == string.lower( ArkInventory.Localise["LOCATION_BANK"] ) then
 			k = ArkInventory.Const.Location.Bank
-		elseif k == "guild bank" or k == "vault" or k == string.lower( ArkInventory.Localise["GUILDBANK"] ) then
+		elseif k == "guild bank" or k == "vault" or k == string.lower( ArkInventory.Localise["LOCATION_VAULT"] ) then
 			k = ArkInventory.Const.Location.Vault
 		elseif k == "mail" or k == string.lower( ArkInventory.Localise["MAIL"] ) then
 			k = ArkInventory.Const.Location.Mail
@@ -1268,6 +1268,49 @@ function ArkInventoryRules.System.petcanbattle( ... )
 	
 end
 
+function ArkInventoryRules.System.mounttype( ... )
+	
+	if not ArkInventoryRules.Object.h or ( ArkInventoryRules.Object.class ~= "spell" ) then
+		return false
+	end
+	
+	local fn = "mounttype"
+	
+	local ac = select( '#', ... )
+	
+	if ac == 0 then
+		error( string.format( ArkInventory.Localise["RULE_FAILED_ARGUMENT_NONE_SPECIFIED"], fn ), 0 )
+	end
+	
+	local md = ArkInventory.MountJournal.GetMount( ArkInventoryRules.Object.index )
+	
+	if md and md.mt then
+		
+		for ax = 1, ac do
+			
+			local arg = select( ax, ... )
+			
+			if not arg then
+				error( string.format( ArkInventory.Localise["RULE_FAILED_ARGUMENT_IS_NIL"], fn, ax ), 0 )
+			end
+			
+			if type( arg ) ~= "string" then
+				error( string.format( ArkInventory.Localise["RULE_FAILED_ARGUMENT_IS_NOT"], fn, ax, ArkInventory.Localise["STRING"] ), 0 )
+			end
+			
+			local ex = ArkInventory.Const.MountTypes[string.lower( string.trim( arg ) )]
+			if ex == md.mt then
+				return true
+			end
+			
+		end
+		
+	end
+	
+	return false
+	
+end
+
 
 ArkInventoryRules.Environment = {
 	
@@ -1331,6 +1374,9 @@ ArkInventoryRules.Environment = {
 	petiswild = ArkInventoryRules.System.petiswild,
 	
 	petcanbattle = ArkInventoryRules.System.petcanbattle,
+	
+	mounttype = ArkInventoryRules.System.mounttype,
+	mtype = ArkInventoryRules.System.mounttype,
 	
 	-- 3rd party addons requried for the following functions to work
 	

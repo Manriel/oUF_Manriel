@@ -553,7 +553,7 @@ GridDB = {
 	["profiles"] = {
 		["Manriel UI"] = {
 			["minimap"] = {
-				["minimapPos"] = 155.120237467451,
+				["minimapPos"] = 138.636962597239,
 				["hide"] = false,
 			},
 		},
