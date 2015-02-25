@@ -58,13 +58,13 @@ end
 
 local UpdateAuraTimer = function(self, elapsed)
 	if (self.duration) then
-		local startTime, duration = self.cd:GetCooldownTimes();
-		if (startTime > 0) and (duration) and (duration > 0) then
-			local sec = (startTime + duration)/1000 - GetTime()
+		local duration = self.cd.duration or nil
+		local timeLeft = self.cd.timeLeft or nil
+		if (timeLeft) and (timeLeft > 0) and (duration) and (duration > 0) then
+			local sec = timeLeft - GetTime()
 			self.duration:SetText(gsub(format(SecondsToTimeAbbrev(sec)), "[ .]", ""))
 		else
 			self.duration:SetText('')
-			self:SetScript("OnUpdate", nil)
 		end
 	end
 end
@@ -196,10 +196,12 @@ methods.PostCreateIcon = function(icons, button)
 	button.overlay:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 3, -3)
 	button.overlay:SetDrawLayer("OVERLAY", 7)
 
-	button.duration = methods.setFontString(button, config.fontName, config.baseFontSize)
+	button.duration = methods.setFontString(button.cd, config.fontName, config.baseFontSize)
 	button.duration:SetJustifyH("CENTER")
 	button.duration:SetPoint("TOP", button, "BOTTOM", 0, 0)
 	button.cd:SetHideCountdownNumbers(true)
+
+	button:SetScript('OnUpdate', UpdateAuraTimer)
 end
 
 methods.PostUpdateIcon = function(self, unit, icon, index, offset)
@@ -210,7 +212,12 @@ methods.PostUpdateIcon = function(self, unit, icon, index, offset)
 		icon.count:SetShadowColor(0,0,0)
 		icon.count:SetShadowOffset(0,0)
 	end
-	icon:SetScript('OnUpdate', UpdateAuraTimer)
+
+	local filter = icon.filter
+	local _, _, _, _, _, duration, expirationTime, _, _, _, _, _, _ = UnitAura(unit, index, filter)
+	
+	icon.cd.duration = duration
+	icon.cd.timeLeft = expirationTime
 end
 
 methods.OverrideCastbarTime = function(self, duration)
