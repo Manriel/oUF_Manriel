@@ -36,7 +36,7 @@
       local Icon = Totem:CreateTexture(nil, "OVERLAY")
       Icon:SetAllPoints()
       
-      local Cooldown = CreateFrame("Cooldown", nil, Totem)
+      local Cooldown = CreateFrame("Cooldown", nil, Totem, "CooldownFrameTemplate")
       Cooldown:SetAllPoints()
       
       Totem.Icon = Icon
@@ -125,6 +125,7 @@ local Enable = function(self)
 
 	if(totems) then
 		totems.__owner = self
+		totems.__map = { unpack(priorities) }
 		totems.ForceUpdate = ForceUpdate
 
 		for i = 1, MAX_TOTEMS do
@@ -158,6 +159,9 @@ end
 
 local Disable = function(self)
 	if(self.Totems) then
+		for i = 1, MAX_TOTEMS do
+			self.Totems[i]:Hide()
+		end
 		TotemFrame.Show = nil
 		TotemFrame:Show()
 

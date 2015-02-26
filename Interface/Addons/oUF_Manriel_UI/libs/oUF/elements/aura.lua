@@ -81,12 +81,10 @@ local OnLeave = function()
 end
 
 local createAuraIcon = function(icons, index)
-	icons.createdIcons = icons.createdIcons + 1
-
 	local button = CreateFrame("Button", nil, icons)
 	button:RegisterForClicks'RightButtonUp'
 
-	local cd = CreateFrame("Cooldown", nil, button)
+	local cd = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
 	cd:SetAllPoints(button)
 
 	local icon = button:CreateTexture(nil, "BORDER")
@@ -113,7 +111,6 @@ local createAuraIcon = function(icons, index)
 	button:SetScript("OnEnter", OnEnter)
 	button:SetScript("OnLeave", OnLeave)
 
-	table.insert(icons, button)
 
 	button.icon = icon
 	button.count = count
@@ -156,7 +153,14 @@ local updateIcon = function(unit, icons, index, offset, filter, isDebuff, visibl
 
 			 A button used to represent aura icons.
 			]]
+			local prev = icons.createdIcons
 			icon = (icons.CreateIcon or createAuraIcon) (icons, n)
+
+			-- XXX: Update the counters if the layout doesn't.
+			if(prev == icons.createdIcons) then
+				table.insert(icons, icon)
+				icons.createdIcons = icons.createdIcons + 1
+			end
 		end
 
 		local isPlayer
@@ -196,7 +200,6 @@ local updateIcon = function(unit, icons, index, offset, filter, isDebuff, visibl
 			local cd = icon.cd
 			if(cd and not icons.disableCooldown) then
 				if(duration and duration > 0) then
-					cd.startTime = timeLeft - duration
 					cd:SetCooldown(timeLeft - duration, duration)
 					cd:Show()
 				else
@@ -330,7 +333,16 @@ local UpdateAuras = function(self, event, unit)
 			hasGap = true
 			visibleBuffs = visibleBuffs + 1
 
-			local icon = auras[visibleBuffs] or (auras.CreateIcon or createAuraIcon) (auras, visibleBuffs)
+			local icon = auras[visibleBuffs]
+			if(not icon) then
+				local prev = auras.createdIcons
+				icon = (auras.CreateIcon or createAuraIcon) (auras, visibleBuffs)
+				-- XXX: Update the counters if the layout doesn't.
+				if(prev == auras.createdIcons) then
+					table.insert(auras, icon)
+					auras.createdIcons = auras.createdIcons + 1
+				end
+			end
 
 			-- Prevent the icon from displaying anything.
 			if(icon.cd) then icon.cd:Hide() end
