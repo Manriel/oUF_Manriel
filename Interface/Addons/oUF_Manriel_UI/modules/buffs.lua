@@ -18,6 +18,54 @@ local lsTemporaryEnchantHeader = CreateFrame("Frame", "lsTemporaryEnchantHeader"
 lsTemporaryEnchantHeader:SetSize(28, 28)
 lsTemporaryEnchantHeader:SetPoint("TOPRIGHT", "UIParent", "TOPRIGHT", -6, -180)
 
+function AuraSort (a)
+	local tmpA = a
+	local resultA = {}
+
+	for i = 1, #a do
+		resultA[i] = i
+	end
+
+	local zeroCount = 0
+
+	for i = 1, #a do
+		for j = i, #a do
+
+			if tmpA[i] ~= false and tmpA[j] ~= false and (i ~= j) and (tmpA[i] < tmpA[j]) then
+				local tmp = tmpA[i]
+				tmpA[i] = tmpA[j]
+				tmpA[j] = tmp
+
+				tmp = resultA[i]
+				resultA[i] = resultA[j]
+				resultA[j] = tmp
+			end
+
+		end
+
+		if a[i] ~= false and a[i] == 0 then
+			zeroCount = zeroCount + 1
+		end
+	end
+
+	local tmpB = {}
+	local resultB = {}
+	local counter = 1
+	
+	for i = 1, #a do
+		if tmpA[i] and tmpA[i] > 0 then
+			tmpB[i+zeroCount] = tmpA[i]
+			resultB[i+zeroCount] = resultA[i]
+		elseif tmpA[i] and tmpA[i] == 0 then
+			tmpB[counter] = tmpA[i]
+			resultB[counter] = resultA[i]
+			counter = counter + 1
+		end
+	end
+
+	return resultB
+end
+
 local function SetDurationText(duration, arg1, arg2)
 	duration:SetText('|cffffffff'..format(gsub(arg1, "[ .]", ""), arg2)..'|r')
 end
@@ -30,8 +78,29 @@ local function UpdateBuffAnchors()
 		slack = 1
 	end
 
+	local a = {}
+
+	for index = 1, BUFF_MAX_DISPLAY do
+		local unit = PlayerFrame.unit
+	    local name, rank, texture, count, debuffType, duration, expirationTime, _, _, shouldConsolidate, spellId = UnitAura(unit, index, filter);
+
+	    if name then
+	    	local timeLeft = expirationTime - GetTime()
+	    	if timeLeft > 0 then
+	    		a[index] = timeLeft
+	    	else 
+	    		a[index] = 0
+	    	end
+	    else
+	    	a[index] = false
+	    end
+	end
+
+	local aSort = AuraSort(a)
+
 	for i = 1, BUFF_ACTUAL_DISPLAY do
-		button = _G["BuffButton"..i]
+		local j = aSort[i]
+		button = _G["BuffButton"..j]
 
 		if not button.consolidated then
 			numBuffs = numBuffs + 1
@@ -46,11 +115,11 @@ local function UpdateBuffAnchors()
 			button:ClearAllPoints()
 			button:SetSize(28, 28)
 
-			if index > 1 and (mod(index, 16) == 1) then
-				if index == 17 then
-					button:SetPoint("TOP", ConsolidatedBuffs, "BOTTOM", 0, -8)
+			if index > 1 and (mod(index, 11) == 1) then
+				if index == 12 then
+					button:SetPoint("TOP", ConsolidatedBuffs, "BOTTOM", 0, -16)
 				else
-					button:SetPoint("TOP", above, "BOTTOM", 0, -8)
+					button:SetPoint("TOP", above, "BOTTOM", 0, -16)
 				end
 
 				above = button
@@ -142,7 +211,7 @@ local function SetAuraButtonStyle(btn, index, atype)
 	end
 
 	if not bBorder then
-		bBorder = button:CreateTexture(nil, "BORDER", nil, 0)
+		bBorder = button:CreateTexture(name.."Border", "BORDER", nil, 0)
 	end
 
 	bBorder:SetTexture(config.textureBorder)
