@@ -18,7 +18,7 @@ local lsTemporaryEnchantHeader = CreateFrame("Frame", "lsTemporaryEnchantHeader"
 lsTemporaryEnchantHeader:SetSize(28, 28)
 lsTemporaryEnchantHeader:SetPoint("TOPRIGHT", "UIParent", "TOPRIGHT", -6, -180)
 
-function AuraSort (a)
+local function AuraSort (a)
 	local tmpA = a
 	local resultA = {}
 
