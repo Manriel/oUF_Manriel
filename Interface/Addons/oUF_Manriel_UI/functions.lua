@@ -69,9 +69,9 @@ local UpdateAuraTimer = function(self, elapsed)
 	end
 end
 
-methods.setFontString = function(parent, fontStyle, fontHeight)
+methods.setFontString = function(parent, fontStyle, fontHeight, flags)
 	local fs = parent:CreateFontString(nil, "OVERLAY")
-	fs:SetFont(fontStyle, fontHeight)
+	fs:SetFont(fontStyle, fontHeight, flags)
 	fs:SetShadowColor(0,0,0)
 	fs:SetShadowOffset(1, -1)
 	fs:SetTextColor(1,1,1)
@@ -189,35 +189,50 @@ methods.PostUpdatePower = function(Power, unit, min, max)-- (self, event, unit, 
 end
 
 methods.PostCreateIcon = function(icons, button)
+
 	button.overlay:SetTexture(config.textureBorder)
-	button.overlay:SetTexCoord(0, 0, 0, 0)
+	button.overlay:SetTexCoord(0, 1, 0, 1)
 	button.overlay:ClearAllPoints()
 	button.overlay:SetPoint("TOPLEFT", button, "TOPLEFT", -3, 3)
 	button.overlay:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 3, -3)
-	button.overlay:SetDrawLayer("OVERLAY", 7)
+	button.overlay:SetVertexColor(.5, .5, .5, 1)
+	button.overlay:Show()
 
-	button.duration = methods.setFontString(button.cd, config.fontName, config.baseFontSize)
+	button.duration = methods.setFontString(button, config.fontName, config.baseFontSize, "THINOUTLINE")
 	button.duration:SetJustifyH("CENTER")
-	button.duration:SetPoint("TOP", button, "BOTTOM", 0, 0)
+	button.duration:SetPoint("TOP", button, "BOTTOM", 0, -2)
 	button.cd:SetHideCountdownNumbers(true)
 
 	button:SetScript('OnUpdate', UpdateAuraTimer)
 end
 
 methods.PostUpdateIcon = function(self, unit, icon, index, offset)
+	icon.overlay:Show()
+
 	icon.icon:SetTexCoord(.1, .9, .1, .9)
 	icon.icon:SetDesaturated( (unit == 'target') and (UnitIsEnemy("player","target")) and (not icon.isPlayer) and (icon.isDebuff) );
 	if (icon.count) then
-		icon.count:SetFont(config.fontNamePixel, icon:GetHeight()/2.5, "OUTLINE");
+		icon.count:SetFont(config.fontName, icon:GetHeight()/2.5, "THINOUTLINE");
+		icon.count:ClearAllPoints()
+		icon.count:SetPoint("TOPRIGHT", 0, 0)
 		icon.count:SetShadowColor(0,0,0)
 		icon.count:SetShadowOffset(0,0)
 	end
 
-	local filter = icon.filter
-	local _, _, _, _, _, duration, expirationTime, _, _, _, _, _, _ = UnitAura(unit, index, filter)
-	
-	icon.cd.duration = duration
-	icon.cd.timeLeft = expirationTime
+	if (icon.cd) then
+		local filter = icon.filter
+		local _, _, _, _, _, duration, expirationTime, _, _, _, _, _, _ = UnitAura(unit, index, filter)
+		
+		icon.cd.duration = duration
+		icon.cd.timeLeft = expirationTime
+	end
+end
+
+methods.PostUpdateGapIcon = function(self, unit, icon, index)
+	if (icon.cd) then
+		icon.cd.duration = 0
+		icon.cd.timeLeft = 0
+	end
 end
 
 methods.OverrideCastbarTime = function(self, duration)

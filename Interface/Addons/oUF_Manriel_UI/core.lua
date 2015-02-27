@@ -147,11 +147,14 @@ local UnitSpecific = {
 
 		Debuffs:SetSize(width, width/2);
 		Debuffs.size = height*0.7
-		Debuffs.spacing = 2.5
 		Debuffs.initialAnchor = "BOTTOMLEFT"
 		Debuffs["growth-x"] = "RIGHT"
 		Debuffs["growth-y"] = "UP"
-		Debuffs:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 10)
+		Debuffs['spacing-x'] = 8
+		Debuffs['spacing-y'] = 16
+		Debuffs.disableCooldown = true
+
+		Debuffs:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 12)
 		Debuffs.PostCreateIcon = UI.methods.PostCreateIcon
 		Debuffs.PostUpdateIcon = UI.methods.PostUpdateIcon
 		
@@ -183,7 +186,7 @@ local UnitSpecific = {
 
 		-- Buffs:SetSize(width, width/2);
 		-- Buffs.size = height*0.7
-		-- Buffs.spacing = 5
+		-- Buffs.spacing = 4
 		-- Buffs.initialAnchor = "TOPRIGHT"
 		-- Buffs["growth-x"] = "LEFT"
 		-- Buffs["growth-y"] = "DOWN"
@@ -320,19 +323,21 @@ local UnitSpecific = {
 
 		local Auras = CreateFrame('StatusBar', 'oUF_Manriel_target_Auras', self, 'SecureActionButtonTemplate')
 		Auras:SetSize(width, width/2);
-		Auras:SetPoint('BOTTOMRIGHT', self, 'TOPRIGHT', 0, 10)
+		Auras:SetPoint('BOTTOMRIGHT', self, 'TOPRIGHT', 0, 12)
 		Auras['growth-x'] = 'LEFT'
 		Auras['growth-y'] = 'UP' 
-		Auras['spacing-y'] = 10
+		Auras['spacing-x'] = 8
+		Auras['spacing-y'] = 16
 		Auras.initialAnchor = 'BOTTOMRIGHT'
 		Auras.size = height*0.7
-		Auras.spacing = 2.5
 		Auras.gap = true
 		Auras.numBuffs = 18 
 		Auras.numDebuffs = 18 
+		Auras.disableCooldown = true
 
 		Auras.PostCreateIcon = UI.methods.PostCreateIcon
 		Auras.PostUpdateIcon = UI.methods.PostUpdateIcon
+		Auras.PostUpdateGapIcon = UI.methods.PostUpdateGapIcon
 		
 		self.Auras = Auras
 		
