@@ -84,7 +84,6 @@ methods.OverrideUpdateName = function(self, event, unit)
 	if(unit == 'player') then
 		self.Name:Hide()
 	else
-		-- self.Name:SetText(UnitName(unit))
 		if (unit == 'target') then
 			self.Name:SetFormattedText('%.49s', UnitName(unit))
 		else
@@ -188,6 +187,13 @@ methods.PostUpdatePower = function(Power, unit, min, max)-- (self, event, unit, 
 	self:UNIT_NAME_UPDATE(event, unit)
 end
 
+methods.AltPowerPostUpdate = function ( self, min, cur, max )
+	local caption = self.caption
+	if caption then
+		caption:SetFormattedText("%s: %d / %d", self.powerName, cur, max)
+	end
+end
+
 methods.PostCreateIcon = function(icons, button)
 
 	button.overlay:SetTexture(config.textureBorder)
@@ -195,8 +201,10 @@ methods.PostCreateIcon = function(icons, button)
 	button.overlay:ClearAllPoints()
 	button.overlay:SetPoint("TOPLEFT", button, "TOPLEFT", -3, 3)
 	button.overlay:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 3, -3)
-	button.overlay:SetVertexColor(.5, .5, .5, 1)
-	button.overlay:Show()
+	if (not button.overlay:IsShown()) then
+		button.overlay:SetVertexColor(0, 0, 0, 1)
+		button.overlay:Show()
+	end
 
 	button.duration = methods.setFontString(button, config.fontName, config.baseFontSize, "THINOUTLINE")
 	button.duration:SetJustifyH("CENTER")
@@ -207,6 +215,18 @@ methods.PostCreateIcon = function(icons, button)
 end
 
 methods.PostUpdateIcon = function(self, unit, icon, index, offset)
+	local ParentFrame = self:GetParent()
+	local AltPowerBar = ParentFrame.AltPowerBar
+	if AltPowerBar and unit == 'player' then
+		if AltPowerBar:IsShown() then
+			ParentFrame.Debuffs:ClearAllPoints()
+			ParentFrame.Debuffs:SetPoint("BOTTOMLEFT", ParentFrame, "TOPLEFT", 0, AltPowerBar:GetHeight()+12+config.offset*2)
+		else
+			ParentFrame.Debuffs:ClearAllPoints()
+			ParentFrame.Debuffs:SetPoint("BOTTOMLEFT", ParentFrame, "TOPLEFT", 0, 12)
+		end
+	end
+
 	icon.overlay:Show()
 
 	icon.icon:SetTexCoord(.1, .9, .1, .9)
@@ -232,6 +252,98 @@ methods.PostUpdateGapIcon = function(self, unit, icon, index)
 	if (icon.cd) then
 		icon.cd.duration = 0
 		icon.cd.timeLeft = 0
+	end
+end
+
+local function AuraSort (a)
+	local tmpA = a
+	local resultA = {}
+
+	for i = 1, #a do
+		resultA[i] = i
+	end
+
+	local zeroCount = 0
+
+	for i = 1, #a do
+		for j = i, #a do
+
+			if tmpA[i] ~= false and tmpA[j] ~= false and (i ~= j) and (tmpA[i] < tmpA[j]) then
+				local tmp = tmpA[i]
+				tmpA[i] = tmpA[j]
+				tmpA[j] = tmp
+
+				tmp = resultA[i]
+				resultA[i] = resultA[j]
+				resultA[j] = tmp
+			end
+
+		end
+
+		if a[i] ~= false and a[i] == 0 then
+			zeroCount = zeroCount + 1
+		end
+	end
+
+	local tmpB = {}
+	local resultB = {}
+	local counter = 1
+	
+	for i = 1, #a do
+		if tmpA[i] and tmpA[i] > 0 then
+			tmpB[i+zeroCount] = tmpA[i]
+			resultB[i+zeroCount] = resultA[i]
+		elseif tmpA[i] and tmpA[i] == 0 then
+			tmpB[counter] = tmpA[i]
+			resultB[counter] = resultA[i]
+			counter = counter + 1
+		end
+	end
+
+	return resultB
+end
+
+methods.Auras_SetPosition = function(icons, from, to)
+	local sizex = (icons.size or 16) + (icons['spacing-x'] or icons.spacing or 0)
+	local sizey = (icons.size or 16) + (icons['spacing-y'] or icons.spacing or 0)
+	local anchor = icons.initialAnchor or "BOTTOMLEFT"
+	local growthx = (icons["growth-x"] == "LEFT" and -1) or 1
+	local growthy = (icons["growth-y"] == "DOWN" and -1) or 1
+	local cols = math.floor(icons:GetWidth() / sizex + .5)
+
+	local a = {}
+
+	for index = from, to do
+		local unit = icons.unit
+		if not unit then print(index) end
+
+	    local name, rank, texture, count, debuffType, duration, expirationTime, _, _, shouldConsolidate, spellId = UnitAura(unit, index);
+
+	    if name then
+	    	local timeLeft = expirationTime - GetTime()
+	    	if timeLeft > 0 then
+	    		a[index] = timeLeft
+	    	else 
+	    		a[index] = 0
+	    	end
+	    else
+	    	a[index] = false
+	    end
+	end
+
+	local aSort = AuraSort(a)
+
+	for i = from, to do
+		local j = aSort[i]
+		local button = icons[j]
+
+		-- Bail out if the to range is out of scope.
+		if(not button) then break end
+		local col = (i - 1) % cols
+		local row = math.floor((i - 1) / cols)
+
+		button:ClearAllPoints()
+		button:SetPoint(anchor, icons, anchor, col * sizex * growthx, row * sizey * growthy)
 	end
 end
 

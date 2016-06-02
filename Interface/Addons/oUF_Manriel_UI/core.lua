@@ -240,6 +240,29 @@ local UnitSpecific = {
 		self.Castbar = Castbar
 		-- self.Castbar2 = Castbar2
 
+		local AltPowerBar = CreateFrame('StatusBar', 'oUF_Manriel_player_AltPowerBar', self)
+		AltPowerBar:SetStatusBarTexture(textureHealthBar)
+		AltPowerBar:SetStatusBarColor(colorcb[1], colorcb[2], colorcb[3])
+		AltPowerBar:SetBackdrop(backdrophp)
+		AltPowerBar:SetBackdropColor(colorcb[1]/3, colorcb[2]/3, colorcb[3]/3)
+		AltPowerBar:EnableMouse(true);
+		local AltPowerBarFrame = CreateFrame('Frame', 'oUF_Manriel_player_AltPowerBar_bg', AltPowerBar)
+		AltPowerBarFrame:SetFrameStrata('BACKGROUND')
+		AltPowerBarFrame:SetPoint('BOTTOMLEFT', self, 'TOPLEFT')
+		AltPowerBarFrame:SetPoint('BOTTOMRIGHT', self, 'TOPRIGHT')
+		AltPowerBarFrame:SetHeight(height*0.4)
+		AltPowerBarFrame:SetBackdrop(backdrop)
+		AltPowerBarFrame:SetBackdropColor(0,0,0,1)
+
+		AltPowerBar:SetPoint('TOPLEFT', AltPowerBarFrame, 'TOPLEFT', offset, -offset)
+		AltPowerBar:SetPoint('BOTTOMRIGHT', AltPowerBarFrame, 'BOTTOMRIGHT', -offset, offset)
+		AltPowerBar.caption = setFontString(AltPowerBar, fontName, baseFontSize)
+		AltPowerBar.caption:SetAllPoints(AltPowerBar)
+		AltPowerBar.caption:SetJustifyH("CENTER")
+		AltPowerBar.PostUpdate = UI.methods.AltPowerPostUpdate
+
+		self.AltPowerBar = AltPowerBar
+
 		local ExperienceFrame = CreateFrame('Frame', 'oUF_Manriel_player_XP_bg', self)
 		ExperienceFrame:SetPoint('TOPLEFT', UIParent, 'TOPLEFT', 4, -4)
 		ExperienceFrame:SetPoint('TOPRIGHT', UIParent, 'TOPRIGHT', -4, -4)
@@ -338,6 +361,8 @@ local UnitSpecific = {
 		Auras.PostCreateIcon = UI.methods.PostCreateIcon
 		Auras.PostUpdateIcon = UI.methods.PostUpdateIcon
 		Auras.PostUpdateGapIcon = UI.methods.PostUpdateGapIcon
+		-- Auras.SetPosition = UI.methods.Auras_SetPosition
+		-- Auras.unit = 'target'
 		
 		self.Auras = Auras
 		
