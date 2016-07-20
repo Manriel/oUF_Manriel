@@ -1,0 +1,44 @@
+------------------------------------------------------------------------
+r1304 | resike | 2015-02-25 12:47:38 +0000 (Wed, 25 Feb 2015) | 1 line
+Changed paths:
+   A /tags/v6.1.0a release (from /trunk:1303)
+
+Tagging as v6.1.0a release
+------------------------------------------------------------------------
+r1303 | Resike | 2015-02-25 12:45:30 +0000 (Wed, 25 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/Recount.toc
+
+- Toc bump.
+------------------------------------------------------------------------
+r1301 | Resike | 2015-02-02 15:17:56 +0000 (Mon, 02 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/Recount.lua
+
+- Vehicle damage/healing should be properly indicated in real time with Merge Pets enabled, when the player is not on the damage/healing list.
+------------------------------------------------------------------------
+r1300 | Resike | 2015-02-01 22:46:24 +0000 (Sun, 01 Feb 2015) | 2 lines
+Changed paths:
+   M /trunk/GUI_Main.lua
+   M /trunk/Recount.lua
+   M /trunk/Recount_Modes.lua
+
+- Pet damage should be properly indicated in real time with Merge Pets enabled, when the player is not on the damage list.
+- More fixes for the "Server Name" strip function.
+------------------------------------------------------------------------
+r1299 | Resike | 2015-01-31 10:09:48 +0000 (Sat, 31 Jan 2015) | 2 lines
+Changed paths:
+   M /trunk/GUI_Main.lua
+   M /trunk/Recount.lua
+
+- Hostile enemies has darker red bar color, to differentiate it more from the default Death Knight color.
+- More fixes for the "Server Name" strip function.
+------------------------------------------------------------------------
+r1298 | Resike | 2015-01-30 23:45:31 +0000 (Fri, 30 Jan 2015) | 2 lines
+Changed paths:
+   M /trunk/GUI_Main.lua
+   M /trunk/Tracker.lua
+
+- Healing Data should be properly shown for enemy players/npcs.
+- Fixed "Server Name" strip function for special character "é".
+------------------------------------------------------------------------

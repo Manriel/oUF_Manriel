@@ -3,17 +3,26 @@
 	<Script file='libs\LibStub\LibStub.lua' />
 	<Script file='libs\CallbackHandler-1.0\CallbackHandler-1.0.lua' />
 	<Script file='libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua' />
+	<Include file='libs\rLib\rLib.xml' />
 
 	<Include file='libs\oUF\oUF.xml'/>
 	<Script file='libs\oUF_Smooth\oUF_Smooth.lua' />
+	<Script file='libs\oUF_Experience\oUF_Experience.lua' />
+	<Script file='libs\oUF_Reputation\oUF_Reputation.lua' />
 	
 	<Script file='init.lua' />
 	<Script file='settings.lua' />
 	<Script file='locale.lua' />
 	<Script file='functions.lua' />
 
+	<Include file='modules\rActionBarStyler\rActionBarStyler.xml'/>
+	<Include file='modules\AuraButtonTemplate.xml'/>
+	<Script file='modules\buffs.lua' />
 	<Script file='modules\panels.lua' />
 	<Script file='modules\tooltip.lua' />
+	<Script file='modules\сoordinates.lua' />
+	<Script file='modules\armory.lua' />
+	<Script file='modules\wowhead.lua' />
 
 	<Script file='core.lua' />
 

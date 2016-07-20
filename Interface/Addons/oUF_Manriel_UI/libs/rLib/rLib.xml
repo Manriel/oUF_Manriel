@@ -1,0 +1,7 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	
+	<Script file='core\dragframe.lua' />
+	<Script file='core\slashcmd.lua' />
+	<Script file='core\fader.lua' />
+
+</Ui>

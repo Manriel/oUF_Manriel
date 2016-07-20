@@ -16,18 +16,20 @@ UI.config = {
 		rare = ' Rare',
 		normal = '',
 		trivial = '',
+		minus = '',
 	},
 
 	fontName = LSM:Fetch(LSM.MediaType.FONT, 'Calibri Bold'),
 	fontNamePixel = LSM:Fetch(LSM.MediaType.FONT, 'Calibri'),
 	baseFontSize = 12,
 
-	textureHealthBar = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Health'),
-	textureRuneBar = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Rune'),
-	textureBorder = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Caith'),
-	textureBubble = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Bubble'),
-	textureCastBarBorder = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border-Castbar'),
-	textureGlow = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Glow'),
+	textureHealthBar       = LSM:Fetch(LSM.MediaType.STATUSBAR,  'Manriel-Health'),
+	textureRuneBar         = LSM:Fetch(LSM.MediaType.STATUSBAR,  'Manriel-Rune'),
+	texturePanel           = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background');
+	textureBorder          = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Caith'),
+	textureBubble          = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Bubble'),
+	textureCastBarBorder   = LSM:Fetch(LSM.MediaType.BORDER,     'Manriel-Border-Light'),
+	textureGlow            = LSM:Fetch(LSM.MediaType.BORDER,     'Manriel-Glow'),
 	textureBlizzardTooltip = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Blizzard Tooltip'),
 }
 
@@ -85,3 +87,4 @@ SLASH_RELOADUI1 = "/rl"
 
 SlashCmdList["RCSLASH"] = function() DoReadyCheck() end
 SLASH_RCSLASH1 = "/rc"
+

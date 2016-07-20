@@ -13,38 +13,75 @@ Desktop.ini
 
 # Standart Blizzard addon folders
 /Interface/Addons/Blizzard*
+# Other Addons
+/Interface/Addons/DBM*
+/Interface/Addons/Grid2*
+/Interface/Addons/HandyNotes*
+/Interface/Addons/PassLoot/
+/Interface/Addons/m_ActionBars/
+# Auctioneer
+/Interface/Addons/!Swatter/
+/Interface/Addons/Auc*
+/Interface/Addons/BeanCounter/
+/Interface/Addons/Enchantrix*
+/Interface/Addons/Informant/
+/Interface/Addons/SlideBar/
+/Interface/Addons/Stubby/
 
 # Game config
-/WTF/Config.wtf
+/WTF/*
 
 # Game cache and config per account and standart Blizzard addon configs
-/WTF/Account/*/SavedVariables/Blizzard_*.lua
-/WTF/Account/*/Addons.txt
-/WTF/Account/*/bindings-cache.wtf
-/WTF/Account/*/cache.md5
-/WTF/Account/*/chat-cache.txt
-/WTF/Account/*/config-cache.wtf
-/WTF/Account/*/CUFProfiles.txt
-/WTF/Account/*/layout-local.txt
-/WTF/Account/*/macros-cache.txt
+!/WTF/Account/
+/WTF/Account/*
+!/WTF/Account/DEFEATEDANGEL/
+/WTF/Account/DEFEATEDANGEL/*
+!/WTF/Account/DEFEATEDANGEL/SavedVariables/
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Blizzard_*.lua
+# Other adons config
+/WTF/Account/DEFEATEDANGEL/SavedVariables/!BugGrabber*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/BugSack*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Grid2*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/HandyNotes*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/PassLoot*
+# Auctioneer
+/WTF/Account/DEFEATEDANGEL/SavedVariables/!Swatter*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Auc*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/BeanCounter*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Enchantrix*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Informant*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/SlideBar*
+/WTF/Account/DEFEATEDANGEL/SavedVariables/Stubby*
 
 # Game cache and config per character and standart Blizzard addon configs
-/WTF/Account/*/*/*/SavedVariables/Blizzard_*.lua
-/WTF/Account/*/*/*/Addons.txt
-/WTF/Account/*/*/*/Blizzard_*.lua
-/WTF/Account/*/*/*/bindings-cache.wtf
-/WTF/Account/*/*/*/cache.md5
-/WTF/Account/*/*/*/chat-cache.txt
-/WTF/Account/*/*/*/config-cache.wtf
-/WTF/Account/*/*/*/CUFProfiles.txt
-/WTF/Account/*/*/*/layout-local.txt
-/WTF/Account/*/*/*/macros-cache.txt
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/*
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/*
+!/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Blizzard_*.lua
+# Other adons config
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/!BugGrabber*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/BugSack*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Grid2*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/HandyNotes*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/PassLoot*
+# Auctioneer
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/!Swatter*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Auc*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/BeanCounter*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Enchantrix*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Informant*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/SlideBar*
+/WTF/Account/DEFEATEDANGEL/Ясеневый лес/Манриэль/SavedVariables/Stubby*
 
-/Cache
-/Errors
-/Logs
-/Screenshots
+/Cache/
+/Errors/
+/Logs/
+/Screenshots/
 
 /run.bat
 *.sublime-project
 *.sublime-workspace
+
+

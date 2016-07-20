@@ -1,8 +1,17 @@
-## Interface: 60000
-## Title: UDF
+## Interface: 60100
+## Title: |cffffffffManriel|r's User Defined Functions
 ## Author: Manriel
-## Version: 1.0
-## Notes: This addon is my additional macros, not reallised normal methods.
+## Version: 1.2
+## Dependencies: 
+## OptionalDeps: 
+
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
+
+## Notes: This addon contains additional macro-functions, not reallised normal methods.
+## Notes-ruRU: Аддон содержит дополнительные макро-функции, не реализуемые нормальными методами.
+
+## X-Credits: Manriel, Heldin
+## X-email: readytoban@gmail.com
+
 udf.lua

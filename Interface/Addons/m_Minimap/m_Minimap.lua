@@ -3,12 +3,15 @@ local Scale = 1.095              -- Minimap scale
 local ClassColorBorder = false  -- Should border around minimap be classcolored? Enabling it disables color settings below
 local r, g, b, a = 0, 0, 0, 1   -- Border colors and alhpa. More info: http://www.wowwiki.com/API_Frame_SetBackdropColor
 local BGThickness = 0           -- Border thickness in pixels
-local MapPosition = {"BOTTOMRIGHT", "UIParent", "BOTTOMRIGHT", -4, 4}
 
 -- Shape, location and scale
 function GetMinimapShape() return "SQUARE" end
 Minimap:ClearAllPoints()
-Minimap:SetPoint(MapPosition[1], MapPosition[2], MapPosition[3], MapPosition[4] / Scale, MapPosition[5] / Scale)
+Minimap:SetPoint('BOTTOMRIGHT', UIParent, 'BOTTOMRIGHT', -4 / Scale, 4 / Scale)
+Minimap:SetSize(165, 165)
+-- if Recount_MainWindow then
+--     Minimap:SetPoint('TOPLEFT', Recount_MainWindow, 'TOPLEFT', -4 / Scale, 4 / Scale)
+-- end
 MinimapCluster:SetScale(Scale)
 --Minimap:SetFrameStrata("BACKGROUND")
 Minimap:SetFrameLevel(10)
@@ -134,21 +137,29 @@ end
 -- Creating right click menu
 local menuFrame = CreateFrame("Frame", "m_MinimapRightClickMenu", UIParent, "UIDropDownMenuTemplate")
 local menuList = {
-    {text = "Character",
+    {text = CHARACTER_BUTTON,
+    notCheckable = true,
     func = function() ToggleCharacter("PaperDollFrame") end},
-    {text = "Spells",
+    {text = SPELLBOOK_ABILITIES_BUTTON,
+    notCheckable = true,
     func = function() ToggleSpellBook("spell") end},
-    {text = "Talents",
+    {text = TALENTS_BUTTON,
+    notCheckable = true,
     func = function() ToggleTalentFrame() end},
-    {text = "Achievements",
+    {text = ACHIEVEMENT_BUTTON,
+    notCheckable = true,
     func = function() ToggleAchievementFrame() end},
-    {text = "Quests",
+    {text = QUESTLOG_BUTTON,
+    notCheckable = true,
     func = function() ToggleFrame(QuestLogFrame) end},
-    {text = "Friends",
+    {text = FRIENDS,
+    notCheckable = true,
     func = function() ToggleFriendsFrame(1) end},
-    {text = "Guild",
+    {text = GUILD,
+    notCheckable = true,
     func = function() ToggleGuildFrame(1) end},
-    {text = "PvP",
+    {text = PLAYER_V_PLAYER,
+    notCheckable = true,
     func = function() 
         --ToggleFrame(PVPUIFrame) 
         if PVPUIFrame then
@@ -164,20 +175,38 @@ local menuList = {
             ShowUIPanel(PVPUIFrame)
         end
     end},
-    {text = "Dungeon Finder",
+    {text = DUNGEONS_BUTTON,
+    notCheckable = true,
     func = function() ToggleLFDParentFrame() end},
-    {text = "Pets and Mounts",
+    {text = COLLECTIONS,
+    notCheckable = true,
     func = function() TogglePetJournal(1) end},
-    {text = "Help",
-    func = function() ToggleHelpFrame() end},
-    {text = "Calendar",
+    {text = ENCOUNTER_JOURNAL,
+    notCheckable = true,
+    func = function() ToggleEncounterJournal() end},
+    {text = GAMETIME_TOOLTIP_TOGGLE_CALENDAR,
+    notCheckable = true,
     func = function()
     if(not CalendarFrame) then LoadAddOn("Blizzard_Calendar") end
         Calendar_Toggle()
     end},
-    {text = "Dungeon Journal",
-    func = function() ToggleEncounterJournal() end},
+    {text = GAMEMENU_HELP,
+    notCheckable = true,
+    func = function() ToggleHelpFrame() end},
 }
+if ( C_StorePublic.IsEnabled() and not IsTrialAccount() and StoreMicroButton ) then
+    item = {
+        text = BLIZZARD_STORE,
+        notCheckable = true,
+        func = 
+            function()
+                if StoreMicroButton then
+                    StoreMicroButton:Click()
+                end
+            end
+    }
+    table.insert(menuList, #menuList, item);
+end
 
 -- Click func
 Minimap:SetScript("OnMouseUp", function(_, btn)

@@ -1,0 +1,5 @@
+## Interface: 30000
+## Title: ManyItemTooltips
+## Notes: Allows you to open an unlimited number of item tooltips.
+## Author: Doomchicken of Dark Iron
+ManyItemTooltips.xml
