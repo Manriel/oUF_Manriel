@@ -1,4 +1,4 @@
-﻿local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "enUS", true, false )
+local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "enUS", true, false )
 if not L then return end
 
 -- post updated translations at http://groups.google.com/group/wow-arkinventory (modify this file and include as an attachment)
@@ -32,6 +32,14 @@ if not L then return end
 	L["WOW_ITEM_TOOLTIP_POTION_MANA"] = "Restores %d+ to %d+ mana"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_BATTLE"] = "Battle Elixir"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_GUARDIAN"] = "Guardian Elixir"
+	L["WOW_ITEM_TOOLTIP_10P3T"] = "thousand"
+	L["WOW_ITEM_TOOLTIP_10P3S"] = "K"
+	L["WOW_ITEM_TOOLTIP_10P6T"] = "million"
+	L["WOW_ITEM_TOOLTIP_10P6S"] = "M"
+	L["WOW_ITEM_TOOLTIP_10P9T"] = "billion"
+	L["WOW_ITEM_TOOLTIP_10P9S"] = "B"
+	L["WOW_ITEM_TOOLTIP_10P12T"] = "trillion"
+	L["WOW_ITEM_TOOLTIP_10P12S"] = "T"
 	
 	
 --	location names
@@ -46,15 +54,21 @@ if not L then return end
 	
 --	status bar/bag text
 	L["STATUS_NO_DATA"] = "ERR"
-	L["STATUS_FULL"] = "Full"
 	L["STATUS_PURCHASE"] = "Buy"
 	
 	
 --	restack
---	L["RESTACK"] = "Restack"
+	L["RESTACK"] = "Restack"
 	L["RESTACK_TEXT"] = "consolidate items into as few stacks as possible and then try to fill up any empty slots in special bags where possible"
-	L["RESTACK_FAIL_WAIT"] = "A restack operation is already in progress please wait for completion"
-	L["RESTACK_FAIL_ACCESS"] = "You don't have enough authority to restack tab %2$s in the %1$s" -- %1$s = guild bank, %2$s = tab number
+	L["RESTACK_FAIL_WAIT"] = "Already in progress please wait for completion"
+	L["RESTACK_FAIL_ACCESS"] = "You don't have enough authority to tab %2$s in the %1$s" -- %1$s = guild bank, %2$s = tab number
+	L["RESTACK_FAIL_CLOSED"] = "%1$s was closed" -- %1$s = location
+	L["RESTACK_TYPE"] = "Which code to use when running a restack"
+	L["RESTACK_CLEANUP_DEPOSIT"] = "Deposit all reagents as part of the Cleanup process"
+	L["RESTACK_TOPUP_FROM_BAGS"] = "Top Up"
+	L["RESTACK_TOPUP_FROM_BAGS_TEXT"] = "Top up any partial stacks with items from your bags"
+	L["RESTACK_FILL_FROM_BAGS_TEXT"] = "Fill any empty %1$s slots with Crafting items from your bags"
+	L["RESTACK_REFRESH_WHEN_COMPLETE"] = "Refresh window when completed"
 	
 	
 --	vault tab tooltips
@@ -64,12 +78,9 @@ if not L then return end
 	L["VAULT_TAB_REMAINING_WITHDRAWALS"] = "Remaining Daily Withdrawals: |cffffffff%1$s|r"
 	
 	
---	category "header" descriptions
-	L["CATEGORY_RULE"] = "Rule"
-	
-	
 --	system category descriptions
 	L["CATEGORY_SYSTEM_CORE_MATS"] = "Core Mats"
+	L["CATEGORY_SYSTEM_MYTHIC_KEYSTONE"] = "Mythic Keystone"
 	
 	
 --	consumable category descriptions
@@ -81,25 +92,25 @@ if not L then return end
 	
 	
 --	bag names - used to name the empty slots in the status frame (and LDB)
-	L["STATUS_NAME_BAG"] = "Bag"
-	L["STATUS_NAME_COOKING"] = "Cook"
-	L["STATUS_NAME_CRITTER"] = "Pet"
-	L["STATUS_NAME_ENCHANTING"] = "Ench"
-	L["STATUS_NAME_ENGINEERING"] = "Eng"
-	L["STATUS_NAME_GEAR"] = "Gear"
-	L["STATUS_NAME_GEM"] = "Gem"
-	L["STATUS_NAME_HEIRLOOM"] = "Hrlm"
-	L["STATUS_NAME_HERB"] = "Herb"
-	L["STATUS_NAME_INSCRIPTION"] = "Insc"
-	L["STATUS_NAME_KEY"] = "Key"
-	L["STATUS_NAME_LEATHERWORKING"] = "Lthr"
-	L["STATUS_NAME_MAIL"] = "Mail"
-	L["STATUS_NAME_MINING"] = "Mng"
-	L["STATUS_NAME_MOUNT"] = "Mnt"
-	L["STATUS_NAME_REAGENTBANK"] = "Rgt"
-	L["STATUS_NAME_TACKLE"] = "Fish"
-	L["STATUS_NAME_TOKEN"] = "Tkn"
-	L["STATUS_NAME_TOY"] = "Toy"
+	L["STATUS_SHORTNAME_BAG"] = "Bag"
+	L["STATUS_SHORTNAME_COOKING"] = "Cook"
+	L["STATUS_SHORTNAME_CRITTER"] = "Pet"
+	L["STATUS_SHORTNAME_ENCHANTING"] = "Ench"
+	L["STATUS_SHORTNAME_ENGINEERING"] = "Eng"
+	L["STATUS_SHORTNAME_GEAR"] = "Gear"
+	L["STATUS_SHORTNAME_GEM"] = "Gem"
+	L["STATUS_SHORTNAME_HEIRLOOM"] = "Hrlm"
+	L["STATUS_SHORTNAME_HERB"] = "Herb"
+	L["STATUS_SHORTNAME_INSCRIPTION"] = "Insc"
+	L["STATUS_SHORTNAME_KEY"] = "Key"
+	L["STATUS_SHORTNAME_LEATHERWORKING"] = "Lthr"
+	L["STATUS_SHORTNAME_MAIL"] = "Mail"
+	L["STATUS_SHORTNAME_MINING"] = "Mng"
+	L["STATUS_SHORTNAME_MOUNT"] = "Mnt"
+	L["STATUS_SHORTNAME_REAGENTBANK"] = "Rgt"
+	L["STATUS_SHORTNAME_TACKLE"] = "Fish"
+	L["STATUS_SHORTNAME_TOKEN"] = "Tkn"
+	L["STATUS_SHORTNAME_TOY"] = "Toy"
 	
 	
 --	main menu
@@ -118,8 +129,9 @@ if not L then return end
 	
 --	actions menu
 	L["MENU_ACTION"] = "Actions"
-	L["MENU_ACTION_REFRESH"] = "Refresh"
 	L["MENU_ACTION_REFRESH_TEXT"] = "refreshes the window"
+	L["MENU_ACTION_REFRESH_CLEAR_CACHE"] = "Clear Category Cache"
+	L["MENU_ACTION_REFRESH_CLEAR_CACHE_TEXT"] = "clears all cached category assignments"
 	L["MENU_ACTION_RELOAD_TEXT"] = "reloads the window. use when you change items in outfit sets"
 	L["MENU_ACTION_EDITMODE"] = "Edit Mode"
 	L["MENU_ACTION_EDITMODE_TEXT"] = "toggles edit mode on and off so you can customise item layout"
@@ -134,7 +146,7 @@ if not L then return end
 	L["MENU_ITEM_DEFAULT_RESET_TEXT"] = "click to reset the category for this item back to it's default value (does not reset rules)"
 	L["MENU_ITEM_ASSIGN_CHOICES"] = "Assignable Categories"
 	L["MENU_ITEM_ASSIGN_THIS"] = "Assign Category"
-	L["MENU_ITEM_ASSIGN_THIS_TEXT"] = "assign this item to a specific category"
+	L["MENU_ITEM_ASSIGN_THIS_TEXT"] = "click here to assign %1$s to %2$s"
 	L["MENU_ITEM_RULE_NEW"] = "Create a new rule"
 	L["MENU_ITEM_RULE_ADD"] = "Add item to rule"
 	L["MENU_ITEM_CUSTOM_NEW"] = "Create a new custom category"
@@ -159,26 +171,46 @@ if not L then return end
 	L["MENU_ITEM_DEBUG_PT_TEXT"] = "Lists which PT Sets this item is in"
 	L["MENU_ITEM_DEBUG_PT_NONE"] = "this item is currently not in any PT set"
 	L["MENU_ITEM_DEBUG_PT_TITLE"] = "PT Sets this item is in"
+	L["MENU_ITEM_DEBUG_SOURCE"] = "Source ID"
+	L["MENU_ITEM_DEBUG_BONUS"] = "Bonus IDs"
+	L["MENU_ITEM_DEBUG_ITEMSTRING"] = "Item String"
 	
 	
 --	bar menu
 	L["MENU_BAR_TITLE"] = "Bar %1$s"
-	L["MENU_BAR_CATEGORY_TEXT"] = "assign category %1$s to this bar"
+	L["MENU_BAR_CATEGORY_TEXT"] = "assign category %1$s to bar %2$s"
 	L["MENU_BAR_CATEGORY_CURRENT"] = "Categories assigned"
 	L["MENU_BAR_CATEGORY_ASSIGN"] = "Assignable Categories"
 	L["MENU_BAR_CATEGORY_REMOVE_TEXT"] = "click to remove %1$s from bar %2$s\n\nthe category will revert to the default bar" -- 1 is the category name, 2 is the bar number
-	L["MENU_BAR_CATEGORY_HIDDEN_TEXT"] = "click to toggle this categorys hidden status.\n\nitems in a hidden category will not display in normal mode"
-	L["MENU_BAR_CATEGORY_MOVE_START_TEXT"] = "click to move %1$s\n\nyou then need to click on the bar or an item in that bar where you want it to go and choose the complete option"
-	L["MENU_BAR_CATEGORY_MOVE_COMPLETE_TEXT"] = "click to move %1$s from bar %2$s to here (bar %3$s)"
-	L["MENU_BAR_BAG_ASSIGN_TEXT"] = "assign all slots from Bag %1$s to this bar"
+	L["MENU_BAR_CATEGORY_HIDDEN_TEXT"] = "click to toggle the hidden state of this category.\n\nitems in a hidden category will not display in normal mode"
+	L["MENU_BAR_CATEGORY_MOVE_START_TEXT"] = "Initiates moving %1$s\n\nyou then need to click on the bar or an item in that bar where you want it to go and choose the complete option"
+	L["MENU_BAR_CATEGORY_MOVE_COMPLETE_TEXT"] = "Finalises moving %1$s from bar %2$s to here (bar %3$s)"
+	L["MENU_BAR_CATEGORY_ENABLE_TEXT"] = "Enables this rule so it can be used by this layout"
+	L["MENU_BAR_CATEGORY_DISABLE_TEXT"] = "Disables this rule so it is no longer used by this layout"
+	L["MENU_BAR_CATEGORY_STATUS"] = "Sets whether %s will be used or not."
+	L["MENU_BAR_CATEGORY_STATUS_TEXT"] = "%s\n\nclick to %s it."
+	L["MENU_BAR_CATEGORY_JUNK_TEXT"] = "%s\n\nclick to %s it."
+	L["MENU_BAR_BAG_ASSIGN_TEXT"] = "assign all slots from Bag %1$s to bar %2$s"
 	L["MENU_BAR_OPTIONS"] = "Bar Options"
-	L["MENU_BAR_CLEAR_TEXT"] = "removes all categories (except the default category) and any sort method currently assigned to this bar"
-	L["MENU_BAR_INSERT_TEXT"] = "inserts a new empty bar here"
-	L["MENU_BAR_REMOVE_TEXT"] = "removes this bar\n\nany categories assigned to this bar will revert back to the default bar.\n\nIf the default category is on this bar it will be moved to bar 1"
-	L["MENU_BAR_MOVE_START_TEXT"] = "click to move bar %1$s\n\nyou then need to click on another bar and chose the complete option"
-	L["MENU_BAR_MOVE_COMPLETE_TEXT"] = "click to move bar %1$s to here\n\nbars between here and the original location will be reordered"
-	L["MENU_BAR_SORTKEY_TEXT"] = "assign the sort method %1$s to this bar"
-	L["MENU_BAR_SORTKEY_DEFAULT_RESET_TEXT"] = "click to reset the sort method for this bar back to the default value"
+	L["MENU_BAR_RESET_TEXT"] = "Resets bar %1$s back to default.\n\nRemoves all assigned categories (except the default category)"
+	L["MENU_BAR_INSERT_TEXT"] = "Inserts a new empty bar in front of bar %1$s"
+	L["MENU_BAR_DELETE_TEXT"] = "Deletes bar %1$s\n\nAny categories assigned to bar %1$s will revert back to the default bar.\n\nIf the default category is assigned to bar %1$s it will be moved to bar 1"
+	L["MENU_BAR_MOVE_START_TEXT"] = "Initiates moving bar %1$s\n\nYou then need to click on another bar and chose the complete action to finalise the move\n\nAlternatively you can just drag this bar to another bar to move it there"
+	L["MENU_BAR_MOVE_COMPLETE_TEXT"] = "Finalises moving bar %1$s to here\n\nBars between here and the original location will be reordered"
+	L["MENU_BAR_MOVE_FAIL_OUTSIDE"] = "move failed; you cant move the bar to a different window, try again"
+	L["MENU_BAR_MOVE_FAIL_SAME"] = "move failed; the bar is already positioned here, try again"
+	L["MENU_BAR_SORTKEY_TEXT"] = "Assigns the %1$s sort method to bar %2$i"
+	L["MENU_BAR_SORTKEY_DEFAULT_RESET_TEXT"] = "Sets the sort method for bar %1$i back to the default"
+	L["MENU_BAR_COLOUR_BORDER_DEFAULT_TEXT"] = "use the default colour for the border of bar %1$s"
+	L["MENU_BAR_COLOUR_BORDER_CUSTOM_TEXT"] = "use a custom colour for the border of bar %1$s"
+	L["MENU_BAR_COLOUR_BORDER_TEXT"] = "set the colour to use for the border of bar %1$s"
+	L["MENU_BAR_COLOUR_BACKGROUND_DEFAULT_TEXT"] = "use the default colour for the background of bar %1$s"
+	L["MENU_BAR_COLOUR_BACKGROUND_CUSTOM_TEXT"] = "use a custom colour for the background of bar %1$s"
+	L["MENU_BAR_COLOUR_BACKGROUND_TEXT"] = "set the colour to use for the background of bar %1$s"
+	L["MENU_BAR_COLOUR_NAME_DEFAULT_TEXT"] = "use the default colour for the name of bar %1$s"
+	L["MENU_BAR_COLOUR_NAME_CUSTOM_TEXT"] = "use a custom colour for the name of bar %1$s"
+	L["MENU_BAR_COLOUR_NAME_TEXT"] = "set the colour to use for the name of bar %1$s"
+	L["MENU_LOCKED_TEXT"] = "This location is using a System %1$s so some of the options are hidden\n\nIf you wish to make changes please assign a non System %1$s to this location\n\nNote: you may need to create one first"
 	
 	
 --	changer bag menu
@@ -189,7 +221,6 @@ if not L then return end
 	L["MENU_BAG_ISOLATE_TEXT"] = "only display the contents of this bag"
 	L["MENU_BAG_SHOWALL"] = "Display All"
 	L["MENU_BAG_SHOWALL_TEXT"] = "display the contents of all bags for this location"
-	L["MENU_BAG_EMPTY"] = "Empty"
 	L["MENU_BAG_EMPTY_TEXT"] = "moves the contents of this bag to your other bags"
 	
 	
@@ -198,7 +229,6 @@ if not L then return end
 	L["CONFIG_TEXT"] = "Configuration Options"
 	
 --	configuration options > system
-	L["CONFIG_SYSTEM"] = "Display"
 	L["CONFIG_SYSTEM_TEXT"] = "Display Options"
 	
 	L["CONFIG_SYSTEM_FONT_TEXT"] = "select the font to use"
@@ -209,7 +239,17 @@ if not L then return end
 	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_MEDIUM"] = "MEDIUM"
 	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_HIGH"] = "HIGH"
 	
-	L["CONFIG_SYSTEM_RESTACK_TEXT"] = "Enabled: Use the new Blizzard Cleanup function\n\nDisabled: Use the old Restack function"
+	L["CONFIG_SYSTEM_REPOSITION_ONSHOW"] = "Reposition on Show"
+	L["CONFIG_SYSTEM_REPOSITION_ONSHOW_TEXT"] = "If a window is off screen this will reposition it back on screen when it is re-opened"
+	
+	L["CONFIG_SORTING_WHEN"] = "When"
+	L["CONFIG_SORTING_WHEN_TEXT"] = "When to re-sort the windows"
+	L["CONFIG_SORTING_WHEN_INSTANT"] = "Instantly"
+	L["CONFIG_SORTING_WHEN_INSTANT_TEXT"] = "Re-Sorting will occur after every item change"
+	L["CONFIG_SORTING_WHEN_OPEN"] = "On Window Open"
+	L["CONFIG_SORTING_WHEN_OPEN_TEXT"] = "Re-Sorting will only occur when you open the window"
+	L["CONFIG_SORTING_WHEN_MANUAL"] = "Manually"
+	L["CONFIG_SORTING_WHEN_MANUAL_TEXT"] = "Re-Sorting will only occur when you manually refresh the window"
 	
 	L["CONFIG_SYSTEM_TOOLTIP"] = "Tooltips"
 	L["CONFIG_SYSTEM_TOOLTIP_ENABLE_TEXT"] = "display tooltips"
@@ -267,6 +307,12 @@ if not L then return end
 	L["CONFIG_SYSTEM_MESSAGES_TRANSLATION_FINAL_TEXT"] = "Show final message for successful translation"
 	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT"] = "Opponent Details"
 	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT_TEXT"] = "Display Opponent Details upon entering a pet battle"
+	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN"] = "Unknown Bag Type"
+	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN_TEXT"] = "Show a warning message when a bag does not have a valid type and needs to be requeued for scanning"
+	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED"] = "Hooks"
+	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED_TEXT"] = "Show a message when a 3rd party mod is loaded/hooked"
+	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION"] = "Registration"
+	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION_TEXT"] = "Show a message for each rule registration"
 	
 	L["CONFIG_SYSTEM_TIMERS"] = "Update Timers"
 	L["CONFIG_SYSTEM_TIMERS_TEXT"] = "use a custom value for the %1$s update timer"
@@ -275,7 +321,7 @@ if not L then return end
 --	configuration options > auto
 	L["CONFIG_AUTO"] = "Auto open/close"
 	
-	L["CONFIG_AUTO_OPEN"] = "Open the %1$s %2$s when you %3$s" -- %1$s = program, %2$s = bag, %3$s = action
+	L["CONFIG_AUTO_OPEN"] = "Open the %1$s %2$s when you;" -- %1$s = program, %2$s = bag, %3$s = action
 	L["CONFIG_AUTO_OPEN_BANK"] = "open the bank"
 	L["CONFIG_AUTO_OPEN_VAULT"] = "open the guild bank"
 	L["CONFIG_AUTO_OPEN_MAIL"] = "open a mailbox"
@@ -284,7 +330,7 @@ if not L then return end
 	L["CONFIG_AUTO_OPEN_AUCTION"] = "open the auction house"
 	L["CONFIG_AUTO_OPEN_VOID"] = "open the void storage"
 	
-	L["CONFIG_AUTO_CLOSE"] = "Close the %1$s %2$s when you %3$s" -- %1$s = program, %2$s = bag, %3$s = action
+	L["CONFIG_AUTO_CLOSE"] = "Close the %1$s %2$s when you;" -- %1$s = program, %2$s = bag, %3$s = action
 	L["CONFIG_AUTO_CLOSE_BANK"] = "close the bank"
 	L["CONFIG_AUTO_CLOSE_VAULT"] = "close the guild bank"
 	L["CONFIG_AUTO_CLOSE_MAIL"] = "close the mailbox"
@@ -295,128 +341,158 @@ if not L then return end
 	L["CONFIG_AUTO_CLOSE_COMBAT"] = "enter combat"
 	
 	
---	configuration options > control
-	L["CONFIG_CONTROL"] = "Controls"
-	
+--	configuration settings > control
 	L["CONFIG_CONTROL_MONITOR"] = "Monitor"
 	L["CONFIG_CONTROL_MONITOR_TEXT"] = "monitor changes to %1$s data for this character (%2$s)." -- %1$s = location name, %2$s = chacracter name
 	L["CONFIG_CONTROL_SAVE_TEXT"] = "save %1$s data for this character (%2$s) so that you can view it while on another character (or offline)." -- %1$s = location name, %2$s = chacracter name
-	L["CONFIG_CONTROL_NOTIFY_ERASE"] = "Notify"
 	L["CONFIG_CONTROL_NOTIFY_ERASE_TEXT"] = "generate a notification when erasing %s data"
 	L["CONFIG_CONTROL_OVERRIDE"] = "Override"
 	L["CONFIG_CONTROL_OVERRIDE_TEXT"] = "override the original Blizzard %2$s so that %1$s controls it instead.\n\ndisabling this option will return the standard Blizzard %2$s functionality.\n\nyou will still be able to open the %1$s %2$s when this is disabled but you will need to configure and use a keybinding instead." -- %1$s = program, %2$s = location
-	L["CONFIG_CONTROL_SPECIAL_TEXT"] = "whether to treat the %2$s window as special or not.\n\nspecial windows are closed when the ESCAPE key is pressed.\n\nyou will need to reload the UI for this setting to take effect." -- %1$s = program, %2$s = location
+	L["CONFIG_CONTROL_SPECIAL_TEXT"] = "whether to treat the %2$s window as special or not.\n\nall special windows are closed when the ESCAPE key is pressed.\n\nyou will need to reload the UI for this setting to take effect." -- %1$s = program, %2$s = location
 	L["CONFIG_CONTROL_ANCHOR_LOCK_TEXT"] = "lock the %1$s window so it can't be moved" -- %1$s = location name
 	L["CONFIG_CONTROL_REPOSITION_NOW"] = "Reposition Now"
 	L["CONFIG_CONTROL_REPOSITION_NOW_TEXT"] = "Repositions the %1$s window back onto the screen now" -- %1$s = location name
-	L["CONFIG_CONTROL_REPOSITION_ONLOAD"] = "Reposition on Load"
-	L["CONFIG_CONTROL_REPOSITION_ONLOAD_TEXT"] = "Repositions the %1$s window back onto the screen on the first viewing" -- %1$s = location name
-	L["CONFIG_CONTROL_SETTINGS_TEXT"] = "select which settings to use when generating the %1$s window" -- %1$s = location name
+	L["CONFIG_CONTROL_BLUEPRINT_TEXT"] = "select which %2$s to use when generating the %1$s window" -- %1$s = location name
 	
 	
---	configuration options > settings
-	L["CONFIG_SETTINGS"] = "Settings"
+--	configuration settings > design/style/layout
+	L["CONFIG_DESIGN"] = "Design"
+	L["CONFIG_DESIGN_PLURAL"] = "Designs"
 	
-	L["CONFIG_SETTINGS_FRAME"] = "Window"
+	L["CONFIG_STYLE"] = "Style"
+	L["CONFIG_STYLE_PLURAL"] = "Styles"
+	L["CONFIG_STYLE_DESCRIPTION"] = "to be done"
 	
-	L["CONFIG_SETTINGS_FRAME_HIDE_TEXT"] = "Do not display the %2$s frame when viewing the %1$s window"
+	L["CONFIG_LAYOUT"] = "Layout"
+	L["CONFIG_LAYOUT_PLURAL"] = "Layouts"
+	L["CONFIG_LAYOUT_DESCRIPTION"] = "Layouts contain all the data on what category goes where, along with all the custom bar data, and are the second half of a Design, Styles being the first half.  Combined with a Category Set they make up the Blueprint for the window.\n\n\nWhile the Layout options are stored here, You don't modify them directly from here, you can do that via the Edit Mode menus."
 	
-	L["CONFIG_SETTINGS_FRAME_SCALE_TEXT"] = "set the scale, making the window larger or smaller"
-	L["CONFIG_SETTINGS_FRAME_PADDING_TEXT"] = "set the amount of space to add between the window edge and the bars"
-	L["CONFIG_SETTINGS_FRAME_WIDTH_TEXT"] = "set the maximum number of items to display in a single row"
-	L["CONFIG_SETTINGS_FRAME_HEIGHT_TEXT"] = "set the maximum height of the container frame (pixels), if you have more items than will fit then the window will scroll, less items and it will shrink"
-	L["CONFIG_SETTINGS_FRAME_BACKGROUND_COLOUR_TEXT"] = "set the background colour of the main window"
-	L["CONFIG_SETTINGS_FRAME_BORDER_SHOW_TEXT"] = "display a border around the main window"
-	L["CONFIG_SETTINGS_FRAME_BORDER_STYLE_TEXT"] = "set the border style for the main window"
-	L["CONFIG_SETTINGS_FRAME_BORDER_COLOUR_TEXT"] = "set the border colour for the main window"
+	L["CONFIG_DESIGN_WINDOW"] = "Window"
+	L["CONFIG_DESIGN_WINDOW_SCALE_TEXT"] = "set the scale, making the window larger or smaller"
+	L["CONFIG_DESIGN_WINDOW_PADDING_TEXT"] = "set the amount of space to add between the window edge and the bars"
+	L["CONFIG_DESIGN_WINDOW_WIDTH_TEXT"] = "set the maximum number of items to display in a single row"
+	L["CONFIG_DESIGN_WINDOW_HEIGHT_TEXT"] = "set the maximum height of the window (in pixels)\n\nif you have more items than will fit then the window will scroll, less items and it will shrink"
+	L["CONFIG_DESIGN_WINDOW_BACKGROUND_COLOUR_TEXT"] = "set the background colour of the window"
+	L["CONFIG_DESIGN_WINDOW_BORDER_SHOW_TEXT"] = "display a border around the window"
+	L["CONFIG_DESIGN_WINDOW_BORDER_STYLE_TEXT"] = "set the border style for the window"
+	L["CONFIG_DESIGN_WINDOW_BORDER_COLOUR_TEXT"] = "set the border colour for the window"
 	
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT"] = "Highlight Colour"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_TEXT"] = "Highlight all slots belonging to a bag when you mouseover it's icon"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "Sets the colour used for the highlight"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE"] = "Free Bag Slots"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_TEXT"] = "Display the number of free slots available on the bag icon"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "Sets the colour of the free slot count text"
+	L["CONFIG_DESIGN_FRAME_HIDE_TEXT"] = "Do not display the %s frame"
 	
-	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY"] = "Empty slot text"
-	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY_TEXT"] = "Display the empty slot text"
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT"] = "Highlight Colour"
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_TEXT"] = "Highlight all slots belonging to a bag when you mouseover it's icon"
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "Sets the colour used for the highlight"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE"] = "Free Bag Slots"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_TEXT"] = "Display the number of free slots available on the bag icon"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "Sets the colour of the free slot count text"
 	
-	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_NORMAL"] = "Normal"
-	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_THIN"] = "Thin"
+	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY"] = "Empty slot text"
+	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY_TEXT"] = "Display the empty slot text"
 	
-	L["CONFIG_SETTINGS_BARS"] = "Bars"
-	L["CONFIG_SETTINGS_BARS_PER_ROW"] = "Per Row"
-	L["CONFIG_SETTINGS_BARS_PER_ROW_TEXT"] = "set the number of bars to display in each row"
-	L["CONFIG_SETTINGS_BARS_BACKGROUND_TEXT"] = "set the background colour for bars"
-	L["CONFIG_SETTINGS_BARS_COMPACT"] = "Compact"
-	L["CONFIG_SETTINGS_BARS_COMPACT_TEXT"] = "display all non empty bars in sequential order"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY"] = "Show empty"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY_TEXT"] = "display empty bars"
-	L["CONFIG_SETTINGS_BARS_PADDING_INTERNAL_TEXT"] = "the amount of space to add between the bars and the items"
-	L["CONFIG_SETTINGS_BARS_PADDING_EXTERNAL_TEXT"] = "the amount of space to add between bars"
-	L["CONFIG_SETTINGS_BARS_BORDER_TEXT"] = "display a border around each bar"
-	L["CONFIG_SETTINGS_BARS_BORDER_STYLE_TEXT"] = "set the border style for bars"
-	L["CONFIG_SETTINGS_BARS_BORDER_COLOUR_TEXT"] = "set the colour for the border around the bars"
-	L["CONFIG_SETTINGS_BARS_NAME_TEXT"] = "set the name for this bar"
-	L["CONFIG_SETTINGS_BARS_NAME_SHOW_TEXT"] = "display bar names"
-	L["CONFIG_SETTINGS_BARS_NAME_COLOUR_TEXT"] = "set the colour of the bar name"
-	L["CONFIG_SETTINGS_BARS_NAME_HEIGHT_TEXT"] = "set the amount of space allocated to display the bar name in"
-	L["CONFIG_SETTINGS_BARS_NAME_ANCHOR_TEXT"] = "set the anchor point of the bar name"
+	L["CONFIG_DESIGN_FRAME_SEARCH_LABEL_COLOUR_TEXT"] = "set the colour of the search label"
+	L["CONFIG_DESIGN_FRAME_SEARCH_TEXT_COLOUR_TEXT"] = "set the colour fo the search text"
 	
-	L["CONFIG_SETTINGS_ITEMS_PADDING_TEXT"] = "set the amount of space to add between item slots"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN"] = "Show hidden"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN_TEXT"] = "toggle hidden categories and stacks"
-	L["CONFIG_SETTINGS_ITEMS_FADE"] = "Fade offline"
-	L["CONFIG_SETTINGS_ITEMS_FADE_TEXT"] = "fade offline items"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE"] = "Tint Unusable"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE_TEXT"] = "tint unusable items red"
-	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW"] = "Item Level"
-	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW_TEXT"] = "show item level for equippable items"
-	L["CONFIG_SETTINGS_ITEMS_COMPRESS"] = "Stack Limit"
-	L["CONFIG_SETTINGS_ITEMS_COMPRESS_TEXT"] = "only show the first x stacks of an item and hide the rest (use show hidden items to temporarily see all stacks)\nset to zero to always display all stacks\n\nNote: displayed stacks may not be the newest or largest"
+	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_NORMAL"] = "Normal"
+	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_THIN"] = "Thin"
+	L["CONFIG_DESIGN_FRAME_TITLE_ONLINE_COLOUR_TEXT"] = "set the colour of the title text for online (current characters) data"
+	L["CONFIG_DESIGN_FRAME_TITLE_OFFLINE_COLOUR_TEXT"] = "set the colour of the title text for offline (another characters) data"
 	
-	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_SHOW_TEXT"] = "Display cooldowns for items in the %1$s window"
-	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL"] = "Update on GCD"
-	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL_TEXT"] = "Refresh the %1$s window to show cooldowns when a Global Cooldown event is triggered"
-	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT"] = "Refresh in combat"
-	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT_TEXT"] = "Refresh the %1$s window to show cooldowns while in combat, or wait until combat has ended"
+	L["CONFIG_DESIGN_BAR"] = "Bars"
+	L["CONFIG_DESIGN_BAR_PER_ROW"] = "Per Row"
+	L["CONFIG_DESIGN_BAR_PER_ROW_TEXT"] = "set the number of bars to display in each row"
+	L["CONFIG_DESIGN_BAR_BACKGROUND_TEXT"] = "set the background colour for bars"
+	L["CONFIG_DESIGN_BAR_COMPACT"] = "Compact"
+	L["CONFIG_DESIGN_BAR_COMPACT_TEXT"] = "display all non empty bars in sequential order"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY"] = "Show empty"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY_TEXT"] = "display empty bars"
+	L["CONFIG_DESIGN_BAR_PADDING_INTERNAL_TEXT"] = "the amount of space to add between the bars and the items"
+	L["CONFIG_DESIGN_BAR_PADDING_EXTERNAL_TEXT"] = "the amount of space to add between bars"
+	L["CONFIG_DESIGN_BAR_BORDER_TEXT"] = "display a border around each bar"
+	L["CONFIG_DESIGN_BAR_BORDER_STYLE_TEXT"] = "set the border style for bars"
+	L["CONFIG_DESIGN_BAR_BORDER_COLOUR_TEXT"] = "set the colour for the border around the bars"
+	L["CONFIG_DESIGN_BAR_NAME_TEXT"] = "set the name for bar %1$s"
+	L["CONFIG_DESIGN_BAR_NAME_SHOW_TEXT"] = "display bar names"
+	L["CONFIG_DESIGN_BAR_NAME_COLOUR_TEXT"] = "set the colour of the bar name"
+	L["CONFIG_DESIGN_BAR_NAME_HEIGHT_TEXT"] = "set the amount of space allocated to display the bar name in"
+	L["CONFIG_DESIGN_BAR_NAME_ANCHOR_TEXT"] = "set the anchor point of the bar name"
 	
-	L["CONFIG_SETTINGS_ITEMS_BORDER_SHOW_TEXT"] = "show borders around items or not"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_STYLE_TEXT"] = "set the border style for items"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY"] = "Rarity coloured border"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_TEXT"] = "colour the border around each item slot to match it's rarity (Common, Rare, Epic, etc)"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF"] = "Rarity Cutoff"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF_TEXT"] = "only colour the item border if the item rarity is equal to or above %s"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_TEXTURE_OFFSET_TEXT"] = "the number pixels from the outside of the image to the inside edge of the border itself (used to realign the border to the item texture)"
+	L["CONFIG_DESIGN_ITEM_PADDING_TEXT"] = "set the amount of space to add between item slots"
+	L["CONFIG_DESIGN_ITEM_HIDDEN"] = "Show hidden"
+	L["CONFIG_DESIGN_ITEM_HIDDEN_TEXT"] = "toggle hidden categories and stacks"
+	L["CONFIG_DESIGN_ITEM_FADE"] = "Fade offline"
+	L["CONFIG_DESIGN_ITEM_FADE_TEXT"] = "fade offline items"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE"] = "Tint Unusable"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE_TEXT"] = "tint unusable items red"
+	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW"] = "Item Level"
+	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW_TEXT"] = "show item level for equippable items"
+	L["CONFIG_DESIGN_ITEM_COMPRESS"] = "Stack Limit"
+	L["CONFIG_DESIGN_ITEM_COMPRESS_TEXT"] = "only show this many stacks of an item and hide the rest\n\nuse show hidden items to temporarily see all stacks\n\nset to zero to always display all stacks\n\nNote: displayed stacks may not be the newest or largest"
+	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW"] = "Item Count"
+	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW_TEXT"] = "show item stack counts"
+	L["CONFIG_DESIGN_ITEM_UPGRADE"] = "Upgrade arrow"
+	L["CONFIG_DESIGN_ITEM_UPGRADE_TEXT"] = "show the item upgrade arrow"
+	L["CONFIG_DESIGN_ITEM_SIZE"] = "Base Item Size"
+	L["CONFIG_DESIGN_ITEM_SIZE_TEXT"] = "set the size of the item icon before it is scaled (default size is %d)"
 	
-	L["CONFIG_SETTINGS_ITEMS_NEW"] = "New Items"
-	L["CONFIG_SETTINGS_ITEMS_NEW_ENABLED_TEXT"] = "temporarily moves new items into their own category"
-	L["CONFIG_SETTINGS_ITEMS_NEW_CUTOFF_TEXT"] = "only move items to the new items category if they are less than this value."
-	L["CONFIG_SETTINGS_ITEMS_NEW_RESET_TEXT"] = "reset the new item age timer"
+	L["CONFIG_DESIGN_ITEM_COOLDOWN_SHOW_TEXT"] = "Display cooldowns"
+	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL"] = "Update on GCD"
+	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL_TEXT"] = "Refresh the window to show cooldowns when a Global Cooldown event is triggered"
+	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT"] = "Refresh in combat"
+	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT_TEXT"] = "Refresh the window to show cooldowns while in combat, or wait until combat has ended"
 	
-	L["CONFIG_SETTINGS_ITEMS_AGE"] = "Item Age"
-	L["CONFIG_SETTINGS_ITEMS_AGE_SHOW_TEXT"] = "toggles the display of the item age text"
-	L["CONFIG_SETTINGS_ITEMS_AGE_COLOUR_TEXT"] = "sets the colour of the item age text"
-	L["CONFIG_SETTINGS_ITEMS_AGE_CUTOFF_TEXT"] = "display the items age if they are less than this value.  use 0 to always display the age"
+	L["CONFIG_DESIGN_ITEM_BORDER_SHOW_TEXT"] = "show borders around items or not"
+	L["CONFIG_DESIGN_ITEM_BORDER_STYLE_TEXT"] = "set the border style for items"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY"] = "Rarity coloured border"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_TEXT"] = "colour the border around each item slot to match it's rarity (Common, Rare, Epic, etc)"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF"] = "Rarity Cutoff"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF_TEXT"] = "only colour the item border if the item rarity is equal to or above: %s%s|r"
+	L["CONFIG_DESIGN_ITEM_BORDER_TEXTURE_OFFSET_TEXT"] = "the number pixels from the outside of the image to the inside edge of the border itself (used to realign the border to the item texture)"
 	
-	L["CONFIG_SETTINGS_SORTING_OPEN"] = "On window open"
-	L["CONFIG_SETTINGS_SORTING_OPEN_TEXT"] = "toggles whether a resort is done when you open the window."
-	L["CONFIG_SETTINGS_SORTING_INSTANT"] = "Instant"
-	L["CONFIG_SETTINGS_SORTING_INSTANT_TEXT"] = "toggles instant sort mode.\n\nenabled: sorting is done instantly when something changes\n\ndisabled: sorting is done only when the window is opened, or you refresh."
+	L["CONFIG_DESIGN_ITEM_NEW"] = "New Items"
+	L["CONFIG_DESIGN_ITEM_NEW_ENABLED_TEXT"] = "temporarily moves new items into their own category"
+	L["CONFIG_DESIGN_ITEM_NEW_CUTOFF_TEXT"] = "only move items to the new items category if they are less than this value."
+	L["CONFIG_DESIGN_ITEM_NEW_RESET_TEXT"] = "reset the new item age timer"
 	
-	L["CONFIG_SETTINGS_EMPTY"] = "Empty slots"
-	L["CONFIG_SETTINGS_EMPTY_ICON"] = "Use Icon"
-	L["CONFIG_SETTINGS_EMPTY_ICON_TEXT"] = "use an icon for empty slot backgrounds"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP"] = "Clump"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP_TEXT"] = "clump empty slots in with their non-empty type slots"
-	L["CONFIG_SETTINGS_EMPTY_BORDER"] = "Coloured borders"
-	L["CONFIG_SETTINGS_EMPTY_BORDER_TEXT"] = "colour empty slot borders according to their bag type"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR"] = "Slot colours"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR_TEXT"] = "set the border and background colour for empty %1$s slots" -- %1$s = slot name
-	L["CONFIG_SETTINGS_EMPTY_STATUS"] = "Display Format"
-	L["CONFIG_SETTINGS_EMPTY_FIRST"] = "First Only"
-	L["CONFIG_SETTINGS_EMPTY_FIRST_TEXT"] = "only show the first x amount of empty slots of each type (may require a refresh to update)\n\nset to zero to show all empty slots"
-	L["CONFIG_SETTINGS_EMPTY_POSITION"] = "Sort Position"
-	L["CONFIG_SETTINGS_EMPTY_POSITION_TEXT"] = "Enabled: Empty slots are sorted first alphabetically\n\nDisabled: empty slots are sorted last alphabetically"
+	L["CONFIG_DESIGN_ITEM_AGE"] = "Item Age"
+	L["CONFIG_DESIGN_ITEM_AGE_SHOW_TEXT"] = "toggles the display of the item age text"
+	L["CONFIG_DESIGN_ITEM_AGE_COLOUR_TEXT"] = "sets the colour of the item age text"
+	L["CONFIG_DESIGN_ITEM_AGE_CUTOFF_TEXT"] = "display the items age if they are less than this value.  use 0 to always display the age"
+	
+	L["CONFIG_DESIGN_ITEM_EMPTY"] = "Empty slots"
+	L["CONFIG_DESIGN_ITEM_EMPTY_ICON_TEXT"] = "use an icon for empty slot backgrounds"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP"] = "Clump"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP_TEXT"] = "clump empty slots in with their non-empty type slots"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER"] = "Coloured borders"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER_TEXT"] = "colour empty slot borders according to their bag type"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR"] = "Slot colours"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR_TEXT"] = "set the border and background colour for empty %1$s slots" -- %1$s = slot name
+	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA"] = "Background alpha level"
+	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA_TEXT"] = "set the alpha level of the background for empty slots"
+	L["CONFIG_DESIGN_ITEM_EMPTY_STATUS"] = "Display Format"
+	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST"] = "First Only"
+	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST_TEXT"] = "only show this many of each empty slot type and hide the rest\n\nuse show hidden items to temporarily see all stacks\n\nset to zero to always display all stacks"
+	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION"] = "Sort"
+	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION_TEXT"] = "how empty slots should be positioned when sorted"
+	
+	
+-- junk
+	L["CONFIG_JUNK"] = "Junk Items"
+	L["CONFIG_JUNK_SELL"] = "Auto Sell"
+	L["CONFIG_JUNK_SELL_TEXT"] = "Sell all junk items as soon as you open a merchant window"
+	L["CONFIG_JUNK_SELL_NOTIFY_SOLD"] = "Sold your junk items for %s."
+	L["CONFIG_JUNK_SELL_NOTIFY_DESTROYED"] = "Destroyed %s junk items."
+	L["CONFIG_JUNK_SELL_NOTIFY_LIMIT"] = "Aborting auto sell due to buyback limit (%s) being reached."
+	L["CONFIG_JUNK_LIMIT"] = "Limit to Buyback"
+	L["CONFIG_JUNK_LIMIT_TEXT"] = "As a safety precaution stop selling your junk when the buyback limit (%i) is reached"
+	L["CONFIG_JUNK_DELETE_TEXT"] = "Delete items that cannot be vendored (have no sell price)"
+	L["CONFIG_JUNK_NOTIFY_TEXT"] = "Display a notification about how much gold you sold your items for"
+	L["CONFIG_JUNK_RARITY_CUTOFF_TEXT"] = "Only sell/destroy an item if its rarity is at or below: %s%s|r"
+	L["CONFIG_JUNK_CATEGORY_TEXT"] = "Auto sells/destroys all items assigned to %s when you talk to a vendor"
+	L["CONFIG_JUNK_LIST_TEXT"] = "Display a notification for each item that is sold or destroyed."
+	L["CONFIG_JUNK_LIST_SELL_TEXT"] = "Selling: %s x %s for %s"
+	L["CONFIG_JUNK_LIST_DESTROY_TEXT"] = "Destroying: %s x %s"
+	L["CONFIG_JUNK_TEST_TEXT"] = "When this option is enabled no items are actually sold or destroyed.\n\nUse with the List option to see what would normally get sold or destroyed."
+	L["CONFIG_JUNK_TEST_ALERT"] = "Test mode is enabled in your config, no items were actually sold or destroyed."
 	
 	
 -- sorting
@@ -425,7 +501,7 @@ if not L then return end
 	L["CONFIG_SORTING_SORT"] = "Sorting"
 	
 	L["CONFIG_SORTING_METHOD"] = "Sort Method"
-	L["CONFIG_SORTING_METHODS"] = "Sort Methods"
+	L["CONFIG_SORTING_METHOD_PLURAL"] = "Sort Methods"
 	L["CONFIG_SORTING_METHOD_TEXT"] = "choose how you want your items sorted"
 	L["CONFIG_SORTING_METHOD_BAGSLOT"] = "Bag / Slot"
 	L["CONFIG_SORTING_METHOD_BAGSLOT_TEXT"] = "sorts your items by bag and slot numbers"
@@ -456,8 +532,10 @@ if not L then return end
 	L["CONFIG_SORTING_INCLUDE_ITEMAGE_TEXT"] = "include item age when sorting."
 	L["CONFIG_SORTING_INCLUDE_VENDORPRICE"] = "vendor price"
 	L["CONFIG_SORTING_INCLUDE_VENDORPRICE_TEXT"] = "include vendor price (per current stack size) when sorting."
-	L["CONFIG_SORTING_INCLUDE_ID"] = "internal id"
-	L["CONFIG_SORTING_INCLUDE_ID_TEXT"] = "include internal id (class:id:soulbound) when sorting."
+	L["CONFIG_SORTING_INCLUDE_ID"] = "id"
+	L["CONFIG_SORTING_INCLUDE_ID_TEXT"] = "include id when sorting."
+	L["CONFIG_SORTING_INCLUDE_SLOTTYPE"] = "slot type"
+	L["CONFIG_SORTING_INCLUDE_SLOTTYPE_TEXT"] = "include slot type when sorting."
 	
 	L["CONFIG_SORTING_DIRECTION_TEXT"] = "select what direction you want your items sorted in"
 	L["CONFIG_SORTING_ORDER"] = "Sort Order"
@@ -465,27 +543,42 @@ if not L then return end
 	L["CONFIG_SORTING_MOVE_DOWN_TEXT"] = "moves %1$s down in the sort order"
 	L["CONFIG_SORTING_NOT_INCLUDED"] = "* not currently included in sort*"
 	
-	L["CONFIG_SORTING_ADD"] = "Add Sort Method"
-	L["CONFIG_SORTING_ADD_TEXT"] = "add new sort method"
-	L["CONFIG_SORTING_RENAME_TEXT"] = "rename this sort method"
-	L["CONFIG_SORTING_DELETE_TEXT"] = "delete this sort method"
+	L["CONFIG_LIST_ADD_TEXT"] = "add a new %1$s"
+	L["CONFIG_LIST_ADD_LIMIT_TEXT"] = "the maximum number of %1$s has been reached"
+	L["CONFIG_LIST_ADD_UPGRADE_TEXT"] = "your data was recently upgraded, a ui reload is required before you can add a %1$s"
+	L["CONFIG_LIST_DELETE_TEXT"] = "delete this %1$s"
+	L["CONFIG_LIST_RESTORE_TEXT"] = "restore this deleted %1$s"
+	L["CONFIG_LIST_RENAME_TEXT"] = "rename this %1$s"
+	L["CONFIG_LIST_COPY_TEXT"] = "copy all values from the selected %1$s to this %1$s"
+	L["CONFIG_LIST_PURGE_TEXT"] = "purge this deleted %1$s"
+	L["CONFIG_LIST_IMPORT_TEXT"] = "import a %1$s"
+	L["CONFIG_LIST_EXPORT_TEXT"] = "export this %1$s"
 	
 	
--- rules
-	L["CONFIG_RULES"] = "Rules"
-	L["CONFIG_RULES_SHOWDISABLED"] = "Show Disabled Rules"
-	L["CONFIG_RULES_SHOWDISABLED_TEXT"] = "toggles the display of disabled rules"
+	
+	L["CONFIG_CATEGORY"] = "Category"
+	L["CONFIG_CATEGORY_PLURAL"] = "Categories"
+	
+	L["CONFIG_CATEGORY_CUSTOM"] = "Custom Category"
+	L["CONFIG_CATEGORY_CUSTOM_PLURAL"] = "Custom Categories"
+	
+	L["CATEGORY_RULE"] = "Rule"
+	L["CONFIG_RULE_PLURAL"] = "Rules"
+
+	L["CONFIG_RULE_SHOWDISABLED"] = "Show Disabled Rules"
+	L["CONFIG_RULE_SHOWDISABLED_TEXT"] = "toggles the display of disabled rules"
+	
+	L["CONFIG_CATEGORY_SET"] = "Category Set"
+	L["CONFIG_CATEGORY_SET_PLURAL"] = "Category Sets"
+	L["CONFIG_CATEGORY_SET_DESCRIPTION"] = "Category Sets contain all the data on which categories are enabled/disabled, along with which category an item has been assigned.  Combined with a Design (the Style and Layout) they make up the Blueprint for the window.\n\n\nWhile the Category Set options are stored here, You don't modify them directly from here, you can do that via the Edit Mode menus."
+	
+	L["CONFIG_PROFILE"] = "Profile"
+	L["CONFIG_PROFILE_PLURAL"] = "Profiles"
+	L["CONFIG_PROFILE_CURRENT"] = "Current Profile"
 	
 	
---	configuration options > categories
-	L["CONFIG_CATEGORY_CUSTOM"] = "Custom Categories"
-	L["CONFIG_CATEGORY_DELETED"] = "**Deleted Category [%s]**"
-	
-	L["CONFIG_CATEGORY_ADD"] = "Add Category"
-	L["CONFIG_CATEGORY_ADD_TEXT"] = "add new category"
-	L["CONFIG_CATEGORY_RENAME_TEXT"] = "rename this category"
-	L["CONFIG_CATEGORY_DELETE_TEXT"] = "delete this category"
-	
+	L["CONFIG_OBJECT_DELETED"] = "** Deleted %1$s [%2$s] **"
+
 	
 --	configuration options > debug
 	L["CONFIG_DEBUG"] = "Debug Mode"
@@ -493,10 +586,10 @@ if not L then return end
 	
 	
 --	configuration options > generic
-	L["BORDER_SCALE_TEXT"] = "set the scale for the border texture"
-	L["BORDER_TEXTURE_TEXT"] = "border texture options"
-	L["BORDER_TEXTURE_FILE_TEXT"] = "the texture to use for the border"
-	L["BORDER_TEXTURE_HEIGHT_TEXT"] = "the height (in pixels) of the texture"
+	L["CONFIG_BORDER_SCALE_TEXT"] = "set the scale for the border texture"
+	L["CONFIG_BORDER_TEXTURE_TEXT"] = "border texture options"
+	L["CONFIG_BORDER_TEXTURE_FILE_TEXT"] = "the texture to use for the border"
+	L["CONFIG_BORDER_TEXTURE_HEIGHT_TEXT"] = "the height (in pixels) of the texture"
 	
 	
 --	rules frame
@@ -508,6 +601,7 @@ if not L then return end
 	L["RULE_LIST_ID"] = "Rule"
 	
 	L["RULE_DAMAGED"] = "Rule %s is now flagged as damaged and will no longer be used until repaired"
+	L["RULE_DAMAGED_TEXT"] = "This formula is flagged as damaged.  The rule cannot be used until it is corrected"
 	L["RULE_FAILED"] = "Error validating rule %s"
 	L["RULE_FAILED_KEY_NIL"] = "id is nil"
 	L["RULE_FAILED_DATA_NIL"] = "data is nil"
@@ -523,6 +617,7 @@ if not L then return end
 --	new item indicators
 	L["NEW_ITEM_INCREASE"] = "+++"
 	L["NEW_ITEM_DECREASE"] = "- - -"
+	L["NEW_ITEM_GLOW"] = "New Item Glow"
 	
 	
 --	slash commands
@@ -549,6 +644,8 @@ if not L then return end
 	L["SLASH_MISC_TEXT"] = "misc options"
 	L["SLASH_TRACK"] = "track"
 	L["SLASH_TRACK_TEXT"] = "adds or removes an item from the tracking list"
+	L["SLASH_TRACK_ADD_TEXT"] = "Added %1$s from the tracking list"
+	L["SLASH_TRACK_REMOVE_TEXT"] = "Added %1$s from the tracking list"
 	
 	
 --	misc chat stuff
@@ -591,7 +688,6 @@ if not L then return end
 	L["ANCHOR_TEXT1"] = "set the anchor point for the %1$s window" -- window name  (bags, bank, vault)
 	L["ANCHOR_TEXT2"] = "set the anchor point for the %1$s" -- object name (bars, items)
 	L["BORDER_TEXT"] = "border options"
-	L["SHOW"] = "Show"
 	L["FILE"] = "File"
 	L["HEIGHT"] = "Height"
 	L["SCALE"] = "Scale"
@@ -599,15 +695,11 @@ if not L then return end
 	L["FONT"] = "Font"
 	L["BACKGROUND_COLOUR"] = "Background Colour"
 	L["STYLE"] = "Style"
-	L["ENABLED"] = "Enabled"
 	L["ALERT"] = "Alert"
 	L["PADDING"] = "Padding"
 	L["INTERNAL"] = "Internal"
 	L["EXTERNAL"] = "External"
 	L["WIDTH"] = "Width"
-	L["REALM"] = "Realm"
-	L["VIEW"] = "View"
-	L["EDIT"] = "Edit"
 	L["DIRECTION"] = "Direction"
 	L["ASCENDING"] = "Ascending"
 	L["DECENDING"] = "Descending"
@@ -620,15 +712,13 @@ if not L then return end
 	L["MOVE_UP"] = "Move Up"
 	L["MOVE_DOWN"] = "Move Down"
 	L["SORT_METHOD"] = "Sort Method"
-	L["SORT_BY_NAME"] = "Sort by Name"
-	L["SORT_BY_NUMBER"] = "Sort by Number"
-	L["HIDE"] = "Hide"
-	L["MOVE"] = "Move"
+	L["SORT_BY_NAME"] = "Name"
+	L["SORT_BY_NUMBER"] = "Number"
 	L["INSERT"] = "Insert"
 	L["CURRENT"] = "Current"
 	L["OFFSET"] = "Offset"
-	L["NUMBER"] = "number"
-	L["STRING"] = "string"
+	L["NUMBER"] = "Number"
+	L["STRING"] = "String"
 	L["COOLDOWN"] = "Cooldown"
 	L["FRAMES"] = "Frames"
 	L["CLICK_TO_SELECT"] = "Click to select"
@@ -640,9 +730,24 @@ if not L then return end
 	L["TOOLTIP_PURCHASE_BANK_BAG_SLOT"] = "Click to purchase the next available bank bag slot."
 	L["TOOLTIP_PURCHASE_BANK_TAB_REAGENT"] = "Click to purchase the reagent bank tab."
 	L["LABEL"] = "Label"
+	L["ABORTED"] = "Aborted"
+	L["RESTORE"] = "Restore"
+	L["PURGE"] = "Purge"
+	L["COPY_FROM"] = "Copy From"
+	L["DELETED"] = "Deleted"
+	L["IMPORT"] = "Import"
+	L["EXPORT"] = "Export"
+	L["NOTIFY"] = "Notify"	
+	L["ACTION"] = "Action"
+	L["FIRST"] = "First"
+	L["LAST"] = "Last"
+	L["NONE_USABLE"] = "No usable %1$s"
+	L["NONE_OWNED"] = "No don't own any %1$s"
+	L["TEST"] = "Test"
+	L["LIST"] = "List"
 	
 	
---	libdatabroker
+-- libdatabroker
 	L["LDB"] = "LDB"
 	L["LDB_BAGS_COLOUR_USE"] = "Use colour"
 	L["LDB_BAGS_COLOUR_USE_TEXT"] = "Uses empty slot colours to colour the text"
@@ -664,8 +769,9 @@ if not L then return end
 	L["LDB_MOUNTS_FLYING_DISMOUNT_WARNING"] = "You are currently flying, please land to select another mount"
 	L["LDB_MOUNTS_SUMMON"] = "Summon Mount"
 	L["LDB_MOUNTS_NODATA"] = "Unknown / Changed"
-	L["LDB_MOUNTS_TOOLTIP_MODE"] = "Mode"
 	L["LDB_MOUNTS_TOOLTIP_SELECTION"] = "Selection"
+	L["LDB_MOUNTS_TRAVEL_FORM"] = "Use %1$s"
+	L["LDB_MOUNTS_TRAVEL_FORM_TEXT"] = "Use %1$s instead of a mount.\n\nRequires a /reload once changed to become active"
 	L["LDB_COMPANION_MISSING"] = "You seem to have misplaced your selected companion, resetting to random"
 	L["LDB_COMPANION_NONE"] = "None available"
 	L["LDB_COMPANION_RESTRICTED"] = "%s\n%s\n\nYou may or may not meet the requirements to summon this companion|r"

@@ -58,14 +58,21 @@ function addon:Initialize()
 
 	-- This snippet will clear any dangling bindings that might have occurred
 	-- as a result of frames being shown/hidden.
-    self.header:SetAttribute("_onattributechanged", [[
-        if name == "hasunit" then
-            if value == "false" and danglingButton then
+    local oacScript = [[
+        if name == "hasunit" and value == "false" and danglingButton then
+            -- Check if we should clear the bindings
+            if not danglingButton:IsUnderMouse() or not danglingButton:IsVisible() then
+                if {{debug}} then print("Clique: clearing bindings, unit lost") end
                 self:RunFor(danglingButton, self:GetAttribute("setup_onleave"))
                 danglingButton = nil
+            else
+                if {{debug}} then print("Clique: ignoring unit loss, frame still here") end
             end
         end
-    ]])
+    ]]
+    oacScript = oacScript:gsub("{{debug}}", self.settings.debugUnitIssue and "true" or "false")
+
+    self.header:SetAttribute("_onattributechanged", oacScript)
     RegisterAttributeDriver(self.header, "hasunit", "[@mouseover, exists] true; false")
 
 	-- Create a secure action button that's sole purpose is to cancel a
@@ -195,6 +202,7 @@ function addon:Initialize()
     self:RegisterEvent("PLAYER_REGEN_DISABLED", "EnteringCombat")
     self:RegisterEvent("PLAYER_REGEN_ENABLED", "LeavingCombat")
     self:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED", "TalentGroupChanged")
+    self:RegisterEvent("PLAYER_ENTERING_WORLD", "PlayerEnteringWorld")
 
     -- Register for Clique-based messages for settings updates, etc.
     self:RegisterMessage("BINDINGS_CHANGED")
@@ -346,13 +354,22 @@ local function shouldApply(global, entry)
     end
 end
 
-local function correctSpec(entry, currentSpec)
-	if entry.sets.pritalent and currentSpec ~= 1 then
-		return false
-	elseif entry.sets.sectalent and currentSpec ~= 2 then
-		return false
-	end
-	return true
+local function correctSpec(entry)
+    -- Check to ensure we're on the right spec for this binding
+    local currentSpec = GetSpecialization()
+    if currentSpec and entry.sets["spec" .. tostring(currentSpec)] then
+        return true
+    end
+
+    -- Need to check the other spec sets to ensure this shouldn't be
+    -- deactivated
+    for i = 1, GetNumSpecializations() do
+        if entry.sets["spec" .. tostring(i)] then
+            return false
+        end
+    end
+
+    return true
 end
 
 local function getEntryString(entry)
@@ -418,7 +435,7 @@ function addon:GetClickAttributes(global)
         -- non-global bindings are only applied on non-global frames. handle
         -- this logic here.
 
-        if shouldApply(global, entry) and correctSpec(entry, GetActiveSpecGroup()) and entry.key then
+        if shouldApply(global, entry) and correctSpec(entry) and entry.key then
             -- Check to see if this is a 'friend' or an 'enemy' binding, and
             -- check if it would mask an 'ooc' binding with the same key. If
             -- so, we need to add code that prevents this from happening, by
@@ -604,7 +621,7 @@ function addon:GetBindingAttributes(global)
 
     for idx, entry in ipairs(self.bindings) do
 		if entry.key then
-			if shouldApply(global, entry) and correctSpec(entry, GetActiveSpecGroup()) then
+			if shouldApply(global, entry) and correctSpec(entry) then
 				if global then
 					-- Allow for the re-binding of clicks and keys, except for
 					-- unmodified left/right-click
@@ -783,13 +800,11 @@ function addon:TalentGroupChanged()
     local currentProfile = self.db:GetCurrentProfile()
     local newProfile
 
-	if self.settings.specswap then
-		self.talentGroup = GetActiveSpecGroup()
-        -- Determine which profile to set, based on talent group
-        if self.talentGroup == 1 and self.settings.pri_profileKey then
-            newProfile = self.settings.pri_profileKey
-        elseif self.talentGroup == 2 and self.settings.sec_profileKey then
-            newProfile = self.settings.sec_profileKey
+    local currentSpec = GetSpecialization()
+	if self.settings.specswap and currentSpec then
+        local settingsKey = string.format("spec%d_profileKey", currentSpec)
+        if self.settings[settingsKey] then
+            newProfile = self.settings[settingsKey]
         end
 
         if newProfile ~= currentProfile and type(newProfile) == "string" then
@@ -799,6 +814,11 @@ function addon:TalentGroupChanged()
 
     self:FireMessage("BINDINGS_CHANGED")
 end
+
+function addon:PlayerEnteringWorld()
+    self:FireMessage("BINDINGS_CHANGED")
+end
+
 
 function addon:UpdateCombatWatch()
     if self.settings.fastooc then
@@ -910,6 +930,7 @@ function addon:IsFrameBlacklisted(frame)
     if type(frame) == "table" then
         name = frame.GetName and frame:GetName()
     end
+
     return self.settings.blacklist[name]
 end
 
@@ -1013,11 +1034,35 @@ function addon:BLACKLIST_CHANGED()
     self:ApplyAttributes()
 end
 
+local contains = function(arr, value)
+    for idx, key in ipairs(arr) do
+        if key == value then
+            return true
+        end
+    end
+    return false
+end
+
 SLASH_CLIQUE1 = "/clique"
 SlashCmdList["CLIQUE"] = function(msg, editbox)
-    if SpellBookFrame:IsVisible() then
-        CliqueConfig:ShowWithSpellBook()
+    local profile = (msg or ""):match("^profile (.+)$")
+    if profile then
+        if InCombatLockdown() then
+            addon:Printf("Cannot change profiles while in combat lockdown")
+        else
+            local availableProfiles = addon.db:GetProfiles({})
+            if contains(availableProfiles, profile) then
+                addon:Printf("Switching to profile '%s'", profile)
+                addon.db:SetProfile(profile)
+            else
+                addon:Printf("Cannot find profile '%s'", profile)
+            end
+        end
     else
-        ShowUIPanel(CliqueConfig)
+        if SpellBookFrame:IsVisible() then
+            CliqueConfig:ShowWithSpellBook()
+        else
+            ShowUIPanel(CliqueConfig)
+        end
     end
 end

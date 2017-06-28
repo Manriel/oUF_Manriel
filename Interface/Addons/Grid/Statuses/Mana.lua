@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	Mana.lua
 	Grid status module for unit mana.
@@ -81,29 +81,35 @@ end
 
 function GridStatusMana:Grid_UnitJoined(event, guid, unit)
 	if unit then
-		self:UpdateUnit(event, unit, guid)
+		self:UpdateUnit(event, unit)
 	end
 end
 
 function GridStatusMana:UpdateAllUnits()
 	for guid, unit in GridRoster:IterateRoster() do
-		self:UpdateUnit("UpdateAllUnits", unit, guid)
+		self:UpdateUnit("UpdateAllUnits", unit)
 	end
 end
 
 local UnitGUID, UnitIsDeadOrGhost, UnitIsVisible, UnitPower, UnitPowerMax, UnitPowerType
     = UnitGUID, UnitIsDeadOrGhost, UnitIsVisible, UnitPower, UnitPowerMax, UnitPowerType
 
-function GridStatusMana:UpdateUnit(event, unit, guid)
-	if not guid then guid = UnitGUID(unit) end
+local cache = {}
+
+function GridStatusMana:UpdateUnit(event, unit)
+	local guid = UnitGUID(unit)
 	if not GridRoster:IsGUIDInRaid(guid) then return end
 
 	if UnitIsVisible(unit) and not UnitIsDeadOrGhost(unit) and UnitPowerType(unit) == 0 then
 		-- mana user and is alive
 		local cur = UnitPower(unit, 0)
 		local max = UnitPowerMax(unit, 0)
-		if max > 0 and self.db.profile.alert_lowMana.threshold > (cur / max * 100) then
-			local settings = self.db.profile.alert_lowMana
+		local settings = self.db.profile.alert_lowMana
+		if max > 0 and settings.threshold > (cur / max * 100) then
+			if not cache[guid] then
+				self:Debug("GAINED", UnitName(unit))
+				cache[guid] = true
+			end
 			return GridStatus:SendStatusGained(guid, "alert_lowMana",
 				settings.priority,
 				settings.range,
@@ -113,6 +119,10 @@ function GridStatusMana:UpdateUnit(event, unit, guid)
 				nil,
 				settings.icon)
 		end
+	end
+	if cache[guid] then
+		self:Debug("LOST", UnitName(unit))
+		cache[guid] = nil
 	end
 	GridStatus:SendStatusLost(guid, "alert_lowMana")
 end

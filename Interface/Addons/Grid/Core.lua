@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ----------------------------------------------------------------------]]
 
 local GRID, Grid = ...
@@ -297,7 +297,9 @@ function Grid.modulePrototype:ResetModules()
 	for name, module in self:IterateModules() do
 		self:Debug("Resetting " .. name)
 		module.db = self.core.db:GetNamespace(name)
-		module:Reset()
+		if type(module.Reset) == "function" then
+			module:Reset()
+		end
 	end
 end
 
@@ -384,7 +386,7 @@ function Grid:OnInitialize()
 					Grid:ToggleOptions()
 				elseif not InCombatLockdown() then
 					local GridLayout = Grid:GetModule("GridLayout")
-					GridLayout.db.profile.FrameLock = not GridLayout.db.profile.FrameLock
+					GridLayout.db.profile.lock = not GridLayout.db.profile.lock
 					LibStub("AceConfigRegistry-3.0"):NotifyChange(GRID)
 					GridLayout:UpdateTabVisibility()
 				end
@@ -485,11 +487,14 @@ function Grid:SetupOptions()
 	child3.groups.treewidth = 300
 
 	self:RegisterChatCommand("grid", function(input)
-		if not input or strtrim(input) == "" then
+		if input then
+			input = strtrim(input)
+		end
+		if not input or input == "" then
 			self:ToggleOptions()
-		elseif strmatch(strlower(strtrim(input)), "^vers?i?o?n?$") then
+		elseif strmatch(strlower(input), "^ve?r?s?i?o?n?$") then
 			local version = GetAddOnMetadata(GRID, "Version")
-			if version == "6.0.3.1710" then
+			if version == "@" .. "project-version" .. "@" then -- concatenation to trick the packager
 				self:Print("You are using a developer version.") -- no need to localize
 			else
 				self:Print(format(L["You are using version %s"], version))
@@ -629,7 +634,9 @@ function Grid:ResetModules()
 	for name, module in self:IterateModules() do
 		self:Debug("Resetting " .. name)
 		module.db = self.db:GetNamespace(name)
-		module:Reset()
+		if type(module.Reset) == "function" then
+			module:Reset()
+		end
 	end
 end
 

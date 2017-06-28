@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ----------------------------------------------------------------------]]
 
 local GRID, Grid = ...
@@ -110,9 +110,9 @@ local initialConfigSnippet = [[
    self:SetHeight(%d)
    self:SetAttribute("initial-width", %d)
    self:SetAttribute("initial-height", %d)
-   local attr = self:GetAttribute("type2")
-   if attr == "togglemnu" or attr == nil then
-      self:SetAttribute("type2", %s)
+   local attr = self:GetAttribute("*type2")
+   if attr == "togglemenu" or attr == nil then
+      self:SetAttribute("*type2", %s)
    end
 ]]
 
@@ -155,8 +155,6 @@ end
 -- shows the default unit tooltip
 function GridFrame.prototype:OnEnter()
 	local unit = self.unit
-	GridFrame:SendMessage("Grid_UnitFrame_OnEnter", unit, self.unitGUID)
-
 	local showTooltip = GridFrame.db.profile.showTooltip
 	if unit and UnitExists(unit) and (showTooltip == "Always" or (showTooltip == "OOC" and (not InCombatLockdown() or UnitIsDeadOrGhost(unit)))) then
 		UnitFrame_OnEnter(self)
@@ -164,7 +162,6 @@ function GridFrame.prototype:OnEnter()
 end
 
 function GridFrame.prototype:OnLeave()
-	GridFrame:SendMessage("Grid_UnitFrame_OnLeave", self.unit, self.unitGUID)
 	UnitFrame_OnLeave(self)
 end
 
@@ -181,13 +178,13 @@ function GridFrame.prototype:OnAttributeChanged(name, value)
 			if not value or value == "" then
 				self:SetAttribute("type1", "target")
 			end
-		elseif name == "type2" then
+		elseif name == "*type2" then
 			local wantmenu = GridFrame.db.profile.rightClickMenu
 			--print(self.unit, "OnAttributeChanged", name, value, wantmenu)
 			if wantmenu and (not value or value == "") then
-				self:SetAttribute("type2", "togglemenu")
+				self:SetAttribute("*type2", "togglemenu")
 			elseif value == "togglemenu" and not wantmenu then
-				self:SetAttribute("type2", nil)
+				self:SetAttribute("*type2", nil)
 			end
 		end
 	end
@@ -425,11 +422,11 @@ GridFrame.options = {
 					set = function(info, v)
 						GridFrame.db.profile.rightClickMenu = v
 						for _, frame in pairs(GridFrame.registeredFrames) do
-							local attrib = frame:GetAttribute("type2") or ""
+							local attrib = frame:GetAttribute("*type2") or ""
 							if attrib == "togglemenu" and not v then
-								frame:SetAttribute("type2", nil)
+								frame:SetAttribute("*type2", nil)
 							elseif v and attrib == "" then
-								frame:SetAttribute("type2", "togglemenu")
+								frame:SetAttribute("*type2", "togglemenu")
 							end
 						end
 					end,
@@ -722,7 +719,7 @@ function GridFrame:ResizeAllFrames()
 	self:WithAllFrames("SetHeight", self.db.profile.frameHeight)
 	self:ResetAllFrames()
 	if not reloadHandle then
-		GridFrame:ScheduleTimer("Grid_ReloadLayout", 0.1)
+		reloadHandle = GridFrame:ScheduleTimer("Grid_ReloadLayout", 0.1)
 	end
 end
 

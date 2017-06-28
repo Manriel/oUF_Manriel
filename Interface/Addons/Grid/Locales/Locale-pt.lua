@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	GridLocale-ptBR.lua
 	Brazilian Portuguese localization
@@ -142,6 +142,7 @@ L["Advanced"] = "Avançado"
 L["Advanced options."] = "Opções avançadas."
 L["Allows mouse click through the Grid Frame."] = "Permite clicks do mouse através do quadro do Grid."
 L["Alt-Click to permanantly hide this tab."] = "Alt-Click para ocultar essa aba permanentemente."
+-- L["Always hide wrong zone groups"] = ""
 L["Arena Layout"] = "Leiaute de Arena"
 L["Background color"] = "Cor de fundo"
 -- L["Background Texture"] = ""
@@ -155,6 +156,7 @@ L["Bottom"] = "Fundo"
 L["Bottom Left"] = "Fundo esquerdo"
 L["Bottom Right"] = "Fundo direito"
 L["By Creature Type"] = "Por tipo de criatura"
+-- L["ByGroup Layout Options"] = ""
 L["By Owner Class"] = "Por classe do dono"
 L["Center"] = "Centro"
 L["Choose the layout border texture."] = "Escolha a textura da borda do leiaute."
@@ -177,6 +179,8 @@ L["Fallback colors"] = "Cores para Fallback"
 L["Frame lock"] = "Travar quadro"
 -- L["Frame Spacing"] = ""
 L["Group Anchor"] = "Âncora do grupo"
+-- L["Hide when in mythic raid instance"] = ""
+-- L["Hide when in raid instance"] = ""
 L["Horizontal groups"] = "Grupos horizontais"
 L["Humanoid"] = "Humanoide"
 L["Layout"] = "Leiaute"
@@ -209,8 +213,12 @@ L["Sets where Grid is anchored relative to the screen."] = "Define onde o Grid e
 L["Sets where groups are anchored relative to the layout frame."] = "Define onde os grupos estão ancorados em relação ao quadro de leiaute."
 L["Set the coloring strategy of pet units."] = "Define a estratégia de coloração das unidades de ajudantes."
 L["Set the color of pet units."] = "Define a cor das unidades de ajudantes."
+-- L["Show all groups"] = ""
 L["Show a tab for dragging when Grid is unlocked."] = "Mostre a aba quando o Grid estiver destravado."
 L["Show Frame"] = "Mostrar quadro"
+-- L["Show groups with all players in wrong zone."] = ""
+-- L["Show groups with all players offline."] = ""
+-- L["Show Offline"] = ""
 L["Show tab"] = "Mostrar aba"
 L["Solo Layout"] = "Leiaute Solo"
 L["Spacing"] = "Espaçamento"
@@ -227,6 +235,7 @@ L["Unknown Unit"] = "Unidade desconhecida"
 -- L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = ""
 L["Using Fallback color"] = "Usando cor de recuo"
 -- L["World Raid as 40 Player"] = ""
+-- L["Wrong Zone"] = ""
 
 ------------------------------------------------------------------------
 --	GridLayoutLayouts
@@ -256,10 +265,6 @@ L["None"] = "Nenhum"
 L["Click to toggle the frame lock."] = "Clique para alternar o travamento do quadro."
 
 ------------------------------------------------------------------------
---	GridRoster
-
-
-------------------------------------------------------------------------
 --	GridStatus
 
 L["Color"] = "Cor"
@@ -277,6 +282,12 @@ L["Status"] = "Status"
 L["Status: %s"] = "Status: %s"
 L["Text"] = "Texto"
 L["Text to display on text indicators"] = "Texto que será mostrado nos indicadores de texto"
+
+------------------------------------------------------------------------
+--	GridStatusAbsorbs
+
+-- L["Absorbs"] = ""
+-- L["Only show total absorbs greater than this percent of the unit's maximum health."] = ""
 
 ------------------------------------------------------------------------
 --	GridStatusAggro
@@ -462,3 +473,4 @@ L["In Vehicle"] = "Em veículo"
 
 L["Talking"] = "Falando"
 L["Voice Chat"] = "Chat por voz"
+

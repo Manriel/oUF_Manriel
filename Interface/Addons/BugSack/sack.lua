@@ -175,9 +175,9 @@ local function createBugSack()
 	window = CreateFrame("Frame", "BugSackFrame", UIParent)
 	window:Hide()
 
-	window:SetFrameStrata("FULLSCREEN_DIALOG")
+	window:SetFrameStrata("DIALOG")
 	window:SetWidth(500)
-	window:SetHeight(500 / 1.618)
+	window:SetHeight(310)
 	window:SetPoint("CENTER")
 	window:SetMovable(true)
 	window:EnableMouse(true)
@@ -195,67 +195,67 @@ local function createBugSack()
 	end)
 
 	local titlebg = window:CreateTexture(nil, "BORDER")
-	titlebg:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Title-Background")
+	titlebg:SetTexture(251966) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Title-Background"
 	titlebg:SetPoint("TOPLEFT", 9, -6)
 	titlebg:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", -28, -24)
 
 	local dialogbg = window:CreateTexture(nil, "BACKGROUND")
-	dialogbg:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-CharacterTab-L1")
+	dialogbg:SetTexture(136548) --"Interface\\PaperDollInfoFrame\\UI-Character-CharacterTab-L1"
 	dialogbg:SetPoint("TOPLEFT", 8, -12)
 	dialogbg:SetPoint("BOTTOMRIGHT", -6, 8)
 	dialogbg:SetTexCoord(0.255, 1, 0.29, 1)
 
 	local topleft = window:CreateTexture(nil, "BORDER")
-	topleft:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	topleft:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	topleft:SetWidth(64)
 	topleft:SetHeight(64)
 	topleft:SetPoint("TOPLEFT")
 	topleft:SetTexCoord(0.501953125, 0.625, 0, 1)
 
 	local topright = window:CreateTexture(nil, "BORDER")
-	topright:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	topright:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	topright:SetWidth(64)
 	topright:SetHeight(64)
 	topright:SetPoint("TOPRIGHT")
 	topright:SetTexCoord(0.625, 0.75, 0, 1)
 
 	local top = window:CreateTexture(nil, "BORDER")
-	top:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	top:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	top:SetHeight(64)
 	top:SetPoint("TOPLEFT", topleft, "TOPRIGHT")
 	top:SetPoint("TOPRIGHT", topright, "TOPLEFT")
 	top:SetTexCoord(0.25, 0.369140625, 0, 1)
 
 	local bottomleft = window:CreateTexture(nil, "BORDER")
-	bottomleft:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	bottomleft:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	bottomleft:SetWidth(64)
 	bottomleft:SetHeight(64)
 	bottomleft:SetPoint("BOTTOMLEFT")
 	bottomleft:SetTexCoord(0.751953125, 0.875, 0, 1)
 
 	local bottomright = window:CreateTexture(nil, "BORDER")
-	bottomright:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	bottomright:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	bottomright:SetWidth(64)
 	bottomright:SetHeight(64)
 	bottomright:SetPoint("BOTTOMRIGHT")
 	bottomright:SetTexCoord(0.875, 1, 0, 1)
 
 	local bottom = window:CreateTexture(nil, "BORDER")
-	bottom:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	bottom:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	bottom:SetHeight(64)
 	bottom:SetPoint("BOTTOMLEFT", bottomleft, "BOTTOMRIGHT")
 	bottom:SetPoint("BOTTOMRIGHT", bottomright, "BOTTOMLEFT")
 	bottom:SetTexCoord(0.376953125, 0.498046875, 0, 1)
 
 	local left = window:CreateTexture(nil, "BORDER")
-	left:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	left:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	left:SetWidth(64)
 	left:SetPoint("TOPLEFT", topleft, "BOTTOMLEFT")
 	left:SetPoint("BOTTOMLEFT", bottomleft, "TOPLEFT")
 	left:SetTexCoord(0.001953125, 0.125, 0, 1)
 
 	local right = window:CreateTexture(nil, "BORDER")
-	right:SetTexture("Interface\\PaperDollInfoFrame\\UI-GearManager-Border")
+	right:SetTexture(251963) --"Interface\\PaperDollInfoFrame\\UI-GearManager-Border"
 	right:SetWidth(64)
 	right:SetPoint("TOPRIGHT", topright, "BOTTOMRIGHT")
 	right:SetPoint("BOTTOMRIGHT", bottomright, "TOPRIGHT")
@@ -339,6 +339,7 @@ local function createBugSack()
 
 	nextButton = CreateFrame("Button", "BugSackNextButton", window, "UIPanelButtonTemplate")
 	nextButton:SetPoint("BOTTOMRIGHT", window, -11, 16)
+	nextButton:SetFrameStrata("FULLSCREEN")
 	nextButton:SetWidth(130)
 	nextButton:SetText(L["Next >"])
 	nextButton:SetScript("OnClick", function()
@@ -352,6 +353,7 @@ local function createBugSack()
 
 	prevButton = CreateFrame("Button", "BugSackPrevButton", window, "UIPanelButtonTemplate")
 	prevButton:SetPoint("BOTTOMLEFT", window, 14, 16)
+	prevButton:SetFrameStrata("FULLSCREEN")
 	prevButton:SetWidth(130)
 	prevButton:SetText(L["< Previous"])
 	prevButton:SetScript("OnClick", function()
@@ -367,6 +369,7 @@ local function createBugSack()
 		sendButton = CreateFrame("Button", "BugSackSendButton", window, "UIPanelButtonTemplate")
 		sendButton:SetPoint("LEFT", prevButton, "RIGHT")
 		sendButton:SetPoint("RIGHT", nextButton, "LEFT")
+		sendButton:SetFrameStrata("FULLSCREEN")
 		sendButton:SetText(L["Send bugs"])
 		sendButton:SetScript("OnClick", function()
 			local eo = currentSackContents[currentErrorIndex]
@@ -388,7 +391,6 @@ local function createBugSack()
 	textArea:SetMaxLetters(99999)
 	textArea:EnableMouse(true)
 	textArea:SetScript("OnEscapePressed", textArea.ClearFocus)
-	-- XXX why the fuck doesn't SetPoint work on the editbox?
 	textArea:SetWidth(450)
 
 	scroll:SetScrollChild(textArea)

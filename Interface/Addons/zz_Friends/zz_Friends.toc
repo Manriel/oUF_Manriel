@@ -1,0 +1,11 @@
+## Interface: 70200
+## Title: Friends Broker
+## Notes: Displays friends and guildmembers online
+## Notes-deDE: Zeigt Freunde und Gildenmitglieder, die online sind
+## Author: Rilgamon
+## X-WoWI-ID: 18761
+## SavedVariables: zz_FriendsDB
+## OptionalDeps: Ace3,BrokerPack,zzLibCommon
+Common\common.xml
+pack.xml
+

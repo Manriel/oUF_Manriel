@@ -1,4 +1,4 @@
-﻿
+
 function ArkInventory.MediaRegister( )
 	
 	if ArkInventory.Lib.SharedMedia then
@@ -16,6 +16,7 @@ function ArkInventory.MediaRegister( )
 		ArkInventory.Lib.SharedMedia:Register( ArkInventory.Lib.SharedMedia.MediaType.FONT, "SF Diego Sans", [[Interface\AddOns\ArkInventory\Fonts\SF Diego Sans.ttf]] )
 		ArkInventory.Lib.SharedMedia:Register( ArkInventory.Lib.SharedMedia.MediaType.FONT, "SF Laundromatic", [[Interface\AddOns\ArkInventory\Fonts\SF Laundromatic.ttf]] )
 		ArkInventory.Lib.SharedMedia:Register( ArkInventory.Lib.SharedMedia.MediaType.FONT, "Zekton", [[Interface\AddOns\ArkInventory\Fonts\zekton__.ttf]] )
+		
 		
 		-- borders
 		ArkInventory.Lib.SharedMedia:Register( ArkInventory.Lib.SharedMedia.MediaType.BORDER, "ArkInventory Square 1", [[Interface\AddOns\ArkInventory\Images\BorderSquare1.tga]] )
@@ -41,78 +42,148 @@ function ArkInventory.MediaRegister( )
 	
 end
 
-function ArkInventory.MediaSetFontFace( obj, fontName )
+local function helper_fontpath( face )
 	
-	local fontName = fontName
+	local face = face or ( ArkInventory.db and ArkInventory.db.option.font.face ) or [[Friz Quadrata TT]]
+	
+	local path = ArkInventory.Lib.SharedMedia:Fetch( ArkInventory.Lib.SharedMedia.MediaType.FONT, face )
+	if not path then
+		ArkInventory.OutputWarning( "unknown font: ", face )
+		path = ArkInventory.Lib.SharedMedia:Fetch( ArkInventory.Lib.SharedMedia.MediaType.FONT, ArkInventory.Const.Font.Face )
+		if not path then
+			ArkInventory.OutputError( "code error: default font is unknown" )
+			return
+		end
+	end
+	
+	return path
+	
+end
+
+local function helper_fontsize( size )
+	
+	local size = size
+	if type( size ) ~= "number" then
+	   -- size can be -1.#QNAN (some invalid number when its first created) so just nil it
+		size = nil
+	end
+	size = size or ( ArkInventory.db and ArkInventory.db.option.font.height ) or 10
+	size = math.floor( ( size or 0 ) + 0.5 )
+	
+	if size < ArkInventory.Const.Font.MinHeight then
+		size = ArkInventory.Const.Font.MinHeight
+	elseif size > ArkInventory.Const.Font.MaxHeight then
+		size = ArkInventory.Const.Font.MaxHeight
+	end
+	
+	return size
+	
+end
+
+local function helper_fontinfo( face, size )
+	
+	local path = helper_fontpath( face )
+	local size = helper_fontsize( size )
+	
+	return path, face, size
+	
+end
+
+function ArkInventory.MediaObjectFontSet( obj, face, size )
 	
 	if obj == nil or not ( obj["GetFont"] and obj["SetFont"] ) then
 		return
 	end
 	
-	if fontName == nil or fontName == "" then
-		fontName = ArkInventory.db.profile.option.font.name or ArkInventory.Const.Font.Face
+	local path_old, size_old, flags = obj:GetFont( )
+	size_old = helper_fontsize( size_old )
+	
+	local path = path_old
+	local size = size or ( ArkInventory.db and ArkInventory.db.option.font.height ) or 10
+	
+	if face then
+		path, face, size = helper_fontinfo( face, size )
+		if not path then
+			path = old_path
+		end
 	end
 	
-	local fontPath = ArkInventory.Lib.SharedMedia:Fetch( ArkInventory.Lib.SharedMedia.MediaType.FONT, fontName )
-	
-	local oldPath, oldSize, oldFlags = obj:GetFont( )
-   -- oldSize can be -1.#QNAN (some invalid number when its first created)
-	
-	if fontPath and ( oldPath ~= fontPath ) then
-		if ( type( oldSize ) == "number" ) then
-			oldSize = math.floor( ( oldSize or 0 ) + 0.5 )
-			if ( oldSize >= 1 ) and ( oldSize <= 1024 ) then
-				--ArkInventory.Output( "SetFont( ", fontPath, ", ", oldSize, ", ", oldFlags, " )" )
-         	obj:SetFont( fontPath, oldSize, oldFlags )
-			end
-		else
-			--ArkInventory.OutputError( "SetFont( ", fontPath, ", ", oldSize, ", ", oldFlags, " )" )
-		end
+	if path_old ~= path or size_old ~= size then
+       	obj:SetFont( path, size, flags )
+		--ArkInventory.Output( obj:GetName( ), ":SetFont( ", path, ", ", size, ", ", flags, " )" )
 	end
 	
 end
 
-function ArkInventory.MediaSetFontFrame( frame, fontName )
+function ArkInventory.MediaMenuFontSet( face, size )
+	
+	local face = face
+	local path
+	local size = size
+	
+	if face then
+		path = helper_fontpath( face )
+	end
+	
+	if size then
+		size = helper_fontsize( size )
+	end
+	
+	ArkInventory.Lib.Dewdrop:SetStandardFont( path, size )
+	
+end
 
+function ArkInventory.MediaFrameFontSet( frame, face, size )
+	
 	if frame ~= nil and type( frame ) == "string" then
 		frame = _G[frame]
 	end
 	
-	if frame == nil then
+	if not frame then return end
+	
+	local testpath = helper_fontinfo( face, size )
+	if not testpath then
 		return
 	end
 	
 	for _, obj in pairs( { frame:GetRegions( ) } ) do
-		ArkInventory.MediaSetFontFace( obj, fontName )
+		ArkInventory.MediaObjectFontSet( obj, face, size )
 	end
 
 	for _, obj in pairs( { frame:GetChildren( ) } ) do
-		ArkInventory.MediaSetFontFace( obj, fontName )
+		ArkInventory.MediaObjectFontSet( obj, face, size )
 	end
 
 	for _, obj in pairs( { frame:GetChildren( ) } ) do
-		ArkInventory.MediaSetFontFrame( obj, fontName )
+		ArkInventory.MediaFrameFontSet( obj, face, size )
 	end
+	
+end
+
+function ArkInventory.MediaAllFontSet( face, size )
+	
+	for loc_id, loc_data in pairs( ArkInventory.Global.Location ) do
+		if loc_data.canView then
+			local frame = ArkInventory.Frame_Main_Get( loc_id )
+			ArkInventory.MediaFrameFontSet( frame, face, size )
+		end
+	end
+	
+	ArkInventory.MediaFrameFontSet( ARKINV_Search, face, size )
+	ArkInventory.MediaFrameFontSet( ARKINV_Rules, face, size )
+	
+	ArkInventory.MediaMenuFontSet( face )
 	
 end
 
 function ArkInventory.MediaUpdate( )
+	ArkInventory.MediaAllFontSet( ArkInventory.db.option.font.face )
 	ArkInventory.Frame_Main_Paint_All( )
-	ArkInventory.MediaSetFontAll( )
 end
 
-function ArkInventory.MediaSetFontAll( fontName )
-	
-	if fontName ~= nil and fontName ~= ArkInventory.db.profile.option.font.name then
-		ArkInventory.db.profile.option.font.name = fontName
+
+function ArkInventory.MediaFrameDefaultFontSet( frame )
+	if ArkInventory.db then
+		ArkInventory.MediaFrameFontSet( frame, ArkInventory.db.option.font.face )
 	end
-	
-	for z in pairs( ArkInventory.Global.Location ) do
-		local frame = _G[string.format( "%s%s", ArkInventory.Const.Frame.Main.Name, z )]
-		ArkInventory.MediaSetFontFrame( frame, fontName )
-	end
-	
-	ArkInventory.MediaSetFontFrame( ARKINV_Search, fontName )
-	ArkInventory.MediaSetFontFrame( ARKINV_Rules, fontName )
-	
 end

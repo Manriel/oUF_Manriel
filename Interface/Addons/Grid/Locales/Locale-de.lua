@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	GridLocale-deDE.lua
 	German localization
@@ -23,15 +23,15 @@ Grid.L = L
 --	GridCore
 
 L["Debugging"] = "Debuggen"
-L["Debugging messages help developers or testers see what is happening inside Grid in real time. Regular users should leave debugging turned off except when troubleshooting a problem for a bug report."] = "Debugg Nachrichten helfen Entwicklern und Testern zu sehen was aktuell inerhalb von Grid passiert. Normale Bentzer sollten debugging Nachrichten ausgeschaltet lassen, entseiden sie wollen eine Bug oder ein Problem dokumentieren." -- Needs review
-L["Enable debugging messages for the %s module."] = "Aktiviere Debugging Nachrichten für das %s Modul" -- Needs review
-L["General"] = "Allgemein" -- Needs review
+L["Debugging messages help developers or testers see what is happening inside Grid in real time. Regular users should leave debugging turned off except when troubleshooting a problem for a bug report."] = "Debug-Nachrichten helfen Entwicklern und Testern zu sehen, was aktuell innerhalb von Grid passiert. Normale Bentzer sollten Debug-Nachrichten ausgeschaltet lassen, es sei denn, sie wollen ein Problem oder einen Fehler berichten."
+L["Enable debugging messages for the %s module."] = "Debug-Nachrichten für das Modul %s aktivieren"
+L["General"] = "Allgemein"
 L["Module debugging menu."] = "Debug-Menü."
-L["Open Grid's options in their own window, instead of the Interface Options window, when typing /grid or right-clicking on the minimap icon, DataBroker icon, or layout tab."] = "Die Optionen des Grid in einem alleinstehenden Fenster anzeigen, anstatt des standarden Intrerfaz-Optionen, nach dem Schreiben '/grid' oder dem Klicken auf dem Minimapsymbol, DataBroker-Symbol oder Grid-Reiter."
-L["Output Frame"] = "Ausgabe  Fenster" -- Needs review
+L["Open Grid's options in their own window, instead of the Interface Options window, when typing /grid or right-clicking on the minimap icon, DataBroker icon, or layout tab."] = "Die Optionen von Grid in einem alleinstehenden Fenster anzeigen, anstatt in den Interface-Optionen. Das Fenster wird angezeigt, wenn du '/grid' in den Chat eingibst mit der rechten Maustaste auf das Minikartensymbol, DataBroker-Symbol oder Grid-Reiter klickst."
+L["Output Frame"] = "Ausgabefenster"
 L["Right-Click for more options."] = "Rechtsklick für Optionen."
-L["Show debugging messages in this frame."] = "Zeige debugg Nachrichten in diesem Fenster" -- Needs review
-L["Show minimap icon"] = "Minikarten Button anzeigen"
+L["Show debugging messages in this frame."] = "Debug-Nachrichten in diesem Fenster anzeigen"
+L["Show minimap icon"] = "Minikartenbutton anzeigen"
 L["Show the Grid icon on the minimap. Note that some DataBroker display addons may hide the icon regardless of this setting."] = "Das Grid-Icon an der Minimap anzeigen. Beachte: Einige DataBroker-Addons können das Icon dennoch verstecken, unabhängig von dieser Einstellung."
 L["Standalone options"] = "Alleinstehenden Optionen"
 L["Toggle debugging for %s."] = "Aktiviere das Debuggen für %s."
@@ -61,10 +61,10 @@ L["Center Text 2"] = "Text im Zentrum 2"
 L["Center Text Length"] = "Länge des mittleren Textes"
 L["Color the healing bar using the active status color instead of the health bar color."] = "Färbt die Heilleiste mit der Farbe des aktiven Status, anstelle der Heilleistenfarbe"
 L["Corner Size"] = "Eckengröße"
-L["Darken the text color to match the inverted bar."] = "Text abdunkeln, um die invertierte Leiste entsprechen."
-L["Enable Mouseover Highlight"] = "Rahmen Hervorhebung"
+L["Darken the text color to match the inverted bar."] = "Text abdunkeln, um der invertierten Leiste zu entsprechen." -- Needs review
+L["Enable Mouseover Highlight"] = "Mausberührungshervorhebung"
 L["Enable right-click menu"] = "Rechtsklick-Menü einschalten"
-L["Enable %s"] = "Aktiviert %s"
+L["Enable %s"] = "%s aktivieren"
 L["Enable %s indicator"] = "Indikator: %s"
 L["Font"] = "Schriftart"
 L["Font Outline"] = "Schriftumriss"
@@ -82,13 +82,13 @@ L["Health Bar"] = "Gesundheitsleiste"
 L["Health Bar Color"] = "Gesundheitsleistenfarbe"
 L["Horizontal"] = "Horizontal"
 L["Icon Border Size"] = "Symbolrandbreite"
-L["Icon Cooldown Frame"] = "Symbol Cooldown-Rahmen"
+L["Icon Cooldown Frame"] = "Symbol Cooldown-Rahmen" -- Needs review
 L["Icon Options"] = "Symboloptionen"
 L["Icon Size"] = "Symbolgröße"
-L["Icon Stack Text"] = "Symbol Stack-Text"
+L["Icon Stack Text"] = "Symbolstapeltext"
 L["Indicators"] = "Indikatoren"
-L["Invert Bar Color"] = "Invertiere die Leistenfarbe"
-L["Invert Text Color"] = "Invertiere Textfarbe"
+L["Invert Bar Color"] = "Leistenfarbe invertieren"
+L["Invert Text Color"] = "Textfarbe invertieren"
 L["Make the healing bar use the status color instead of the health bar color."] = "Die Heilungsleiste verwendet die Statusfarbe statt der Lebensbalkenfarbe"
 L["Never"] = "Nie"
 L["None"] = "Kein Umriss"
@@ -105,11 +105,11 @@ L["Orientation of Text"] = "Ausrichtung des Texts"
 L["Set frame orientation."] = "Ausrichtung der Statusleiste festlegen."
 L["Set frame text orientation."] = "Textausrichtung festlegen."
 L["Sets the opacity of the healing bar."] = "Verändert die Deckkraft der Heilleiste."
-L["Show the standard unit menu when right-clicking on a frame."] = "Zeige das standartdmäßige Einheitenmenü bei Rechtsklick auf einen Rahmen."
-L["Show Tooltip"] = "Zeige Tooltip"
+L["Show the standard unit menu when right-clicking on a frame."] = "Zeige das standardmäßige Einheitenmenü bei Rechtsklick auf einen Rahmen."
+L["Show Tooltip"] = "Tooltip anzeigen"
 L["Show unit tooltip.  Choose 'Always', 'Never', or 'OOC'."] = "Einheiten-Tooltip anzeigen. Wähle 'Außerhalb des Kampfes', 'Immer' oder 'Nie'."
 L["Statuses"] = "Status"
-L["Swap foreground/background colors on bars."] = "Tausche die Vordergrund-/Hintergrundfarbe der Leisten."
+L["Swap foreground/background colors on bars."] = "Tauscht die Vordergrund-/Hintergrundfarbe der Leisten."
 L["Text Options"] = "Textoptionen"
 L["Thick"] = "Dick"
 L["Thin"] = "Dünn"
@@ -130,9 +130,9 @@ L["Vertical"] = "Vertikal"
 ------------------------------------------------------------------------
 --	GridLayout
 
-L["10 Player Raid Layout"] = "10 Spieler Schlachtzug Layout"
-L["25 Player Raid Layout"] = "25 Spieler Schlachtzug Layout"
-L["40 Player Raid Layout"] = "40 Spieler Raid Layout" -- Needs review
+L["10 Player Raid Layout"] = "Layout 10-Spieler-Schlachtzug"
+L["25 Player Raid Layout"] = "Layout 25-Spieler-Schlachtzug"
+L["40 Player Raid Layout"] = "Layout 40-Spieler-Schlachtzug"
 L["Adjust background color and alpha."] = "Anpassen der Hintergrundfarbe und Transparenz."
 L["Adjust border color and alpha."] = "Anpassen der Rahmenfarbe und Transparenz."
 L["Adjust frame padding."] = "Zwischenabstand anpassen."
@@ -143,11 +143,12 @@ L["Adjust the spacing between individual unit frames."] = "Der Abstand zwischen 
 L["Advanced"] = "Erweitert"
 L["Advanced options."] = "Erweiterte Einstellungen."
 L["Allows mouse click through the Grid Frame."] = "Erlaubt Mausklicks durch den Grid-Rahmen."
-L["Alt-Click to permanantly hide this tab."] = "Alt-Klick um diesen Reiter immer zu verstecken."
-L["Arena Layout"] = "Arena Layout"
+L["Alt-Click to permanantly hide this tab."] = "Alt-Klick, um diesen Reiter immer zu verstecken."
+-- L["Always hide wrong zone groups"] = ""
+L["Arena Layout"] = "Layout Arena"
 L["Background color"] = "Hintergrund"
-L["Background Texture"] = "Hintergrund Textur" -- Needs review
-L["Battleground Layout"] = "Schlachtfeld Layout"
+L["Background Texture"] = "Hintergrundtextur"
+L["Battleground Layout"] = "Layout Schlachtfeld"
 L["Beast"] = "Wildtier"
 L["Border color"] = "Rand"
 L["Border Inset"] = "Einsätze des Rands"
@@ -157,9 +158,10 @@ L["Bottom"] = "Unten"
 L["Bottom Left"] = "Untenlinks"
 L["Bottom Right"] = "Untenrechts"
 L["By Creature Type"] = "Nach Kreaturtyp"
+-- L["ByGroup Layout Options"] = ""
 L["By Owner Class"] = "Nach Besitzerklasse"
 L["Center"] = "Zentriert"
-L["Choose the layout border texture."] = "Layout Randtextur auswählen."
+L["Choose the layout border texture."] = "Die Randtextur des Layouts auswählen."
 L["Clamped to screen"] = "Im Bildschirm lassen"
 L["Class colors"] = "Klassenfarben"
 L["Click through the Grid Frame"] = "Durch Grid-Rahmen klicken"
@@ -175,46 +177,52 @@ L["Dragonkin"] = "Drachkin"
 L["Drag this tab to move Grid."] = "Reiter klicken und bewegen, um Grid zu verschieben."
 L["Elemental"] = "Elementar"
 L["Fallback colors"] = "Ersatzfarben"
-L["Flexible Raid Layout"] = "Flexible Schlachtzug"
+L["Flexible Raid Layout"] = "Layout flexibler Schlachtzug"
 L["Frame lock"] = "Grid sperren"
 L["Frame Spacing"] = "Zwischenabstand"
 L["Group Anchor"] = "Ankerpunkt der Gruppe"
+L["Hide when in mythic raid instance"] = "In einer mythischen Schlachtzugsinstanz verstecken"
+L["Hide when in raid instance"] = "In einer Schlachtzugsinstanz verstecken"
 L["Horizontal groups"] = "Horizontal gruppieren"
 L["Humanoid"] = "Humanoid"
 L["Layout"] = "Layout"
 L["Layout Anchor"] = "Ankerpunkt des Layouts"
 L["Layout Background"] = "Hintergrund des Layouts"
 L["Layout Padding"] = "Layoutsabstand"
-L["Layouts"] = "Layouts" -- Needs review
+L["Layouts"] = "Layouts"
 L["Left"] = "Links"
 L["Lock Grid to hide this tab."] = "'Grid sperren' um diesen Reiter zu verstecken."
 L["Locks/unlocks the grid for movement."] = "Sperrt Grid oder entsperrt Grid, um den Rahmen zu verschieben."
 L["Not specified"] = "Nicht spezifiziert"
 L["Options for GridLayout."] = "Optionen für das Layout von Grid."
 L["Padding"] = "Zwischenabstand"
-L["Party Layout"] = "Gruppen Layout"
+L["Party Layout"] = "Layout Gruppe"
 L["Pet color"] = "Begleiterfarbe"
 L["Pet coloring"] = "Begleiterfärbung"
 L["Reset Position"] = "Position zurücksetzen"
 L["Resets the layout frame's position and anchor."] = "Setzt den Ankerpunkt und die Position des Layoutrahmens zurück."
 L["Right"] = "Rechts"
 L["Scale"] = "Skalierung"
-L["Select which layout to use when in a 10 player raid."] = "Wähle welches Schlachtzug Layout für 10 Spieler benutzt werden soll."
-L["Select which layout to use when in a 25 player raid."] = "Wähle welches Schlachtzug Layout für 25 Spieler benutzt werden soll."
-L["Select which layout to use when in a 40 player raid."] = "Wähle das Layout für einen 40 Spieler Raid aus" -- Needs review
-L["Select which layout to use when in a battleground."] = "Wähle welches Schlachtfeld Layout benutzt werden soll."
-L["Select which layout to use when in a flexible raid."] = "Wähle welches Layout benutzt wird, wenn Ihr in einem flexiblen Schlachtzug seid."
-L["Select which layout to use when in an arena."] = "Wähle welches Arena Layout benutzt werden soll."
-L["Select which layout to use when in a party."] = "Wähle welches Gruppen Layout benutzt werden soll."
-L["Select which layout to use when not in a party."] = "Wähle welches Layout benutzt werden soll, wenn Du in keiner Gruppe bist."
+L["Select which layout to use when in a 10 player raid."] = "Wähle, welches Layout verwendet werden soll, wenn Du in einem 10-Spieler-Schlachtzug bist."
+L["Select which layout to use when in a 25 player raid."] = "Wähle, welches Layout verwendet werden soll, wenn Du in einem 25-Spieler-Schlachtzug bist."
+L["Select which layout to use when in a 40 player raid."] = "Wähle, welches Layout verwendet werden soll, wenn Du in einem 40-Spieler-Schlachtzug bist."
+L["Select which layout to use when in a battleground."] = "Wähle, welches Layout verwendet werden soll, wenn Du in einem Schlachtfeld bist."
+L["Select which layout to use when in a flexible raid."] = "Wähle, welches Layout verwendet werden soll, wenn Du in einem flexiblen Schlachtzug bist."
+L["Select which layout to use when in an arena."] = "Wähle, welches Layout verwendet werden soll, wenn Du in einer Arena bist."
+L["Select which layout to use when in a party."] = "Wähle, welches Layout verwendet werden soll, wenn Du in einer Gruppe bist."
+L["Select which layout to use when not in a party."] = "Wähle, welches Layout verwendet werden soll, wenn Du in keiner Gruppe bist."
 L["Sets where Grid is anchored relative to the screen."] = "Setzt den Ankerpunkt von Grid relativ zum Bildschirm."
 L["Sets where groups are anchored relative to the layout frame."] = "Setzt den Ankerpunkt der Gruppe relativ zum Layoutrahmen."
 L["Set the coloring strategy of pet units."] = "Legt fest, wie die Begleiter eingefärbt werden."
 L["Set the color of pet units."] = "Legt die Begleiterfarbe fest."
+L["Show all groups"] = "Alle Gruppen zeigen"
 L["Show a tab for dragging when Grid is unlocked."] = "Reiter immer anzeigen. (Egal ob Grid gesperrt oder entsperrt ist.)"
-L["Show Frame"] = "Zeige Rahmen"
+L["Show Frame"] = "Rahmen anzeigen"
+L["Show groups with all players in wrong zone."] = "Zeigt Gruppen, in denen alle Spieler in einer falschen Zone sind."
+L["Show groups with all players offline."] = "Zeigt Gruppen, in denen alle Spieler offline sind."
+L["Show Offline"] = "Offline zeigen"
 L["Show tab"] = "Reiter anzeigen"
-L["Solo Layout"] = "Solo Layout"
+L["Solo Layout"] = "Layout Solo"
 L["Spacing"] = "Abstand"
 L["Switch between horizontal/vertical groups."] = "Wechselt zwischen horizontaler/vertikaler Gruppierung."
 L["The color of unknown pets."] = "Farbe für unbekannte Begleiter."
@@ -226,9 +234,10 @@ L["Top Right"] = "Obenrechts"
 L["Undead"] = "Untoter"
 L["Unknown Pet"] = "Unbekannter Begleiter"
 L["Unknown Unit"] = "Unbekannte Einheit"
--- L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = ""
+L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = "Verwendet das Layout 40-Spieler-Schlachtzug, wenn du in einem Schlachtzug aber außerhalb einer Schlachtzugsinstanz bist, anstatt ein Layout nach der momentanen Schlachtzugsschwierigkeit auszuwählen."
 L["Using Fallback color"] = "Nach Ersatzfarbe"
 -- L["World Raid as 40 Player"] = ""
+L["Wrong Zone"] = "Falsche Zone"
 
 ------------------------------------------------------------------------
 --	GridLayoutLayouts
@@ -237,29 +246,25 @@ L["By Class 10"] = "10er nach Klasse"
 L["By Class 10 w/Pets"] = "10er nach Klasse mit Begleitern"
 L["By Class 25"] = "25er nach Klasse"
 L["By Class 25 w/Pets"] = "25er nach Klasse mit Begleitern"
--- L["By Class 40"] = ""
--- L["By Class 40 w/Pets"] = ""
-L["By Group 10"] = "10er"
-L["By Group 10 w/Pets"] = "10er mit Begleitern"
-L["By Group 15"] = "15er"
-L["By Group 15 w/Pets"] = "15er mit Begleitern"
-L["By Group 25"] = "25er"
-L["By Group 25 w/Pets"] = "25er mit Begleitern"
-L["By Group 25 w/Tanks"] = "25er mit Tanks"
-L["By Group 40"] = "40er"
-L["By Group 40 w/Pets"] = "40er mit Begleitern"
-L["By Group 5"] = " 5er"
-L["By Group 5 w/Pets"] = " 5er mit Begleitern"
+L["By Class 40"] = "40er nach Klasse"
+L["By Class 40 w/Pets"] = "40er nach Klasse mit Begleitern"
+L["By Group 10"] = "10er nach Gruppe"
+L["By Group 10 w/Pets"] = "10er nach Gruppe mit Begleitern"
+L["By Group 15"] = "15er nach Gruppe"
+L["By Group 15 w/Pets"] = "15er nach Gruppe mit Begleitern"
+L["By Group 25"] = "25er nach Gruppe"
+L["By Group 25 w/Pets"] = "25er nach Gruppe mit Begleitern"
+L["By Group 25 w/Tanks"] = "25er nach Gruppe mit Tanks"
+L["By Group 40"] = "40er nach Gruppe"
+L["By Group 40 w/Pets"] = "40er nach Gruppe mit Begleitern"
+L["By Group 5"] = "5er nach Gruppe"
+L["By Group 5 w/Pets"] = "5er nach Gruppe mit Begleitern"
 L["None"] = "Ausblenden"
 
 ------------------------------------------------------------------------
 --	GridLDB
 
-L["Click to toggle the frame lock."] = "Linksklick um Grid zu entsperren."
-
-------------------------------------------------------------------------
---	GridRoster
-
+L["Click to toggle the frame lock."] = "Linksklick, um Grid zu entsperren."
 
 ------------------------------------------------------------------------
 --	GridStatus
@@ -279,6 +284,12 @@ L["Status"] = "Status"
 L["Status: %s"] = "Status: %s"
 L["Text"] = "Text"
 L["Text to display on text indicators"] = "Text, der in einem Textindikator angezeigt wird"
+
+------------------------------------------------------------------------
+--	GridStatusAbsorbs
+
+L["Absorbs"] = "Absorptionen"
+L["Only show total absorbs greater than this percent of the unit's maximum health."] = "Nur Absorptionen anzeigen, die größer sind als dieser Prozentsatz der maximalen Gesundheit einer Einheit." -- Needs review
 
 ------------------------------------------------------------------------
 --	GridStatusAggro
@@ -310,13 +321,13 @@ L["Change what information is shown by the status text."] = "Ändere welche Info
 L["Class Filter"] = "Klassenfilter"
 L["Color"] = "Farbe"
 L["Color to use when the %s is above the high count threshold values."] = "Farbe, welche genutzt wird wenn %s über dem hohem Schwellenwert liegt."
-L["Color to use when the %s is between the low and high count threshold values."] = "Farbe, welche genutzt wird wenn %s zwischen dem niedrigen und der hohem Schwellenwert liegt."
-L["Color when %s is below the low threshold value."] = "Farbe, welche genutzt wird wenn %s unter dem niedrigen Schwellenwert liegt"
+L["Color to use when the %s is between the low and high count threshold values."] = "Farbe, welche genutzt wird, wenn %s zwischen dem niedrigen und der hohem Schwellenwert liegt."
+L["Color when %s is below the low threshold value."] = "Farbe, welche genutzt wird, wenn %s unter dem niedrigen Schwellenwert liegt"
 L["Create a new buff status."] = "Fügt einen neuen Buff-Status hinzu."
 L["Create a new debuff status."] = "Fügt einen neuen Debuff-Status hinzu."
 L["Curse"] = "Fluch"
 L["<debuff name>"] = "<Debuffname>"
-L["(De)buff name"] = "(De)buff Name"
+L["(De)buff name"] = "(De)buff-Name"
 L["Debuff: %s"] = "Debuff: %s"
 L["Debuff type: %s"] = "Debufftyp: %s"
 L["Disease"] = "Krankheit"
@@ -336,14 +347,14 @@ L["Refresh interval"] = "Aktualisierungsintervall"
 L["Remove an existing buff or debuff status."] = "Löscht einen vorhandenen Buff oder Debuff."
 L["Remove Aura"] = "Debuff/Buff löschen"
 L["Remove %s from the menu"] = "Entfernt %s vom Menü"
-L["%s colors"] = "%s farben"
+L["%s colors"] = "%s Farben"
 L["%s colors and threshold values."] = "%s Farben und Schwellenwerte"
-L["Show advanced options"] = "Zeige erweiterte Optionen" -- Needs review
+L["Show advanced options"] = "Erweiterte Optionen zeigen"
 L[ [=[Show advanced options for buff and debuff statuses.
 
-Beginning users may wish to leave this disabled until you are more familiar with Grid, to avoid being overwhelmed by complicated options menus.]=] ] = [=[Zeige erweiterte Einstellungen für Buff und Debuff Status
+Beginning users may wish to leave this disabled until you are more familiar with Grid, to avoid being overwhelmed by complicated options menus.]=] ] = [=[Zeigt erweiterte Einstellungen für Buff- und Debuff-Status
 
-Beginner sollten diese Option deaktiviert lassen solange sie noch keie Erfahrung mit Grid gemacht haben, um zu vielen und/oder komplizierten Menüleisten aus dem Weg zu gehen.]=] -- Needs review
+Beginner sollten diese Option deaktiviert lassen, solange sie noch keine Erfahrung mit Grid gemacht haben, um zu vielen und/oder komplizierten Menüs aus dem Weg zu gehen.]=]
 L["Show duration"] = "Dauer anzeigen"
 L["Show if mine"] = "Zeigen wenn es meiner ist"
 L["Show if missing"] = "Zeigen wenn es fehlt"
@@ -352,10 +363,10 @@ L["Show on %s players."] = "Zeigt den Status für die Klasse: %s."
 L["Show status for the selected classes."] = "Zeigt den Status für die ausgwählte Klasse."
 L["Show the time left to tenths of a second, instead of only whole seconds."] = "Zeige die verbleibende Zeit in Zehntelsekunden, anstelle von ganzen Sekunden "
 L["Show the time remaining, for use with the center icon cooldown."] = "Zeigt die Dauer im Cooldown-Rahmen (Symbol im Zentrum)."
-L["Show time left to tenths"] = "Zeige verbleibende Zeit in Zehntelsekunden"
+L["Show time left to tenths"] = "Verbleibende Zeit in Zehntelsekunden anzeigen"
 L["%s is high when it is at or above this value."] = "%s ist hoch wenn der Wert gleich oder höher ist."
 L["%s is low when it is at or below this value."] = "%s ist niedrig wenn der Wert gleich oder höher ist."
-L["Stack count"] = "Stapel Zählen"
+L["Stack count"] = "Stapelanzahl"
 L["Status Information"] = "Statusinformation"
 L["Text"] = "Text"
 L["Time in seconds between each refresh of the status time left."] = "Zeit in Sekunden zwischen jeder Aktualisierung des Status Zeit verbleiben."
@@ -384,12 +395,12 @@ L["Health"] = "Gesundheit"
 L["Health deficit"] = "Gesundheitsdefizit"
 L["Health threshold"] = "Gesundheitsgrenzwert"
 L["Low HP"] = "Wenig HP"
-L["Low HP threshold"] = "Wenig HP Grenzwert"
-L["Low HP warning"] = "Wenig HP Warnung"
+L["Low HP threshold"] = "Wenig-HP-Grenzwert"
+L["Low HP warning"] = "Wenig-HP-Warnung"
 L["Offline"] = "Offline"
 L["Offline warning"] = "Offlinewarnung"
 L["Only show deficit above % damage."] = "Zeigt Defizit bei mehr als % Schaden."
-L["Set the HP % for the low HP warning."] = "Setzt den % Grenzwert für die Wenig HP Warnung."
+L["Set the HP % for the low HP warning."] = "Setzt den % Grenzwert für die Wenig-HP-Warnung."
 L["Show dead as full health"] = "Zeige Tote mit voller Gesundheit an"
 L["Treat dead units as being full health."] = "Behandle Tote als hätten sie volle Gesundheit."
 L["Unit health"] = "Gesundheit"
@@ -399,10 +410,10 @@ L["Use class color"] = "Benutze Klassenfarbe"
 --	GridStatusMana
 
 L["Low Mana"] = "Wenig Mana"
-L["Low Mana warning"] = "Wenig Mana Warnung"
+L["Low Mana warning"] = "Wenig-Mana-Warnung"
 L["Mana"] = "Mana"
 L["Mana threshold"] = "Mana Grenzwert"
-L["Set the percentage for the low mana warning."] = "Setzt den % Grenzwert für die Wenig Mana Warnung."
+L["Set the percentage for the low mana warning."] = "Setzt den % Grenzwert für die Wenig-Mana-Warnung."
 
 ------------------------------------------------------------------------
 --	GridStatusName
@@ -466,3 +477,4 @@ L["In Vehicle"] = "In Fahrzeug"
 
 L["Talking"] = "Redet"
 L["Voice Chat"] = "Sprachchat"
+

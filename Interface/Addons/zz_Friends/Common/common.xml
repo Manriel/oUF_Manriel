@@ -1,0 +1,8 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Include file="Libs\embeds.xml"/>
+	<Script file="stub.lua"/>
+	<Script file="common.lua"/>
+	<Script file="ldb.lua"/>
+	<Script file="config.lua"/>
+	<Script file="frames.lua"/>
+</Ui>

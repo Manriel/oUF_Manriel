@@ -1,4 +1,4 @@
-﻿local _G = _G
+local _G = _G
 local select = _G.select
 local pairs = _G.pairs
 local ipairs = _G.ipairs
@@ -122,11 +122,13 @@ end
 
 
 
-local spellTable = { -- key, spell id
-	{ "WOW_SKILL_SKINNING", 8613 }, -- 8617, 8618, 10768, 32678, 50305, 74522
+local spellTable = { -- key, table of spell ids
+	{ "WOW_SKILL_SKINNING", { 8613, 8617, 8618, 10768, 32678, 50305, 74522 } },
+	{ "WOW_SKILL_HERBALISM", { 170691, 184251 } },
+	{ "WOW_SKILL_MINING", { 184377, 170599, 135120, 32606 } },
 }
 
-local function GetWowSpellNameHelper( id, key )
+local function GetWowSpellNameHelper( id )
 	local name = GetSpellInfo( id )
 	if name then
 		--ArkInventory.Output( "spell: got ", id )
@@ -138,14 +140,14 @@ local function GetWowSpellNameHelper( id, key )
 	end
 end
 
-local function GetWowSpellName( id, key )
-	if type( id ) ~= "table" then
-		return GetWowSpellNameHelper( id, key )
-	else
+local function GetWowSpellName( id )
+	if type( id ) == "table" then
 		for _, v in ipairs( id ) do
-			local x = GetWowSpellNameHelper( v, key )
-			if x then return x end
+			local name = GetWowSpellNameHelper( v )
+			if name then return name end
 		end
+	else
+		return GetWowSpellNameHelper( id )
 	end
 end
 
@@ -178,7 +180,7 @@ local function GetSpellBasedTranslations( )
 				if newValue ~= oldValue then
 					
 					if not oldValue or key == oldValue then
-						--ArkInventory.OutputWarning( "Updating ", lang, " key [", key, "] with [", newValue, "]" )
+						--ArkInventory.OutputWarning( "Setting ", lang, " key [", key, "] to [", newValue, "]" )
 					else
 						ArkInventory.OutputWarning( "Updating ", lang, " key [", key, "] with [", newValue, "], was [", oldValue, "]" )
 					end
@@ -203,15 +205,15 @@ end
 
 
 local tooltipTable = {
-	{ "WOW_SKILL_HERBALISM", 85663 },
-	{ "WOW_SKILL_MINING", 2901 },
+--	{ "WOW_TOOLTIP_ARTIFACT_POWER_AMOUNT", 85663 },
+--	{ "WOW_SKILL_MINING", 2901 },
 }
 
-local function GetWowTooltipTextHelper( id, key )
+local function GetWowTooltipTextHelper( id )
 	
 	ArkInventory.TooltipSetHyperlink( ArkInventory.Global.Tooltip.Scan, string.format( "item:%s", id ) )
 	
-	local _, _, skill, level = ArkInventory.TooltipFind( ArkInventory.Global.Tooltip.Scan, ArkInventory.Localise["WOW_TOOLTIP_REQUIRES_SKILL"], false, true, true )
+	local _, _, skill, level = ArkInventory.TooltipFind( ArkInventory.Global.Tooltip.Scan, ArkInventory.Localise["WOW_TOOLTIP_REQUIRES_SKILL"], false, true, true, 0, true )
 	
 	if skill and level then
 		--ArkInventory.Output( "tooltip: got ", id, ", skill = ", skill, ", level = ", level )
@@ -222,12 +224,12 @@ local function GetWowTooltipTextHelper( id, key )
 	
 end
 
-local function GetWowTooltipText( id, key )
+local function GetWowTooltipText( id )
 	if type( id ) ~= "table" then
-		return GetWowTooltipTextHelper( id, key )
+		return GetWowTooltipTextHelper( id )
 	else
 		for _, v in ipairs( id ) do
-			local x = GetWowTooltipTextHelper( v, key )
+			local x = GetWowTooltipTextHelper( v )
 			if x then return x end
 		end
 	end
@@ -294,26 +296,31 @@ local function GetTranslations( )
 	return ok
 end
 
+
+
+
 frame:SetScript( "OnUpdate",
 	function( self, elapsed )
-		
 		self.loop = self.loop or 0
 		self.timer = ( self.timer or 0 ) + elapsed
 		
 		if self.timer > self.timermax then
 			
 			self.timer = nil
+			
+			if not ArkInventory:IsEnabled( ) then return end
+			
 			self.loop = self.loop + 1
 			
 			if not updateTable then
 				self:Hide( )
-				if ArkInventory.db.global.option.message.translation.final then
+				if ArkInventory.db.option.message.translation.final then
 					ArkInventory.Output( lang, " translations already loaded." )
 				end
 				return
 			end
 			
-			if ArkInventory.db.global.option.message.translation.interim then
+			if ArkInventory.db.option.message.translation.interim then
 				ArkInventory.Output( lang, " translations - attempt ", self.loop, " of ", self.loopmax, "." )
 			end
 			
@@ -325,7 +332,7 @@ frame:SetScript( "OnUpdate",
 
 				if ok then
 					
-					if ArkInventory.db.global.option.message.translation.final then
+					if ArkInventory.db.option.message.translation.final then
 						ArkInventory.Output( lang, " translations successfully loaded." )
 					end
 					
@@ -344,7 +351,7 @@ frame:SetScript( "OnUpdate",
 				else
 					
 					for k in pairs( updateTable ) do
-						ArkInventory.Output( k )
+						ArkInventory.Output( "failed: ", k )
 					end
 					
 					ArkInventory.OutputWarning( lang, " translations failed to load. You may experience issues with item categorisation and menu text." )
@@ -378,3 +385,4 @@ function ArkInventory.TranslateTryAgain( )
 	frame.timer = 0
 	frame:Show( )
 end
+

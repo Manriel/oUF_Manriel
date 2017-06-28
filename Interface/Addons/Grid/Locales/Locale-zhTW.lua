@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	GridLocale-zhTW.lua
 	Traditional Chinese localization
@@ -142,6 +142,7 @@ L["Advanced"] = "進階"
 L["Advanced options."] = "進階選項。"
 L["Allows mouse click through the Grid Frame."] = "允許透過滑鼠點擊 Grid 框架。"
 L["Alt-Click to permanantly hide this tab."] = "Alt-單擊總是隱藏此標簽。。"
+-- L["Always hide wrong zone groups"] = ""
 L["Arena Layout"] = "競技場版面編排"
 L["Background color"] = "背景顏色"
 -- L["Background Texture"] = ""
@@ -155,6 +156,7 @@ L["Bottom"] = "下"
 L["Bottom Left"] = "左下"
 L["Bottom Right"] = "右下"
 L["By Creature Type"] = "依生物類型"
+-- L["ByGroup Layout Options"] = ""
 L["By Owner Class"] = "依玩家職業"
 L["Center"] = "中"
 L["Choose the layout border texture."] = "選擇版面編排的邊框材質"
@@ -177,6 +179,8 @@ L["Fallback colors"] = "備用顏色"
 L["Frame lock"] = "鎖定框架"
 -- L["Frame Spacing"] = ""
 L["Group Anchor"] = "小組錨點"
+-- L["Hide when in mythic raid instance"] = ""
+-- L["Hide when in raid instance"] = ""
 L["Horizontal groups"] = "橫向顯示小組"
 L["Humanoid"] = "人形生物"
 L["Layout"] = "版面編排"
@@ -209,8 +213,12 @@ L["Sets where Grid is anchored relative to the screen."] = "設定 Grid 的版�
 L["Sets where groups are anchored relative to the layout frame."] = "設定版面編排中的小組錨點。"
 L["Set the coloring strategy of pet units."] = "設定寵物的配色方案。"
 L["Set the color of pet units."] = "設定寵物使用的顏色"
+-- L["Show all groups"] = ""
 L["Show a tab for dragging when Grid is unlocked."] = "當未鎖定 Grid 時顯示標簽。"
 L["Show Frame"] = "顯示框架"
+-- L["Show groups with all players in wrong zone."] = ""
+-- L["Show groups with all players offline."] = ""
+-- L["Show Offline"] = ""
 L["Show tab"] = "顯示標簽"
 L["Solo Layout"] = "單人版面編排"
 L["Spacing"] = "空間"
@@ -227,6 +235,7 @@ L["Unknown Unit"] = "未知單位"
 -- L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = ""
 L["Using Fallback color"] = "使用備用顏色"
 -- L["World Raid as 40 Player"] = ""
+-- L["Wrong Zone"] = ""
 
 ------------------------------------------------------------------------
 --	GridLayoutLayouts
@@ -256,10 +265,6 @@ L["None"] = "無"
 L["Click to toggle the frame lock."] = "點擊切換框架鎖定。"
 
 ------------------------------------------------------------------------
---	GridRoster
-
-
-------------------------------------------------------------------------
 --	GridStatus
 
 L["Color"] = "顏色"
@@ -277,6 +282,12 @@ L["Status"] = "狀態"
 L["Status: %s"] = "狀態: %s"
 L["Text"] = "文字"
 L["Text to display on text indicators"] = "顯示文字於文字提示器上"
+
+------------------------------------------------------------------------
+--	GridStatusAbsorbs
+
+-- L["Absorbs"] = ""
+-- L["Only show total absorbs greater than this percent of the unit's maximum health."] = ""
 
 ------------------------------------------------------------------------
 --	GridStatusAggro
@@ -462,3 +473,4 @@ L["In Vehicle"] = "載具上"
 
 L["Talking"] = "說話中"
 L["Voice Chat"] = "語音"
+

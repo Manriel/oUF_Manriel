@@ -1,4 +1,4 @@
-﻿local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "koKR" )
+local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "koKR" )
 if not L then return end
 
 -- post updated translations at http://groups.google.com/group/wow-arkinventory (modify this file and include as an attachment)
@@ -32,6 +32,14 @@ if not L then return end
 	L["WOW_ITEM_TOOLTIP_POTION_MANA"] = "%d+~%d+의 마나가 회복됩니다."
 --	L["WOW_ITEM_TOOLTIP_ELIXIR_BATTLE"] = ""
 --	L["WOW_ITEM_TOOLTIP_ELIXIR_GUARDIAN"] = ""
+	L["WOW_ITEM_TOOLTIP_10P3T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P3S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P6T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P6S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P9T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P9S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P12T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P12S"] = ""
 	
 	
 --	location names
@@ -46,15 +54,21 @@ if not L then return end
 	
 --	status bar/bag text
 	L["STATUS_NO_DATA"] = "자료 없음"
-	L["STATUS_FULL"] = "가득참"
 --	L["STATUS_PURCHASE"] = ""
 	
 	
 --	restack
---	L["RESTACK"] = "압축과 쌓기"
+	L["RESTACK"] = "압축과 쌓기"
 	L["RESTACK_TEXT"] = "나뉘어진 더미를 하나로 압축하고 빈 칸 없이 채웁니다."
 --	L["RESTACK_FAIL_WAIT"] = ""
 --	L["RESTACK_FAIL_ACCESS"] = ""
+--	L["RESTACK_FAIL_CLOSED"] = ""
+--	L["RESTACK_TYPE"] = ""
+--	L["RESTACK_CLEANUP_DEPOSIT"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_FILL_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_REFRESH_WHEN_COMPLETE"] = ""
 	
 	
 --	vault tab tooltips
@@ -64,12 +78,9 @@ if not L then return end
 --	L["VAULT_TAB_REMAINING_WITHDRAWALS"] = ""
 	
 	
---	category "header" descriptions  (does not have to match wow)
-	L["CATEGORY_RULE"] = "규칙"
-	
-	
 --	system category descriptions
 	L["CATEGORY_SYSTEM_CORE_MATS"] = "중요 재료"
+--	L["CATEGORY_SYSTEM_MYTHIC_KEYSTONE"] = ""
 	
 	
 --	consumable category descriptions
@@ -81,25 +92,25 @@ if not L then return end
 	
 	
 --	bag names - used to name the empty slots in the status frame
-	L["STATUS_NAME_BAG"] = "가방"
---	L["STATUS_NAME_COOKING"] = ""
---	L["STATUS_NAME_CRITTER"] = ""
-	L["STATUS_NAME_ENCHANTING"] = "마부"
-	L["STATUS_NAME_ENGINEERING"] = "기공"
---	L["STATUS_NAME_GEAR"] = ""
-	L["STATUS_NAME_GEM"] = "보석"
---	L["STATUS_NAME_HEIRLOOM"] = ""
-	L["STATUS_NAME_HERB"] = "약초"
-	L["STATUS_NAME_INSCRIPTION"] = "주각"
-	L["STATUS_NAME_KEY"] = "열쇠"
-	L["STATUS_NAME_LEATHERWORKING"] = "가세"
---	L["STATUS_NAME_MAIL"] = ""
-	L["STATUS_NAME_MINING"] = "광물"
-	L["STATUS_NAME_MOUNT"] = "탈것"
---	L["STATUS_NAME_REAGENTBANK"] = ""
---	L["STATUS_NAME_TACKLE"] = ""
-	L["STATUS_NAME_TOKEN"] = "토큰"
---	L["STATUS_NAME_TOY"] = ""
+	L["STATUS_SHORTNAME_BAG"] = "가방"
+--	L["STATUS_SHORTNAME_COOKING"] = ""
+--	L["STATUS_SHORTNAME_CRITTER"] = ""
+	L["STATUS_SHORTNAME_ENCHANTING"] = "마부"
+	L["STATUS_SHORTNAME_ENGINEERING"] = "기공"
+--	L["STATUS_SHORTNAME_GEAR"] = ""
+	L["STATUS_SHORTNAME_GEM"] = "보석"
+--	L["STATUS_SHORTNAME_HEIRLOOM"] = ""
+	L["STATUS_SHORTNAME_HERB"] = "약초"
+	L["STATUS_SHORTNAME_INSCRIPTION"] = "주각"
+	L["STATUS_SHORTNAME_KEY"] = "열쇠"
+	L["STATUS_SHORTNAME_LEATHERWORKING"] = "가세"
+--	L["STATUS_SHORTNAME_MAIL"] = ""
+	L["STATUS_SHORTNAME_MINING"] = "광물"
+	L["STATUS_SHORTNAME_MOUNT"] = "탈것"
+--	L["STATUS_SHORTNAME_REAGENTBANK"] = ""
+--	L["STATUS_SHORTNAME_TACKLE"] = ""
+	L["STATUS_SHORTNAME_TOKEN"] = "토큰"
+--	L["STATUS_SHORTNAME_TOY"] = ""
 	
 	
 --	main menu
@@ -118,8 +129,9 @@ if not L then return end
 	
 --	actions menu
 --	L["MENU_ACTION"] = ""
-	L["MENU_ACTION_REFRESH"] = "새로 고침"
 	L["MENU_ACTION_REFRESH_TEXT"] = "창을 갱신합니다."
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE"] = ""
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE_TEXT"] = ""
 	L["MENU_ACTION_RELOAD_TEXT"] = "창을 재시작 합니다.  장비 세트에 아이템 변경시 사용하세요."
 	L["MENU_ACTION_EDITMODE"] = "편집 모드 전환"
 	L["MENU_ACTION_EDITMODE_TEXT"] = "아이템 레이아웃을 설정 할 수 있도록 편집 모드를 전환합니다."
@@ -159,6 +171,9 @@ if not L then return end
 	L["MENU_ITEM_DEBUG_PT_TEXT"] = "해당 아이템이 속한 PT 세트 목록"
 	L["MENU_ITEM_DEBUG_PT_NONE"] = "해당 아이템은 PT 세트에 없습니다."
 	L["MENU_ITEM_DEBUG_PT_TITLE"] = "해당 아이템의 PT 세트 위치"
+--	L["MENU_ITEM_DEBUG_SOURCE"] = ""
+--	L["MENU_ITEM_DEBUG_BONUS"] = ""
+--	L["MENU_ITEM_DEBUG_ITEMSTRING"] = ""
 	
 	
 --	bar menu
@@ -170,15 +185,32 @@ if not L then return end
 	L["MENU_BAR_CATEGORY_HIDDEN_TEXT"] = "해당 분류의 숨겨진 상태를 전환하려면 클릭하세요.\n\n숨겨진 분류의 아이템은 정상 모드에서 표시되지 않습니다."
 --	L["MENU_BAR_CATEGORY_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_CATEGORY_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_ENABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_DISABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_JUNK_TEXT"] = ""
 --	L["MENU_BAR_BAG_ASSIGN_TEXT"] = ""
 --	L["MENU_BAR_OPTIONS"] = ""
-	L["MENU_BAR_CLEAR_TEXT"] = "해당 바의 기본 분류를 제외하고 현재 지정된 모든 분류를 제거합니다."
+	L["MENU_BAR_RESET_TEXT"] = "해당 바의 기본 분류를 제외하고 현재 지정된 모든 분류를 제거합니다."
 	L["MENU_BAR_INSERT_TEXT"] = "모든 분류을 위로 이동시키고 빈 바를 삽입합니다."
-	L["MENU_BAR_REMOVE_TEXT"] = "해당 바를 제거합니다, 현재 모든 지정된 분류를 이전의 기본 바로 되돌리고 다른 것들은 아래 바로 이동합니다."
+	L["MENU_BAR_DELETE_TEXT"] = "해당 바를 제거합니다, 현재 모든 지정된 분류를 이전의 기본 바로 되돌리고 다른 것들은 아래 바로 이동합니다."
 --	L["MENU_BAR_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_MOVE_FAIL_OUTSIDE"] = ""
+--	L["MENU_BAR_MOVE_FAIL_SAME"] = ""
 --	L["MENU_BAR_SORTKEY_TEXT"] = ""
 --	L["MENU_BAR_SORTKEY_DEFAULT_RESET_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_TEXT"] = ""
+--	L["MENU_LOCKED_TEXT"] = ""
 	
 	
 --	changer bag menu
@@ -189,7 +221,6 @@ if not L then return end
 --	L["MENU_BAG_ISOLATE_TEXT"] = ""
 --	L["MENU_BAG_SHOWALL"] = ""
 --	L["MENU_BAG_SHOWALL_TEXT"] = ""
---	L["MENU_BAG_EMPTY"] = ""
 --	L["MENU_BAG_EMPTY_TEXT"] = ""
 	
 	
@@ -198,7 +229,6 @@ if not L then return end
 --	L["CONFIG_TEXT"] = ""
 	
 --	configuration options > system
---	L["CONFIG_SYSTEM"] = ""
 --	L["CONFIG_SYSTEM_TEXT"] = ""
 	
 --	L["CONFIG_SYSTEM_FONT_TEXT"] = ""
@@ -209,7 +239,17 @@ if not L then return end
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_MEDIUM"] = ""
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_HIGH"] = ""
 	
---	L["CONFIG_SYSTEM_RESTACK_TEXT"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW_TEXT"] = ""
+	
+--	L["CONFIG_SORTING_WHEN"] = ""
+--	L["CONFIG_SORTING_WHEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL_TEXT"] = ""
 	
 --	L["CONFIG_SYSTEM_TOOLTIP"] = ""
 --	L["CONFIG_SYSTEM_TOOLTIP_ENABLE_TEXT"] = ""
@@ -267,6 +307,12 @@ if not L then return end
 --	L["CONFIG_SYSTEM_MESSAGES_TRANSLATION_FINAL_TEXT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION_TEXT"] = ""
 	
 --	L["CONFIG_SYSTEM_TIMERS"] = ""
 --	L["CONFIG_SYSTEM_TIMERS_TEXT"] = ""
@@ -296,12 +342,9 @@ if not L then return end
 	
 	
 --	configuration options > control
---	L["CONFIG_CONTROL"] = ""
-	
 --	L["CONFIG_CONTROL_MONITOR"] = ""
 --	L["CONFIG_CONTROL_MONITOR_TEXT"] = ""
 --	L["CONFIG_CONTROL_SAVE_TEXT"] = ""
---	L["CONFIG_CONTROL_NOTIFY_ERASE"] = ""
 --	L["CONFIG_CONTROL_NOTIFY_ERASE_TEXT"] = ""
 	L["CONFIG_CONTROL_OVERRIDE"] = "블리자드 프레임 숨김"
 --	L["CONFIG_CONTROL_OVERRIDE_TEXT"] = ""
@@ -309,114 +352,147 @@ if not L then return end
 --	L["CONFIG_CONTROL_ANCHOR_LOCK_TEXT"] = ""
 --	L["CONFIG_CONTROL_REPOSITION_NOW"] = ""
 --	L["CONFIG_CONTROL_REPOSITION_NOW_TEXT"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD_TEXT"] = ""
---	L["CONFIG_CONTROL_SETTINGS_TEXT"] = ""
+--	L["CONFIG_CONTROL_BLUEPRINT_TEXT"] = ""
 	
 	
---	configuration options > settings
---	L["CONFIG_SETTINGS"] = ""
+--	configuration settings > design
+--	L["CONFIG_DESIGN"] = ""
+--	L["CONFIG_DESIGN_PLURAL"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME"] = "창"
+--	L["CONFIG_STYLE"] = ""
+--	L["CONFIG_STYLE_PLURAL"] = ""
+--	L["CONFIG_STYLE_DESCRIPTION"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_HIDE_TEXT"] = ""
+--	L["CONFIG_LAYOUT"] = ""
+--	L["CONFIG_LAYOUT_PLURAL"] = ""
+--	L["CONFIG_LAYOUT_DESCRIPTION"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME_SCALE_TEXT"] = "창을 크게 혹은 작게 하기 위한 크기 비율을 설정합니다."
-	L["CONFIG_SETTINGS_FRAME_PADDING_TEXT"] = "창의 경계와 바 사이의 간격을 설정합니다."
-	L["CONFIG_SETTINGS_FRAME_WIDTH_TEXT"] = "디스플레이할 열의 수를 설정합니다."
---	L["CONFIG_SETTINGS_FRAME_HEIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_BACKGROUND_COLOUR_TEXT"] = "메인 창의 배경 색상을 설정합니다."
-	L["CONFIG_SETTINGS_FRAME_BORDER_SHOW_TEXT"] = "메인 창 주변의 테두리 표시를 전환합니다."
---	L["CONFIG_SETTINGS_FRAME_BORDER_STYLE_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_BORDER_COLOUR_TEXT"] = "메인 창의 테두리 색상을 설정합니다."
+	L["CONFIG_DESIGN_WINDOW"] = "창"
+	L["CONFIG_DESIGN_WINDOW_SCALE_TEXT"] = "창을 크게 혹은 작게 하기 위한 크기 비율을 설정합니다."
+	L["CONFIG_DESIGN_WINDOW_PADDING_TEXT"] = "창의 경계와 바 사이의 간격을 설정합니다."
+	L["CONFIG_DESIGN_WINDOW_WIDTH_TEXT"] = "디스플레이할 열의 수를 설정합니다."
+--	L["CONFIG_DESIGN_WINDOW_HEIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_WINDOW_BACKGROUND_COLOUR_TEXT"] = "메인 창의 배경 색상을 설정합니다."
+	L["CONFIG_DESIGN_WINDOW_BORDER_SHOW_TEXT"] = "메인 창 주변의 테두리 표시를 전환합니다."
+--	L["CONFIG_DESIGN_WINDOW_BORDER_STYLE_TEXT"] = ""
+	L["CONFIG_DESIGN_WINDOW_BORDER_COLOUR_TEXT"] = "메인 창의 테두리 색상을 설정합니다."
 	
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT"] = "가방 강조 색상"
---	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "가방에 마우스를 올렸을 때 칸을 강조하는데 사용할 색상을 설정합니다."
---	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE"] = ""
---	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_TEXT"] = ""
---	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_HIDE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY"] = ""
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT"] = "가방 강조 색상"
+--	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "가방에 마우스를 올렸을 때 칸을 강조하는데 사용할 색상을 설정합니다."
+--	L["CONFIG_DESIGN_FRAME_CHANGER_FREE"] = ""
+--	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_COLOUR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_NORMAL"] = ""
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_BARS"] = "바"
-	L["CONFIG_SETTINGS_BARS_PER_ROW"] = "열 단위"
-	L["CONFIG_SETTINGS_BARS_PER_ROW_TEXT"] = "각 열에 표시할 바의 수를 설정합니다."
-	L["CONFIG_SETTINGS_BARS_BACKGROUND_TEXT"] = "바의 배경 색상을 설정합니다."
-	L["CONFIG_SETTINGS_BARS_COMPACT"] = "간략형"
-	L["CONFIG_SETTINGS_BARS_COMPACT_TEXT"] = "순서대로 모든 비어있지 않은 바를 표시합니다."
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY"] = "빈 바 표시"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY_TEXT"] = "빈 바의 표시를 전환합니다."
---	L["CONFIG_SETTINGS_BARS_PADDING_INTERNAL_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_PADDING_EXTERNAL_TEXT"] = ""
-	L["CONFIG_SETTINGS_BARS_BORDER_TEXT"] = "각 바 주변의 테두리 표시를 전환합니다."
---	L["CONFIG_SETTINGS_BARS_BORDER_STYLE_TEXT"] = ""
-	L["CONFIG_SETTINGS_BARS_BORDER_COLOUR_TEXT"] = "바 주변의 테두리 색상을 설정합니다."
---	L["CONFIG_SETTINGS_BARS_NAME_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_COLOUR_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_HEIGHT_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_ANCHOR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_LABEL_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_TEXT_COLOUR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_PADDING_TEXT"] = "아이템 칸 사이에 추가할 간격을 설정합니다."
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN"] = "숨겨진 아이템 표시"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN_TEXT"] = "숨겨진 분류 내의 아이템을 표시할 지를 결정합니다."
-	L["CONFIG_SETTINGS_ITEMS_FADE"] = "아이템 숨김"
-	L["CONFIG_SETTINGS_ITEMS_FADE_TEXT"] = "오프라인 아이템을 숨길지를 결정합니다."
---	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE"] = ""
---	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_NORMAL"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_ONLINE_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_OFFLINE_COLOUR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT_TEXT"] = ""
+	L["CONFIG_DESIGN_BAR"] = "바"
+	L["CONFIG_DESIGN_BAR_PER_ROW"] = "열 단위"
+	L["CONFIG_DESIGN_BAR_PER_ROW_TEXT"] = "각 열에 표시할 바의 수를 설정합니다."
+	L["CONFIG_DESIGN_BAR_BACKGROUND_TEXT"] = "바의 배경 색상을 설정합니다."
+	L["CONFIG_DESIGN_BAR_COMPACT"] = "간략형"
+	L["CONFIG_DESIGN_BAR_COMPACT_TEXT"] = "순서대로 모든 비어있지 않은 바를 표시합니다."
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY"] = "빈 바 표시"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY_TEXT"] = "빈 바의 표시를 전환합니다."
+--	L["CONFIG_DESIGN_BAR_PADDING_INTERNAL_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_PADDING_EXTERNAL_TEXT"] = ""
+	L["CONFIG_DESIGN_BAR_BORDER_TEXT"] = "각 바 주변의 테두리 표시를 전환합니다."
+--	L["CONFIG_DESIGN_BAR_BORDER_STYLE_TEXT"] = ""
+	L["CONFIG_DESIGN_BAR_BORDER_COLOUR_TEXT"] = "바 주변의 테두리 색상을 설정합니다."
+--	L["CONFIG_DESIGN_BAR_NAME_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_HEIGHT_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_ANCHOR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_BORDER_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_BORDER_STYLE_TEXT"] = ""
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY"] = "등급에 따른 테두리 색상화"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_TEXT"] = "각 아이템의 칸 주변의 테두리를 아이템의 등급에 따른 색상을 사용할 지를 결정합니다. (일반, 희귀, 영웅, 등)"
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF"] = ""
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_BORDER_TEXTURE_OFFSET_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_PADDING_TEXT"] = "아이템 칸 사이에 추가할 간격을 설정합니다."
+	L["CONFIG_DESIGN_ITEM_HIDDEN"] = "숨겨진 아이템 표시"
+	L["CONFIG_DESIGN_ITEM_HIDDEN_TEXT"] = "숨겨진 분류 내의 아이템을 표시할 지를 결정합니다."
+	L["CONFIG_DESIGN_ITEM_FADE"] = "아이템 숨김"
+	L["CONFIG_DESIGN_ITEM_FADE_TEXT"] = "오프라인 아이템을 숨길지를 결정합니다."
+--	L["CONFIG_DESIGN_ITEM_TINT_USABLE"] = ""
+--	L["CONFIG_DESIGN_ITEM_TINT_USABLE_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_NEW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_ENABLED_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_CUTOFF_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_RESET_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_AGE"] = "새 아이템"
-	L["CONFIG_SETTINGS_ITEMS_AGE_SHOW_TEXT"] = "새 아이템 글자의 표시를 전환합니다."
-	L["CONFIG_SETTINGS_ITEMS_AGE_COLOUR_TEXT"] = "새 아이템 글자의 색상을 설정합니다."
---	L["CONFIG_SETTINGS_ITEMS_AGE_CUTOFF_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_STYLE_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY"] = "등급에 따른 테두리 색상화"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_TEXT"] = "각 아이템의 칸 주변의 테두리를 아이템의 등급에 따른 색상을 사용할 지를 결정합니다. (일반, 희귀, 영웅, 등)"
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_TEXTURE_OFFSET_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_SORTING_OPEN"] = ""
---	L["CONFIG_SETTINGS_SORTING_OPEN_TEXT"] = ""
-	L["CONFIG_SETTINGS_SORTING_INSTANT"] = "즉시"
-	L["CONFIG_SETTINGS_SORTING_INSTANT_TEXT"] = "즉시 정렬 모드를 전환합니다.\n\nenabled: sorting is done when something changes\n\ndisabled: sorting is done only when the window is opened, or you refresh.\n\nnote: if the bag changer window is open then your choice is ignored and instant sort is always enabled"
+--	L["CONFIG_DESIGN_ITEM_NEW"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_ENABLED_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_CUTOFF_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_RESET_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_EMPTY"] = "빈 칸"
-	L["CONFIG_SETTINGS_EMPTY_ICON"] = "아이콘 사용"
-	L["CONFIG_SETTINGS_EMPTY_ICON_TEXT"] = "빈 칸 배경에 고정 색상 혹은 아이콘 사용을 전환합니다."
---	L["CONFIG_SETTINGS_EMPTY_CLUMP"] = ""
---	L["CONFIG_SETTINGS_EMPTY_CLUMP_TEXT"] = ""
-	L["CONFIG_SETTINGS_EMPTY_BORDER"] = "테두리 색상화"
-	L["CONFIG_SETTINGS_EMPTY_BORDER_TEXT"] = "가방 종류에 따른 빈 칸 테두리 색상 사용을 전환합니다."
-	L["CONFIG_SETTINGS_EMPTY_COLOUR"] = "칸 색상"
---	L["CONFIG_SETTINGS_EMPTY_COLOUR_TEXT"] = ""
---	L["CONFIG_SETTINGS_EMPTY_STATUS"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST_TEXT"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_AGE"] = "새 아이템"
+	L["CONFIG_DESIGN_ITEM_AGE_SHOW_TEXT"] = "새 아이템 글자의 표시를 전환합니다."
+	L["CONFIG_DESIGN_ITEM_AGE_COLOUR_TEXT"] = "새 아이템 글자의 색상을 설정합니다."
+--	L["CONFIG_DESIGN_ITEM_AGE_CUTOFF_TEXT"] = ""
+	
+	L["CONFIG_DESIGN_ITEM_EMPTY"] = "빈 칸"
+	L["CONFIG_DESIGN_ITEM_EMPTY_ICON_TEXT"] = "빈 칸 배경에 고정 색상 혹은 아이콘 사용을 전환합니다."
+--	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER"] = "테두리 색상화"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER_TEXT"] = "가방 종류에 따른 빈 칸 테두리 색상 사용을 전환합니다."
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR"] = "칸 색상"
+--	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_STATUS"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION_TEXT"] = ""
+	
+	
+-- junk
+--	L["CONFIG_JUNK"] = ""
+--	L["CONFIG_JUNK_SELL"] = ""
+--	L["CONFIG_JUNK_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_SOLD"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_DESTROYED"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT_TEXT"] = ""
+--	L["CONFIG_JUNK_DELETE_TEXT"] = ""
+--	L["CONFIG_JUNK_NOTIFY_TEXT"] = ""
+--	L["CONFIG_JUNK_RARITY_CUTOFF_TEXT"] = ""
+--	L["CONFIG_JUNK_CATEGORY_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_DESTROY_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_ALERT"] = ""
 	
 	
 -- sorting
@@ -425,7 +501,7 @@ if not L then return end
 	L["CONFIG_SORTING_SORT"] = "정렬"
 	
 --	L["CONFIG_SORTING_METHOD"] = ""
---	L["CONFIG_SORTING_METHODS"] = ""
+--	L["CONFIG_SORTING_METHOD_PLURAL"] = ""
 --	L["CONFIG_SORTING_METHOD_TEXT"] = ""
 	L["CONFIG_SORTING_METHOD_BAGSLOT"] = "가방 / 칸 순"
 	L["CONFIG_SORTING_METHOD_BAGSLOT_TEXT"] = "인텐토리를 가방과 칸 번호순으로 정렬합니다."
@@ -458,6 +534,8 @@ if not L then return end
 --	L["CONFIG_SORTING_INCLUDE_VENDORPRICE_TEXT"] = ""
 --	L["CONFIG_SORTING_INCLUDE_ID"] = ""
 --	L["CONFIG_SORTING_INCLUDE_ID_TEXT"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE_TEXT"] = ""
 	
 --	L["CONFIG_SORTING_DIRECTION_TEXT"] = ""
 	L["CONFIG_SORTING_ORDER"] = "정렬 순서"
@@ -465,26 +543,41 @@ if not L then return end
 --	L["CONFIG_SORTING_MOVE_DOWN_TEXT"] = ""
 --	L["CONFIG_SORTING_NOT_INCLUDED"] = ""
 	
---	L["CONFIG_SORTING_ADD"] = ""
---	L["CONFIG_SORTING_ADD_TEXT"] = ""
---	L["CONFIG_SORTING_RENAME_TEXT"] = ""
---	L["CONFIG_SORTING_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_LIMIT_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_UPGRADE_TEXT"] = ""
+--	L["CONFIG_LIST_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_RESTORE_TEXT"] = ""
+--	L["CONFIG_LIST_RENAME_TEXT"] = ""
+--	L["CONFIG_LIST_COPY_TEXT"] = ""
+--	L["CONFIG_LIST_PURGE_TEXT"] = ""
+--	L["CONFIG_LIST_IMPORT_TEXT"] = ""
+--	L["CONFIG_LIST_EXPORT_TEXT"] = ""
 	
 	
---	rules
-	L["CONFIG_RULES"] = "규칙"
-	L["CONFIG_RULES_SHOWDISABLED"] = "비활성화된 규칙 표시"
-	L["CONFIG_RULES_SHOWDISABLED_TEXT"] = "비활성화된 규칙의 표시를 전환합니다."
 	
+--	L["CONFIG_CATEGORY"] = ""
+--	L["CONFIG_CATEGORY_PLURAL"] = ""
 	
---	configuration options > categories
+	L["CATEGORY_RULE"] = "규칙"
+	L["CONFIG_RULE_PLURAL"] = "규칙"
+	
+	L["CONFIG_RULE_SHOWDISABLED"] = "비활성화된 규칙 표시"
+	L["CONFIG_RULE_SHOWDISABLED_TEXT"] = "비활성화된 규칙의 표시를 전환합니다."
+	
 --	L["CONFIG_CATEGORY_CUSTOM"] = ""
---	L["CONFIG_CATEGORY_DELETED"] = ""
+--	L["CONFIG_CATEGORY_CUSTOM_PLURAL"] = ""
 	
---	L["CONFIG_CATEGORY_ADD"] = ""
---	L["CONFIG_CATEGORY_ADD_TEXT"] = ""
---	L["CONFIG_CATEGORY_RENAME_TEXT"] = ""
---	L["CONFIG_CATEGORY_DELETE_TEXT"] = ""
+--	L["CONFIG_CATEGORY_SET"] = ""
+--	L["CONFIG_CATEGORY_SET_PLURAL"] = ""
+--	L["CONFIG_CATEGORY_SET_DESCRIPTION"] = ""
+	
+--	L["CONFIG_PROFILE"] = ""
+--	L["CONFIG_PROFILE_PLURAL"] = ""
+--	L["CONFIG_PROFILE_CURRENT"] = ""
+	
+	
+--	L["CONFIG_OBJECT_DELETED"] = ""
 	
 	
 --	configuration options > debug
@@ -493,10 +586,10 @@ if not L then return end
 	
 	
 --	configuration options > generic
---	L["BORDER_SCALE_TEXT"] = ""
---	L["BORDER_TEXTURE_TEXT"] = ""
---	L["BORDER_TEXTURE_FILE_TEXT"] = ""
---	L["BORDER_TEXTURE_HEIGHT_TEXT"] = ""
+--	L["CONFIG_BORDER_SCALE_TEXT"] = ""
+--	L["CONFIG_BORDER_TEXTURE_TEXT"] = ""
+--	L["CONFIG_BORDER_TEXTURE_FILE_TEXT"] = ""
+--	L["CONFIG_BORDER_TEXTURE_HEIGHT_TEXT"] = ""
 	
 	
 --	rules frame
@@ -508,6 +601,7 @@ if not L then return end
 --	L["RULE_LIST_ID"] = ""
 	
 --	L["RULE_DAMAGED"] = ""
+--	L["RULE_DAMAGED_TEXT"] = ""
 --	L["RULE_FAILED"] = ""
 --	L["RULE_FAILED_KEY_NIL"] = ""
 --	L["RULE_FAILED_DATA_NIL"] = ""
@@ -523,6 +617,7 @@ if not L then return end
 --	new item indicators
 --	L["NEW_ITEM_INCREASE"] = ""
 --	L["NEW_ITEM_DECREASE"] = ""
+--	L["NEW_ITEM_GLOW"] = ""
 	
 	
 --	slash commands
@@ -549,6 +644,8 @@ if not L then return end
 --	L["SLASH_MISC_TEXT"] = ""
 --	L["SLASH_TRACK"] = ""
 --	L["SLASH_TRACK_TEXT"] = ""
+--	L["SLASH_TRACK_ADD_TEXT"] = ""
+--	L["SLASH_TRACK_REMOVE_TEXT"] = ""
 	
 	
 --	misc chat stuff
@@ -591,7 +688,6 @@ if not L then return end
 --	L["ANCHOR_TEXT1"] = ""
 --	L["ANCHOR_TEXT2"] = ""
 --	L["BORDER_TEXT"] = ""
---	L["SHOW"] = ""
 --	L["FILE"] = ""
 --	L["HEIGHT"] = ""
 --	L["SCALE"] = ""
@@ -599,15 +695,11 @@ if not L then return end
 --	L["FONT"] = ""
 	L["BACKGROUND_COLOUR"] = "배경 색상"
 --	L["STYLE"] = ""
---	L["ENABLED"] = ""
 --	L["ALERT"] = ""
 	L["PADDING"] = "간격"
 --	L["INTERNAL"] = ""
 --	L["EXTERNAL"] = ""
 	L["WIDTH"] = "너비"
---	L["REALM"] = ""
-	L["VIEW"] = "보기"
-	L["EDIT"] = "편집"
 	L["DIRECTION"] = "방향"
 --	L["ASCENDING"] = ""
 --	L["DECENDING"] = ""
@@ -622,8 +714,6 @@ if not L then return end
 --	L["SORT_METHOD"] = ""
 --	L["SORT_BY_NAME"] = ""
 --	L["SORT_BY_NUMBER"] = ""
-	L["HIDE"] = "숨김"
---	L["MOVE"] = ""
 	L["INSERT"] = "빈 바 삽입"
 	L["CURRENT"] = "현재 지정"
 --	L["OFFSET"] = ""
@@ -640,6 +730,21 @@ if not L then return end
 --	L["TOOLTIP_PURCHASE_BANK_BAG_SLOT"] = ""
 --	L["TOOLTIP_PURCHASE_BANK_TAB_REAGENT"] = ""
 --	L["LABEL"] = ""
+--	L["ABORTED"] = ""
+--	L["RESTORE"] = ""
+--	L["PURGE"] = ""
+--	L["COPY_FROM"] = ""
+--	L["DELETED"] = ""
+--	L["IMPORT"] = ""
+--	L["EXPORT"] = ""
+--	L["NOTIFY"] = ""
+--	L["ACTION"] = ""
+--	L["FIRST"] = ""
+--	L["LAST"] = ""
+--	L["NONE_USABLE"] = ""
+--	L["NONE_OWNED"] = ""
+--	L["TEST"] = ""
+--	L["LIST"] = ""
 	
 	
 -- libdatabroker
@@ -664,8 +769,9 @@ if not L then return end
 --	L["LDB_MOUNTS_FLYING_DISMOUNT_WARNING"] = ""
 --	L["LDB_MOUNTS_SUMMON"] = ""
 --	L["LDB_MOUNTS_NODATA"] = ""
---	L["LDB_MOUNTS_TOOLTIP_MODE"] = ""
 --	L["LDB_MOUNTS_TOOLTIP_SELECTION"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM_TEXT"] = ""
 --	L["LDB_COMPANION_MISSING"] = ""
 --	L["LDB_COMPANION_NONE"] = ""
 --	L["LDB_COMPANION_RESTRICTED"] = ""

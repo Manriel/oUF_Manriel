@@ -1,10 +1,6 @@
-﻿## Interface: 60100
-## X-Curse-Packaged-Version: 3.05.00
-## X-Curse-Project-Name: ArkInventory
-## X-Curse-Project-ID: ark-inventory
-## X-Curse-Repository-ID: wow/ark-inventory/mainline
+## Interface: 70200
 
-## Title: ArkInventory [Rules] Example
+## Title: Ark Inventory [Rules] Example
 ## Notes: Example rule for ArkInventory
 ## Author: Arkayenro
 ## Version: 10000

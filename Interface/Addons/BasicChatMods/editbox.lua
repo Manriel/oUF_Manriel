@@ -13,8 +13,8 @@ BCM.modules[#BCM.modules+1] = function()
 		local cf, eb = _G[n], _G[eb_text]
 		if not bcmDB.editBoxOnBottom then
 			eb:ClearAllPoints()
-			eb:SetPoint("BOTTOMLEFT", cf, "TOPLEFT", -5, 4)
-			eb:SetPoint("BOTTOMRIGHT", cf, "TOPRIGHT", 5, 4)
+			eb:SetPoint("BOTTOMLEFT", cf, "TOPLEFT", -5, -2.0000002384186)
+			eb:SetPoint("BOTTOMRIGHT", cf, "TOPRIGHT", 5, -2.0000002384186)
 		end
 		eb:Hide() --call this incase we're just changing to classic mode for the first time
 

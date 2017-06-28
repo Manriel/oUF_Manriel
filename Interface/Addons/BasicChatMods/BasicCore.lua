@@ -1,10 +1,10 @@
 
 --[[     BCM Core     ]]--
 
-local _, BCM = ...
+local addonName, BCM = ...
 BCM.chatFrames = 10
-BCM.modules, BCM.chatFuncs, BCM.chatFuncsPerFrame, BCM.Events = {}, {}, {}, CreateFrame("Frame")
-BCM.Events:SetScript("OnEvent", function(frame, event) if frame[event] then frame[event](frame) end end)
+BCM.earlyModules, BCM.modules, BCM.chatFuncs, BCM.chatFuncsPerFrame, BCM.Events = {}, {}, {}, {}, CreateFrame("Frame")
+BCM.Events:SetScript("OnEvent", function(frame, event, ...) if frame[event] then frame[event](frame, ...) end end)
 
 --[[ Common Functions ]]--
 function BCM:GetColor(className, isLocal)
@@ -31,7 +31,7 @@ end
 
 do
 	--[[ Start popup creation ]]--
-	local frame = CreateFrame("Frame", 'BCM_URLCopyFrame', UIParent)
+	local frame = CreateFrame("Frame", nil, UIParent)
 	frame:SetBackdrop({bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
 		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
 		tile = true, tileSize = 16, edgeSize = 16,
@@ -40,69 +40,73 @@ do
 	frame:SetSize(650, 40)
 	frame:SetPoint("CENTER", UIParent, "CENTER")
 	frame:SetFrameStrata("DIALOG")
+	frame:SetClipsChildren(true)
 	frame:Hide()
 
 	local editBox = CreateFrame("EditBox", nil, frame)
 	editBox:SetFontObject(ChatFontNormal)
-	editBox:SetSize(610, 40)
+	editBox:SetSize(600, 40)
 	editBox:SetPoint("LEFT", frame, "LEFT", 10, 0)
 	local hide = function(f) f:GetParent():Hide() end
 	editBox:SetScript("OnEscapePressed", hide)
-	frame.editBox = editBox
+
+	local font = frame:CreateFontString(nil, nil, "GameFontNormal")
+	font:Hide()
 
 	local close = CreateFrame("Button", nil, frame)
-	close:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-	close:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-	close:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight", "ADD")
+	close:SetNormalTexture(130832) --"Interface\\Buttons\\UI-Panel-MinimizeButton-Up"
+	close:SetPushedTexture(130830) --"Interface\\Buttons\\UI-Panel-MinimizeButton-Down"
+	close:SetHighlightTexture(130831) --"Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight"
 	close:SetSize(32, 32)
 	close:SetPoint("RIGHT", frame, "RIGHT", -5, 0)
 	close:SetScript("OnClick", hide)
-	frame.closeBtn = close
 	--[[ End popup creation ]]--
 
 	-- Avoiding StaticPopup taints by making our own popup, rather that adding to the StaticPopup list
 	function BCM:Popup(text)
-		editBox:SetText(text)
+		font:SetText(text) -- We do this to fix special pipe methods e.g. 5 |4hour:hours; Example: copying /played text
+		editBox:SetText(font:GetText())
 		editBox:HighlightText(0)
 		editBox:GetParent():Show()
 	end
 end
 
 local oldAddMsg = {}
+local tostring = tostring
 local AddMessage = function(frame, text, ...)
 	-- We only hook add message once and run all our module functions in that hook,
 	-- rather than hooking it for every module that needs it
 	if text and text ~= "" then
+		text = tostring(text)
 		for i=1, #BCM.chatFuncs do
-			text = BCM.chatFuncs[i](text)
+			text = BCM.chatFuncs[i](text, frame)
 		end
 	end
 	return oldAddMsg[frame:GetName()](frame, text, ...)
 end
 
+BCM.Events.ADDON_LOADED = function(frame, addon)
+	if addon == addonName then
+		--[[ Check Database ]]--
+		if type(bcmDB) ~= "table" then
+			bcmDB = {}
+		end
+
+		--[[ Run Modules ]]--
+		for i=1, #BCM.earlyModules do
+			BCM.earlyModules[i]()
+			BCM.earlyModules[i] = nil
+		end
+
+		--[[ Self-Cleanup ]]--
+		BCM.earlyModules = nil
+		frame.ADDON_LOADED = nil
+		BCM.Events:UnregisterEvent("ADDON_LOADED")
+	end
+end
+BCM.Events:RegisterEvent("ADDON_LOADED")
+
 BCM.Events.PLAYER_LOGIN = function(frame)
-	--[[ Check Database ]]--
-	if type(bcmDB) ~= "table" then bcmDB = {} end
-	if bcmDB.v then
-		bcmDB.BCM_AutoLog = nil
-		bcmDB.BCM_PlayerNames = nil
-		bcmDB.v = nil
-	end
-
-	--[[ Filter oQueue nonsense ]]--
-	local filter = function(_, _, msg)
-		if msg:find("^OQ[,S]") then -- "OQ," -- "OQSK"
-			return true
-		end
-	end
-	ChatFrame_AddMessageEventFilter("CHAT_MSG_BN_WHISPER_INFORM", filter)
-	ChatFrame_AddMessageEventFilter("CHAT_MSG_BN_WHISPER", filter)
-	ChatFrame_AddMessageEventFilter("CHAT_MSG_CHANNEL", function(_,_,msg, _, _, _, _, _, _, _, chanName)
-		if chanName == "oqchannel" then
-			return true
-		end
-	end)
-
 	--[[ Run Modules ]]--
 	for i=1, #BCM.modules do
 		BCM.modules[i]()
@@ -161,6 +165,7 @@ BCM.Events.PLAYER_LOGIN = function(frame)
 	--[[ Self-Cleanup ]]--
 	BCM.modules = nil
 	frame.PLAYER_LOGIN = nil
+	BCM.Events:UnregisterEvent("PLAYER_LOGIN")
 end
 BCM.Events:RegisterEvent("PLAYER_LOGIN")
 

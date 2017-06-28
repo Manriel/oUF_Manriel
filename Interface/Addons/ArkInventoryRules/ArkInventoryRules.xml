@@ -1,4 +1,4 @@
-﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
 
 
 <!-- FONTS -->
@@ -33,9 +33,9 @@
 	
 	<Button virtual="true" name="ARKINV_TemplateButtonTableSort">
 		
-		<NormalFont inherits="ARKINV_GameFontNormalSmall" />
-		<HighlightFont inherits="ARKINV_GameFontNormalSmall" />
-		<DisabledFont inherits="ARKINV_GameFontNormalSmall" />
+		<NormalFont inherits="ARKINV_GameFontNormal" />
+		<HighlightFont inherits="ARKINV_GameFontNormal" />
+		<DisabledFont inherits="ARKINV_GameFontNormal" />
 		
 		<NormalTexture inherits="ARKINV_TextureTransparent" />
 		<PushedTexture inherits="ARKINV_TextureTransparent" />
@@ -46,7 +46,7 @@
 
 			<OnClick>
 				<!-- PlaySound( "igMainMenuOptionCheckBoxOn" ) -->
-				local k = strmatch( self:GetName( ), "^.+_(.-)$" )
+				--local k = strmatch( self:GetName( ), "^.+_(.-)$" )
 			</OnClick>
 			
 		</Scripts>
@@ -199,15 +199,9 @@
 							</Anchors>
 						</FontString>
 
-						<FontString name="$parentEnabledLabel" inherits="ARKINV_DataEntryLabelFont" text="enabled:" justifyH="RIGHT">
-							<Anchors>
-								<Anchor point="TOPRIGHT" relativeTo="$parentIdLabel" relativePoint="BOTTOMRIGHT" x="0" y="-20" />
-							</Anchors>
-						</FontString>
-
 						<FontString name="$parentOrderLabel" inherits="ARKINV_DataEntryLabelFont" text="order:" justifyH="RIGHT">
 							<Anchors>
-								<Anchor point="TOPRIGHT" relativeTo="$parentEnabledLabel" relativePoint="BOTTOMRIGHT" x="0" y="-20" />
+								<Anchor point="TOPRIGHT" relativeTo="$parentIdLabel" relativePoint="BOTTOMRIGHT" x="0" y="-20" />
 							</Anchors>
 						</FontString>
 
@@ -251,18 +245,6 @@
 
 				<Frames>
 
-					<CheckButton name="$parentEnabled" inherits="OptionsCheckButtonTemplate" checked="true">
-						<Anchors>
-							<Anchor point="LEFT" relativeTo="$parentEnabledLabel" relativePoint="RIGHT" x="10" y="0" />
-						</Anchors>
-					</CheckButton>
-				
-					<CheckButton name="$parentEnabledReadOnly" inherits="OptionsCheckButtonTemplate" disabled="true" hidden="true">
-						<Anchors>
-							<Anchor point="LEFT" relativeTo="$parentEnabledLabel" relativePoint="RIGHT" x="10" y="0" />
-						</Anchors>
-					</CheckButton>
-				
 					<EditBox name="$parentOrder" inherits="ARKINV_TemplateEditBoxNoLabel" letters="4" type="numeric">
 
 						<Size x="60" y="40" />
@@ -408,7 +390,6 @@
 				<!-- objects in this layer are rearranged via LUA for each table -->
 				
 				<Texture name="$parentT1" inherits="ARKINV_TextureUnknown" hidden="true" />
-				<Texture name="$parentT2" inherits="ARKINV_TextureUnknown" hidden="true" />
 				
 				<FontString name="$parentC1" inherits="ARKINV_TableRowFont" hidden="true" />
 				<FontString name="$parentC2" inherits="ARKINV_TableRowFont" hidden="true" />
@@ -731,14 +712,13 @@
 				<Frames>
 					<!-- these buttons are rearranged via LUA for each individual table -->
 					<Button name="$parent_T1" inherits="ARKINV_TemplateButtonTableSort" hidden="true" />
-					<Button name="$parent_T2" inherits="ARKINV_TemplateButtonTableSort" hidden="true" />
 					<Button name="$parent_C1" inherits="ARKINV_TemplateButtonTableSort" hidden="true" />
 					<Button name="$parent_C2" inherits="ARKINV_TemplateButtonTableSort" hidden="true" />
 					<Button name="$parent_C3" inherits="ARKINV_TemplateButtonTableSort" hidden="true" />
 				</Frames>
 				
 				<Scripts>
-				
+					
 					<OnLoad>
 						ArkInventoryRules.Frame_Rules_Table_Sort_Build( self )
 					</OnLoad>
@@ -944,7 +924,7 @@
 		<Scripts>
 
 			<OnLoad>
-				self.name = ArkInventory.Localise["CONFIG_RULES"]
+				self.name = ArkInventory.Localise["CONFIG_RULE_PLURAL"]
 				self.parent = ArkInventory.Const.Program.Name
 				
 				self:RegisterForDrag( "LeftButton" )
@@ -973,7 +953,7 @@
 	</Frame>
 	
 <!-- END OF MAIN FRAME -->
-
+	
 	<GameTooltip name="ARKINV_RuleTooltip" inherits="ArkScanTooltipTemplate" />
 	
 </Ui>

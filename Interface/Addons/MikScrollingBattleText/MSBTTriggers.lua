@@ -553,7 +553,7 @@ local function DisplayTrigger(triggerSettings, sourceName, sourceClass, recipien
   local formattedAmount = amount
   if (currentProfile.shortenNumbers) then
    formattedAmount = ShortenNumber(formattedAmount, currentProfile.shortenNumberPrecision)
-  elseif (currentProfile.separateNumbers) then
+  elseif (currentProfile.groupNumbers) then
    formattedAmount = SeparateNumber(formattedAmount)
   end
   message = string_gsub(message, "%%a", formattedAmount)
@@ -876,12 +876,16 @@ powerTypes["ECLIPSE"] = SPELL_POWER_ECLIPSE
 powerTypes["HOLY_POWER"] = SPELL_POWER_HOLY_POWER
 powerTypes["ALTERNATE_POWER"] = SPELL_POWER_ALTERNATE_POWER
 powerTypes["CHI"] = SPELL_POWER_CHI
-powerTypes["SHADOW_ORBS"] = SPELL_POWER_SHADOW_ORBS
 powerTypes["BURNING_EMBERS"] = SPELL_POWER_BURNING_EMBERS
 powerTypes["DEMONIC_FURY"] = SPELL_POWER_DEMONIC_FURY
-
-
-
+powerTypes["PAIN"] = SPELL_POWER_PAIN
+powerTypes["FURY"] = SPELL_POWER_FURY
+powerTypes["COMBO_POINTS"] = SPELL_POWER_COMBO_POINTS
+powerTypes["LUNAR_POWER"] = SPELL_POWER_LUNAR_POWER
+powerTypes["MAELSTROM"] = SPELL_POWER_MAELSTROM
+powerTypes["INSANITY"] = SPELL_POWER_INSANITY
+powerTypes["OBSOLETE"] = SPELL_POWER_OBSOLETE
+powerTypes["ARCANE_CHARGES"] = SPELL_POWER_ARCANE_CHARGES
 
 -------------------------------------------------------------------------------
 -- Module interface.

@@ -1,4 +1,4 @@
-﻿local _G = _G
+local _G = _G
 local select = _G.select
 local pairs = _G.pairs
 local ipairs = _G.ipairs
@@ -8,11 +8,16 @@ local error = _G.error
 local table = _G.table
 local CreateFrame = _G.CreateFrame
 
+function ArkInventory.TooltipCleanText( txt )
+	return ( string.gsub( ArkInventory.StripColourCodes( txt ), "\194\160", " " ) )
+end
 
 function ArkInventory.TooltipInit( name )
 	
 	local tooltip = _G[name]
 	assert( tooltip, string.format( "XML Frame [%s] not found", name ) )
+	
+	tooltip.ARK_Data = { scan = true }
 	
 	return tooltip
 	
@@ -26,12 +31,26 @@ end
 
 function ArkInventory.TooltipSetHyperlink( tooltip, h )
 	
+	if not tooltip.ARK_Data then
+		tooltip.ARK_Data = { }
+	end
+	
+	if tooltip.ARK_Data.scan and tooltip.ARK_Data.h == h then
+		-- its the scan tooltip and the hyperlink is the same as last time
+		return
+	end
+	
 	tooltip:ClearLines( )
+	tooltip.ARK_Data.h = h
 	
-	local class = ArkInventory.ObjectStringDecode( h )
-	
-	if h and ( class == "item" or class == "spell" ) then
-		return tooltip:SetHyperlink( h )
+	if h then
+		
+		local osd = ArkInventory.ObjectStringDecode( h )
+		
+		if osd.class == "item" or osd.class == "spell" or osd.class == "keystone" then
+			return tooltip:SetHyperlink( h )
+		end
+		
 	end
 	
 end
@@ -155,35 +174,36 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 	-- creates a basic text tooltip, then hooks via the hyperlink for the item counts
 	-- mouseover pet items, and clicking pet links
 	
-	-- mouseover tooltip for pets is done below at TooltipHookSetUnit
+	-- mouseover tooltip for pets is done at TooltipHookSetUnit
 	
-	local class, speciesID, level, rarity, fullHealth, power, speed = ArkInventory.ObjectStringDecode( h )
+	local osd = ArkInventory.ObjectStringDecode( h )
 	
-	if class ~= "battlepet" then return end
+	if osd.class ~= "battlepet" then return end
 	
-	--ArkInventory.Output( "[", class, " : ", speciesID, " : ", level, " : ", rarity, " : ", fullHealth, " : ", power, " : ", speed, "]" )
+	--ArkInventory.Output( "[", osd.class, " : ", osd.id, " : ", osd.level, " : ", osd.q, " : ", osd.maxhealth, " : ", osd.power, " : ", osd.speed, "]" )
 	
-	if not ArkInventory.db.global.option.tooltip.battlepet.enable then
-		BattlePetToolTip_Show( species, level, rarity, fullHealth, power, speed )
+	if not ArkInventory.db.option.tooltip.battlepet.enable then
+		BattlePetToolTip_Show( osd.id, osd.level, osd.q, osd.maxhealth, osd.power, osd.speed )
 		return
 	end
 	
-	local sd = ArkInventory.PetJournal.GetSpeciesInfo( speciesID )
+	local sd = ArkInventory.PetJournal.GetSpeciesInfo( osd.id )
 	if not sd then
-		ArkInventory.Output( "no species data found for ", speciesID, " / ", name )
+		--ArkInventory.OutputWarning( "no species data found for ", osd.id )
 		return
 	end
 	
 	local name = sd.name
 	local pd
+	local rarity = osd.q
 	
 	if i and i.index then
 		pd = ArkInventory.PetJournal.GetPet( i.index )
 		if pd then
-			if ( rarity == -1 ) then
+			if rarity == -1 then
 				rarity = pd.rarity
 			end
-			name = pd.fullName
+			name = pd.fullname
 		end
 	end
 	
@@ -195,8 +215,8 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 	
 	tooltip:AddLine( string.format( "|T%s:32:32:-4:4:128:256:64:100:130:166|t %s", GetPetTypeTexture( sd.petType ), name ) )
 	
-	if ArkInventory.db.global.option.tooltip.battlepet.source then
-		if ( sd.sourceText and sd.sourceText ~= "" ) then
+	if ArkInventory.db.option.tooltip.battlepet.source then
+		if sd.sourceText and sd.sourceText ~= "" then
 			tooltip:AddLine( sd.sourceText, 1, 1, 1, true )
 		end
 	end
@@ -209,7 +229,7 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 		tooltip:AddLine( ITEM_UNIQUE, NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b, true )
 	end
 	
-	if ArkInventory.db.global.option.tooltip.battlepet.description and ( sd.description and sd.description ~= "" ) then
+	if ArkInventory.db.option.tooltip.battlepet.description and ( sd.description and sd.description ~= "" ) then
 		tooltip:AddLine( " " )
 		tooltip:AddLine( sd.description, nil, nil, nil, true )
 	end
@@ -220,7 +240,7 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 		
 		
 		txt1 = LEVEL
-		txt2 = string.format( "%s %s", level, "|TInterface\\PetBattles\\BattleBar-AbilityBadge-Strong-Small:0|t" )
+		txt2 = string.format( "%s %s", osd.level, "|TInterface\\PetBattles\\BattleBar-AbilityBadge-Strong-Small:0|t" )
 		if pd and pd.xp and pd.maxXp and pd.xp > 0 then
 			
 			local pc = pd.xp / pd.maxXp * 100
@@ -242,13 +262,13 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 		if pd and pd.health and ( pd.health <= 0 ) then
 			
 			txt1 = string.format( "%s (%s)", txt1, DEAD )
-			txt2 = string.format( "%s %s", fullHealth, iconPetDead )
+			txt2 = string.format( "%s %s", osd.maxhealth, iconPetDead )
 			
 		else
 			
-			if pd and ( pd.health ~= fullHealth ) then
+			if pd and ( pd.health ~= osd.maxhealth ) then
 				
-				local pc = pd.health / fullHealth * 100
+				local pc = pd.health / osd.maxhealth * 100
 				if pc < 1 then
 					pc = 1
 				elseif pc > 99 then
@@ -259,17 +279,17 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 				
 			end
 			
-			txt2 = string.format( "%s %s", fullHealth, iconPetAlive )
+			txt2 = string.format( "%s %s", osd.maxhealth, iconPetAlive )
 			
 		end
 		tooltip:AddDoubleLine( txt1, txt2 )
 		
 		
 		-- |TTexturePath:size1:size2:offset-x:offset-y:original-size-x:original-size-y:crop-x1:crop-x2:crop-y1:crop-y2|t
-		tooltip:AddDoubleLine( PET_BATTLE_STAT_POWER, string.format( "%s %s", power, "|TInterface\\PetBattles\\PetBattle-StatIcons:0:0:0:0:32:32:0:16:0:16|t" ) )
+		tooltip:AddDoubleLine( PET_BATTLE_STAT_POWER, string.format( "%s %s", osd.power, "|TInterface\\PetBattles\\PetBattle-StatIcons:0:0:0:0:32:32:0:16:0:16|t" ) )
 		
 		
-		tooltip:AddDoubleLine( PET_BATTLE_STAT_SPEED, string.format( "%s %s", speed, "|TInterface\\PetBattles\\PetBattle-StatIcons:0:0:0:0:32:32:0:16:16:32|t" ) )
+		tooltip:AddDoubleLine( PET_BATTLE_STAT_SPEED, string.format( "%s %s", osd.speed, "|TInterface\\PetBattles\\PetBattle-StatIcons:0:0:0:0:32:32:0:16:16:32|t" ) )
 		
 		
 		if ( not sd.isWild ) and ( rarity ~= -1 ) then
@@ -288,46 +308,46 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 	
 	tooltip:Show( )
 	
-	ArkInventory.TooltipAddBattlepetDetail( tooltip, speciesID, i, h )
+	ArkInventory.TooltipAddBattlepetDetail( tooltip, osd.id, i, h )
 	
 end
 
 function ArkInventory.TooltipHookSetUnit( ... )
 	
-	if ( ArkInventory:IsEnabled( ) ) and ( ArkInventory.db.global.option.tooltip.battlepet.mouseover.enable ) then
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.battlepet.mouseover.enable then return end
+	
+	local tooltip = ...
+	
+	local _, unit = tooltip:GetUnit( )
+	
+	if unit and ( UnitIsWildBattlePet( unit ) or UnitIsOtherPlayersBattlePet( unit ) or UnitIsBattlePetCompanion( unit ) ) then
 		
-		local tooltip = ...
+		local speciesID = UnitBattlePetSpeciesID( unit )
 		
-		local _, unit = tooltip:GetUnit( )
-		
-		if ( unit ) and ( UnitIsWildBattlePet( unit ) or UnitIsOtherPlayersBattlePet( unit ) or UnitIsBattlePetCompanion( unit ) ) then
+		if speciesID then
 			
-			local speciesID = UnitBattlePetSpeciesID( unit )
+			tooltip:Show( ) -- its a static tooltip, need to show it first to be able to add to it
 			
-			if speciesID then
+			sd = ArkInventory.PetJournal.GetSpeciesInfo( speciesID )
+			
+			if sd then
 				
-				tooltip:Show( ) -- its a static tooltip, need to show it first to be able to add to it
-				
-				sd = ArkInventory.PetJournal.GetSpeciesInfo( speciesID )
-				
-				if sd then
-					
-					if ArkInventory.db.global.option.tooltip.battlepet.mouseover.source and sd.sourceText and ( sd.sourceText ~= "" ) then
-						tooltip:AddLine( " " )
-						tooltip:AddLine( sd.sourceText, nil, nil, nil, true )
-					end
-					
-					if ArkInventory.db.global.option.tooltip.battlepet.mouseover.description and sd.description and ( sd.description ~= "" ) then
-						tooltip:AddLine( " " )
-						tooltip:AddLine( sd.description, nil, nil, nil, true )
-					end
-					
+				if ArkInventory.db.option.tooltip.battlepet.mouseover.source and sd.sourceText and ( sd.sourceText ~= "" ) then
+					tooltip:AddLine( " " )
+					tooltip:AddLine( sd.sourceText, nil, nil, nil, true )
 				end
 				
-				if ArkInventory.db.global.option.tooltip.add.count then
-					ArkInventory.TooltipAddBattlepetDetail( tooltip, speciesID )
+				if ArkInventory.db.option.tooltip.battlepet.mouseover.description and sd.description and ( sd.description ~= "" ) then
+					tooltip:AddLine( " " )
+					tooltip:AddLine( sd.description, nil, nil, nil, true )
 				end
 				
+			end
+			
+			if ArkInventory.db.option.tooltip.add.count then
+				ArkInventory.TooltipAddBattlepetDetail( tooltip, speciesID )
 			end
 			
 		end
@@ -335,9 +355,7 @@ function ArkInventory.TooltipHookSetUnit( ... )
 	end
 	
 end
-
-
-
+	
 function ArkInventory.TooltipGetMoneyFrame( tooltip )
 	
 	return _G[string.format( "%s%s", tooltip:GetName( ), "MoneyFrame1" )]
@@ -350,61 +368,100 @@ function ArkInventory.TooltipGetItem( tooltip )
 	return itemName, ItemLink
 	
 end
+
+function ArkInventory.TooltipFind( tooltip, TextToFind, IgnoreLeft, IgnoreRight, CaseSensitive, maxDepth, BaseOnly, debug )
 	
-function ArkInventory.TooltipFind( tooltip, TextToFind, IgnoreLeft, IgnoreRight, CaseSensitive, maxDepth )
-	
+	local TextToFind = TextToFind
 	if not TextToFind or string.trim( TextToFind ) == "" then
 		return false
 	end
 	
 	local IgnoreLeft = IgnoreLeft or false
 	local IgnoreRight = IgnoreRight or false
+	
 	local CaseSensitive = CaseSensitive or false
+	
+	local maxDepth = maxDepth or 0
+	local BaseOnly = BaseOnly or false
 	
 	local obj, txt
 	
 	for i = 2, ArkInventory.TooltipNumLines( tooltip ) do
 		
-		if maxDepth and ( i > maxDepth ) then return end
+		if maxDepth > 0 and i > maxDepth then return end
 		
-		if not IgnoreLeft then
-			obj = _G[string.format( "%s%s%s", tooltip:GetName( ), "TextLeft", i )]
-			if obj and obj:IsShown( ) then
-				txt = obj:GetText( )
-				if txt then
+		obj = _G[string.format( "%s%s%s", tooltip:GetName( ), "TextLeft", i )]
+		if obj and obj:IsShown( ) then
+			
+			txt = ArkInventory.TooltipCleanText( obj:GetText( ) )
+			if txt then
+				
+				if debug then
+					--ArkInventory.Output( "L[", i, "] = [", string.len( txt ), "] [", txt, "] [", string.sub( txt, 1, string.len( txt ) ), "]" )
+				end
+				
+				if BaseOnly and ( string.match( txt, "^%s+$" ) or string.match( txt, "^\n" ) ) then
+					-- recipies and patterns have a blank line between the item and what it creates
+					-- techniques have a newline character to break them up
+					return false
+				end
+				
+				if not IgnoreLeft then
 					
-					--ArkInventory.Output( "L[", i, "] = [", txt, "]" )
-					
-					if not CaseSensitive then
-						txt = string.lower( txt )
-						TextToFind = string.lower( TextToFind )
+					if debug then
+						ArkInventory.Output( "L[", i, "] = [", TextToFind, "] [", txt, "]" )
 					end
+					
 					if string.find( txt, TextToFind ) then
+						if debug then
+							ArkInventory.Output( "found" )
+						end
 						return string.find( txt, TextToFind )
 					end
 					
+					if not CaseSensitive then
+						if string.find( string.lower( txt ), string.lower( TextToFind ) ) then
+							if debug then
+								ArkInventory.Output( "found" )
+							end
+							return string.find( string.lower( txt ), string.lower( TextToFind ) )
+						end
+					end
+					
+					if debug then
+						ArkInventory.Output( "not found" )
+					end
+
 				end
+				
 			end
+			
 		end
 		
 		if not IgnoreRight then
+			
 			obj = _G[string.format( "%s%s%s", tooltip:GetName( ), "TextRight", i )]
 			if obj and obj:IsShown( ) then
-				txt = obj:GetText( )
-				if txt then
 				
+				txt = ArkInventory.TooltipCleanText( obj:GetText( ) )
+				if txt then
+					
 					--ArkInventory.Output( "R[", i, "] = [", txt, "]" )
 					
-					if not CaseSensitive then
-						txt = string.lower( txt )
-						TextToFind = string.lower( TextToFind )
-					end
 					if string.find( txt, TextToFind ) then
 						return string.find( txt, TextToFind )
 					end
 					
+					if not CaseSensitive then
+						if string.find( string.lower( txt ), string.lower( TextToFind ) ) then
+							return string.find( string.lower( txt ), string.lower( TextToFind ) )
+						end
+					end
+					
 				end
+				
 			end
+			
 		end
 		
 	end
@@ -423,29 +480,29 @@ function ArkInventory.TooltipGetLine( tooltip, i )
 	
 	obj = _G[string.format( "%s%s%s", tooltip:GetName( ), "TextLeft", i )]
 	if obj and obj:IsShown( ) then
-		txt1 = obj:GetText( )
+		txt1 = ArkInventory.TooltipCleanText( obj:GetText( ) )
 	end
 	
 	obj = _G[string.format( "%s%s%s", tooltip:GetName( ), "TextRight", i )]
 	if obj and obj:IsShown( ) then
-		txt2 = obj:GetText( )
+		txt2 = ArkInventory.TooltipCleanText( obj:GetText( ) )
 	end
-
+	
 	return txt1 or "", txt2 or ""
 	
 end
 	
-function ArkInventory.TooltipContains( tooltip, TextToFind, IgnoreLeft, IgnoreRight, CaseSensitive )
-
-	if ArkInventory.TooltipFind( tooltip, TextToFind, IgnoreLeft, IgnoreRight, CaseSensitive ) then
+function ArkInventory.TooltipContains( tooltip, TextToFind, IgnoreLeft, IgnoreRight, CaseSensitive, BaseOnly )
+	
+	if ArkInventory.TooltipFind( tooltip, TextToFind, IgnoreLeft, IgnoreRight, CaseSensitive, 0, BaseOnly ) then
 		return true
 	else
 		return false
 	end
-
+	
 end
 
-function ArkInventory.TooltipCanUse( tooltip )
+function ArkInventory.TooltipCanUse( tooltip, ignoreknown )
 
 	local l = { "TextLeft", "TextRight" }
 	
@@ -460,21 +517,32 @@ function ArkInventory.TooltipCanUse( tooltip )
 			local obj = _G[string.format( "%s%s%s", tooltip:GetName( ), v, i )]
 			if obj and obj:IsShown( ) then
 				
-				local txt = obj:GetText( )
+				local txt = ArkInventory.TooltipCleanText( obj:GetText( ) )
 				
 				if string.match( txt, "^%s+$" ) or string.match( txt, "^\n" ) then
 					-- recipies and patterns have a blank line between the item and what it creates so check from the last line upwards now
 					-- techniques have a newline character to break them up
-					return ArkInventory.TooltipCanUseBackwards( tooltip )
+					return ArkInventory.TooltipCanUseBackwards( tooltip, ignoreknown )
 				end
 				
 				local r, g, b = obj:GetTextColor( )
 				local c = string.format( "%02x%02x%02x", r * 255, g * 255, b * 255 )
-				if ( c == "fe1f1f" ) then
-					if not ( ( txt == ITEM_DISENCHANT_NOT_DISENCHANTABLE ) or ( txt == RETRIEVING_ITEM_INFO ) ) then
+				if c == "fe1f1f" then
+					
+					if txt == ITEM_SPELL_KNOWN then
+						
+						--ArkInventory.Output( "line[", i, "]=[", txt, "] forwards" )
+						if not ignoreknown then
+							return false
+						end
+					
+					elseif not ( txt == ITEM_DISENCHANT_NOT_DISENCHANTABLE or txt == RETRIEVING_ITEM_INFO ) then
+						
 						--ArkInventory.Output( "line[", i, "]=[", txt, "] forwards" )
 						return false
+						
 					end
+					
 				end
 
 			end
@@ -485,7 +553,7 @@ function ArkInventory.TooltipCanUse( tooltip )
 	
 end
 
-function ArkInventory.TooltipCanUseBackwards( tooltip )
+function ArkInventory.TooltipCanUseBackwards( tooltip, ignoreknown )
 
 	local l = { "TextLeft", "TextRight" }
 	
@@ -496,7 +564,7 @@ function ArkInventory.TooltipCanUseBackwards( tooltip )
 			local obj = _G[string.format( "%s%s%s", tooltip:GetName( ), v, i )]
 			if obj and obj:IsShown( ) then
 				
-				local txt = obj:GetText( )
+				local txt = ArkInventory.TooltipCleanText( obj:GetText( ) )
 				
 				if string.match( txt, "^%s+$" ) or string.match( txt, "^\n" ) then
 					-- recipies and patterns have a blank line between the pattern and the item it created, stop when we hit a blank line
@@ -506,11 +574,22 @@ function ArkInventory.TooltipCanUseBackwards( tooltip )
 				
 				local r, g, b = obj:GetTextColor( )
 				local c = string.format( "%02x%02x%02x", r * 255, g * 255, b * 255 )
-				if ( c == "fe1f1f" ) then
-					if not ( ( txt == ITEM_DISENCHANT_NOT_DISENCHANTABLE ) or ( txt == RETRIEVING_ITEM_INFO ) ) then
+				if c == "fe1f1f" then
+					
+					if txt == ITEM_SPELL_KNOWN then
+						
+						--ArkInventory.Output( "line[", i, "]=[", txt, "] backwards" )
+						if not ignoreknown then
+							return false
+						end
+					
+					elseif not ( txt == ITEM_DISENCHANT_NOT_DISENCHANTABLE or txt == RETRIEVING_ITEM_INFO ) then
+						
 						--ArkInventory.Output( "line[", i, "]=[", txt, "] backwards" )
 						return false
+						
 					end
+					
 				end
 
 			end
@@ -523,6 +602,10 @@ end
 
 
 function ArkInventory.TooltipHook( ... )
+	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
 	
 	if ArkInventory.Global.Mode.Combat then return end
 
@@ -540,24 +623,36 @@ function ArkInventory.TooltipHook( ... )
 	tooltip.ARK_Data[3] = arg3
 	tooltip.ARK_Data[4] = arg4
 	
-	local h = nil
+	--ArkInventory.Output( tooltip.ARK_Data )
+	
+	local _, h, addItemCount
 	
 	if not h and tooltip["GetItem"] then
-		h = select( 2, tooltip:GetItem( ) )
-		--ArkInventory.Output( "GetItem = ", h )
+		
+		local name, link = tooltip:GetItem( )
+		--ArkInventory.Output( "[", name, "] = ", string.gsub( link, "\124", "\124\124" ) )
+		
+		-- check for broken hyperlink bug
+		if name and name ~= "" then
+			addItemCount = true
+			h = link
+		end
+		
 	end
 	
 	if not h and tooltip["GetSpell"] then
-		h = select( 3, tooltip:GetSpell( ) )
-		if h then
-			h = GetSpellLink( h )
+		
+		local name, rank, id = tooltip:GetSpell( )
+		
+		if id then
+			h = GetSpellLink( id )
 			--ArkInventory.Output( "GetSpell = ", h )
 		end
+		
 	end
 	
-	if not h and arg1 then
-		h = select( 2, ArkInventory.ObjectInfo( arg1 ) )
-		--ArkInventory.Output( "arg1 = ", arg1, " / ", h )
+	if not h and arg1 and type( arg1 ) == "string" then
+		h = arg1
 	end
 	
 	if not h then
@@ -565,8 +660,11 @@ function ArkInventory.TooltipHook( ... )
 		return
 	end
 	
-	if ArkInventory.db.global.option.tooltip.add.count then
-		ArkInventory.TooltipAddItemCount( tooltip, h )
+	if ArkInventory.db.option.tooltip.add.count then
+		local osd = ArkInventory.ObjectStringDecode( h )
+		if osd.class == "item" or osd.class == "currency" or osd.class == "battlepet" or osd.class == "spell" then
+			ArkInventory.TooltipAddItemCount( tooltip, h )
+		end
 	end
 	
 	--ArkInventory.TooltipAddItemAge( tooltip, h, arg1, arg2 )
@@ -575,7 +673,28 @@ function ArkInventory.TooltipHook( ... )
 	
 end
 
+function ArkInventory.TooltipHookSetAuctionItem( ... )
+	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
+	
+	local tooltip, arg1, arg2 = ...
+	-- tooltip, type, index
+	
+	if not tooltip or not arg1 or not arg2 then return end
+	
+	local h = GetAuctionItemLink( arg1, arg2 )
+	
+	ArkInventory.TooltipHook( tooltip, h )
+	
+end
+
 function ArkInventory.TooltipHookSetCurrencyToken( ... )
+	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
 	
 	local tooltip, arg1 = ...
 	
@@ -589,21 +708,52 @@ end
 
 function ArkInventory.TooltipHookSetMerchantCostItem( ... )
 	
-	local tooltip, arg1, arg2 = ...
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
+	
+	local tooltip, slot, index = ...
 	
 	if not tooltip then return end
 	
-	local icon, amount, link, name, v1, v2, v3, v4, v5 = GetMerchantItemCostItem( arg1, arg2 )
+	local currencies = { GetMerchantCurrencies( ) }
+	--ArkInventory.Output( slot, " / ", index, " / ", currencies )
 	
-	if link then
+	if currencies[index] then
+		
+		local h = GetCurrencyLink( currencies[index] )
+		
+		if h then
+			ArkInventory.TooltipHook( tooltip, h )
+		end
+		
+	end
+	
+end
+
+function ArkInventory.TooltipHookSetCurrencyByID( ... )
+	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
+	
+	local tooltip, id = ...
+	
+	if not tooltip then return end
+	
+	local h = GetCurrencyLink( id )
+	
+	if h then
 		ArkInventory.TooltipHook( tooltip, h )
-	else
-		--ArkInventory.Output( "GetMerchantItemCostItem = ", icon, " / ", amount, " / ", link, " / ", name )
 	end
 	
 end
 
 function ArkInventory.TooltipHookSetBackpackToken( ... )
+	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
 	
 	local tooltip, arg1 = ...
 	
@@ -616,10 +766,46 @@ function ArkInventory.TooltipHookSetBackpackToken( ... )
 	
 end
 
+function ArkInventory.TooltipHookSetRecipeReagentItem( ... )
+	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
+	
+	local tooltip, arg1, arg2 = ...
+	
+	if tooltip and arg1 and arg2 then
+		
+		local h = C_TradeSkillUI.GetRecipeReagentItemLink( arg1, arg2 )
+		--ArkInventory.Output( "recipe id:", arg1, " / reagent index:", arg2, " = ", h )
+		ArkInventory.TooltipHook( tooltip, h )
+		
+	end
+	
+end
+
+function ArkInventory.TooltipHookSetRecipeResultItem( ... )
+	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
+	
+	local tooltip, arg1 = ...
+	
+	if tooltip and arg1 then
+		
+		local h = C_TradeSkillUI.GetRecipeItemLink( arg1 )
+		--ArkInventory.Output( "recipe id:", arg1, " = ", h )
+		ArkInventory.TooltipHook( tooltip, h )
+		
+	end
+	
+end
+
 
 function ArkInventory.TooltipAddEmptyLine( tooltip )
 	
-	if ArkInventory.db.global.option.tooltip.add.empty then
+	if ArkInventory.db.option.tooltip.add.empty then
 		tooltip:AddLine( " ", 1, 1, 1, 0 )
 	end
 	
@@ -627,10 +813,11 @@ end
 
 function ArkInventory.TooltipAddItemCount( tooltip, h )
 	
-	local tt = ArkInventory.TooltipObjectCountGet( h, tooltip )
+	local search_id = ArkInventory.ObjectIDCount( h )
+	local tt = ArkInventory.TooltipObjectCountGet( search_id, tooltip )
 	
 	if tt and tt ~= "" then
-		local tc = ArkInventory.db.global.option.tooltip.colour.count
+		local tc = ArkInventory.db.option.tooltip.colour.count
 		ArkInventory.TooltipAddEmptyLine( tooltip )
 		tooltip:AddLine( tt, tc.r, tc.g, tc.b, 0 )
 	end
@@ -641,7 +828,7 @@ function ArkInventory.TooltipAddItemAge( tooltip, h, blizzard_id, slot_id )
 	
 	if type( blizzard_id ) == "number" and type( slot_id ) == "number" then
 		ArkInventory.TooltipAddEmptyLine( tooltip )
-		local bag_id = ArkInventory.BagID_Internal( blizzard_id )
+		local bag_id = ArkInventory.BlizzardBagIdToInternalId( blizzard_id )
 		tooltip:AddLine( tt, 1, 1, 1, 0 )
 	end
 
@@ -649,33 +836,40 @@ end
 
 function ArkInventory.TooltipObjectCountGet( search_id, tooltip )
 	
-	local search_id = ArkInventory.ObjectIDTooltip( search_id )
-	local cp = ArkInventory.Global.Me
+	local codex = ArkInventory.GetPlayerCodex( )
 	
 	if tooltip then
 		tooltip = tooltip:GetOwner( )
 		if tooltip and tooltip.ARK_Data and tooltip.ARK_Data.loc_id then
-			cp = ArkInventory.LocationPlayerInfoGet( tooltip.ARK_Data.loc_id )
+			codex = ArkInventory.GetLocationCodex( tooltip.ARK_Data.loc_id )
+			if not codex.player.data.info.isplayer then
+				codex = ArkInventory.GetPlayerCodex( )
+			end
 		end
 	end
 	
-	if not ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id] then
-		ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id] = { }
+	
+	local player_id = codex.player.data.info.player_id
+	
+	if not ArkInventory.Global.Cache.ItemCountTooltip[player_id] then
+		ArkInventory.Global.Cache.ItemCountTooltip[player_id] = { }
 	end
 	
-	if ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id][search_id] then
-		return ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id][search_id]
+	if ArkInventory.Global.Cache.ItemCountTooltip[player_id][search_id] then
+		--ArkInventory.Output( "returning cached tooltip count ", player_id, " / ", search_id )
+		return ArkInventory.Global.Cache.ItemCountTooltip[player_id][search_id]
 	end
 	
-	
-	local tc = ArkInventory.ObjectCountGet( search_id, cp.info.player_id, ArkInventory.db.global.option.tooltip.me, not ArkInventory.db.global.option.tooltip.add.vault, ArkInventory.db.global.option.tooltip.faction, ArkInventory.db.global.option.tooltip.realm, ArkInventory.db.global.option.tooltip.crossrealm )
+	--ArkInventory.Output( "building cached tooltip count ", player_id, " / ", search_id )
+	local tc = ArkInventory.ObjectCountGet( search_id, player_id, ArkInventory.db.option.tooltip.me, not ArkInventory.db.option.tooltip.add.vault, ArkInventory.db.option.tooltip.faction, ArkInventory.db.option.tooltip.realm, ArkInventory.db.option.tooltip.crossrealm )
 	if tc == nil then
 		--ArkInventory.OutputDebug( "no count data" )
-		ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id][search_id] = ""
-		return ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id][search_id]
+		ArkInventory.Global.Cache.ItemCountTooltip[player_id][search_id] = ""
+		return ArkInventory.Global.Cache.ItemCountTooltip[player_id][search_id]
 	end
 	
-	local paint = ArkInventory.db.global.option.tooltip.colour.class
+	--ArkInventory.Output( tc )
+	local paint = ArkInventory.db.option.tooltip.colour.class
 	local colour = ""
 	if paint then
 		colour = HIGHLIGHT_FONT_COLOR_CODE
@@ -688,12 +882,13 @@ function ArkInventory.TooltipObjectCountGet( search_id, tooltip )
 	
 	local guild_count = 0
 	local guild_entries = { }
+	local pd = { }
 	
 	for pid, td in ArkInventory.spairs( tc ) do
 		
-		local pd = ArkInventory.PlayerInfoGet( pid )
+		ArkInventory.GetPlayerStorage( pid, nil, pd )
 			
-			local name = ArkInventory.DisplayName3( pd.info, paint, cp.info )
+			local name = ArkInventory.DisplayName3( pd.data.info, paint, codex.player.data.info )
 			
 			local item_count_character = 0
 			local item_count_guild = 0
@@ -707,14 +902,18 @@ function ArkInventory.TooltipObjectCountGet( search_id, tooltip )
 					if lc > 0 then
 						
 						if td.vault then
-							if ArkInventory.db.global.option.tooltip.add.tabs then
+							if ArkInventory.db.option.tooltip.add.tabs then
 								location_entries[#location_entries + 1] = string.format( "%s %s", ArkInventory.Localise["TOOLTIP_VAULT_TABS"], td.tabs )
 							else
 								location_entries[#location_entries + 1] = string.format( "%s", ArkInventory.Global.Location[l].Name )
 							end
 							item_count_guild = item_count_guild + lc
 						else
-							location_entries[#location_entries + 1] = string.format( "%s %s%s|r", ArkInventory.Global.Location[l].Name, colour, lc )
+							if ArkInventory.Table.Elements( td.location ) > 1 then
+								location_entries[#location_entries + 1] = string.format( "%s %s%s|r", ArkInventory.Global.Location[l].Name, colour, lc )
+							else
+								location_entries[#location_entries + 1] = string.format( "%s", ArkInventory.Global.Location[l].Name )
+							end
 							item_count_character = item_count_character + lc
 						end
 						
@@ -724,19 +923,19 @@ function ArkInventory.TooltipObjectCountGet( search_id, tooltip )
 				
 				if item_count_character > 0 then
 					
-					local me = ""
-					if not ArkInventory.db.global.option.tooltip.me and pd.info.player_id == cp.info.player_id then
-						me = ArkInventory.db.global.option.tooltip.highlight
+					local hl = ""
+					if not ArkInventory.db.option.tooltip.me and pd.data.info.player_id == player_id then
+						hl = ArkInventory.db.option.tooltip.highlight
 					end
 					
-					character_entries[#character_entries + 1] = string.format( "%s%s|r: %s%s|r (%s)", me, name, colour, item_count_character, table.concat( location_entries, ", " ) )
+					character_entries[#character_entries + 1] = string.format( "%s%s|r: %s%s|r (%s)", hl, name, colour, FormatLargeNumber( item_count_character ), table.concat( location_entries, ", " ) )
 					character_count = character_count + 1
 					item_count_total = item_count_total + item_count_character
 					
 				end
 				
 				if item_count_guild > 0 then
-					guild_entries[#guild_entries + 1] = string.format( "%s|r: %s%s|r (%s)", name, colour, item_count_guild, table.concat( location_entries, ", " ) )
+					guild_entries[#guild_entries + 1] = string.format( "%s|r: %s%s|r (%s)", name, colour, FormatLargeNumber( item_count_guild ), table.concat( location_entries, ", " ) )
 					guild_count = guild_count + 1
 				end
 				
@@ -748,12 +947,12 @@ function ArkInventory.TooltipObjectCountGet( search_id, tooltip )
 		
 		local c = table.concat( character_entries, "\n" )
 		if character_count > 1 then
-			c = string.format( "%s\n%s: %s%s|r", c, ArkInventory.Localise["TOTAL"], colour, item_count_total )
+			c = string.format( "%s\n%s: %s%s|r", c, ArkInventory.Localise["TOTAL"], colour, FormatLargeNumber( item_count_total ) )
 		end
 		
 		local g = ""
 		
-		if ArkInventory.db.global.option.tooltip.add.vault and guild_count > 0 then
+		if ArkInventory.db.option.tooltip.add.vault and guild_count > 0 then
 			
 			if character_count > 0 then
 				g = "\n\n"
@@ -764,15 +963,15 @@ function ArkInventory.TooltipObjectCountGet( search_id, tooltip )
 			
 		end
 		
-		ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id][search_id] = string.format( "%s%s", c, g )
+		ArkInventory.Global.Cache.ItemCountTooltip[player_id][search_id] = string.format( "%s%s", c, g )
 		
 	else
 		
-		ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id][search_id] = ""
+		ArkInventory.Global.Cache.ItemCountTooltip[player_id][search_id] = ""
 		
 	end
 	
-	return ArkInventory.Global.Cache.ItemCountTooltip[cp.info.player_id][search_id]
+	return ArkInventory.Global.Cache.ItemCountTooltip[player_id][search_id]
 	
 end
 
@@ -837,6 +1036,10 @@ end
 
 function ArkInventory.TooltipShowCompare( ... )
 	
+	if not ArkInventory:IsEnabled( ) then return end
+	
+	if not ArkInventory.db.option.tooltip.show then return end
+	
 	-- achievement comparison
 	
 	--if true then return end
@@ -846,20 +1049,19 @@ function ArkInventory.TooltipShowCompare( ... )
 	if not self or not self.ARK_Data then return end
 	
 	local objectlink = self.ARK_Data[1]
-	if ( not objectlink ) or ( type( objectlink ) ~= "string" ) then return end
+	if not objectlink or type( objectlink ) ~= "string" then return end
 	
-	--ArkInventory.Output( self.ARK_Data[1], " / ", self.ARK_Data[2], " / ", self.ARK_Data[3], " / ", self.ARK_Data[4] )
+	--ArkInventory.Output( self.ARK_Data )
 	
-	local objectlink = string.match( objectlink, "|H(.-)|h" ) or objectlink
-	local class, id, extra = string.match( objectlink, "^(.-):(.-):(.+)$" )
-	if not class or not id then return end
+	local osd = ArkInventory.ObjectStringDecode( objectlink )
+	if not osd.class or not osd.id then return end
 	
 	local link = nil
 	
-	--ArkInventory.Output( class, " / ", id, " / ", extra )
+	--ArkInventory.Output( osd.class, " / ", osd.id )
 	
-	if class == "achievement" then
-		link = GetAchievementLink( id )
+	if osd.class == "achievement" then
+		link = GetAchievementLink( osd.id )
 --	elseif class == "instancelock" then
 --		link = GetSavedInstanceChatLink(self:GetID())
 	else
@@ -920,7 +1122,129 @@ function ArkInventory.TooltipShowCompare( ... )
 		end
 		shoppingTooltip1:SetHyperlink(link);
 		shoppingTooltip1:Show();
+	end
+	
+end
+
+function ArkInventory.TooltipDump( tooltip )
+--	/run ArkInventory.TooltipDump( ARKINV_ScanTooltip )
+	ArkInventory.Output( "----- ----- -----" )
+	for i = 1, ArkInventory.TooltipNumLines( tooltip ) do
+		local a, b = ArkInventory.TooltipGetLine( tooltip, i )
+		ArkInventory.Output( i, " left: ", a )
+		if b ~= "" then
+			ArkInventory.Output( i, " right: ", b )
+		end
+	end
+end
+
+function ArkInventory.TooltipExtractValueSuffixCheck( level, suffix )
+	
+	--ArkInventory.Output( "check [", level, "] [", suffix, "]" )
+	
+	local level = level or 0
+	if not ( level == 3 or level == 6 or level == 9 or level == 12 ) then
+		return
+	end
+	
+	local suffix = string.trim( suffix ) or ""
+	if suffix == "" then
+		return
+	end
+	
+	local suffixes = ArkInventory.Localise[string.format( "WOW_ITEM_TOOLTIP_10P%dT", level )]
+	if suffixes == "" then
+		return
+	end
+	
+	local check
+	
+	for s in string.gmatch( suffixes, "[^,]+" ) do
+		
+		check = string.sub( suffix, 1, string.len( s ) )
+		
+		
+		
+		if string.lower( check ) == string.lower( s ) then
+			--ArkInventory.Output( "pass [", check, "] [", s, "]" )
+			return true
+		end
+		
+		--ArkInventory.Output( "fail [", check, "] [", s, "]" )
 		
 	end
+	
+end
+
+function ArkInventory.TooltipExtractValueArtifactPower( h )
+	
+	ArkInventory.TooltipSetHyperlink( ArkInventory.Global.Tooltip.Scan, h )
+	
+	if not ArkInventory.TooltipFind( ArkInventory.Global.Tooltip.Scan, ArkInventory.Localise["WOW_TOOLTIP_ARTIFACT_POWER"], false, true, false, 0, true ) then
+		return 0
+	end
+	
+	local _, _, amount, suffix = ArkInventory.TooltipFind( ArkInventory.Global.Tooltip.Scan, ArkInventory.Localise["WOW_TOOLTIP_ARTIFACT_POWER_AMOUNT"], false, true, true, 0, true )
+	
+	--ArkInventory.Output( h, "[", amount, "] [", suffix, "]" )
+	
+	if amount then
+		
+		amount = string.gsub( amount, ",", "." )
+		amount = tonumber( amount )
+		
+		if amount then
+			
+			if ArkInventory.TooltipExtractValueSuffixCheck( 12, suffix ) then
+				--ArkInventory.Output( "12: ", amount, " ", suffix, "]" )
+				amount = amount * 1000000000000
+			elseif ArkInventory.TooltipExtractValueSuffixCheck( 9, suffix ) then
+				--ArkInventory.Output( "9: ", amount, " ", suffix, "]" )
+				amount = amount * 1000000000
+			elseif ArkInventory.TooltipExtractValueSuffixCheck( 6, suffix ) then
+				--ArkInventory.Output( "6: ", amount, " ", suffix, "]" )
+				amount = amount * 1000000
+			elseif ArkInventory.TooltipExtractValueSuffixCheck( 3, suffix ) then
+				--ArkInventory.Output( "3: ", amount, " ", suffix, "]" )
+				amount = amount * 1000
+			end
+			
+			return amount
+			
+		end
+		
+	end
+	
+	return 0
+	
+end
+
+function ArkInventory.TooltipExtractValueAncientMana( h )
+	
+	ArkInventory.TooltipSetHyperlink( ArkInventory.Global.Tooltip.Scan, h )
+	
+	if not ArkInventory.TooltipFind( ArkInventory.Global.Tooltip.Scan, ArkInventory.Localise["WOW_TOOLTIP_ANCIENT_MANA"], false, true, false, 0, true ) then
+		return 0
+	end
+	
+	local _, _, amount, suffix = ArkInventory.TooltipFind( ArkInventory.Global.Tooltip.Scan, ArkInventory.Localise["WOW_TOOLTIP_ARTIFACT_POWER_AMOUNT"], false, true, true, 0, true )
+	--local _, _, amount, suffix = ArkInventory.TooltipFind( ArkInventory.Global.Tooltip.Scan, "(%d+)(..)", false, true, true, 0, true )
+	
+	--ArkInventory.Output( h, " [", amount, "] [", suffix, "]" )
+	--ArkInventory.Output( "[", string.byte( string.sub( suffix, 1, 1 ) ), "] [", string.byte( string.sub( suffix, 2, 2 ) ), "]" )
+	
+	if amount then
+		
+		amount = tonumber( amount )
+		
+		if amount then
+			
+			return amount
+			
+		end
+		
+	end
+	
+	return 0
 	
 end

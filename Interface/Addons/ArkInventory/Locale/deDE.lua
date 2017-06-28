@@ -1,4 +1,4 @@
-﻿local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "deDE" )
+local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "deDE" )
 if not L then return end
 
 -- post updated translations at http://groups.google.com/group/wow-arkinventory (modify this file and include as an attachment)
@@ -32,6 +32,14 @@ if not L then return end
 	L["WOW_ITEM_TOOLTIP_POTION_MANA"] = "Stellt %d+ bis %d+ Mana wieder her"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_BATTLE"] = "Kampfelixier"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_GUARDIAN"] = "W\195\164chterelixier"
+	L["WOW_ITEM_TOOLTIP_10P3T"] = "tausend,tausende"
+--	L["WOW_ITEM_TOOLTIP_10P3S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P6T"] = "million,millionen"
+--	L["WOW_ITEM_TOOLTIP_10P6S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P9T"] = "milliarde,milliarden"
+--	L["WOW_ITEM_TOOLTIP_10P9S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P12T"] = "billion,billionen,trillionen"
+--	L["WOW_ITEM_TOOLTIP_10P12S"] = ""
 	
 	
 --	location names
@@ -46,16 +54,22 @@ if not L then return end
 	
 --	status bar/bag text
 	L["STATUS_NO_DATA"] = "KEINE DATEN"
-	L["STATUS_FULL"] = "VOLL"
 	L["STATUS_PURCHASE"] = "kaufen"
 	
 	
 --	restack
---	L["RESTACK"] = "stapeln und umordnen"
+	L["RESTACK"] = "stapeln und umordnen"
 	L["RESTACK_TEXT"] = "Stapel werden maximal aufgef\195\188llt und Gegenst\195\164nde in ihre Spezialtaschen umgeordnet"
 	L["RESTACK_FAIL_WAIT"] = "Die Gegenst\195\164nde werden bereits gestapelt und umgeordnet, bitte warten"
 	L["RESTACK_FAIL_ACCESS"] = "Du hast keine Rechte um die Gegenst\195\164nde in Fach %2$s der %1$s zu stapeln oder umzuordnen"
-
+--	L["RESTACK_FAIL_CLOSED"] = ""
+--	L["RESTACK_TYPE"] = ""
+--	L["RESTACK_CLEANUP_DEPOSIT"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_FILL_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_REFRESH_WHEN_COMPLETE"] = ""
+	
 
 --	vault tab tooltips
 	L["VAULT_TAB_ACCESS_NONE"] = "Kein Zugriff"
@@ -64,12 +78,9 @@ if not L then return end
 	L["VAULT_TAB_REMAINING_WITHDRAWALS"] = "Verbleibende t\195\164gliche Abhebungen: |cffffffff%1$s|r"
 	
 	
---	category "header" descriptions  (does not have to match wow)
-	L["CATEGORY_RULE"] = "Regel"
-	
-	
 --	system category descriptions
 	L["CATEGORY_SYSTEM_CORE_MATS"] = "Kernmaterialien"
+--	L["CATEGORY_SYSTEM_MYTHIC_KEYSTONE"] = ""
 	
 	
 --	consumable category descriptions
@@ -81,25 +92,25 @@ if not L then return end
 	
 	
 --	bag names - used to name the empty slots in the status frame (and LDB)
-	L["STATUS_NAME_BAG"] = "Taschen"
---	L["STATUS_NAME_COOKING"] = ""
-	L["STATUS_NAME_CRITTER"] = "Begleiter"
-	L["STATUS_NAME_ENCHANTING"] = "Verzaubern"
-	L["STATUS_NAME_ENGINEERING"] = "Ingenieur"
-	L["STATUS_NAME_GEAR"] = "Ausr\195\188stung"
-	L["STATUS_NAME_GEM"] = "Edelsteine"
---	L["STATUS_NAME_HEIRLOOM"] = ""
-	L["STATUS_NAME_HERB"] = "Kr\195\164uter"
-	L["STATUS_NAME_INSCRIPTION"] = "Inschriftenkunde"
-	L["STATUS_NAME_KEY"] = "Schl\195\188ssel"
-	L["STATUS_NAME_LEATHERWORKING"] = "Leder"
-	L["STATUS_NAME_MAIL"] = "Post"
-	L["STATUS_NAME_MINING"] = "Bergbau"
-	L["STATUS_NAME_MOUNT"] = "Reittier"
---	L["STATUS_NAME_REAGENTBANK"] = ""
---	L["STATUS_NAME_TACKLE"] = ""
-	L["STATUS_NAME_TOKEN"] = "Abzeichen"
---	L["STATUS_NAME_TOY"] = ""
+	L["STATUS_SHORTNAME_BAG"] = "Taschen"
+--	L["STATUS_SHORTNAME_COOKING"] = ""
+	L["STATUS_SHORTNAME_CRITTER"] = "Begleiter"
+	L["STATUS_SHORTNAME_ENCHANTING"] = "Verzaubern"
+	L["STATUS_SHORTNAME_ENGINEERING"] = "Ingenieur"
+	L["STATUS_SHORTNAME_GEAR"] = "Ausr\195\188stung"
+	L["STATUS_SHORTNAME_GEM"] = "Edelsteine"
+--	L["STATUS_SHORTNAME_HEIRLOOM"] = ""
+	L["STATUS_SHORTNAME_HERB"] = "Kr\195\164uter"
+	L["STATUS_SHORTNAME_INSCRIPTION"] = "Inschriftenkunde"
+	L["STATUS_SHORTNAME_KEY"] = "Schl\195\188ssel"
+	L["STATUS_SHORTNAME_LEATHERWORKING"] = "Leder"
+	L["STATUS_SHORTNAME_MAIL"] = "Post"
+	L["STATUS_SHORTNAME_MINING"] = "Bergbau"
+	L["STATUS_SHORTNAME_MOUNT"] = "Reittier"
+--	L["STATUS_SHORTNAME_REAGENTBANK"] = ""
+--	L["STATUS_SHORTNAME_TACKLE"] = ""
+	L["STATUS_SHORTNAME_TOKEN"] = "Abzeichen"
+--	L["STATUS_SHORTNAME_TOY"] = ""
 	
 	
 --	main menu
@@ -118,8 +129,9 @@ if not L then return end
 	
 --	actions menu
 	L["MENU_ACTION"] = "Aktionen"
-	L["MENU_ACTION_REFRESH"] = "Aktualisieren"
 	L["MENU_ACTION_REFRESH_TEXT"] = "aktualisiert das Fenster"
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE"] = ""
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE_TEXT"] = ""
 	L["MENU_ACTION_RELOAD_TEXT"] = "l\195\164dt das Fenster neu (zu verwenden nachdem man Gegenst\195\164nde in den Ausr\195\188stungs-Sets ver\195\164ndert hat)"
 	L["MENU_ACTION_EDITMODE"] = "Bearbeitungs-Modus"
 	L["MENU_ACTION_EDITMODE_TEXT"] = "schaltet den Bearbeitungs-Modus ein oder aus (nur im Bearbeitungs-Modus kann man Leisten, Sortierung etc. ver\195\164ndern)"
@@ -159,6 +171,9 @@ if not L then return end
 	L["MENU_ITEM_DEBUG_PT_TEXT"] = "zeigt die PT-Sets an, in denen dieser Gegenstand ist"
 	L["MENU_ITEM_DEBUG_PT_NONE"] = "dieser Gegenstand ist zurzeit in keinem PT-Set"
 	L["MENU_ITEM_DEBUG_PT_TITLE"] = "PT-Sets in denen dieser Gegenstand ist"
+--	L["MENU_ITEM_DEBUG_SOURCE"] = ""
+--	L["MENU_ITEM_DEBUG_BONUS"] = ""
+--	L["MENU_ITEM_DEBUG_ITEMSTRING"] = ""
 	
 	
 --	bar menu
@@ -170,16 +185,33 @@ if not L then return end
 	L["MENU_BAR_CATEGORY_HIDDEN_TEXT"] = "Versteckt eine Kategorie.\n\nGegenst\195\164nde, die sich in einer versteckten Kategorie befinden, werden in der normalen Ansicht nicht angezeigt."
 --	L["MENU_BAR_CATEGORY_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_CATEGORY_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_ENABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_DISABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_JUNK_TEXT"] = ""
 --	L["MENU_BAR_BAG_ASSIGN_TEXT"] = ""
 	L["MENU_BAR_OPTIONS"] = "Leisteneinstellungen"
-	L["MENU_BAR_CLEAR_TEXT"] = "Entfernt alle dieser Leiste zugeordneten Kategorien, mit Ausnahme der Standardkategorie."
+	L["MENU_BAR_RESET_TEXT"] = "Entfernt alle dieser Leiste zugeordneten Kategorien, mit Ausnahme der Standardkategorie."
 	L["MENU_BAR_INSERT_TEXT"] = "F\195\188gt an dieser Stelle eine Leiste ein, welche alle Kategorien um eins nach oben verschiebt."
-	L["MENU_BAR_REMOVE_TEXT"] = "Entfernt diese Leiste (alle Gegenst\195\164nde kommen wieder in die Standardleiste) und die Leiste dar\195\188ber nimmt diesen Platz ein.\n\nFalls dies die Standardleiste ist, wird Leiste 1 zur neuen Standardleiste."
+	L["MENU_BAR_DELETE_TEXT"] = "Entfernt diese Leiste (alle Gegenst\195\164nde kommen wieder in die Standardleiste) und die Leiste dar\195\188ber nimmt diesen Platz ein.\n\nFalls dies die Standardleiste ist, wird Leiste 1 zur neuen Standardleiste."
 --	L["MENU_BAR_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_MOVE_FAIL_OUTSIDE"] = ""
+--	L["MENU_BAR_MOVE_FAIL_SAME"] = ""
 --	L["MENU_BAR_SORTKEY_TEXT"] = ""
 --	L["MENU_BAR_SORTKEY_DEFAULT_RESET_TEXT"] = ""
-	
+--	L["MENU_BAR_COLOUR_BORDER_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_TEXT"] = ""
+--	L["MENU_LOCKED_TEXT"] = ""
+
 	
 --	changer bag menu
 	L["MENU_BAG_TITLE"] = "Taschen-Einstellungen"
@@ -189,7 +221,6 @@ if not L then return end
 	L["MENU_BAG_ISOLATE_TEXT"] = "nur den Inhalt dieser Tasche anzeigen"
 	L["MENU_BAG_SHOWALL"] = "alle anzeigen"
 	L["MENU_BAG_SHOWALL_TEXT"] = "den Inhalt aller Taschen anzeigen"
---	L["MENU_BAG_EMPTY"] = ""
 --	L["MENU_BAG_EMPTY_TEXT"] = ""
 	
 	
@@ -198,7 +229,6 @@ if not L then return end
 	L["CONFIG_TEXT"] = "Konfigurationsmen\195\188"
 	
 --	configuration options > system
---	L["CONFIG_SYSTEM"] = ""
 	L["CONFIG_SYSTEM_TEXT"] = "Systemeinstellungen"
 	
 	L["CONFIG_SYSTEM_FONT_TEXT"] = "Legt fest, dass die Schriftart %s verwendet werden soll."
@@ -209,7 +239,17 @@ if not L then return end
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_MEDIUM"] = ""
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_HIGH"] = ""
 	
---	L["CONFIG_SYSTEM_RESTACK_TEXT"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW_TEXT"] = ""
+	
+--	L["CONFIG_SORTING_WHEN"] = ""
+--	L["CONFIG_SORTING_WHEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL_TEXT"] = ""
 	
 	L["CONFIG_SYSTEM_TOOLTIP"] = "Hinweistexte"
 	L["CONFIG_SYSTEM_TOOLTIP_ENABLE_TEXT"] = "Bestimmt, ob Hinweistexte angezeigt werden."
@@ -267,6 +307,12 @@ if not L then return end
 --	L["CONFIG_SYSTEM_MESSAGES_TRANSLATION_FINAL_TEXT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION_TEXT"] = ""
 	
 --	L["CONFIG_SYSTEM_TIMERS"] = ""
 --	L["CONFIG_SYSTEM_TIMERS_TEXT"] = ""
@@ -275,7 +321,7 @@ if not L then return end
 --	configuration options > auto
 	L["CONFIG_AUTO"] = "automatisches \195\150ffnen/Schlie\195\159en"
 	
-	L["CONFIG_AUTO_OPEN"] = "\195\182ffne %1$s %2$s beim %3$s" -- program, bag
+--	L["CONFIG_AUTO_OPEN"] = "\195\182ffne %1$s %2$s beim %3$s" -- program, bag
 	L["CONFIG_AUTO_OPEN_BANK"] = "\195\150ffnen des Bankfachs"
 	L["CONFIG_AUTO_OPEN_VAULT"] = "\195\150ffnen der Gildenbank"
 	L["CONFIG_AUTO_OPEN_MAIL"] = "\195\150ffnen des Briefkastens"
@@ -284,7 +330,7 @@ if not L then return end
 	L["CONFIG_AUTO_OPEN_AUCTION"] = "Auktionator"
 --	L["CONFIG_AUTO_OPEN_VOID"] = ""
 	
-	L["CONFIG_AUTO_CLOSE"] = "schlie\195\159e %1$s %2$s beim %3$s"
+--	L["CONFIG_AUTO_CLOSE"] = "schlie\195\159e %1$s %2$s beim %3$s"
 	L["CONFIG_AUTO_CLOSE_BANK"] = "Schlie\195\159en des Bankfachs"
 	L["CONFIG_AUTO_CLOSE_VAULT"] = "Schlie\195\159en der Gildenbank"
 	L["CONFIG_AUTO_CLOSE_MAIL"] = "Schlie\195\159en des Briefkastens"
@@ -296,12 +342,9 @@ if not L then return end
 	
 	
 --	configuration options > control
-	L["CONFIG_CONTROL"] = "Verwendung"
-	
 	L["CONFIG_CONTROL_MONITOR"] = "\195\188berwachen"
 	L["CONFIG_CONTROL_MONITOR_TEXT"] = "\195\156berwache \195\132nderungen an den %1$s Daten dieses Charakters (%2$s)."
 	L["CONFIG_CONTROL_SAVE_TEXT"] = "Speichern der %1$s Daten dieses Charakters (%2$s), so dass man sie auch ansehen kann, wenn man mit einem anderen Charakter spielt oder offline ist."
---	L["CONFIG_CONTROL_NOTIFY_ERASE"] = ""
 --	L["CONFIG_CONTROL_NOTIFY_ERASE_TEXT"] = ""
 	L["CONFIG_CONTROL_OVERRIDE"] = "Blizzard Interface austauschen"
 	L["CONFIG_CONTROL_OVERRIDE_TEXT"] = "Tauscht das original Blizzard %2$s Interface mit dem von %1$s.\n\nIn abgeschaltetem Zustand wird das standard Blizzard %2$s Interface verwendet.\n\nMan kann in abgeschaltetem Zustand trotzdem das %2$s Interface von %1$s verwenden, aber man muss dann daf\195\188r erst Tastenkombinationen einrichten."
@@ -309,114 +352,147 @@ if not L then return end
 	L["CONFIG_CONTROL_ANCHOR_LOCK_TEXT"] = "verhindert, dass der %1$s Rahmen verschoben werden kann"
 --	L["CONFIG_CONTROL_REPOSITION_NOW"] = ""
 --	L["CONFIG_CONTROL_REPOSITION_NOW_TEXT"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD_TEXT"] = ""
-	L["CONFIG_CONTROL_SETTINGS_TEXT"] = "welche Einstellungen verwendet werden sollen, wenn das %1$s Fenster erstellt wird"
+	L["CONFIG_CONTROL_BLUEPRINT_TEXT"] = "welche Einstellungen verwendet werden sollen, wenn das %1$s Fenster erstellt wird"
 	
 	
---	configuration options > settings
-	L["CONFIG_SETTINGS"] = "Einstellungen"
+--	configuration settings > design
+--	L["CONFIG_DESIGN"] = ""
+--	L["CONFIG_DESIGN_PLURAL"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME"] = "Fenster"
+--	L["CONFIG_STYLE"] = ""
+--	L["CONFIG_STYLE_PLURAL"] = ""
+--	L["CONFIG_STYLE_DESCRIPTION"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_HIDE_TEXT"] = ""
+--	L["CONFIG_LAYOUT"] = ""
+--	L["CONFIG_LAYOUT_PLURAL"] = ""
+--	L["CONFIG_LAYOUT_DESCRIPTION"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME_SCALE_TEXT"] = "mit der Skalierung kann man Fenster gr\195\182\195\159er oder kleiner machen"
-	L["CONFIG_SETTINGS_FRAME_PADDING_TEXT"] = "legt den Abstand zwischen dem Fensterrand und den Leisten fest"
-	L["CONFIG_SETTINGS_FRAME_WIDTH_TEXT"] = "legt die Anzahl an Spalten fest"
---	L["CONFIG_SETTINGS_FRAME_HEIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_BACKGROUND_COLOUR_TEXT"] = "legt die Hintergrundfarbe des Hauptfensters fest"
-	L["CONFIG_SETTINGS_FRAME_BORDER_SHOW_TEXT"] = "bestimmt, ob ein Rahmen um das Hauptfenster angezeigt wird"
-	L["CONFIG_SETTINGS_FRAME_BORDER_STYLE_TEXT"] = "legt die Rahmenart des Hauptfensters fest"
-	L["CONFIG_SETTINGS_FRAME_BORDER_COLOUR_TEXT"] = "legt die Rahmenfarbe des Hauptfensters fest"
-
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT"] = "Farbe zum Hervorheben einer Tasche"
---	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "die Farbe zum Hervorheben der Taschenpl\195\164tze, wenn man mit der Maus \195\188ber eine Tasche f\195\164hrt"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE"] = "Anzahl anzeigen"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_TEXT"] = "Bestimmt, ob die Anzahl der freien Pl\195\164tze an den Taschen angezeigt werden soll."
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "Textfarbe f\195\188r die Anzahl der freien Pl\195\164tze."
+	L["CONFIG_DESIGN_WINDOW"] = "Fenster"
+	L["CONFIG_DESIGN_WINDOW_SCALE_TEXT"] = "mit der Skalierung kann man Fenster gr\195\182\195\159er oder kleiner machen"
+	L["CONFIG_DESIGN_WINDOW_PADDING_TEXT"] = "legt den Abstand zwischen dem Fensterrand und den Leisten fest"
+	L["CONFIG_DESIGN_WINDOW_WIDTH_TEXT"] = "legt die Anzahl an Spalten fest"
+--	L["CONFIG_DESIGN_WINDOW_HEIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_WINDOW_BACKGROUND_COLOUR_TEXT"] = "legt die Hintergrundfarbe des Hauptfensters fest"
+	L["CONFIG_DESIGN_WINDOW_BORDER_SHOW_TEXT"] = "bestimmt, ob ein Rahmen um das Hauptfenster angezeigt wird"
+	L["CONFIG_DESIGN_WINDOW_BORDER_STYLE_TEXT"] = "legt die Rahmenart des Hauptfensters fest"
+	L["CONFIG_DESIGN_WINDOW_BORDER_COLOUR_TEXT"] = "legt die Rahmenfarbe des Hauptfensters fest"
 	
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY"] = ""
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_HIDE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_NORMAL"] = ""
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_THIN"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT"] = "Farbe zum Hervorheben einer Tasche"
+--	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "die Farbe zum Hervorheben der Taschenpl\195\164tze, wenn man mit der Maus \195\188ber eine Tasche f\195\164hrt"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE"] = "Anzahl anzeigen"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_TEXT"] = "Bestimmt, ob die Anzahl der freien Pl\195\164tze an den Taschen angezeigt werden soll."
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "Textfarbe f\195\188r die Anzahl der freien Pl\195\164tze."
 	
-	L["CONFIG_SETTINGS_BARS"] = "Leisten"
-	L["CONFIG_SETTINGS_BARS_PER_ROW"] = "pro Zeile"
-	L["CONFIG_SETTINGS_BARS_PER_ROW_TEXT"] = "legt die Anzahl an Leisten pro Zeile fest"
-	L["CONFIG_SETTINGS_BARS_BACKGROUND_TEXT"] = "legt die Hintergrundfarbe der Leisten fest"
-	L["CONFIG_SETTINGS_BARS_COMPACT"] = "kompakt"
-	L["CONFIG_SETTINGS_BARS_COMPACT_TEXT"] = "zeigt nur benutze Leisten gem\195\164\195\159 ihrer Reihenfolge an"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY"] = "leere anzeigen"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY_TEXT"] = "festlegen, ob leere Leisten angezeigt werden sollen"
-	L["CONFIG_SETTINGS_BARS_PADDING_INTERNAL_TEXT"] = "Abstand zwischen den Gegenst\195\164nden"
-	L["CONFIG_SETTINGS_BARS_PADDING_EXTERNAL_TEXT"] = "Abstand zwischen den Leisten"
-	L["CONFIG_SETTINGS_BARS_BORDER_TEXT"] = "bestimmt, ob ein Rahmen um jede Leiste angezeigt wird"
-	L["CONFIG_SETTINGS_BARS_BORDER_STYLE_TEXT"] = "legt die Rahmenart der Leisten fest"
-	L["CONFIG_SETTINGS_BARS_BORDER_COLOUR_TEXT"] = "legt die Rahmenfarbe der Leisten fest"
-	L["CONFIG_SETTINGS_BARS_NAME_TEXT"] = "zum Festlegen einer Beschriftung f\195\188r diese Leiste"
-	L["CONFIG_SETTINGS_BARS_NAME_SHOW_TEXT"] = "bestimmt, ob die Beschriftungen der Leisten angezeigt werden"
-	L["CONFIG_SETTINGS_BARS_NAME_COLOUR_TEXT"] = "legt die Textfarbe der Leistenbeschriftungen fest"
---	L["CONFIG_SETTINGS_BARS_NAME_HEIGHT_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_ANCHOR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_PADDING_TEXT"] = "legt den Abstand zwischen den Pl\195\164tzen der Gegenst\195\164nde fest"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN"] = "versteckte anzeigen"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN_TEXT"] = "bestimmt, ob Gegenst\195\164nde aus versteckten Kategorien angezeigt werden sollen"
-	L["CONFIG_SETTINGS_ITEMS_FADE"] = "verbleichen, wenn nicht verf\195\188gbar"
-	L["CONFIG_SETTINGS_ITEMS_FADE_TEXT"] = "bestimmt, ob nicht verf\195\188gbare Gegenst\195\164nde verblichen dargestellt werden sollen"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE"] = "Benutzbare einf\195\164rben"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE_TEXT"] = "Benutzbare Gegenst\195\164nde rot einf\195\164rben"
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_LABEL_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_TEXT_COLOUR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_NORMAL"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_ONLINE_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_OFFLINE_COLOUR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_BORDER_SHOW_TEXT"] = "bestimmt, ob ein Rahmen um die Gegenst\195\164nde angezeigt wird"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_STYLE_TEXT"] = "bestimmt die Rahmenart f\195\188r Gegenst\195\164nde"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY"] = "Seltenheit bestimmt Rahmenfarbe"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_TEXT"] = "bestimmt, ob der Rahmen um jeden Gegenst\195\164nd mit der Farbe dessen Seltenheit gezeichnet wird (verbreitet, rar, episch, etc)"
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF"] = ""
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF_TEXT"] = ""
-	L["CONFIG_SETTINGS_ITEMS_BORDER_TEXTURE_OFFSET_TEXT"] = "Anzahl der Pixel vom Bildrand zum Beginn des Rahmens (wird beim Positionieren des Texturrahmens auf dem Rahmen des Gegenstandes verwendet)"
+	L["CONFIG_DESIGN_BAR"] = "Leisten"
+	L["CONFIG_DESIGN_BAR_PER_ROW"] = "pro Zeile"
+	L["CONFIG_DESIGN_BAR_PER_ROW_TEXT"] = "legt die Anzahl an Leisten pro Zeile fest"
+	L["CONFIG_DESIGN_BAR_BACKGROUND_TEXT"] = "legt die Hintergrundfarbe der Leisten fest"
+	L["CONFIG_DESIGN_BAR_COMPACT"] = "kompakt"
+	L["CONFIG_DESIGN_BAR_COMPACT_TEXT"] = "zeigt nur benutze Leisten gem\195\164\195\159 ihrer Reihenfolge an"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY"] = "leere anzeigen"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY_TEXT"] = "festlegen, ob leere Leisten angezeigt werden sollen"
+	L["CONFIG_DESIGN_BAR_PADDING_INTERNAL_TEXT"] = "Abstand zwischen den Gegenst\195\164nden"
+	L["CONFIG_DESIGN_BAR_PADDING_EXTERNAL_TEXT"] = "Abstand zwischen den Leisten"
+	L["CONFIG_DESIGN_BAR_BORDER_TEXT"] = "bestimmt, ob ein Rahmen um jede Leiste angezeigt wird"
+	L["CONFIG_DESIGN_BAR_BORDER_STYLE_TEXT"] = "legt die Rahmenart der Leisten fest"
+	L["CONFIG_DESIGN_BAR_BORDER_COLOUR_TEXT"] = "legt die Rahmenfarbe der Leisten fest"
+	L["CONFIG_DESIGN_BAR_NAME_TEXT"] = "zum Festlegen einer Beschriftung f\195\188r diese Leiste"
+	L["CONFIG_DESIGN_BAR_NAME_SHOW_TEXT"] = "bestimmt, ob die Beschriftungen der Leisten angezeigt werden"
+	L["CONFIG_DESIGN_BAR_NAME_COLOUR_TEXT"] = "legt die Textfarbe der Leistenbeschriftungen fest"
+--	L["CONFIG_DESIGN_BAR_NAME_HEIGHT_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_ANCHOR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_NEW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_ENABLED_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_CUTOFF_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_RESET_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_PADDING_TEXT"] = "legt den Abstand zwischen den Pl\195\164tzen der Gegenst\195\164nde fest"
+	L["CONFIG_DESIGN_ITEM_HIDDEN"] = "versteckte anzeigen"
+	L["CONFIG_DESIGN_ITEM_HIDDEN_TEXT"] = "bestimmt, ob Gegenst\195\164nde aus versteckten Kategorien angezeigt werden sollen"
+	L["CONFIG_DESIGN_ITEM_FADE"] = "verbleichen, wenn nicht verf\195\188gbar"
+	L["CONFIG_DESIGN_ITEM_FADE_TEXT"] = "bestimmt, ob nicht verf\195\188gbare Gegenst\195\164nde verblichen dargestellt werden sollen"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE"] = "Benutzbare einf\195\164rben"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE_TEXT"] = "Benutzbare Gegenst\195\164nde rot einf\195\164rben"
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_AGE"] = "Item-Alter"
-	L["CONFIG_SETTINGS_ITEMS_AGE_SHOW_TEXT"] = "Ein/Aus der Item-Alter-Funktion"
-	L["CONFIG_SETTINGS_ITEMS_AGE_COLOUR_TEXT"] = "verndert die Farbe der Item-Alter-Anzeige"
-	L["CONFIG_SETTINGS_ITEMS_AGE_CUTOFF_TEXT"] = "Legt die Zeit (in Minuten) fest, in der das Item-Alter dargestellt wird. Mit dem Wert '0' wird das Item-Alter ohne zeitliches Limit dargestellt"
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_SORTING_OPEN"] = "beim \195\150ffnenn des Fensters"
-	L["CONFIG_SETTINGS_SORTING_OPEN_TEXT"] = "Die Gegenst\195\164nde werden erst beim \195\150ffnenn des Fensters sortiert."
-	L["CONFIG_SETTINGS_SORTING_INSTANT"] = "sofort"
-	L["CONFIG_SETTINGS_SORTING_INSTANT_TEXT"] = "Sofortige Sortierung\n\nan: wenn sich etwas ver\195\164ndert, wird sortiert\n\naus: beim \195\150ffnenn des Fensters oder wenn du auf Aktualisieren klickst, wird sortiert"
+	L["CONFIG_DESIGN_ITEM_BORDER_SHOW_TEXT"] = "bestimmt, ob ein Rahmen um die Gegenst\195\164nde angezeigt wird"
+	L["CONFIG_DESIGN_ITEM_BORDER_STYLE_TEXT"] = "bestimmt die Rahmenart f\195\188r Gegenst\195\164nde"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY"] = "Seltenheit bestimmt Rahmenfarbe"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_TEXT"] = "bestimmt, ob der Rahmen um jeden Gegenst\195\164nd mit der Farbe dessen Seltenheit gezeichnet wird (verbreitet, rar, episch, etc)"
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_TEXTURE_OFFSET_TEXT"] = "Anzahl der Pixel vom Bildrand zum Beginn des Rahmens (wird beim Positionieren des Texturrahmens auf dem Rahmen des Gegenstandes verwendet)"
 	
-	L["CONFIG_SETTINGS_EMPTY"] = "freie Pl\195\164tze"
-	L["CONFIG_SETTINGS_EMPTY_ICON"] = "Symbol verwenden"
-	L["CONFIG_SETTINGS_EMPTY_ICON_TEXT"] = "Freie Pl\195\164tze mit Bild oder nur in einer Farbe anzeigen."
-	L["CONFIG_SETTINGS_EMPTY_CLUMP"] = "typisiert"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP_TEXT"] = "Freie Pl\195\164tze von Spezialtaschen bei ihrer Kategorie anzeigen oder zur allgemeinen Kategorie hinzuf\195\188gen."
-	L["CONFIG_SETTINGS_EMPTY_BORDER"] = "farbiger Rahmen"
-	L["CONFIG_SETTINGS_EMPTY_BORDER_TEXT"] = "Freie Pl\195\164tze mit der Farbe ihrer Taschenart umrahmen."
-	L["CONFIG_SETTINGS_EMPTY_COLOUR"] = "Farben der Pl\195\164tze"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR_TEXT"] = "Die Farbe, mit der die freien Pl\195\164tze f\195\188r %1$s markiert werden." -- slot name
---	L["CONFIG_SETTINGS_EMPTY_STATUS"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST_TEXT"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_ENABLED_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_CUTOFF_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_RESET_TEXT"] = ""
+	
+	L["CONFIG_DESIGN_ITEM_AGE"] = "Item-Alter"
+	L["CONFIG_DESIGN_ITEM_AGE_SHOW_TEXT"] = "Ein/Aus der Item-Alter-Funktion"
+	L["CONFIG_DESIGN_ITEM_AGE_COLOUR_TEXT"] = "verndert die Farbe der Item-Alter-Anzeige"
+	L["CONFIG_DESIGN_ITEM_AGE_CUTOFF_TEXT"] = "Legt die Zeit (in Minuten) fest, in der das Item-Alter dargestellt wird. Mit dem Wert '0' wird das Item-Alter ohne zeitliches Limit dargestellt"
+	
+	L["CONFIG_DESIGN_ITEM_EMPTY"] = "freie Pl\195\164tze"
+	L["CONFIG_DESIGN_ITEM_EMPTY_ICON_TEXT"] = "Freie Pl\195\164tze mit Bild oder nur in einer Farbe anzeigen."
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP"] = "typisiert"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP_TEXT"] = "Freie Pl\195\164tze von Spezialtaschen bei ihrer Kategorie anzeigen oder zur allgemeinen Kategorie hinzuf\195\188gen."
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER"] = "farbiger Rahmen"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER_TEXT"] = "Freie Pl\195\164tze mit der Farbe ihrer Taschenart umrahmen."
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR"] = "Farben der Pl\195\164tze"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR_TEXT"] = "Die Farbe, mit der die freien Pl\195\164tze f\195\188r %1$s markiert werden." -- slot name
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_STATUS"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION_TEXT"] = ""
+	
+	
+-- junk
+--	L["CONFIG_JUNK"] = ""
+--	L["CONFIG_JUNK_SELL"] = ""
+--	L["CONFIG_JUNK_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_SOLD"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_DESTROYED"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT_TEXT"] = ""
+--	L["CONFIG_JUNK_DELETE_TEXT"] = ""
+--	L["CONFIG_JUNK_NOTIFY_TEXT"] = ""
+--	L["CONFIG_JUNK_RARITY_CUTOFF_TEXT"] = ""
+--	L["CONFIG_JUNK_CATEGORY_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_DESTROY_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_ALERT"] = ""
 	
 	
 -- sorting
@@ -425,7 +501,7 @@ if not L then return end
 	L["CONFIG_SORTING_SORT"] = "Sortierung"
 	
 --	L["CONFIG_SORTING_METHOD"] = ""
---	L["CONFIG_SORTING_METHODS"] = ""
+--	L["CONFIG_SORTING_METHOD_PLURAL"] = ""
 	L["CONFIG_SORTING_METHOD_TEXT"] = "Bestimme, wie du deine Gegenst\195\164nde sortieren willst."
 	L["CONFIG_SORTING_METHOD_BAGSLOT"] = "Tasche / Platz"
 	L["CONFIG_SORTING_METHOD_BAGSLOT_TEXT"] = "Sortiert das Inventar anhand der Taschen und Platznummern."
@@ -458,6 +534,8 @@ if not L then return end
 	L["CONFIG_SORTING_INCLUDE_VENDORPRICE_TEXT"] = "Der Verkaufspreis (gestapelte Gegenst\195\164nde werden aufsummiert) bestimmt die Sortierreihenfolge."
 --	L["CONFIG_SORTING_INCLUDE_ID"] = ""
 --	L["CONFIG_SORTING_INCLUDE_ID_TEXT"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE_TEXT"] = ""
 	
 	L["CONFIG_SORTING_DIRECTION_TEXT"] = "Gegenst\195\164nde in aufsteigender oder absteigender Reihenfolge sortieren."
 	L["CONFIG_SORTING_ORDER"] = "Sortierreihenfolge"
@@ -465,26 +543,41 @@ if not L then return end
 	L["CONFIG_SORTING_MOVE_DOWN_TEXT"] = "verschiebt %1$s in der Sortierreihenfolge nach unten"
 	L["CONFIG_SORTING_NOT_INCLUDED"] = "* wird zurzeit beim Sortieren nicht beachtet *"
 	
---	L["CONFIG_SORTING_ADD"] = ""
---	L["CONFIG_SORTING_ADD_TEXT"] = ""
---	L["CONFIG_SORTING_RENAME_TEXT"] = ""
---	L["CONFIG_SORTING_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_LIMIT_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_UPGRADE_TEXT"] = ""
+--	L["CONFIG_LIST_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_RESTORE_TEXT"] = ""
+--	L["CONFIG_LIST_RENAME_TEXT"] = ""
+--	L["CONFIG_LIST_COPY_TEXT"] = ""
+--	L["CONFIG_LIST_PURGE_TEXT"] = ""
+--	L["CONFIG_LIST_IMPORT_TEXT"] = ""
+--	L["CONFIG_LIST_EXPORT_TEXT"] = ""
 	
 	
--- rules
-	L["CONFIG_RULES"] = "Regeln"
-	L["CONFIG_RULES_SHOWDISABLED"] = "deaktivierte Regeln anzeigen"
-	L["CONFIG_RULES_SHOWDISABLED_TEXT"] = "bestimmt, ob deaktivierte Regeln angezeigt werden sollen"
-
 	
---	configuration options > categories
-	L["CONFIG_CATEGORY_CUSTOM"] = "Eigene Kategorien"
---	L["CONFIG_CATEGORY_DELETED"] = ""
+--	L["CONFIG_CATEGORY"] = ""
+--	L["CONFIG_CATEGORY_PLURAL"] = ""
 	
---	L["CONFIG_CATEGORY_ADD"] = ""
---	L["CONFIG_CATEGORY_ADD_TEXT"] = ""
---	L["CONFIG_CATEGORY_RENAME_TEXT"] = ""
---	L["CONFIG_CATEGORY_DELETE_TEXT"] = ""
+	L["CATEGORY_RULE"] = "Regel"
+	L["CONFIG_RULE_PLURAL"] = "Regeln"
+	
+	L["CONFIG_RULE_SHOWDISABLED"] = "deaktivierte Regeln anzeigen"
+	L["CONFIG_RULE_SHOWDISABLED_TEXT"] = "bestimmt, ob deaktivierte Regeln angezeigt werden sollen"
+	
+--	L["CONFIG_CATEGORY_CUSTOM"] = ""
+	L["CONFIG_CATEGORY_CUSTOM_PLURAL"] = "Eigene Kategorien"
+	
+--	L["CONFIG_CATEGORY_SET"] = ""
+--	L["CONFIG_CATEGORY_SET_PLURAL"] = ""
+--	L["CONFIG_CATEGORY_SET_DESCRIPTION"] = ""
+	
+--	L["CONFIG_PROFILE"] = ""
+--	L["CONFIG_PROFILE_PLURAL"] = ""
+--	L["CONFIG_PROFILE_CURRENT"] = ""
+	
+	
+--	L["CONFIG_OBJECT_DELETED"] = ""
 	
 	
 --	configuration options > debug
@@ -493,10 +586,10 @@ if not L then return end
 	
 	
 --	configuration options > generic
---	L["BORDER_SCALE_TEXT"] = ""
-	L["BORDER_TEXTURE_TEXT"] = "Einstellungen zur Rahmentextur"
-	L["BORDER_TEXTURE_FILE_TEXT"] = "Textur, die f\195\188r den Rahmen verwendet werden soll (bei einer \195\132nderung wird die Skalierung auf 100% zur\195\188ckgesetzt)"
-	L["BORDER_TEXTURE_HEIGHT_TEXT"] = "H\195\182he der Textur (in Pixeln)"
+--	L["CONFIG_BORDER_SCALE_TEXT"] = ""
+	L["CONFIG_BORDER_TEXTURE_TEXT"] = "Einstellungen zur Rahmentextur"
+	L["CONFIG_BORDER_TEXTURE_FILE_TEXT"] = "Textur, die f\195\188r den Rahmen verwendet werden soll (bei einer \195\132nderung wird die Skalierung auf 100% zur\195\188ckgesetzt)"
+	L["CONFIG_BORDER_TEXTURE_HEIGHT_TEXT"] = "H\195\182he der Textur (in Pixeln)"
 	
 	
 --	rules frame
@@ -508,6 +601,7 @@ if not L then return end
 	L["RULE_LIST_ID"] = "Regel"
 	
 	L["RULE_DAMAGED"] = "Regel %s wird als defekt markiert und daher nicht l\195\164nger ausgef\195\188hrt, bis sie wieder korrigiert wurde"
+--	L["RULE_DAMAGED_TEXT"] = ""
 --	L["RULE_FAILED"] = ""
 	L["RULE_FAILED_KEY_NIL"] = "der angegebene Schl\195\188ssel ist nicht gesetzt"
 	L["RULE_FAILED_DATA_NIL"] = "die angegebenen Daten sind nicht gesetzt"
@@ -523,6 +617,7 @@ if not L then return end
 --	new item indicators
 --	L["NEW_ITEM_INCREASE"] = ""
 --	L["NEW_ITEM_DECREASE"] = ""
+--	L["NEW_ITEM_GLOW"] = ""
 	
 	
 --	slash commands
@@ -549,6 +644,8 @@ if not L then return end
 	L["SLASH_MISC_TEXT"] = "verschiedene Optionen"
 --	L["SLASH_TRACK"] = ""
 --	L["SLASH_TRACK_TEXT"] = ""
+--	L["SLASH_TRACK_ADD_TEXT"] = ""
+--	L["SLASH_TRACK_REMOVE_TEXT"] = ""
 	
 	
 --	misc chat stuff
@@ -591,7 +688,6 @@ if not L then return end
 	L["ANCHOR_TEXT1"] = "legt die Position fest" -- window name  (bags, bank, vault)
 	L["ANCHOR_TEXT2"] = "positioniert %1$s %2$s" -- object name (bars, items)
 	L["BORDER_TEXT"] = "Rahmen-Einstellungen"
-	L["SHOW"] = "Anzeigen"
 	L["FILE"] = "Datei"
 	L["HEIGHT"] = "H\195\182he"
 	L["SCALE"] = "Skalierung"
@@ -599,15 +695,11 @@ if not L then return end
 	L["FONT"] = "Schriftart"
 	L["BACKGROUND_COLOUR"] = "Hintergrundfarbe"
 	L["STYLE"] = "Stil"
-	L["ENABLED"] = "eingeschaltet"
 	L["ALERT"] = "St\195\182rmeldung"
 	L["PADDING"] = "Abstand"
 	L["INTERNAL"] = "innen"
 	L["EXTERNAL"] = "au\195\159en"
 	L["WIDTH"] = "Breite"
---	L["REALM"] = ""
-	L["VIEW"] = "Anzeige"
-	L["EDIT"] = "Bearbeiten"
 	L["DIRECTION"] = "Richtung"
 	L["ASCENDING"] = "aufsteigend"
 	L["DECENDING"] = "absteigend"
@@ -622,8 +714,6 @@ if not L then return end
 --	L["SORT_METHOD"] = ""
 --	L["SORT_BY_NAME"] = ""
 --	L["SORT_BY_NUMBER"] = ""
-	L["HIDE"] = "verstecken"
---	L["MOVE"] = ""
 	L["INSERT"] = "Leiste einf\195\188gen"
 	L["CURRENT"] = "aktuelle Zuordnung"
 	L["OFFSET"] = "Versatz"
@@ -640,6 +730,21 @@ if not L then return end
 --	L["TOOLTIP_PURCHASE_BANK_BAG_SLOT"] = ""
 --	L["TOOLTIP_PURCHASE_BANK_TAB_REAGENT"] = ""
 --	L["LABEL"] = ""
+--	L["ABORTED"] = ""
+--	L["RESTORE"] = ""
+--	L["PURGE"] = ""
+--	L["COPY_FROM"] = ""
+--	L["DELETED"] = ""
+--	L["IMPORT"] = ""
+--	L["EXPORT"] = ""
+--	L["NOTIFY"] = ""
+--	L["ACTION"] = ""
+--	L["FIRST"] = ""
+--	L["LAST"] = ""
+--	L["NONE_USABLE"] = ""
+--	L["NONE_OWNED"] = ""
+--	L["TEST"] = ""
+--	L["LIST"] = ""
 	
 	
 -- libdatabroker
@@ -664,8 +769,9 @@ if not L then return end
 --	L["LDB_MOUNTS_FLYING_DISMOUNT_WARNING"] = ""
 --	L["LDB_MOUNTS_SUMMON"] = ""
 --	L["LDB_MOUNTS_NODATA"] = ""
---	L["LDB_MOUNTS_TOOLTIP_MODE"] = ""
 --	L["LDB_MOUNTS_TOOLTIP_SELECTION"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM_TEXT"] = ""
 --	L["LDB_COMPANION_MISSING"] = ""
 --	L["LDB_COMPANION_NONE"] = ""
 --	L["LDB_COMPANION_RESTRICTED"] = ""

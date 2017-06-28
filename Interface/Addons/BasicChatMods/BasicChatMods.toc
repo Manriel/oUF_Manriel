@@ -1,16 +1,25 @@
-## Interface: 50400
-## Author: Funkydude
-## X-Credits: Rabbit & Ammo (SCM)
-## Notes: Basic Chat Mods!
-## Version: 7.47
+## Interface: 70200
 ## Title: BasicChatMods
+## Author: Funkydude
+## Version: v7.2.0
+## Notes: Basic Chat Mods
+## Notes-zhCN: Basic Chat Mods
+## Notes-zhTW: Basic Chat Mods
+## Notes-deDE: Basic Chat Mods
+## Notes-frFR: Basic Chat Mods
+## Notes-itIT: Basic Chat Mods
+## Notes-koKR: Basic Chat Mods
+## Notes-ruRU: Basic Chat Mods
+## Notes-ptBR: Basic Chat Mods
+## Notes-esES: Basic Chat Mods
+## Notes-esMX: Basic Chat Mods
 ## SavedVariables: bcmDB
+
+## X-Credits: Rabbit & Ammo (SimpleChatMods)
 ## X-Category: Chat/Communication
-## X-License: All Rights Reserved
-## X-Curse-Packaged-Version: v7.47
-## X-Curse-Project-Name: BasicChatMods
-## X-Curse-Project-ID: basic-chat-mods
-## X-Curse-Repository-ID: wow/basic-chat-mods/mainline
+## X-License: All Rights Reserved: You are free to fork and modify on GitHub, please ask us about anything else.
+## X-Curse-Project-ID: 13504
+## X-WoWI-ID: 11290
 
 ## OptionalDeps: LibChatAnims
 ## X-Embeds: LibChatAnims
@@ -21,7 +30,6 @@ Locales\enUS.lua
 Locales\deDE.lua
 Locales\koKR.lua
 Locales\frFR.lua
-Locales\esMX.lua
 Locales\ruRU.lua
 Locales\zhCN.lua
 Locales\esES.lua
@@ -49,6 +57,7 @@ justify.lua
 playernames.lua
 resize.lua
 scrolldown.lua
+smartgroup.lua
 sticky.lua
 telltarget.lua
 timestamp.lua

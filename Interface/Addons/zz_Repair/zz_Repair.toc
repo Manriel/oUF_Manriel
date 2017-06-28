@@ -1,0 +1,12 @@
+## Interface: 70200
+## Title: Repair
+## Notes: Broker to display your durability
+## Notes-deDE: Broker zur Anzeige der Haltbarkeit
+## Author: Rilgamon
+## X-WoWI-ID: 15491
+## SavedVariables: zz_RepairDB
+## LoadManagers: AddonLoader
+## X-LoadOn-Always: delayed
+## OptionalDeps: Ace3,BrokerPack,zzLibCommon
+Common\common.xml
+pack.xml

@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	GridLocale-ruRU.lua
 	Russian (Русский) localization
@@ -25,7 +25,7 @@ Grid.L = L
 L["Debugging"] = "Отладка"
 -- L["Debugging messages help developers or testers see what is happening inside Grid in real time. Regular users should leave debugging turned off except when troubleshooting a problem for a bug report."] = ""
 -- L["Enable debugging messages for the %s module."] = ""
--- L["General"] = ""
+L["General"] = "Общие" -- Needs review
 L["Module debugging menu."] = "Меню модуля отладки"
 -- L["Open Grid's options in their own window, instead of the Interface Options window, when typing /grid or right-clicking on the minimap icon, DataBroker icon, or layout tab."] = ""
 -- L["Output Frame"] = ""
@@ -33,7 +33,7 @@ L["Right-Click for more options."] = "Правый-Клик - открывает
 -- L["Show debugging messages in this frame."] = ""
 L["Show minimap icon"] = "Отображать иконку на миникарте"
 -- L["Show the Grid icon on the minimap. Note that some DataBroker display addons may hide the icon regardless of this setting."] = ""
--- L["Standalone options"] = ""
+L["Standalone options"] = "Автономные параметры" -- Needs review
 L["Toggle debugging for %s."] = "Показать отладку для  %s."
 
 ------------------------------------------------------------------------
@@ -63,7 +63,7 @@ L["Center Text Length"] = "Длина текста в центре"
 L["Corner Size"] = "Размер Углов"
 -- L["Darken the text color to match the inverted bar."] = ""
 L["Enable Mouseover Highlight"] = "Выделение при наведении мышки."
--- L["Enable right-click menu"] = ""
+L["Enable right-click menu"] = "Включить щелкните правой кнопкой мыши меню" -- Needs review
 L["Enable %s"] = "Включено %s"
 L["Enable %s indicator"] = "Включить %s индикатор"
 L["Font"] = "Шрифт"
@@ -88,7 +88,7 @@ L["Icon Size"] = "Размер иконки"
 L["Icon Stack Text"] = "Текст множества значков"
 L["Indicators"] = "Индикаторы"
 L["Invert Bar Color"] = "Обратить цвет полос"
--- L["Invert Text Color"] = ""
+L["Invert Text Color"] = "Инвертировать Цвет Текста" -- Needs review
 -- L["Make the healing bar use the status color instead of the health bar color."] = ""
 L["Never"] = "Никогда"
 L["None"] = "нету"
@@ -105,7 +105,7 @@ L["Orientation of Text"] = "Ориентация текста"
 L["Set frame orientation."] = "Установить ориеетацию фреймов"
 L["Set frame text orientation."] = "Установить ориентацию текста фреймов"
 L["Sets the opacity of the healing bar."] = "Установить прозрачность полосы лечения."
--- L["Show the standard unit menu when right-clicking on a frame."] = ""
+L["Show the standard unit menu when right-clicking on a frame."] = "Показать стандартный блок меню при щелчке правой кнопкой мыши на рамке." -- Needs review
 L["Show Tooltip"] = "Показывать подсказки"
 L["Show unit tooltip.  Choose 'Always', 'Never', or 'OOC'."] = "Показывать подсказку единицы.  Выберите 'Всегда', 'Никогда', или 'Вне боя'."
 L["Statuses"] = "Статусы"
@@ -142,19 +142,21 @@ L["Advanced"] = "Дополнительно"
 L["Advanced options."] = "Дополнительные настройки."
 L["Allows mouse click through the Grid Frame."] = "Разрешает мышкой кликать сквозь окно Grid"
 L["Alt-Click to permanantly hide this tab."] = "Alt-Клик скрывает данный ярлык."
+-- L["Always hide wrong zone groups"] = ""
 L["Arena Layout"] = "Расположение на арене"
 L["Background color"] = "Фон"
--- L["Background Texture"] = ""
+L["Background Texture"] = "Текстура Фона" -- Needs review
 L["Battleground Layout"] = "Расположение на ПС"
 L["Beast"] = "Животное"
 L["Border color"] = "Граница"
 -- L["Border Inset"] = ""
--- L["Border Size"] = ""
+L["Border Size"] = "Размер границы" -- Needs review
 L["Border Texture"] = "Текстуры границы"
 L["Bottom"] = "Внизу"
 L["Bottom Left"] = "Внизу Слева"
 L["Bottom Right"] = "Внизу Справа"
 L["By Creature Type"] = "По типу существа"
+-- L["ByGroup Layout Options"] = ""
 L["By Owner Class"] = "По классу владельца"
 L["Center"] = "Центр"
 L["Choose the layout border texture."] = "Выбор текстуры границы."
@@ -177,13 +179,15 @@ L["Fallback colors"] = "Цвета неизветсных"
 L["Frame lock"] = "Закрепить фреймы"
 -- L["Frame Spacing"] = ""
 L["Group Anchor"] = "Пометка группы"
+-- L["Hide when in mythic raid instance"] = ""
+-- L["Hide when in raid instance"] = ""
 L["Horizontal groups"] = "Группы горизонтально"
 L["Humanoid"] = "Гуманоид"
 L["Layout"] = "Расположение"
 L["Layout Anchor"] = "Пометка расположения"
 -- L["Layout Background"] = ""
 -- L["Layout Padding"] = ""
--- L["Layouts"] = ""
+L["Layouts"] = "Макеты" -- Needs review
 L["Left"] = "Слева"
 L["Lock Grid to hide this tab."] = "Закрепить Grid чтобы скрыть данный ярлык."
 L["Locks/unlocks the grid for movement."] = "Закрепляет/открепляет окно для передвижения"
@@ -209,8 +213,12 @@ L["Sets where Grid is anchored relative to the screen."] = "Установить
 L["Sets where groups are anchored relative to the layout frame."] = "Установить пометку где будет находиться группа на экране"
 L["Set the coloring strategy of pet units."] = "Установиь стратегию окраски питомцев."
 L["Set the color of pet units."] = "Установить цвет питомцев."
+-- L["Show all groups"] = ""
 L["Show a tab for dragging when Grid is unlocked."] = "Отображать ярлык когда Grid откреплен."
 L["Show Frame"] = "Отображение фреймов"
+-- L["Show groups with all players in wrong zone."] = ""
+-- L["Show groups with all players offline."] = ""
+-- L["Show Offline"] = ""
 L["Show tab"] = "Отображать ярлык"
 L["Solo Layout"] = "Расположение в соло"
 L["Spacing"] = "Интервалы"
@@ -226,7 +234,8 @@ L["Unknown Pet"] = "Неизвестные питомцы"
 L["Unknown Unit"] = "Неизвестная единица"
 -- L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = ""
 L["Using Fallback color"] = "Использовать истинный цвет"
--- L["World Raid as 40 Player"] = ""
+L["World Raid as 40 Player"] = "Открытый мир на 40 человек" -- Needs review
+-- L["Wrong Zone"] = ""
 
 ------------------------------------------------------------------------
 --	GridLayoutLayouts
@@ -256,16 +265,12 @@ L["None"] = "Нет"
 L["Click to toggle the frame lock."] = "Клик - вкл/выкл фиксацию фрейма."
 
 ------------------------------------------------------------------------
---	GridRoster
-
-
-------------------------------------------------------------------------
 --	GridStatus
 
 L["Color"] = "Цвет"
 L["Color for %s"] = "Цвет для %s"
 L["Enable"] = "Включено"
--- L["Opacity"] = ""
+L["Opacity"] = "Непрозрачность" -- Needs review
 L["Options for %s."] = "Опции для %s."
 L["Priority"] = "Приоритет"
 L["Priority for %s"] = "Приоритет для %s"
@@ -277,6 +282,12 @@ L["Status"] = "Статус"
 L["Status: %s"] = "Статус: %s"
 L["Text"] = "Текст"
 L["Text to display on text indicators"] = "Отображаемый текст в индикаторе"
+
+------------------------------------------------------------------------
+--	GridStatusAbsorbs
+
+L["Absorbs"] = "Поглощения" -- Needs review
+-- L["Only show total absorbs greater than this percent of the unit's maximum health."] = ""
 
 ------------------------------------------------------------------------
 --	GridStatusAggro
@@ -306,7 +317,7 @@ L["Buff: %s"] = "Бафф: %s"
 -- L["Change what information is shown by the status color and text."] = ""
 -- L["Change what information is shown by the status text."] = ""
 L["Class Filter"] = "Фильтр классов"
--- L["Color"] = ""
+L["Color"] = "Цвет" -- Needs review
 -- L["Color to use when the %s is above the high count threshold values."] = ""
 -- L["Color to use when the %s is between the low and high count threshold values."] = ""
 -- L["Color when %s is below the low threshold value."] = ""
@@ -314,7 +325,7 @@ L["Create a new buff status."] = "Добавляет новый бафф в мо
 L["Create a new debuff status."] = "Добавляет новый дебафф в модуль статуса"
 L["Curse"] = "Проклятье"
 L["<debuff name>"] = "<имя дебаффа>"
--- L["(De)buff name"] = ""
+L["(De)buff name"] = "Имя (Де)баффов" -- Needs review
 L["Debuff: %s"] = "Дебафф: %s"
 L["Debuff type: %s"] = "Тип Дебаффа: %s"
 L["Disease"] = "Болезнь"
@@ -326,17 +337,19 @@ L["Ghost"] = "Призрак"
 -- L["Low color"] = ""
 -- L["Low threshold"] = ""
 L["Magic"] = "Магия"
--- L["Middle color"] = ""
--- L["Pet"] = ""
+L["Middle color"] = "Средний цвет" -- Needs review
+L["Pet"] = "Питомец" -- Needs review
 L["Poison"] = "Яды"
--- L["Present or missing"] = ""
--- L["Refresh interval"] = ""
+L["Present or missing"] = [=[	
+
+ Присутствующие или отсутствующие]=] -- Needs review
+L["Refresh interval"] = "Интервал обновления" -- Needs review
 L["Remove an existing buff or debuff status."] = "Удаляет выбранный бафф/дебафф в модуле статуса модуль"
 L["Remove Aura"] = "Удалить бафф/дебафф"
 L["Remove %s from the menu"] = "Удалите %s из меню"
 -- L["%s colors"] = ""
 -- L["%s colors and threshold values."] = ""
--- L["Show advanced options"] = ""
+L["Show advanced options"] = "Показать расширенные параметры" -- Needs review
 --[==[ L[ [=[Show advanced options for buff and debuff statuses.
 
 Beginning users may wish to leave this disabled until you are more familiar with Grid, to avoid being overwhelmed by complicated options menus.]=] ] = "" ]==]
@@ -351,11 +364,11 @@ L["Show the time remaining, for use with the center icon cooldown."] = "Пока
 -- L["Show time left to tenths"] = ""
 -- L["%s is high when it is at or above this value."] = ""
 -- L["%s is low when it is at or below this value."] = ""
--- L["Stack count"] = ""
+L["Stack count"] = "Количество стаков" -- Needs review
 -- L["Status Information"] = ""
--- L["Text"] = ""
+L["Text"] = "Текст" -- Needs review
 -- L["Time in seconds between each refresh of the status time left."] = ""
--- L["Time left"] = ""
+L["Time left"] = "Осталось времени" -- Needs review
 
 ------------------------------------------------------------------------
 --	GridStatusHeals
@@ -436,10 +449,10 @@ L["X"] = "X"
 ------------------------------------------------------------------------
 --	GridStatusResurrect
 
--- L["Casting color"] = ""
+L["Casting color"] = "Цвет каста" -- Needs review
 -- L["Pending color"] = ""
 -- L["RES"] = ""
--- L["Resurrection"] = ""
+L["Resurrection"] = "Воскрешение" -- Needs review
 -- L["Show the status until the resurrection is accepted or expires, instead of only while it is being cast."] = ""
 -- L["Show until used"] = ""
 -- L["Use this color for resurrections that are currently being cast."] = ""
@@ -462,3 +475,4 @@ L["In Vehicle"] = "На транспорте"
 
 L["Talking"] = "Говорит"
 L["Voice Chat"] = "Голосовой чат"
+

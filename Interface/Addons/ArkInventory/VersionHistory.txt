@@ -1,20 +1,460 @@
 ﻿*to-do*
  * mail items expiry date/time
- * disable rules icon/action if rules not loaded
 
 *known issues*
  * moving an item from one guild bank tab to another will leave a ghost item behind until you view that tab again (it also increases the tooltip count for that ghost item).
- * windows may end up off screen, if they do then open the config, click on controls, select the tab for the location, click on reposition
- * crafting with items from the bank (not the reagent bank) will not update the item count for the bank (blizzard restriction, they dont allow access to the bank data unless you are there)
+ * caged battle pets cannot be seen when placed in the guild bank, they appear as pet cages instead (api issue, default ui has same issue)
+ * your legion class tier set bonus for out of combat regeneration is triggering a bag_update_cooldown event for all bags every 5 seconds
+ * broken shore tower buffs are triggering a bag_update_cooldown event multiple times per second.
+ * mythic keystone links arent supported by some of the item APIs so theyre a bit weird at the moment
  
 *wiki pages*
- * main wiki page - http://code.google.com/p/arkinventory/w/list
- * faq - http://code.google.com/p/arkinventory/wiki/FAQ
- * local help files can be downloaded from http://code.google.com/p/arkinventory/wiki/LocalHelpFiles
+ * main wiki page - https://github.com/arkayenro/arkinventory/wiki
+ * faq - https://github.com/arkayenro/arkinventory/wiki/FAQ
+ 
 
 
+*3.07.30 (25-JUN-2017)*
+ * fixed - issue with some tooltip text containing a UTF-8 non breaking space sequence (its not the same as a normal space character so doesnt match)
+ * fixed - issue with artifact power items not being categorised properly for non-english languages
+ * fixed - issue with ancient mana items not being categorised properly
+ * fixed - issue with artifact power and ancient mana amounts not displaying for non-english languages (the amount should show up but still requires translation of some suffixes)
+ * note - some languages (RU) do not have the text "Ancient Mana" in the toltip for Ancient Mana items so the values cannot be extracted at this time
+ * note - some languages (KR, CN, TW) have different structures so the values cannot be extracted at this time
  
+*3.07.29 (22-JUN-2017)*
+ * added - artifact power and ancient mana items will now display their values in the ilvl field (if item level is displayed)
+ * changed - disabled ldb update code after zoning, its not really needed and seems to be causing "script ran too long" errors while out of combat
+ * added - maximum quality option for auto sell
+ * fixed - bar and item category menus now use the same structure and colouring scheme
+ * reverted - you can click on a category name to assign it to a bar again (if its already assigned it will remove it)
+ * added - bar/item menu option to set auto sell flag for an individual category, option is per categoryset
+ * added - config option for testing auto sell mode (this is enabled by default, if you currently have auto sell enabled it will display a warning and wont sell anything until you disable this)
+
+*3.07.28 (17-JUN-2017)*
+ * fixed - display issue with backpack currency icons in status section
+
+*3.07.27 (08-MAY-2017)*
+ * changed - cooldown event handling should use less cpu
+ * changed - code that stores the item name (the search frame had too many items with no name)
+ * fixed - item counts for some auction house items was not working (due to invalid item links in the tooltip)
+ * changed - unuseable item tint changed to allow for cooldown issue
+
+*3.07.26 (18-APR-2017)*
+ * fixed - mythic keystones should now have an icon (had to temporarily hardcode it in)
+ * changed - mythic keystone level value replaces the ilvl value
+ * added - category for system > mythic keystone
+ * changed - artifact relic +item levels value replaces the ilvl value
+ * fixed - updated rules to use new C_EquipmentSet code for blizzard equipment manager
+ * changed - LDB currency and item tracking counts now use thousands seperators
+ * added - option to set the base item size (before scaling) under config > settings > styles / layouts > (id) > items > style > items
  
+*3.07.25 (29-MAR-2017)*
+ * changed - toc updated to 70200
+ * added - keystone object class to stop error message (still needs work to integrate fully)
+ 
+*3.07.24 (24-MAR-2017)*
+ * fixed - issue with sell junk limit option being inverted (it still has issues selling large numbers of items)
+ * added - option to disable showing the upgrade arrow under config > settings > styles / layouts > (id) > items > style > items (disabling shouldnt impact other mods, like pawn, that use it)
+ * fixed - mount issue when reaching level 20 and not purchasing a riding skill locks out all mounts including the chauffered ones that youve been using up to level 20
+ * fixed - illidari felstalker changed from flying to land mount
+ * changed - internal hyperlink (h2) results are now cached, this increases memory use but lowers cpu
+ * added - edit mode menu options for custom bar border colours
+ * changed - edit mode menu for category assignment to a bar changed so that assign is now a menu choice (to make it clear that you have to click on it to assign it, previously you had to click on the category name which wasnt as obvious)
+ * fixed - (maybe) issue with outfit( ) rule and blizzard equipment manager
+
+*3.07.23 (05-FEB-2017)*
+ * changed - internal rule id now includes all gem, enchant, suffix and bonusid data to be able to see the different variations (note: does not apply to categories)
+ * fixed - issue with debug and displaying which PT sets an item is in
+ * added - the green upgrade icon should display when blizzard think the item is an upgrade for you (note, the API is currently returning false for all items so its not actually going to show anything at this point but may later)
+ * changed - the green upgrade icon has been moved to the bottom left so as to not overlap the item level text
+ * fixed - issue with tooltip rule where it couldnt match against the green <Right click to ...> last line text
+ 
+*3.07.22 (18-JAN-2017)*
+ * added - option to disable rule 3rd party mod load messages
+ * added - option to disable rule registration messages
+ * fixed - (maybe) issue with outfit( ) rule and blizzard equipment manager
+
+*3.07.21 (18-JAN-2017)*
+ * changed - souldbound toys that you already know are now classified as trash
+ * fixed - issue with outfit( ) rule and blizzard equipment manager with items in your bank
+
+*3.07.20 (03-JAN-2017)*
+ * added - rule function tsm( ) allows for regex matching on tsm group names
+ * fixed - issue with outfit( ) rule and blizzard equipment manager after changing specs
+ * updated - repointed all urls in .pkgmeta to new curseforge location
+ 
+*3.07.19 (11-NOV-2016)*
+ * changed - default itemtype/subtype returns changed from 0/0 to -2/0 so that they dont conflict with consumable/explosives (which is 0/0)
+ * changed - items ending up with default itemtype/subtype values will be assigned to the2 system > unknown category (it should only be temporary until the game returns the correct information)
+ * changed - items in the system > unknown category are no longer cached and should update to their correct category (and get cached) once the game returns the correct information
+ * added - option to disable warning for unknown bag type rescans
+ 
+*3.07.18 (28-OCT-2016)*
+ * fixed - issue with default font size not applying for some objects (rule column headers, guild bank money and info logs)
+ * fixed - issue with tackle container slots not being recognised properly
+ 
+ 3.07.17 (26-OCT-2016)*
+ * changed - toc updated to 70100
+ * workaround - issue with increased item level due to GetItemInfo returning a slightly different hyperlink than the one passed in (only seems to impact artifacts).  presumably blizzard will fix it at some point
+
+*3.07.16 (21-OCT-2016)*
+ * fixed - issue with regex matching against some of the globalstrings that contain special regex characters
+ * fixed - issue with sorting by id as id was not a zero padded in the string
+ * fixed - issue where the window would recalculate whenever leaving combat
+
+*3.07.15 (02-OCT-2016)*
+ * fixed - rule function: itemstring
+ 
+*3.07.14 (01-OCT-2016)*
+ * fixed - issue with sell junk notification not always displaying
+ * fixed - issue with sort category equip location
+ * fixed - issue with artifact power items not getting categorised properly when colorblind mode is enabled
+ * removed - rule function: id()
+ * added - rule function: itemstring()
+ * added - sorting: slot type
+ * fixed - restack function should no longer be able to stall, should also not lock up the game while it does it
+
+*3.07.13 (26-SEP-2016)*
+ * fixed - removed debug output
+ 
+*3.07.12 (26-SEP-2016)*
+ * changed - co-routine code rewritten to remove the possibility of item updates in between a yield/resume being ignored (redraws may now take longer to complete under some circumstances)
+ * changed - bag rescan timer for zero slot bug lowered from 10 to 2 seconds
+ * fixed - objectstringdecode function to handle new itemstring format
+ * fixed - issue with restack code and positioning of profession bags
+ * changed - sell junk also displays number of items destroyed (if any)
+
+*3.07.11 (24-SEP-2016)*
+ * fixed - item counts restored for currency and spell (mount) objects
+ * fixed - typo in objectstringdecode function for bonusids3
+ * fixed (maybe) - issue with artifact power items in zhCN locale
+ * updated - mount data
+
+*3.07.10 (23-SEP-2016)*
+ * fixed - issue with inconsistent hyperlinks causing an error
+
+*3.07.09 (23-SEP-2016)*
+ * fixed - issue with type() rule function
+ * workaround - issue with i being nil when getting an items assigned category. still need to work out the cause
+ * fixed - item counts should only be added to tooltips for items
+
+*3.07.08 (22-SEP-2016)*
+ * note - all item data has been erased.  please login to each character to update its data
+ * changed - items that end up assigned to the default category now have that assignment cached to speed up display.
+ * changed - rules should use slightly less cpu.  should be more noticable if you have a lot of rules
+ * changed - starlight rosedust should now have a default category of system > quest
+ * fixed - creeping carpet set to ground mount
+ * fixed - errors inside coroutines should now display (the ones where the bag window is usually just black, or partially built)
+ * added - rule variables. rules can now access most of the item information directly via the i, osd and info variables (see wiki for details)
+ * changed - sell junk function now only sells items assigned to the system > junk category.  if you have a grey item you dont want sold just assign it to another category.  if you have non grey items you want auto sold then assign them to the system > junk category.  deletion of non sellable greens (or higher) will still prompt for confirmation
+ * fixed - issue with item counts not getting added to some types of links (mostly the tradeskill ones)
+
+*3.07.07 (11-SEP-2016)*
+ * added - artifact relics should now show their item level (if enabled)
+ * added - category for consumable > artifact power (to be able split up relics and power)
+ * changed - artifact power items should now have a default category of consumable > artifact power
+ * changed - ancient mana items should now have a default category of system > currency
+ * fixed - items being incorrectly assigned to the equipable items category (the equip location value for some items is nil and not an empty string which it has been up until now)
+ * fixed - toybox items were getting incorrectly flagged as being unusable (if you had that enabled)
+ * fixed - toybox item cooldowns should now display
+ * fixed - issue with changing search options in config when the search module is not loaded
+ * changed - ldb tooltip for currencies now includes the total and weekly maximums
+
+*3.07.06 (03-SEP-2016)*
+ * changed - translations for mining and herbalism will try to get data from spells instead of items (to hopefully get them to work more reliably)
+ * fixed - issue with recipes/patterns being flagged as soulbound when they arent due to the item they create being soulbound
+ * changed - artifact power and artifact relic items should now be categorised under system > artifact relic
+ * fixed - issue with bar names that were too long getting wrapped instead of shortened (and ending up underneath the item)
+ * fixed - equipping a new bag in an empty bag slot will now update the window correctly
+ * fixed - issue with toybox source filter
+
+*3.07.05 (20-AUG-2016)*
+ * fixed - issue with item age being reset on login due to tooltip data not being ready
+ * fixed - issue with item age being nil causing the bank to fail
+
+*3.07.04 (15-AUG-2016)*
+ * fixed - issue with ToggleAllBags and OpenAllBags code (when not overriding the bank and bags)
+ * fixed - issue with re-hooking when ai is disabled and then enabled within the same game session
+ * fixed - issue with re-hooking the bank when changing the override option
+ * changed - new item glow changed to cover the entire item and is user configurable via config > general > new item glow
+ * fixed - issue with 30230 upgrade code
+ 
+*3.07.03 (13-AUG-2016)*
+ * fixed - issue with error message about "you should never have got here" displaying incorrectly
+ * fixed - upgrade code
+ * fixed - issue with chatlinked items doubling up (in bag and bank)
+ * fixed - issue with moving items around in the guild bank
+ * fixed (maybe) - issue with mailbox/vendor not opening
+ * added - categories and rules can be enabled/disabled in the config window
+
+*3.07.02 (10-AUG-2016)*
+ * fixed - issue with 30260 upgrade code
+ * fixed - issue with copying category sets
+ 
+*3.07.01 (10-AUG-2016)*
+*3.07.00 (08-AUG-2016) BETA 8*
+ * fixed - issue with 30271 upgrade code
+ * fixed - issue with config (profiles)
+ * fixed - issue with chatlinked items doubling up
+ * fixed - issue with void storage not getting scanned
+ * removed - debug output of favourite toy ids
+
+*3.07.00 (07-AUG-2016) BETA 7*
+ * fixed - issue with 30230 upgrade code
+ * added - heirlooms window (view only)
+ * fixed - issue with tooltips in account location windows
+
+*3.07.00 (03-AUG-2016) BETA 6*
+ * changed - removed redundant refresh actions in the vault update code
+ * fixed - removed toybox debug output
+
+*3.07.00 (01-AUG-2016) BETA 5*
+ * fixed - issue with online tooltip for the mailbox not showing
+ * fixed - issue with offline tooltip for gold amounts in mailbox
+ * workaround - issue with mailbox being slow due to having to rescan the whole thing every time, default update timer is now 2 seconds (changeable in config)
+ * fixed - issue with config > rules being blank
+ * fixed - issue with upgrade code introduced in beta 4
+
+*3.07.00 (31-JUL-2016) BETA 4*
+ * fixed - issue with profiles not applying when opening a non player window (guild bank/account)
+ * fixed - upgrade code missed bag to bar assignments which ended up causing a black window on open
+ * fixed - codex issue causing the default profile to be used in some cases
+ * fixed - issue copying a layout/style/catset and the current window not updating
+ * fixed - issue where items would sometimes be picked up when in edit mode (mostly at the bank/vault)
+ * fixed - issue where vault was refreshing on each change
+ * fixed - issue with toybox scanning
+
+*3.07.00 (28-JUL-2016) BETA 3*
+ * added - when the title frame is hidden a smaller set of action icons is displayed in the container frame
+ * fixed - issue with style/layout/category set not getting applied immediately when you change it in a profile
+ * fixed - issue with vault window sometimes opening with the players data (ERR and empty) instead of guild data
+ * fixed - issue with an internal item id format causing item counts to be wonky
+ 
+*3.07.00 (27-JUL-2016) BETA 2*
+ * fixed - issue with gold amounts displayed in tooltips when in colourblind mode
+
+*3.07.00 (26-JUL-2016) BETA 1*
+ * added - profiles
+ * recover - where possible previous profile data will be recovered, if it cant be done you just need to set the controls for the profile
+
+*3.06.17 (24-JUL-2016)*
+ * fixed - issue with pet filters
+
+*3.06.16 (23-JUL-2016)*
+ * fixed - issue with deleted rules still showing in the list
+ * fixed - issue with copying category sets
+ * changed - Settings > Design changed to Settings > Styles / Layouts to make it more obvious where they are
+
+*3.06.15 (22-JUL-2016)*
+ * added - default [1000] editable profile for all locations (this should let you use it from scratch without the need to create anything first)
+ * fixed - issue with tooltip positioning whe using CVAR:alwaysCompareItems
+ * added - right click menu option from refresh icon to reset the cached category data (needs to be used after TSM users update their groups)
+
+*3.06.14 (21-JUL-2016)*
+ * fixed - issue with items manually assigned to a system category not getting placed in the correct bar
+
+*3.06.13 (21-JUL-2016)*
+ * fixed - issue with data conversion due to the last change, if you have a backup from 30512 and your new setup is wrong please restore it and login again
+ * fixed - issue with ldb bag count text
+ * fixed - issue with deleted categories still being assigned to a bar
+ * fixed - issue with upgrade code for older versions
+ * changed - BreakUpLargeNumbers replaced with FormatLargeNumber
+ * fixed - issue with item categorisation
+
+*3.06.12 (21-JUL-2016)*
+ * changed - edit mode should expand the window more sideways and less downwards
+ * fixed - issue with data conversion, if you have a backup from 30512 please restore it and login again
+ 
+*3.06.11 (20-JUL-2016)*
+ * fixed - issue with custom category item assignments not getting converted properly
+ 
+*3.06.10 (20-JUL-2016)*
+ * fixed - cleared translation errors in DE/FR/RU/TW
+
+*3.06.09 (20-JUL-2016)*
+ * fixed - issue with windows not always updating when blueprint settings changed
+ * fixed - serializer issue
+
+*3.06.08 (20-JUL-2016)*
+ * fixed - issue with servers without any cross realm servers
+
+*3.06.07 (20-JUL-2016)*
+ * fixed - issue with servers without any cross realm servers
+ * fixed - issue with warning about duplicate realm data
+ * fixed - issue with window not sorting on open (or instantly)
+ * fixed - issue with outfitter failure causing rules to not enable
+ * fixed - issue with accessing config menu from blizzard interface
+ 
+*3.06.06 (19-JUL-2016)*
+ * fixed - issue with serializer library on beta clients
+ * fixed - issue with blizzard bank frame still opening when overridden
+ 
+*3.06.05 (18-JUL-2016) BETA*
+ * changed - rule function tsmgroup moved back to main rules addon
+ * fixed - issues with dependencies on internal blizzard addons
+ 
+*3.06.04 (16-JUL-2016) BETA*
+ * WARNING - you need to copy over your arkinventory savedvariables file from the live game client again to the ptr client as some of the data cannot be upgraded.  if you cannot do this then some settings will be reset back to default
+ * added - config > settings > designs > export
+ * added - config > settings > designs > import
+ * note - import/export is currently limited to just design options (layout and style).  any non system sort methods or categories or rules used by the design are not exported at this time
+ * added - rule function bonus( ) - checks for any/specific bonus ids an item has
+ * added - debug item data displays source and bonus ids
+ * added - option to disable monitoring of updates for pets, mounts and toys
+ * added - right clicking on an item in the mailbox window while at the mailbox will retrieve that item
+ * added - gold amount in mails now show up as an item (and are lootable)
+ * fixed - issue with renaming designs
+ * fixed - issue with rule functions vendorpriceover and vendorpriceunder
+ * fixed - new items time display will now display for all locations, not just the bag
+ * fixed - issue with battlepet item counts caused by previous change of internal item id
+ * fixed - issue with the offline vault handling shift clicks (stack split menu opened when it shouldnt)
+ * added - deleted category sets can be restored/purged
+ * added - category sets can be copied
+ * changed - rule data moved from profile to category sets
+ * changed - rules are enabled/disabled when in edit mode from the bar menu
+ * changed - custom category data moved from profile to category sets
+ * added - custom categories are enabled/disabled when in edit mode from the bar menu
+ * added - in edit mode you can drag a bar to move it to a new location (it will insert it there, not merge it)
+ * added - bar menu action for setting a custom name colour (specific to each bar)
+ * added - bar menu action for setting a custom background colour (specific to each bar)
+ * added - bar menu action for setting a custom border colour (specific to each bar)
+ * changed - bar name height option replaced with bar name font size option
+ * changed - edit mode no longer turns everything red (so you can see your custom colours when setting them)
+ * changed - item counts now use thousands seperators
+ * fixed - issue with moving a bar upwards, would not move the underlying bar options with it
+ * changed - viewing another characters data will now use their settings
+ * changed - font has been moved to global, unable to transfer setting, please set it again
+ * changed - outfit rule function always returns false when used in an offline location
+ * added - font size of title frame text can be set (title frame adjusts height to fit)
+ * changed - title bar action buttons set to a single row
+ * added - font size of search frame text can be set (search frame adjusts height to fit)
+ * added - font size of status frame text can be set (status frame adjusts height to fit)
+ * added - if you rename your character its previous data will transfer over to the new name (must have logged in at least once using 3.04.06 or higher with the old name before it will work)
+ * added - category: "system > artifact relic" and "consumable > vantus rune"
+ * changed - category: "tradegoods > devices" and "tradegoods > explosives" merged to "consumable > explosives and devices"
+ * changed - category: "consumable > item enhancement" moved to "system > item enhancement"
+ * changed - category: "tradegoods > enchantment" merged to "system > item enhancement"
+ * removed - category: "consumable > scroll"
+ * changed - connected realms should always work for the current realm as the information is pulled from the game now.  it might be out of date for other realms
+ * changed - rule function type( ) now also takes the numeric itemclass values
+ * changed - rule function subtype( ) now also takes the numeric itemsubclass values
+ * added - ability to set the font size of the dropdown menus
+ * added - ability to set the font size and colour of the item level text
+ * added - ability to set the font size and colour of the item count text
+ * added - ability to set the font size and colour of the item age text
+ 
+*3.06.03 (30-JUN-2016) BETA*
+ * added - config > general > junk items - options for auto selling junk quality items when you visit a merchant (will not run if you have Scrap or SellJunk mods loaded)
+ * fixed - an inconsistency with the restack menu and config choices
+ * fixed - issue with opening custom category config from item in edit mode
+ * fixed - issue with opening sort methods config from bars in edit mode
+ 
+*3.06.02 (27-JUN-2016) BETA*
+ * changed - tooltip counts: when all items are from a single location only the name is listed (not the duplicate item count)
+ * removed - config > controls > location > reposition on load
+ * removed - config > controls > location > reposition now
+ * added - config > display > reposition on show (defaults to enabled) - any windows partially off screen are repositioned back on screen when opened, if its still too big to fit it will remain partially off screen (set the window height to enable the scrollbar to make it fit)
+ * removed - config > show hidden items - right click on refresh button instead
+ * removed - main icon > right click > show hidden - right click on refresh button instead
+ * removed - config > settings > window > sorting > on window open
+ * removed - config > settings > window > sorting > instant
+ * added - config > display > refresh sorting (defaults to manual) - this is now global and replaces/combines the two above options
+ * added - deleted sort methods can be restored/purged
+ * added - sort methods can be copied
+ * added - deleted custom categories can be restored/purged
+ * changed - most profile based settings have been moved to global based "design".  designs are made up of style and layout options that be assigned seperately to a window to determine how its built
+ * added - deleted designs can be restored/purged
+ * added - designs can be copied
+ * moved - config > settings has been moved to config > settings > designs
+ * moved - config > auto open/close has been moved to config > settings > auto open/close
+ * moved - config > sorting has been moved to config > settings > sort methods
+ * moved - config > categories has been moved to config > settings > custom categories
+ * fixed - issue with tooltips not adding item counts when hovering over currencies at merchants
+ 
+*3.06.01 (18-JUN-2016) BETA*
+ * fixed - arkdewdrop lib on curse
+
+*3.06.00 (17-JUN-2016) BETA*
+ * fixed - issue with restack code and unpurchased bag slots
+ * fixed - gold amount in tooltip formatted with thousands seperator
+ * fixed - issue with item counts sometimes not updating
+ * added - rule function: itemfamily | family
+ * added - item family value to debug menu for bag slots
+ * added - option to use druid travel forms instead of mounts (warning, the dismount in flight option is not useable with travel form, you will always cancel travel form by pressing the summon mount keybind, if youre in flight form just press it again before you hit the ground and you'll be fine.)
+ * changed - search window moved to its own load on demand module
+ * changed - toc updated to 70000 (legion compatible)
+
+*3.05.12 (23-NOV-2015)*
+ * fixed - issue with aborting a restack when leaving bank/vault
+ * fixed - issue with item counts on merchant cost itemstring
+ * added - workaround/fix for issue with item counts on tradeskill results and reagents due to invalid hyperlink returned by blizzard
+ 
+*3.05.11 (21-JUL-2015)*
+ * updated - draenor flying capability
+
+*3.05.10 (13-JUL-2015)*
+ * fixed - issue with tint unusable overlay
+ * fixed - issue with battlepet tooltips at the auction house
+ 
+*3.05.09 (09-JUL-2015)*
+ * fixed - issue with /ai track
+ * removed - references to LibItemUpgradeInfo-1.0
+
+*3.05.08 (08-JUL-2015)*
+ * fixed - issue with inserting bars
+
+*3.05.07 (05-JUL-2015)*
+ * fixed - empty item slot background issue
+ * added - option to set empty item slot (solid colour) background alpha level
+
+*3.05.06 (04-JUL-2015)*
+ * note - all item data has been erased (to cater for the new itemstring format).  please login to each character to update its data
+ * fixed - bar background colour should now apply correctly
+ * fixed - window background should now update properly when changing between a texture and a solid colour
+
+*3.05.05 (02-JUL-2015)*
+ * changed - code adjusted for new itemstring format (specialisation id), no actual impact
+ * changed - replaced LibItemUpgradeInfo-1.0 with internal code
+ * fixed - timewarped items should now show their correct item levels
+ * fixed - issue with clearing bars
+ 
+*3.05.04 (30-JUN-2015)*
+ * fixed - issue with adding/removing/moving bars
+
+*3.05.03 (27-JUN-2015)*
+ * changed - restack menu options
+ * fixed - restack code (shouldnt move profession items, like the swiss army knife, into the bank any more, just crafting reagents that can go into that profession bag)
+ * fixed - embeds for no-lib download
+ 
+*3.05.02 (25-JUN-2015)*
+ * toc updated to 60200
+ 
+*3.05.01 (xx-JUN-2015) Beta 4*
+ * fixed - restack code
+ * changed - category assignment menus are now in internal id order
+ * changed - rule assignment menus are now in priority order
+ 
+*3.05.01 (14-JUN-2015) Beta 3*
+ * fixed - restack code
+ 
+*3.05.01 (13-JUN-2015) Beta 2*
+ * changed - restack action no longer initiates mutliple location restacks, its now per window/location so you have more control over it
+ * changed - restack menu: choice of blizzards cleanup or my restack code
+ * changed - restack menu: auto deposit is now set here
+ * info: cleanup code will compact then if enabled and at the bank will do a deposit all reagents
+ * info: restack code will compact then consolidate
+ * info: compact will condense all items into as few stacks as possible
+ * info: consolidate will move profession items in normal bags and the reagent bank to profession bags, then move crafting items in normal bags to the reagent bank, then move crafting items in your bag to the bank.
+ * info: when auto deposit is enabled and at the bank restack will move items in your bags to the bank (and reagent bank) as part of both the compact and consolidate processes
+ * info: both code variants will abide by the ignore cleanup value assigned to a bag (if items in a bag are not touched by the code then check this setting)
+ 
+*3.05.01 (06-JUN-2015) Beta 1*
+ * removed - player level restictions for mount menus (allows you to pick the chauffered mounts when under level 20)
+ * changed - rule formulas are no longer compressed into a single line.  you can add extra spaces and newlines and they will stay intact now
+ * added - Chauffeured Chopper mount data
+ * fixed - issue with new item flash/animation and search overlay causing new items to not hide when they didnt match the filter
+
 *3.05.00 (25-FEB-2015)*
  * added - config > settings > location > window > frames > title > online (sets the colour of the character name in the title bar when online)
  * added - config > settings > location > window > frames > title > offline (sets the colour of the character name in the title bar when offline)
@@ -1403,7 +1843,7 @@
 *2.06 (12-JUL-2007)*
   * info - all cached item data has been cleared - you will need to login to each character for AI to rebuild their data
   * fixed - an issue with item id's not being built properly during bag scans
-  * fixed - an issue with the conversion code
+  * fixed - an issue with the upgrade code
   * fixed - new item text, centred text, should be able to swap same id items without them being tagged as new
 
 *2.05 (11-JUL-2007)*
@@ -1416,7 +1856,7 @@
   * fixed - error in sort code
 
 *2.04 (08-JUL-2007)*
-  * fixed - RULE_PATTERN_ITEMNUMBER issue with conversion code
+  * fixed - RULE_PATTERN_ITEMNUMBER issue with upgrade code
   * added - chinese translation (thanks candykiss)
 
 *2.03 (05-JUL-2007)*
@@ -1470,12 +1910,12 @@
   * changed - slightly increased the thickness of the item borders
 
 *2.00 (21-JUN-2007) (beta-2007-JUN-21-20-30)*
-  * fixed - error in conversion code for item id's
+  * fixed - error in upgrade code for item id's
   * fixed - closetgnome outfit code
   * fixed - error in all non english locales
 
 *2.00 (20-JUN-2007) (beta-2007-JUN-20-22-45)*
-  * fixed - error in conversion code (only impacted new or cleaned installs)
+  * fixed - error in upgrade code (only impacted new or cleaned installs)
   * fixed - rule function name( )
   * added - rules are now validated before being saved
   * changed - item( ) is now id( ) - existing rules will just get damaged and stop working until you edit and change them to use the new function name

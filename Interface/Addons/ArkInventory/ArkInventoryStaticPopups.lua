@@ -1,4 +1,4 @@
-﻿local _G = _G
+local _G = _G
 local select = _G.select
 local pairs = _G.pairs
 local ipairs = _G.ipairs
@@ -9,14 +9,14 @@ local table = _G.table
 
 ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_RENAME", {
 	
-	text = PET_RENAME_LABEL,
+	text = ArkInventory.Localise["RENAME"],
 	hide_on_escape = true,
 	show_while_dead = false,
 	exclusive = true,
 	
 	buttons = {
 		{
-			text = ACCEPT,
+			text = ArkInventory.Localise["ACCEPT"],
 			on_click = function( self )
 				local text = self.editboxes[1]:GetText( )
 				ArkInventory.PetJournal.SetName( self.data, text )
@@ -31,7 +31,7 @@ ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_RENAME", {
 			end,
 		},
 		{
-			text = CANCEL,
+			text = ArkInventory.Localise["CANCEL"],
 		},
 	},
 	
@@ -41,13 +41,13 @@ ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_RENAME", {
 			auto_focus = true,
 			max_letters = 16,
 			
-			on_enter_pressed = function( editbox, data )
-				ArkInventory.PetJournal.SetName( data, editbox:GetText( ) )
+			on_enter_pressed = function( self, data )
+				ArkInventory.PetJournal.SetName( data, self:GetText( ) )
 				PetJournal_UpdateAll( )
 				ArkInventory.Lib.StaticDialog:Dismiss( "BATTLE_PET_RENAME", data )
 			end,
 			
-			on_escape_pressed = function( editbox, data )
+			on_escape_pressed = function( self, data )
 				ArkInventory.Lib.StaticDialog:Dismiss( "BATTLE_PET_RENAME", data )
 			end,
 			
@@ -68,7 +68,7 @@ ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_RELEASE", {
 	
 	buttons = {
 		{
-			text = OKAY,
+			text = ArkInventory.Localise["OKAY"],
 			on_click = function( self )
 				C_PetJournal.ReleasePetByID( self.data )
 				if ( PetJournalPetCard.petID == self.data ) then
@@ -77,7 +77,7 @@ ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_RELEASE", {
 			end,
 		},
 		{
-			text = CANCEL,
+			text = ArkInventory.Localise["CANCEL"],
 		},
 	},
 	
@@ -92,7 +92,7 @@ ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_RELEASE", {
 			qd = string.format( ", %s%s|r", select( 5, ArkInventory.GetItemQualityColor( pd.rarity ) ), qd )
 		end
 		
-		local text = string.format( "%s|r, %s %d%s", pd.fullName, LEVEL, pd.level, qd )
+		local text = string.format( "%s|r, %s %d%s", pd.fullname, LEVEL, pd.level, qd )
 		
 		self.text:SetText( string.format( PET_RELEASE_LABEL, text ) )
 		
@@ -109,7 +109,7 @@ ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_PUT_IN_CAGE", {
 	
 	buttons = {
 		{
-			text = OKAY,
+			text = ArkInventory.Localise["OKAY"],
 			on_click = function( self )
 				C_PetJournal.CagePetByID( self.data )
 				if ( PetJournalPetCard.petID == self.data ) then
@@ -118,9 +118,82 @@ ArkInventory.Lib.StaticDialog:Register( "BATTLE_PET_PUT_IN_CAGE", {
 			end,
 		},
 		{
-			text = CANCEL,
+			text = ArkInventory.Localise["CANCEL"],
 		},
 	},
+	
+} )
+
+ArkInventory.Lib.StaticDialog:Register( "DESIGN_EXPORT", {
+	
+	text = ArkInventory.Localise["EXPORT"],
+	hide_on_escape = true,
+	exclusive = true,
+	
+	buttons = {
+		{
+			text = ArkInventory.Localise["CANCEL"],
+		},
+	},
+	
+	editboxes = {
+		{
+			auto_focus = true,
+			width = 200,
+			on_enter_pressed = function( self, data )
+				ArkInventory.Lib.StaticDialog:Dismiss( "DESIGN_EXPORT" )
+			end,
+			on_escape_pressed = function( self, data )
+				ArkInventory.Lib.StaticDialog:Dismiss( "DESIGN_EXPORT" )
+			end,
+		},
+	},
+	
+	on_show = function( self, data )
+		self.editboxes[1]:SetText( self.data or "" )
+	end,
+	
+} )
+
+ArkInventory.Lib.StaticDialog:Register( "DESIGN_IMPORT", {
+	
+	text = ArkInventory.Localise["IMPORT"],
+	hide_on_escape = true,
+	exclusive = true,
+	
+	buttons = {
+		{
+			text = ArkInventory.Localise["OKAY"],
+			on_click = function( self )
+				ArkInventory.ConfigInternalDesignImport( self:GetText( ) )
+				ArkInventory.Lib.StaticDialog:Dismiss( "DESIGN_IMPORT" )
+			end,
+		},
+		{
+			text = ArkInventory.Localise["CANCEL"],
+		},
+	},
+	
+	editboxes = {
+		{
+			
+			auto_focus = true,
+			width = 200,
+			
+			on_enter_pressed = function( self, data )
+				ArkInventory.ConfigInternalDesignImport( self:GetText( ) )
+				ArkInventory.Lib.StaticDialog:Dismiss( "DESIGN_IMPORT" )
+			end,
+			
+			on_escape_pressed = function( self, data )
+				ArkInventory.Lib.StaticDialog:Dismiss( "DESIGN_IMPORT" )
+			end,
+		},
+	},
+	
+	on_show = function( self, data )
+		self.editboxes[1]:SetText( "" )
+	end,
 	
 } )
 

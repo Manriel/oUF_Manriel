@@ -1,4 +1,4 @@
-﻿local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "zhTW" )
+local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "zhTW" )
 if not L then return end
 
 -- post updated translations at http://groups.google.com/group/wow-arkinventory (modify this file and include as an attachment)
@@ -32,6 +32,14 @@ if not L then return end
 	L["WOW_ITEM_TOOLTIP_POTION_MANA"] = "恢復%d+至%d+點法力"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_BATTLE"] = "戰鬥藥劑"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_GUARDIAN"] = "守護藥劑"
+	L["WOW_ITEM_TOOLTIP_10P3T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P3S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P6T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P6S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P9T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P9S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P12T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P12S"] = ""
 	
 	
 --	location names
@@ -46,30 +54,33 @@ if not L then return end
 	
 --	status bar/bag text
 	L["STATUS_NO_DATA"] = "無資料"
-	L["STATUS_FULL"] = "滿"
 	L["STATUS_PURCHASE"] = "買"
 	
 	
 --	restack
---	L["RESTACK"] = "壓縮並重新堆疊"
+	L["RESTACK"] = "壓縮並重新堆疊"
 	L["RESTACK_TEXT"] = "重新堆疊物品以減少物品佔用的欄位，特殊背包的欄位將會優先被使用"
 	L["RESTACK_FAIL_WAIT"] = "正在重新堆疊，請等候完成"
 	L["RESTACK_FAIL_ACCESS"] = "你沒有權限重新堆疊|cffffffff%1$s|r的第|cffffffff%2$s|r個分頁"
+--	L["RESTACK_FAIL_CLOSED"] = ""
+--	L["RESTACK_TYPE"] = ""
+--	L["RESTACK_CLEANUP_DEPOSIT"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_FILL_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_REFRESH_WHEN_COMPLETE"] = ""
 	
 	
---	vault tooltip text
+--	vault tab tooltips
 	L["VAULT_TAB_ACCESS_NONE"] = "無存取權限"
 	L["VAULT_TAB_NAME"] = "標籤: |cffffffff%1$s - %2$s|r" -- tab number, tab name
 	L["VAULT_TAB_ACCESS"] = "存取權限: |cffffffff%1$s|r"
 	L["VAULT_TAB_REMAINING_WITHDRAWALS"] = "剩餘每日提領額度: |cffffffff%1$s|r"
 	
 	
---	category "header" descriptions  (does not have to match wow)
-	L["CATEGORY_RULE"] = "規則"
-	
-	
 --	system category descriptions
 	L["CATEGORY_SYSTEM_CORE_MATS"] = "原始材料"
+--	L["CATEGORY_SYSTEM_MYTHIC_KEYSTONE"] = ""
 	
 	
 --	consumable category descriptions
@@ -81,25 +92,25 @@ if not L then return end
 	
 	
 --	bag names - used to name the empty slots in the status frame
-	L["STATUS_NAME_BAG"] = "背包"
---	L["STATUS_NAME_COOKING"] = ""
-	L["STATUS_NAME_CRITTER"] = "小動物"
-	L["STATUS_NAME_ENCHANTING"] = "附魔"
-	L["STATUS_NAME_ENGINEERING"] = "工程"
-	L["STATUS_NAME_GEAR"] = "裝備"
-	L["STATUS_NAME_GEM"] = "珠寶"
---	L["STATUS_NAME_HEIRLOOM"] = ""
-	L["STATUS_NAME_HERB"] = "草藥"
-	L["STATUS_NAME_INSCRIPTION"] = "銘文"
-	L["STATUS_NAME_KEY"] = "鑰匙"
-	L["STATUS_NAME_LEATHERWORKING"] = "製皮"
-	L["STATUS_NAME_MAIL"] = "郵件"
-	L["STATUS_NAME_MINING"] = "礦石"
-	L["STATUS_NAME_MOUNT"] = "坐騎"
---	L["STATUS_NAME_REAGENTBANK"] = ""
---	L["STATUS_NAME_TACKLE"] = ""
---	L["STATUS_NAME_TOKEN"] = ""
---	L["STATUS_NAME_TOY"] = ""
+	L["STATUS_SHORTNAME_BAG"] = "背包"
+--	L["STATUS_SHORTNAME_COOKING"] = ""
+	L["STATUS_SHORTNAME_CRITTER"] = "小動物"
+	L["STATUS_SHORTNAME_ENCHANTING"] = "附魔"
+	L["STATUS_SHORTNAME_ENGINEERING"] = "工程"
+	L["STATUS_SHORTNAME_GEAR"] = "裝備"
+	L["STATUS_SHORTNAME_GEM"] = "珠寶"
+--	L["STATUS_SHORTNAME_HEIRLOOM"] = ""
+	L["STATUS_SHORTNAME_HERB"] = "草藥"
+	L["STATUS_SHORTNAME_INSCRIPTION"] = "銘文"
+	L["STATUS_SHORTNAME_KEY"] = "鑰匙"
+	L["STATUS_SHORTNAME_LEATHERWORKING"] = "製皮"
+	L["STATUS_SHORTNAME_MAIL"] = "郵件"
+	L["STATUS_SHORTNAME_MINING"] = "礦石"
+	L["STATUS_SHORTNAME_MOUNT"] = "坐騎"
+--	L["STATUS_SHORTNAME_REAGENTBANK"] = ""
+--	L["STATUS_SHORTNAME_TACKLE"] = ""
+--	L["STATUS_SHORTNAME_TOKEN"] = ""
+--	L["STATUS_SHORTNAME_TOY"] = ""
 	
 	
 --	main menu
@@ -118,8 +129,9 @@ if not L then return end
 	
 --	actions menu
 	L["MENU_ACTION"] = "功能"
-	L["MENU_ACTION_REFRESH"] = "更新"
 	L["MENU_ACTION_REFRESH_TEXT"] = "更新及排序視窗內容"
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE"] = ""
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE_TEXT"] = ""
 	L["MENU_ACTION_RELOAD_TEXT"] = "重載視窗，當你使用換裝軟體時使用"
 	L["MENU_ACTION_EDITMODE"] = "開啟編輯模式"
 	L["MENU_ACTION_EDITMODE_TEXT"] = "切換編輯模式，讓你指定分組及調整樣式"
@@ -159,6 +171,9 @@ if not L then return end
 	L["MENU_ITEM_DEBUG_PT_TEXT"] = "顯示此物品的 PT 類別"
 	L["MENU_ITEM_DEBUG_PT_NONE"] = "此物品不在任何 PT 類別內"
 	L["MENU_ITEM_DEBUG_PT_TITLE"] = "此物品的 PT 類別"
+--	L["MENU_ITEM_DEBUG_SOURCE"] = ""
+--	L["MENU_ITEM_DEBUG_BONUS"] = ""
+--	L["MENU_ITEM_DEBUG_ITEMSTRING"] = ""
 	
 	
 --	bar menu
@@ -170,15 +185,32 @@ if not L then return end
 	L["MENU_BAR_CATEGORY_HIDDEN_TEXT"] = "設定此分組是否為隱藏模式\n\n在隱藏分組內的物品，一般情況下將不會顯示"
 --	L["MENU_BAR_CATEGORY_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_CATEGORY_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_ENABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_DISABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_JUNK_TEXT"] = ""
 --	L["MENU_BAR_BAG_ASSIGN_TEXT"] = ""
 	L["MENU_BAR_OPTIONS"] = "分組選項"
-	L["MENU_BAR_CLEAR_TEXT"] = "移除所有除了預設分類以外指定到此的類別"
+	L["MENU_BAR_RESET_TEXT"] = "移除所有除了預設分類以外指定到此的類別"
 	L["MENU_BAR_INSERT_TEXT"] = "插入空白分組，將其他分組往後移"
-	L["MENU_BAR_REMOVE_TEXT"] = "移除此分組，此分組內的類別將會被放回預設分組"
+	L["MENU_BAR_DELETE_TEXT"] = "移除此分組，此分組內的類別將會被放回預設分組"
 --	L["MENU_BAR_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_MOVE_FAIL_OUTSIDE"] = ""
+--	L["MENU_BAR_MOVE_FAIL_SAME"] = ""
 --	L["MENU_BAR_SORTKEY_TEXT"] = ""
 --	L["MENU_BAR_SORTKEY_DEFAULT_RESET_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_TEXT"] = ""
+--	L["MENU_LOCKED_TEXT"] = ""
 	
 	
 --	changer bag menu
@@ -189,7 +221,6 @@ if not L then return end
 	L["MENU_BAG_ISOLATE_TEXT"] = "僅顯示此背包的內容"
 	L["MENU_BAG_SHOWALL"] = "顯示全部"
 	L["MENU_BAG_SHOWALL_TEXT"] = "顯示所有背包的內容"
---	L["MENU_BAG_EMPTY"] = ""
 --	L["MENU_BAG_EMPTY_TEXT"] = ""
 	
 	
@@ -198,7 +229,6 @@ if not L then return end
 	L["CONFIG_TEXT"] = "組態選單"
 	
 --	configuration options > system
-	L["CONFIG_SYSTEM"] = "系統"
 	L["CONFIG_SYSTEM_TEXT"] = "系統選項"
 	
 	L["CONFIG_SYSTEM_FONT_TEXT"] = "設定為 %s 的字型"
@@ -209,7 +239,17 @@ if not L then return end
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_MEDIUM"] = ""
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_HIGH"] = ""
 	
---	L["CONFIG_SYSTEM_RESTACK_TEXT"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW_TEXT"] = ""
+	
+--	L["CONFIG_SORTING_WHEN"] = ""
+--	L["CONFIG_SORTING_WHEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL_TEXT"] = ""
 	
 	L["CONFIG_SYSTEM_TOOLTIP"] = "工具提示"
 	L["CONFIG_SYSTEM_TOOLTIP_ENABLE_TEXT"] = "設定是否顯示工具提示"
@@ -267,6 +307,12 @@ if not L then return end
 --	L["CONFIG_SYSTEM_MESSAGES_TRANSLATION_FINAL_TEXT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION_TEXT"] = ""
 	
 --	L["CONFIG_SYSTEM_TIMERS"] = ""
 --	L["CONFIG_SYSTEM_TIMERS_TEXT"] = ""
@@ -275,7 +321,7 @@ if not L then return end
 --	configuration options > auto
 	L["CONFIG_AUTO"] = "自動開關"
 	
-	L["CONFIG_AUTO_OPEN"] = "開啟%1$s %2$s，當你 %3$s"
+--	L["CONFIG_AUTO_OPEN"] = "開啟%1$s %2$s，當你 %3$s"
 	L["CONFIG_AUTO_OPEN_BANK"] = "開啟銀行"
 	L["CONFIG_AUTO_OPEN_VAULT"] = "開啟公會銀行"
 	L["CONFIG_AUTO_OPEN_MAIL"] = "開啟郵箱"
@@ -284,7 +330,7 @@ if not L then return end
 	L["CONFIG_AUTO_OPEN_AUCTION"] = "開啟拍賣視窗"
 --	L["CONFIG_AUTO_OPEN_VOID"] = ""
 	
-	L["CONFIG_AUTO_CLOSE"] = "關閉%1$s %2$s，當你 %3$s"
+--	L["CONFIG_AUTO_CLOSE"] = "關閉%1$s %2$s，當你 %3$s"
 	L["CONFIG_AUTO_CLOSE_BANK"] = "關閉銀行"
 	L["CONFIG_AUTO_CLOSE_VAULT"] = "關閉公會銀行"
 	L["CONFIG_AUTO_CLOSE_MAIL"] = "關閉郵箱"
@@ -296,12 +342,9 @@ if not L then return end
 	
 	
 --	configuration options > control
-	L["CONFIG_CONTROL"] = "狀態"
-	
 	L["CONFIG_CONTROL_MONITOR"] = "監視"
 	L["CONFIG_CONTROL_MONITOR_TEXT"] = "切換是否監視角色 (%2$s) 的 %1$s 資料"
 	L["CONFIG_CONTROL_SAVE_TEXT"] = "切換是否儲存角色 (%2$s) 的 %1$s 資料，如此一來你可以在使用其他角色時瀏覽 (或是離線)。"
---	L["CONFIG_CONTROL_NOTIFY_ERASE"] = ""
 --	L["CONFIG_CONTROL_NOTIFY_ERASE_TEXT"] = ""
 	L["CONFIG_CONTROL_OVERRIDE"] = "取代系統框架"
 	L["CONFIG_CONTROL_OVERRIDE_TEXT"] = "切換是否隱藏原本的暴風雪 %2$s 框架，如此一來可用 %1$s 取代。\n\n取消此選項將會使用標準暴風雪 %2$s 功能。\n\n當此選項取消，你仍舊可以設定熱鍵開啟 %1$s %2$s。"
@@ -309,114 +352,147 @@ if not L then return end
 	L["CONFIG_CONTROL_ANCHOR_LOCK_TEXT"] = "鎖定 %1$s 框架以避免移動"
 --	L["CONFIG_CONTROL_REPOSITION_NOW"] = ""
 --	L["CONFIG_CONTROL_REPOSITION_NOW_TEXT"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD_TEXT"] = ""
-	L["CONFIG_CONTROL_SETTINGS_TEXT"] = "選擇當產生%1$s視窗時使用的設定"
+	L["CONFIG_CONTROL_BLUEPRINT_TEXT"] = "選擇當產生%1$s視窗時使用的設定"
 	
 	
---	configuration options > settings
-	L["CONFIG_SETTINGS"] = "設定"
+--	configuration settings > design
+--	L["CONFIG_DESIGN"] = ""
+--	L["CONFIG_DESIGN_PLURAL"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME"] = "視窗"
+--	L["CONFIG_STYLE"] = ""
+--	L["CONFIG_STYLE_PLURAL"] = ""
+--	L["CONFIG_STYLE_DESCRIPTION"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_HIDE_TEXT"] = ""
+--	L["CONFIG_LAYOUT"] = ""
+--	L["CONFIG_LAYOUT_PLURAL"] = ""
+--	L["CONFIG_LAYOUT_DESCRIPTION"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME_SCALE_TEXT"] = "設定縮放視窗的大小比例"
-	L["CONFIG_SETTINGS_FRAME_PADDING_TEXT"] = "設定視窗邊緣至分組的間隔距離"
-	L["CONFIG_SETTINGS_FRAME_WIDTH_TEXT"] = "設定一行所能包含的物品欄位數目"
---	L["CONFIG_SETTINGS_FRAME_HEIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_BACKGROUND_COLOUR_TEXT"] = "設定主要視窗的背景顏色"
-	L["CONFIG_SETTINGS_FRAME_BORDER_SHOW_TEXT"] = "設定是否顯示主要視窗的邊框"
-	L["CONFIG_SETTINGS_FRAME_BORDER_STYLE_TEXT"] = "設定主要視窗的邊框樣式"
-	L["CONFIG_SETTINGS_FRAME_BORDER_COLOUR_TEXT"] = "設定主要視窗的邊框顏色"
+	L["CONFIG_DESIGN_WINDOW"] = "視窗"
+	L["CONFIG_DESIGN_WINDOW_SCALE_TEXT"] = "設定縮放視窗的大小比例"
+	L["CONFIG_DESIGN_WINDOW_PADDING_TEXT"] = "設定視窗邊緣至分組的間隔距離"
+	L["CONFIG_DESIGN_WINDOW_WIDTH_TEXT"] = "設定一行所能包含的物品欄位數目"
+--	L["CONFIG_DESIGN_WINDOW_HEIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_WINDOW_BACKGROUND_COLOUR_TEXT"] = "設定主要視窗的背景顏色"
+	L["CONFIG_DESIGN_WINDOW_BORDER_SHOW_TEXT"] = "設定是否顯示主要視窗的邊框"
+	L["CONFIG_DESIGN_WINDOW_BORDER_STYLE_TEXT"] = "設定主要視窗的邊框樣式"
+	L["CONFIG_DESIGN_WINDOW_BORDER_COLOUR_TEXT"] = "設定主要視窗的邊框顏色"
 	
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT"] = "背包標示顏色"
---	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "設定標示滑鼠目前指向的背包的對應欄位顏色"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE"] = "顯示數量"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_TEXT"] = "切換是否在背包上顯示空格數量"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "設定空格數量文字顏色"
+--	L["CONFIG_DESIGN_FRAME_HIDE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY"] = ""
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT"] = "背包標示顏色"
+--	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "設定標示滑鼠目前指向的背包的對應欄位顏色"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE"] = "顯示數量"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_TEXT"] = "切換是否在背包上顯示空格數量"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "設定空格數量文字顏色"
 	
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_NORMAL"] = ""
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_BARS"] = "分組"
-	L["CONFIG_SETTINGS_BARS_PER_ROW"] = "橫向分組數目"
-	L["CONFIG_SETTINGS_BARS_PER_ROW_TEXT"] = "設定橫向所能包含的分組數目"
-	L["CONFIG_SETTINGS_BARS_BACKGROUND_TEXT"] = "設定分組的背景顏色"
-	L["CONFIG_SETTINGS_BARS_COMPACT"] = "簡潔模式"
-	L["CONFIG_SETTINGS_BARS_COMPACT_TEXT"] = "以現有順序顯示所有非空白欄位"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY"] = "顯示空格"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY_TEXT"] = "設定是否顯示空白分組"
-	L["CONFIG_SETTINGS_BARS_PADDING_INTERNAL_TEXT"] = "分組內距"
-	L["CONFIG_SETTINGS_BARS_PADDING_EXTERNAL_TEXT"] = "分組外距"
-	L["CONFIG_SETTINGS_BARS_BORDER_TEXT"] = "設定是否顯示分組邊框"
-	L["CONFIG_SETTINGS_BARS_BORDER_STYLE_TEXT"] = "設定邊框樣式"
-	L["CONFIG_SETTINGS_BARS_BORDER_COLOUR_TEXT"] = "設定分組的邊框顏色"
-	L["CONFIG_SETTINGS_BARS_NAME_TEXT"] = "為此分組設定名稱"
-	L["CONFIG_SETTINGS_BARS_NAME_SHOW_TEXT"] = "切換顯示分組名稱"
-	L["CONFIG_SETTINGS_BARS_NAME_COLOUR_TEXT"] = "設定分組名稱的邊框顏色"
---	L["CONFIG_SETTINGS_BARS_NAME_HEIGHT_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_ANCHOR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_LABEL_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_TEXT_COLOUR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_PADDING_TEXT"] = "設定物品欄位的間隔距離"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN"] = "顯示隱藏物品"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN_TEXT"] = "設定是否顯示在隱藏分組內的物品"
-	L["CONFIG_SETTINGS_ITEMS_FADE"] = "淡化離線物品"
-	L["CONFIG_SETTINGS_ITEMS_FADE_TEXT"] = "設定是否淡化顯示離線物品"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE"] = "標示可使用物品"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE_TEXT"] = "將可使用物品標示為紅色"
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_NORMAL"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_ONLINE_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_OFFLINE_COLOUR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT_TEXT"] = ""
+	L["CONFIG_DESIGN_BAR"] = "分組"
+	L["CONFIG_DESIGN_BAR_PER_ROW"] = "橫向分組數目"
+	L["CONFIG_DESIGN_BAR_PER_ROW_TEXT"] = "設定橫向所能包含的分組數目"
+	L["CONFIG_DESIGN_BAR_BACKGROUND_TEXT"] = "設定分組的背景顏色"
+	L["CONFIG_DESIGN_BAR_COMPACT"] = "簡潔模式"
+	L["CONFIG_DESIGN_BAR_COMPACT_TEXT"] = "以現有順序顯示所有非空白欄位"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY"] = "顯示空格"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY_TEXT"] = "設定是否顯示空白分組"
+	L["CONFIG_DESIGN_BAR_PADDING_INTERNAL_TEXT"] = "分組內距"
+	L["CONFIG_DESIGN_BAR_PADDING_EXTERNAL_TEXT"] = "分組外距"
+	L["CONFIG_DESIGN_BAR_BORDER_TEXT"] = "設定是否顯示分組邊框"
+	L["CONFIG_DESIGN_BAR_BORDER_STYLE_TEXT"] = "設定邊框樣式"
+	L["CONFIG_DESIGN_BAR_BORDER_COLOUR_TEXT"] = "設定分組的邊框顏色"
+	L["CONFIG_DESIGN_BAR_NAME_TEXT"] = "為此分組設定名稱"
+	L["CONFIG_DESIGN_BAR_NAME_SHOW_TEXT"] = "切換顯示分組名稱"
+	L["CONFIG_DESIGN_BAR_NAME_COLOUR_TEXT"] = "設定分組名稱的邊框顏色"
+--	L["CONFIG_DESIGN_BAR_NAME_HEIGHT_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_ANCHOR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_BORDER_SHOW_TEXT"] = "設定是否顯示物品邊框"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_STYLE_TEXT"] = "設定物品的邊框樣式"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY"] = "依品質著色邊框"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_TEXT"] = "設定是否依品質標示物品邊框顏色 (普通、精良、稀有...)"
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF"] = ""
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF_TEXT"] = ""
-	L["CONFIG_SETTINGS_ITEMS_BORDER_TEXTURE_OFFSET_TEXT"] = "圖片外緣到邊框內緣的像素數(用來重新對齊邊框和物品材質)"
+	L["CONFIG_DESIGN_ITEM_PADDING_TEXT"] = "設定物品欄位的間隔距離"
+	L["CONFIG_DESIGN_ITEM_HIDDEN"] = "顯示隱藏物品"
+	L["CONFIG_DESIGN_ITEM_HIDDEN_TEXT"] = "設定是否顯示在隱藏分組內的物品"
+	L["CONFIG_DESIGN_ITEM_FADE"] = "淡化離線物品"
+	L["CONFIG_DESIGN_ITEM_FADE_TEXT"] = "設定是否淡化顯示離線物品"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE"] = "標示可使用物品"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE_TEXT"] = "將可使用物品標示為紅色"
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_NEW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_ENABLED_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_CUTOFF_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_RESET_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_AGE"] = "新物品"
-	L["CONFIG_SETTINGS_ITEMS_AGE_SHOW_TEXT"] = "顯示新物品文字"
-	L["CONFIG_SETTINGS_ITEMS_AGE_COLOUR_TEXT"] = "設定新物品文字顏色"
---	L["CONFIG_SETTINGS_ITEMS_AGE_CUTOFF_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_SHOW_TEXT"] = "設定是否顯示物品邊框"
+	L["CONFIG_DESIGN_ITEM_BORDER_STYLE_TEXT"] = "設定物品的邊框樣式"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY"] = "依品質著色邊框"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_TEXT"] = "設定是否依品質標示物品邊框顏色 (普通、精良、稀有...)"
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_TEXTURE_OFFSET_TEXT"] = "圖片外緣到邊框內緣的像素數(用來重新對齊邊框和物品材質)"
 	
-	L["CONFIG_SETTINGS_SORTING_OPEN"] = "視窗開啟時"
-	L["CONFIG_SETTINGS_SORTING_OPEN_TEXT"] = "設定是否在視窗開啟時重新排序"
-	L["CONFIG_SETTINGS_SORTING_INSTANT"] = "即時"
-	L["CONFIG_SETTINGS_SORTING_INSTANT_TEXT"] = "設定是否立即排序\n\n啟用: 有改變則立即排序\n\n停用: 只有在視窗開啟或手動更新時才排序\n\n注意: 如果背包置換區是開啟的, 則會永遠使用立即模式"
+--	L["CONFIG_DESIGN_ITEM_NEW"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_ENABLED_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_CUTOFF_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_RESET_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_EMPTY"] = "空格"
-	L["CONFIG_SETTINGS_EMPTY_ICON"] = "使用圖示"
-	L["CONFIG_SETTINGS_EMPTY_ICON_TEXT"] = "切換是否使用圖示來表示空白欄位"
-	L["CONFIG_SETTINGS_EMPTY_BORDER"] = "邊框著色"
-	L["CONFIG_SETTINGS_EMPTY_BORDER_TEXT"] = "切換是否依空白欄位的背包類別來著色邊框"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR"] = "空格著色"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR_TEXT"] = "設定%1$s的空白欄位邊框和背景顏色"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP"] = "整合空格"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP_TEXT"] = "設定是否將同背包的空格跟非空格湊在一起，或將不同背包的空格視為一個特殊類別"
---	L["CONFIG_SETTINGS_EMPTY_STATUS"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST_TEXT"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_AGE"] = "新物品"
+	L["CONFIG_DESIGN_ITEM_AGE_SHOW_TEXT"] = "顯示新物品文字"
+	L["CONFIG_DESIGN_ITEM_AGE_COLOUR_TEXT"] = "設定新物品文字顏色"
+--	L["CONFIG_DESIGN_ITEM_AGE_CUTOFF_TEXT"] = ""
+	
+	L["CONFIG_DESIGN_ITEM_EMPTY"] = "空格"
+	L["CONFIG_DESIGN_ITEM_EMPTY_ICON_TEXT"] = "切換是否使用圖示來表示空白欄位"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP"] = "整合空格"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP_TEXT"] = "設定是否將同背包的空格跟非空格湊在一起，或將不同背包的空格視為一個特殊類別"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER"] = "邊框著色"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER_TEXT"] = "切換是否依空白欄位的背包類別來著色邊框"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR"] = "空格著色"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR_TEXT"] = "設定%1$s的空白欄位邊框和背景顏色"
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_STATUS"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION_TEXT"] = ""
+	
+	
+-- junk
+--	L["CONFIG_JUNK"] = ""
+--	L["CONFIG_JUNK_SELL"] = ""
+--	L["CONFIG_JUNK_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_SOLD"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_DESTROYED"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT_TEXT"] = ""
+--	L["CONFIG_JUNK_DELETE_TEXT"] = ""
+--	L["CONFIG_JUNK_NOTIFY_TEXT"] = ""
+--	L["CONFIG_JUNK_RARITY_CUTOFF_TEXT"] = ""
+--	L["CONFIG_JUNK_CATEGORY_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_DESTROY_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_ALERT"] = ""
 	
 	
 -- sorting
@@ -425,7 +501,7 @@ if not L then return end
 	L["CONFIG_SORTING_SORT"] = "排序"
 	
 --	L["CONFIG_SORTING_METHOD"] = ""
---	L["CONFIG_SORTING_METHODS"] = ""
+--	L["CONFIG_SORTING_METHOD_PLURAL"] = ""
 --	L["CONFIG_SORTING_METHOD_TEXT"] = ""
 	L["CONFIG_SORTING_METHOD_BAGSLOT"] = "依背包/欄位"
 	L["CONFIG_SORTING_METHOD_BAGSLOT_TEXT"] = "依背包/欄位編號排序物品"
@@ -458,6 +534,8 @@ if not L then return end
 	L["CONFIG_SORTING_INCLUDE_VENDORPRICE_TEXT"] = "設定排序時是否考慮物品的商店價格"
 --	L["CONFIG_SORTING_INCLUDE_ID"] = ""
 --	L["CONFIG_SORTING_INCLUDE_ID_TEXT"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE_TEXT"] = ""
 	
 	L["CONFIG_SORTING_DIRECTION_TEXT"] = "切換設定排序使用遞增或是遞減排序"
 	L["CONFIG_SORTING_ORDER"] = "排序依據"
@@ -465,26 +543,41 @@ if not L then return end
 	L["CONFIG_SORTING_MOVE_DOWN_TEXT"] = "將 %1$s 的優先性在排序規則中向下一動"
 	L["CONFIG_SORTING_NOT_INCLUDED"] = "*未使用於目前排序依據*"
 
---	L["CONFIG_SORTING_ADD"] = ""
---	L["CONFIG_SORTING_ADD_TEXT"] = ""
---	L["CONFIG_SORTING_RENAME_TEXT"] = ""
---	L["CONFIG_SORTING_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_LIMIT_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_UPGRADE_TEXT"] = ""
+--	L["CONFIG_LIST_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_RESTORE_TEXT"] = ""
+--	L["CONFIG_LIST_RENAME_TEXT"] = ""
+--	L["CONFIG_LIST_COPY_TEXT"] = ""
+--	L["CONFIG_LIST_PURGE_TEXT"] = ""
+--	L["CONFIG_LIST_IMPORT_TEXT"] = ""
+--	L["CONFIG_LIST_EXPORT_TEXT"] = ""
 	
 	
---	rules
-	L["CONFIG_RULES"] = "規則"
-	L["CONFIG_RULES_SHOWDISABLED"] = "顯示停用規則"
-	L["CONFIG_RULES_SHOWDISABLED_TEXT"] = "顯示已經停用的規則"
+	
+--	L["CONFIG_CATEGORY"] = ""
+--	L["CONFIG_CATEGORY_PLURAL"] = ""
+	
+	L["CATEGORY_RULE"] = "規則"
+	L["CONFIG_RULE_PLURAL"] = "規則"
+	
+	L["CONFIG_RULE_SHOWDISABLED"] = "顯示停用規則"
+	L["CONFIG_RULE_SHOWDISABLED_TEXT"] = "顯示已經停用的規則"
+	
+--	L["CONFIG_CATEGORY_CUSTOM"] = ""
+	L["CONFIG_CATEGORY_CUSTOM_PLURAL"] = "自訂類別"
+	
+--	L["CONFIG_CATEGORY_SET"] = ""
+--	L["CONFIG_CATEGORY_SET_PLURAL"] = ""
+--	L["CONFIG_CATEGORY_SET_DESCRIPTION"] = ""
+	
+--	L["CONFIG_PROFILE"] = ""
+--	L["CONFIG_PROFILE_PLURAL"] = ""
+--	L["CONFIG_PROFILE_CURRENT"] = ""
 	
 	
---	configuration options > categories
-	L["CONFIG_CATEGORY_CUSTOM"] = "自訂類別"
---	L["CONFIG_CATEGORY_DELETED"] = ""
-	
---	L["CONFIG_CATEGORY_ADD"] = ""
---	L["CONFIG_CATEGORY_ADD_TEXT"] = ""
---	L["CONFIG_CATEGORY_RENAME_TEXT"] = ""
---	L["CONFIG_CATEGORY_DELETE_TEXT"] = ""
+--	L["CONFIG_OBJECT_DELETED"] = ""
 	
 	
 --	configuration options > debug
@@ -493,10 +586,10 @@ if not L then return end
 	
 	
 --	configuration options > generic
---	L["BORDER_SCALE_TEXT"] = ""
-	L["BORDER_TEXTURE_TEXT"] = "邊框材質選項"
-	L["BORDER_TEXTURE_FILE_TEXT"] = "設定邊框材質 (改變此設定將會把縮放比例重置為 100%)"
-	L["BORDER_TEXTURE_HEIGHT_TEXT"] = "材質的高度 (以像素為單位)"
+--	L["CONFIG_BORDER_SCALE_TEXT"] = ""
+	L["CONFIG_BORDER_TEXTURE_TEXT"] = "邊框材質選項"
+	L["CONFIG_BORDER_TEXTURE_FILE_TEXT"] = "設定邊框材質 (改變此設定將會把縮放比例重置為 100%)"
+	L["CONFIG_BORDER_TEXTURE_HEIGHT_TEXT"] = "材質的高度 (以像素為單位)"
 	
 	
 --	rules frame
@@ -508,6 +601,7 @@ if not L then return end
 	L["RULE_LIST_ID"] = "規則"
 	
 	L["RULE_DAMAGED"] = "規則「%s」已標示為損壞，維修前不會再被使用"
+--	L["RULE_DAMAGED_TEXT"] = ""
 	L["RULE_FAILED"] = "錯誤的驗證規則 %s"
 	L["RULE_FAILED_KEY_NIL"] = "缺少鍵值"
 	L["RULE_FAILED_DATA_NIL"] = "缺少資料"
@@ -523,6 +617,7 @@ if not L then return end
 --	new item indicators
 --	L["NEW_ITEM_INCREASE"] = ""
 --	L["NEW_ITEM_DECREASE"] = ""
+--	L["NEW_ITEM_GLOW"] = ""
 	
 	
 --	slash commands
@@ -549,6 +644,8 @@ if not L then return end
 	L["SLASH_MISC_TEXT"] = "其他選項"
 --	L["SLASH_TRACK"] = ""
 --	L["SLASH_TRACK_TEXT"] = ""
+--	L["SLASH_TRACK_ADD_TEXT"] = ""
+--	L["SLASH_TRACK_REMOVE_TEXT"] = ""
 	
 	
 --	misc chat stuff
@@ -591,7 +688,6 @@ if not L then return end
 	L["ANCHOR_TEXT1"] = "設定錨點"
 	L["ANCHOR_TEXT2"] = "固定 %1$s 在 %2$s"
 	L["BORDER_TEXT"] = "邊框選項"
-	L["SHOW"] = "顯示"
 	L["FILE"] = "檔案"
 	L["HEIGHT"] = "高度"
 	L["SCALE"] = "縮放"
@@ -599,15 +695,11 @@ if not L then return end
 	L["FONT"] = "字型"
 	L["BACKGROUND_COLOUR"] = "背景顏色"
 	L["STYLE"] = "樣式"
-	L["ENABLED"] = "已啟用"
 	L["ALERT"] = "警告"
 	L["PADDING"] = "間隔"
 	L["INTERNAL"] = "內部"
 	L["EXTERNAL"] = "外部"
 	L["WIDTH"] = "欄位數目"
-	L["REALM"] = "伺服器"
-	L["VIEW"] = "查看"
-	L["EDIT"] = "編輯"
 	L["DIRECTION"] = "排列方向"
 	L["ASCENDING"] = "遞增"
 	L["DECENDING"] = "遞減"
@@ -622,8 +714,6 @@ if not L then return end
 	L["SORT_METHOD"] = "排序方式"
 	L["SORT_BY_NAME"] = "名稱排序"
 	L["SORT_BY_NUMBER"] = "編號排序"
-	L["HIDE"] = "隱藏"
-	L["MOVE"] = "移動"
 	L["INSERT"] = "插入空白分組"
 	L["CURRENT"] = "目前指定"
 	L["OFFSET"] = "偏移"
@@ -640,6 +730,21 @@ if not L then return end
 --	L["TOOLTIP_PURCHASE_BANK_BAG_SLOT"] = ""
 --	L["TOOLTIP_PURCHASE_BANK_TAB_REAGENT"] = ""
 --	L["LABEL"] = ""
+--	L["ABORTED"] = ""
+--	L["RESTORE"] = ""
+--	L["PURGE"] = ""
+--	L["COPY_FROM"] = ""
+--	L["DELETED"] = ""
+--	L["IMPORT"] = ""
+--	L["EXPORT"] = ""
+--	L["NOTIFY"] = ""
+--	L["ACTION"] = ""
+--	L["FIRST"] = ""
+--	L["LAST"] = ""
+--	L["NONE_USABLE"] = ""
+--	L["NONE_OWNED"] = ""
+--	L["TEST"] = ""
+--	L["LIST"] = ""
 	
 	
 -- libdatabroker
@@ -664,8 +769,9 @@ if not L then return end
 	L["LDB_MOUNTS_FLYING_DISMOUNT_WARNING"] = "您目前正在飛行，請選擇一個降落地點"
 	L["LDB_MOUNTS_SUMMON"] = "召喚坐騎"
 --	L["LDB_MOUNTS_NODATA"] = ""
---	L["LDB_MOUNTS_TOOLTIP_MODE"] = ""
 --	L["LDB_MOUNTS_TOOLTIP_SELECTION"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM_TEXT"] = ""
 --	L["LDB_COMPANION_MISSING"] = ""
 	L["LDB_COMPANION_NONE"] = "無可用的"
 --	L["LDB_COMPANION_RESTRICTED"] = ""

@@ -2,33 +2,62 @@
 --[[     History Module     ]]--
 
 local _, BCM = ...
-BCM.modules[#BCM.modules+1] = function()
-	if bcmDB.BCM_History then bcmDB.lines = nil return end
+BCM.earlyModules[#BCM.earlyModules+1] = function()
+	if bcmDB.BCM_History then bcmDB.lines, bcmDB.savedChat = nil, nil end
 
 	if not bcmDB.lines then bcmDB.lines = {["ChatFrame1"] = 1000} end
-	for k, v in pairs(bcmDB.lines) do
-		local f, tbl = _G[k], {}
+	for k, v in next, bcmDB.lines do
+		local f = _G[k]
+		f:SetMaxLines(v)
+		if k == "ChatFrame2" then
+			COMBATLOG_MESSAGE_LIMIT = v -- Blizzard keeps changing the combat log max lines in Blizzard_CombatLog_Refilter... this better not taint.
+		end
+	end
 
-		--Save all chat before changing MaxLines.
-		local _, size = f:GetFont()
-		FCF_SetChatWindowFontSize(f, f, 0.01)
-		for i = select("#", f:GetRegions()), 1, -1 do
-			local region = select(i, f:GetRegions())
-			if region:GetObjectType() == "FontString" then
-				tinsert(tbl, {region:GetText(), region:GetTextColor()})
+	if true and bcmDB.savedChat then
+		for k, v in next, bcmDB.savedChat do
+			for i = 1, #v do
+				local cF = _G[k]
+				if cF then
+					cF:AddMessage(unpack(v[i]))
+				end
 			end
 		end
-		FCF_SetChatWindowFontSize(f, f, size)
+		print("|cFF33FF99BasicChatMods|r: ", "Chat restored from reload.")
+	end
+	bcmDB.savedChat = nil
 
-		f:SetMaxLines(v) --Set the max lines (Also clears the Chat Frame).
+	if true then -- XXX add an option
+		local isReloadingUI = 0
 
-		--Restore all chat.
-		for _,w in pairs(tbl) do
-			f:AddMessage(unpack(w))
-			wipe(w)
+		BCM.Events.PLAYER_LOGOUT = function()
+			if (GetTime() - isReloadingUI) > 2 then return end
+
+			bcmDB.savedChat = {}
+			for i = 1, BCM.chatFrames do
+				local name = ("ChatFrame%d"):format(i)
+				local cf = _G[name]
+				if cf:IsVisible() then
+					local tbl = {}
+					bcmDB.savedChat[name] = tbl
+					local num = cf:GetNumMessages()
+					local count = num > 5 and num - 5 or 1
+					local timestampNum = 1
+					for i = count, num do
+						tbl[#tbl+1] = {cf:GetMessageInfo(i)}
+						-- Fix timestamp module (if enabled)
+						tbl[#tbl][1]:gsub("(BCMt:)%d+", "%1"..timestampNum)
+						timestampNum = timestampNum + 1
+					end
+				end
+			end
 		end
-		wipe(tbl)
-		tbl=nil
+		BCM.Events:RegisterEvent("PLAYER_LOGOUT")
+
+		BCM.Events.LOADING_SCREEN_ENABLED = function()
+			isReloadingUI = GetTime()
+		end
+		BCM.Events:RegisterEvent("LOADING_SCREEN_ENABLED")
 	end
 end
 

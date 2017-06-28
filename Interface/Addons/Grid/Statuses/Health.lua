@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	Health.lua
 	Grid status module for unit health.
@@ -193,6 +193,12 @@ end
 local UnitGUID, UnitHealth, UnitHealthMax, UnitIsConnected, UnitIsDeadOrGhost, UnitIsFeignDeath = UnitGUID, UnitHealth, UnitHealthMax, UnitIsConnected, UnitIsDeadOrGhost, UnitIsFeignDeath
 
 function GridStatusHealth:UpdateUnit(event, unitid, ignoreRange)
+	if not unitid then
+		-- 7.1: UNIT_HEALTH and UNIT_MAXHEALTH sometimes fire with no unit token
+		-- https://wow.curseforge.com/addons/grid/tickets/859
+		return
+	end
+
 	local guid = UnitGUID(unitid)
 
 	if not GridRoster:IsGUIDInRaid(guid) then

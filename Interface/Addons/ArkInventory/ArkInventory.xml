@@ -1,4 +1,4 @@
-﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
 	
 	<!-- TOOLTIP -->
 
@@ -9,10 +9,10 @@
 				self:SetOwner( UIParent, "ANCHOR_NONE" )
 			</Onload>
 			<OnTooltipAddMoney>
-				<!-- override -->
+				<!-- override template, do nothing -->
 			</OnTooltipAddMoney>
 			<OnTooltipCleared>
-				<!-- override -->
+				<!-- override template, do nothing -->
 			</OnTooltipCleared>
 		</Scripts>
 	</GameTooltip>
@@ -93,7 +93,7 @@
 	</Texture>
 	
 	<Texture virtual="true" name="ARKINV_TextureSelected" inherits="ARKINV_TextureHighlight" hidden="true">
-		<Color r="1" g="1" b="1" a="0.2" />
+		<Color r="1" g="1" b="1" a="0.8" />
 	</Texture>
 
 	<Texture virtual="true" name="ARKINV_TextureTransparent" inherits="ARKINV_TextureHighlight">
@@ -122,13 +122,11 @@
 		<Layers>
 		
 			<Layer level="ARTWORK">
-			
 				<FontString name="$parentLabel" inherits="ARKINV_DataEntryLabelFont">
 					<Anchors>
 						<Anchor point="RIGHT" relativePoint="LEFT" x="-10" y="0" />
 					</Anchors>
 				</FontString>
-				
 			</Layer>
 			
 		</Layers>
@@ -253,11 +251,21 @@
 		
 		<Layers>
 			<Layer level="ARTWORK">
-				<FontString name="$parentArkNewText" inherits="ARKINV_NewItemFont" hidden="true" parentKey="ArkNewText">
+				<FontString name="$parentArkAgeText" inherits="ARKINV_NewItemFont" hidden="true" parentKey="ArkAgeText">
 					<Anchors>
 						<Anchor point="TOPLEFT" />
 					</Anchors>
 				</FontString>
+			</Layer>
+			<Layer level="OVERLAY" textureSubLevel="4">
+				<Texture name="$parentArkBagHighlight" parentKey="ArkBagHighlight" setAllPoints="true" hidden="true">
+					<Color r="0" g="0" b="0" a="0.8"/>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY" textureSubLevel="0">
+				<Texture name="$parentArkItemTinted" parentKey="ArkItemTinted" setAllPoints="true" hidden="true">
+					<Color r="1" g="0" b="0" a="0.5"/>
+				</Texture>
 			</Layer>
 		</Layers>
 		
@@ -298,15 +306,43 @@
 		<Scripts>
 			
 			<OnClick>
-				ArkInventory.Frame_Vault_Item_OnClick( self, button, down )
+				<!-- override template, do nothing -->
 			</OnClick>
 			
+			<OnMouseUp>
+				ArkInventory.Frame_Item_OnMouseUp( self, button )
+			</OnMouseUp>
+			
 			<OnDragStart>
-				ArkInventory.Frame_Vault_Item_OnClick( self )
+				ArkInventory.Frame_Item_OnMouseUp( self )
 			</OnDragStart>
 			
 			<OnReceiveDrag>
-				ArkInventory.Frame_Vault_Item_OnClick( self )
+				ArkInventory.Frame_Item_OnMouseUp( self )
+			</OnReceiveDrag>
+			
+		</Scripts>
+		
+	</Button>
+
+	<Button virtual="true" name="ARKINV_TemplateButtonMailItem" inherits="ARKINV_TemplateButtonItem" hidden="true">
+		
+		<Scripts>
+			
+			<OnClick>
+				<!-- override template, do nothing -->
+			</OnClick>
+			
+			<OnMouseUp>
+				ArkInventory.Frame_Item_OnMouseUp( self, button )
+			</OnMouseUp>
+			
+			<OnDragStart>
+				<!-- override template, do nothing -->
+			</OnDragStart>
+			
+			<OnReceiveDrag>
+				<!-- override template, do nothing -->
 			</OnReceiveDrag>
 			
 		</Scripts>
@@ -338,15 +374,19 @@
 		<Scripts>
 			
 			<OnClick>
-				ArkInventory.Frame_Item_OnClick_MountJournal( self, button, down )
+				<!-- override template, do nothing -->
 			</OnClick>
+			
+			<OnMouseUp>
+				ArkInventory.Frame_Item_OnMouseUp( self, button )
+			</OnMouseUp>
 			
 			<OnDragStart>
 				ArkInventory.Frame_Item_OnDragStart_MountJournal( self )
 			</OnDragStart>
 			
 			<OnReceiveDrag>
-				-- do nothing
+				<!-- override template, do nothing -->
 			</OnReceiveDrag>
 			
 		</Scripts>
@@ -404,15 +444,19 @@
 		<Scripts>
 			
 			<OnClick>
-				ArkInventory.Frame_Item_OnClick_PetJournal( self, button, down )
+				<!-- override template, do nothing -->
 			</OnClick>
+			
+			<OnMouseUp>
+				ArkInventory.Frame_Item_OnMouseUp( self, button )
+			</OnMouseUp>
 			
 			<OnDragStart>
 				ArkInventory.Frame_Item_OnDragStart_PetJournal( self )
 			</OnDragStart>
 			
 			<OnReceiveDrag>
-				-- do nothing
+				<!-- override template, do nothing -->
 			</OnReceiveDrag>
 			
 		</Scripts>
@@ -442,15 +486,19 @@
 		<Scripts>
 			
 			<OnClick>
-				ArkInventory.Frame_Item_OnClick_Toybox( self, button )
+				<!-- override template, do nothing -->
 			</OnClick>
+			
+			<OnMouseUp>
+				ArkInventory.Frame_Item_OnMouseUp( self, button )
+			</OnMouseUp>
 			
 			<OnDragStart>
 				ArkInventory.Frame_Item_OnDragStart_Toybox( self )
 			</OnDragStart>
 			
 			<OnReceiveDrag>
-				-- do nothing
+				<!-- override template, do nothing -->
 			</OnReceiveDrag>
 			
 		</Scripts>
@@ -462,21 +510,21 @@
 		<Scripts>
 		
 			<OnClick>
-				-- do nothing
+				<!-- override template, do nothing -->
 			</OnClick>
-			
-			<OnDragStart>
-				-- do nothing
-			</OnDragStart>
-			
-			<OnReceiveDrag>
-				-- do nothing
-			</OnReceiveDrag>
 			
 			<OnMouseUp>
 				ArkInventory.Frame_Item_OnMouseUp( self, button )
 			</OnMouseUp>
-
+			
+			<OnDragStart>
+				<!-- override template, do nothing -->
+			</OnDragStart>
+			
+			<OnReceiveDrag>
+				<!-- override template, do nothing -->
+			</OnReceiveDrag>
+			
 		</Scripts>
 
 	</Button>
@@ -499,7 +547,7 @@
 		
 		<Layers>
 			<Layer level="OVERLAY">
-				<Texture name="$parentTainted" setAllPoints="true" hidden="false">
+				<Texture name="$parentArkTainted" setAllPoints="true" hidden="false">
 					<Color r="0.7" g="0.1" b="1.0" a="0.4" />
 				</Texture>
 			</Layer>
@@ -522,33 +570,33 @@
 			</OnEnter>
 			
 			<OnClick>
-				-- do nothing
+				<!-- override template, do nothing -->
 			</OnClick>
 			
+			<OnMouseUp>
+				<!-- override template, do nothing -->
+			</OnMouseUp>
+			
 			<OnDragStart>
-				-- do nothing
+				<!-- override template, do nothing -->
 			</OnDragStart>
 			
 			<OnReceiveDrag>
-				-- do nothing
+				<!-- override template, do nothing -->
 			</OnReceiveDrag>
-			
-			<OnMouseUp>
-				-- do nothing
-			</OnMouseUp>
 			
 		</Scripts>
 		
 	</Button>
 	
 	<Button virtual="true" name="ARKINV_TemplateButtonBarEdit" inherits="ARKINV_TemplateButtonItem" hidden="true">
-
+		
 		<Size x="30" y="30" />
 		
 		<Anchors>
 			<Anchor point="TOPLEFT" />
 		</Anchors>
-
+		
 		<Layers>
 			<Layer level="BORDER">
 				<FontString name="$parentEditText" inherits="ARKINV_GameFontNormalHuge" justifyH="CENTER" justifyV="MIDDLE">
@@ -562,47 +610,67 @@
 		<Scripts>
 			
 			<OnLoad>
-				ArkInventory.Frame_Bar_OnLoad( self )
-				SetItemButtonTexture( self, [[Interface\Buttons\WHITE8X8]] )
-				SetItemButtonTextureVertexColor( self, 0.5, 0.1, 0.1, 0.3 )
+				ArkInventory.Frame_Bar_Edit_OnLoad( self )
 			</OnLoad>
+			
+			<OnShow>
+				_G[string.format( "%s%s", self:GetName( ), "EditText" )]:SetText( self:GetID( ) )
+			</OnShow>
 			
 			<OnEnter>
 				ArkInventory.GameTooltipSetText( self, string.format( ArkInventory.Localise["MENU_BAR_TITLE"], self:GetID( ) ) )
 			</OnEnter>
 			
+			<OnClick>
+				ArkInventory.Frame_Bar_Edit_OnClick( self, button )
+			</OnClick>
+			
+			<OnMouseUp>
+				<!-- override template, do nothing -->
+			</OnMouseUp>
+			
 			<OnDragStart>
-				<!-- over-ride template -->
+				ArkInventory.Frame_Bar_Edit_OnDragStart( self )
 			</OnDragStart>
 			
 			<OnReceiveDrag>
-				<!-- over-ride template -->
+				ArkInventory.Frame_Bar_Edit_OnDragReceive( self )
 			</OnReceiveDrag>
 			
 			<OnUpdate>
-				<!-- over-ride template -->
+				<!-- override template, do nothing -->
 			</OnUpdate>
 			
 			<OnEvent>
-				<!-- over-ride template -->
+				<!-- override template, do nothing -->
 			</OnEvent>
 			
-			<OnMouseUp>
-				ArkInventory.MenuBarOpen( self )
-			</OnMouseUp>
-		
-			<OnShow>
-				_G[string.format( "%s%s", self:GetName( ), "EditText" )]:SetText( self:GetID( ) )
-			</OnShow>
-			
-			<OnClick>
-				<!-- over-ride template -->
-			</OnClick>
-
 		</Scripts>
 		
 	</Button>
-
+	
+	<Button virtual="true" name="ARKINV_TemplateButtonBarXfer" hidden="true">
+		
+		<Size x="30" y="30" />
+		
+		<Anchors>
+			<Anchor point="TOPLEFT" />
+		</Anchors>
+		
+		<Scripts>
+			
+			<OnLoad>
+				ArkInventory.Frame_Bar_Xfer_OnLoad( self )
+			</OnLoad>
+			
+			<OnClick>
+				ArkInventory.Frame_Bar_Xfer_OnClick( self, button )
+			</OnClick>
+			
+		</Scripts>
+		
+	</Button>
+	
 	<Button virtual="true" name="ARKINV_TemplateButtonClose" inherits="ARKINV_TemplateButton">
 		<Size x="20" y="20" />
 		<NormalTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Up">
@@ -662,30 +730,14 @@
 				ArkInventory.Frame_Changer_Slot_OnLoad( self )
 			</OnLoad>
 			
-			<OnEvent>
-				<!-- over-ride template -->
-			</OnEvent>
-			
 			<OnShow>
-				<!-- over-ride template -->
+				<!-- override template, do nothing -->
 			</OnShow>
 
 			<OnHide>
-				<!-- over-ride template -->
+				<!-- override template, do nothing -->
 			</OnHide>
 
-			<OnClick>
-				ArkInventory.Frame_Changer_Slot_OnClick( self, button, down )
-			</OnClick>
-			
-			<OnDragStart>
-				<!-- over-ride template -->
-			</OnDragStart>
-			
-			<OnReceiveDrag>
-				ArkInventory.Frame_Changer_Slot_OnClick( self )
-			</OnReceiveDrag>
-			
 			<OnEnter>
 				ArkInventory.Frame_Changer_Slot_OnEnter( self )
 			</OnEnter>
@@ -693,6 +745,22 @@
 			<OnLeave>
 				ArkInventory.Frame_Changer_Generic_OnLeave( self )
 			</OnLeave>
+			
+			<OnClick>
+				ArkInventory.Frame_Changer_Slot_OnClick( self, button, down )
+			</OnClick>
+			
+			<OnDragStart>
+				<!-- override template, do nothing -->
+			</OnDragStart>
+			
+			<OnReceiveDrag>
+				ArkInventory.Frame_Changer_Slot_OnClick( self )
+			</OnReceiveDrag>
+			
+			<OnEvent>
+				<!-- override template, do nothing -->
+			</OnEvent>
 			
 		</Scripts>
 
@@ -823,12 +891,18 @@
 		
 		<Frames>
 			<Button name="$parentEdit" inherits="ARKINV_TemplateButtonBarEdit" hidden="true" />
+			<Button name="$parentXfer" inherits="ARKINV_TemplateButtonBarXfer" hidden="true" />
+			
 		</Frames>
 		
 		<Scripts>
 			<OnLoad>
 				ArkInventory.Frame_Bar_OnLoad( self )
 			</OnLoad>
+			<OnShow>
+				ArkInventory.Frame_Bar_Paint( self )
+			</OnShow>
+			
 		</Scripts>
 
 	</Frame>
@@ -856,81 +930,65 @@
 		
 		<Frames>
 		
-			<Button name="$parentLocation0" inherits="ARKINV_TemplateButtonAction">
+			<!-- action button row -->
+			<Button name="$parentActionButton0" inherits="ARKINV_TemplateButtonAction">
 				<Size x="42" y="42" />
 				<Anchors>
-					<Anchor point="TOPLEFT" x="8" y="-8" />
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						ArkInventory.MenuMainOpen( self )
-					</OnClick>
-					<OnEnter>
-						ArkInventory.GameTooltipSetText( self, ArkInventory.Localise["MENU"] )
-					</OnEnter>
-				</Scripts>
-			</Button>
-			
-			<Button name="$parentClose" inherits="ARKINV_TemplateButtonClose">
-				<Anchors>
-					<Anchor point="TOPRIGHT" x="-8" y="-8" />
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						ArkInventory.Frame_Main_Hide( self:GetParent( ):GetParent( ):GetID( ) )
-					</OnClick>
-				</Scripts>
-			</Button>
-			
-			
-			<!-- top action button row -->
-			<Button name="$parentActionButton11" inherits="ARKINV_TemplateButtonAction">
-				<Anchors>
-					<Anchor point="RIGHT" relativeTo="$parentClose" relativePoint="LEFT" x="-3" y="0" />
+					<Anchor point="LEFT" x="8" />
 				</Anchors>
 			</Button>
 			
-			<Button name="$parentActionButton12" inherits="ARKINV_TemplateButtonAction">
+			<Button name="$parentActionButton1" inherits="ARKINV_TemplateButtonAction">
 				<Anchors>
-					<Anchor point="RIGHT" relativeTo="$parentActionButton11" relativePoint="LEFT" x="-3" y="0" />
+					<Anchor point="TOPRIGHT" x="-10" y="-10" />
 				</Anchors>
 			</Button>
 			
-			<Button name="$parentActionButton13" inherits="ARKINV_TemplateButtonAction">
+			<Button name="$parentActionButton2" inherits="ARKINV_TemplateButtonAction">
 				<Anchors>
-					<Anchor point="RIGHT" relativeTo="$parentActionButton12" relativePoint="LEFT" x="-3" y="0" />
+					<Anchor point="RIGHT" relativeTo="$parentActionButton1" relativePoint="LEFT" x="-3" y="0" />
 				</Anchors>
 			</Button>
 			
-			<Button name="$parentActionButton14" inherits="ARKINV_TemplateButtonAction">
+			<Button name="$parentActionButton3" inherits="ARKINV_TemplateButtonAction">
 				<Anchors>
-					<Anchor point="RIGHT" relativeTo="$parentActionButton13" relativePoint="LEFT" x="-3" y="0" />
+					<Anchor point="RIGHT" relativeTo="$parentActionButton2" relativePoint="LEFT" x="-3" y="0" />
 				</Anchors>
 			</Button>
 			
-			
-			<!-- bottom action button row -->
-			<Button name="$parentActionButton21" inherits="ARKINV_TemplateButtonAction">
+			<Button name="$parentActionButton4" inherits="ARKINV_TemplateButtonAction">
 				<Anchors>
-					<Anchor point="TOP" relativeTo="$parentActionButton11" relativePoint="BOTTOM" x="0" y="-2" />
+					<Anchor point="RIGHT" relativeTo="$parentActionButton3" relativePoint="LEFT" x="-3" y="0" />
 				</Anchors>
 			</Button>
 			
-			<Button name="$parentActionButton22" inherits="ARKINV_TemplateButtonAction">
+			<Button name="$parentActionButton5" inherits="ARKINV_TemplateButtonAction">
 				<Anchors>
-					<Anchor point="RIGHT" relativeTo="$parentActionButton21" relativePoint="LEFT" x="-3" y="0" />
+					<Anchor point="RIGHT" relativeTo="$parentActionButton4" relativePoint="LEFT" x="-3" y="0" />
 				</Anchors>
 			</Button>
 			
-			<Button name="$parentActionButton23" inherits="ARKINV_TemplateButtonAction">
+			<Button name="$parentActionButton6" inherits="ARKINV_TemplateButtonAction">
 				<Anchors>
-					<Anchor point="RIGHT" relativeTo="$parentActionButton22" relativePoint="LEFT" x="-3" y="0" />
+					<Anchor point="RIGHT" relativeTo="$parentActionButton5" relativePoint="LEFT" x="-3" y="0" />
 				</Anchors>
 			</Button>
-
-			<Button name="$parentActionButton24" inherits="ARKINV_TemplateButtonAction">
+			
+			<Button name="$parentActionButton7" inherits="ARKINV_TemplateButtonAction">
 				<Anchors>
-					<Anchor point="RIGHT" relativeTo="$parentActionButton23" relativePoint="LEFT" x="-3" y="0" />
+					<Anchor point="RIGHT" relativeTo="$parentActionButton6" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton8" inherits="ARKINV_TemplateButtonAction">
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton7" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton9" inherits="ARKINV_TemplateButtonAction">
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton8" relativePoint="LEFT" x="-3" y="0" />
 				</Anchors>
 			</Button>
 			
@@ -940,9 +998,10 @@
 					<Layer level="ARTWORK">
 						<FontString name="$parentWho" inherits="ARKINV_GameFontNormalHuge" justifyH="LEFT" text="?">
 							<Anchors>
-								<Anchor point="TOP" relativeTo="$parentLocation0" relativePoint="TOP" />
-								<Anchor point="BOTTOMLEFT" relativeTo="$parentLocation0" relativePoint="BOTTOMRIGHT" />
-								<Anchor point="RIGHT" relativeTo="$parentActionButton24" relativePoint="LEFT" />
+								<Anchor point="TOP" relativeTo="$parentActionButton0" relativePoint="TOP" />
+								<Anchor point="LEFT" relativeTo="$parentActionButton0" relativePoint="RIGHT" x="10" />
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="RIGHT" />
+								<Anchor point="BOTTOM" relativeTo="$parentActionButton0" relativePoint="BOTTOM" />
 							</Anchors>
 						</FontString>
 					</Layer>
@@ -970,13 +1029,15 @@
 				</Anchors>
 			</Button>
 			
-			<EditBox name="$parentFilter" inherits="ARKINV_TemplateEditBox" letters="80">
+			<EditBox name="$parentFilter" parentkey="filterText" inherits="ARKINV_TemplateEditBox" letters="80">
 			
 				<Size x="2" y="20" />
 				
 				<Anchors>
-					<Anchor point="LEFT" x="120" y="0" />
+					<Anchor point="LEFT" x="40" />
 					<Anchor point="RIGHT" relativeTo="$parentClear" relativePoint="LEFT" x="-2" y="0" />
+					<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP" />
+					<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="BOTTOM" />
 				</Anchors>
 				
 				<Scripts>
@@ -991,7 +1052,7 @@
 					</OnShow>
 					
 					<OnCursorChanged>
-						ArkInventory.Frame_Main_Search( self:GetParent( ):GetParent( ):GetName( ) )
+						ArkInventory.Frame_Main_Search( self:GetParent( ):GetParent( ) )
 					</OnCursorChanged>
 					
 					<OnEnterPressed>
@@ -1025,9 +1086,6 @@
 					<Anchor point="TOPLEFT" />
 					<Anchor point="BOTTOMRIGHT" />
 				</Anchors>
-		
-				<Frames>
-				</Frames>
 				
 				<Scripts>
 					<OnLoad>
@@ -1040,6 +1098,7 @@
 		</ScrollChild>
 		
 		<Frames>
+			
 			<Slider name="$parentVerticalScroll" inherits="MinimalHybridScrollBarTemplate" parentKey="scrollBar">
 				<Anchors>
 					<Anchor point="TOP" y="-30" />
@@ -1052,11 +1111,85 @@
 					</OnValueChanged>
 				</Scripts>
 			</Slider>
+			
+			<!-- action button row -->
+			<Button name="$parentActionButton0" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="TOPLEFT" x="4" y="-4" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton1" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="-4" y="-4" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton2" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton1" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton3" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton2" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton4" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton3" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton5" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton4" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton6" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton5" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton7" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton6" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton8" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton7" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
+			<Button name="$parentActionButton9" inherits="ARKINV_TemplateButtonAction">
+				<Size x="12" y="12" />
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parentActionButton8" relativePoint="LEFT" x="-3" y="0" />
+				</Anchors>
+			</Button>
+			
 		</Frames>
 		
 		<Scripts>
 			<OnLoad>
-				-- override. stops mouse enabling which breaks the main window dragging
+				<!-- override template -->
+				ArkInventory.Frame_Scroll_OnLoad( self )
+				<!-- stops mouse enabling which breaks the main window dragging -->
 			</OnLoad>
 		</Scripts>
 		
@@ -1119,14 +1252,12 @@
 		
 		<Layers>
 			<Layer level="ARTWORK">
-				
 				<FontString name="$parentEmptyText" inherits="ARKINV_GameFontNormalLarge" justifyH="LEFT" text="NO DATA">
 					<Anchors>
 						<Anchor point="LEFT" x="10" y="0" />
 					</Anchors>
 					<Color r="1" g="1" b="1" a="1" />
 				</FontString>
-				
 			</Layer>
 		</Layers>
 		
@@ -1166,20 +1297,20 @@
 	</Frame>
 
 	<Frame virtual="true" name="ARKINV_TemplateFrameVaultLog" inherits="ARKINV_TemplateFrameStandard" hidden="true">
-
+		
 		<Anchors>
 			<Anchor point="TOPLEFT" relativeTo="$parentScroll" />
 			<Anchor point="BOTTOMRIGHT" relativeTo="$parentScroll" />
 		</Anchors>
-	
+		
 		<Layers>
 			<Layer level="ARTWORK">
-				<FontString name="$parentText" inherits="ARKINV_GameFontNormal" text="Height" hidden="true">
+				<FontString name="$parentText" inherits="ARKINV_GameFontNormal" text="TEXT" hidden="true">
 					<Anchor point="TOPLEFT" />
 				</FontString>
 			</Layer>
 		</Layers>
-
+		
 		<Frames>
 			
 			<ScrollingMessageFrame name="$parentList" fade="false" enableMouse="true">
@@ -1514,142 +1645,6 @@
 		
 	</Frame>
 	
-	<Button virtual="true" name="ARKINV_TemplateTableRow" mouseEnabled="true" hidden="true">
-	
-		<Size x="1" y="1" />
-		
-		<Anchors>
-			<Anchor point="LEFT" />
-			<Anchor point="RIGHT" x="-20" y="0" />
-		</Anchors>
-		
-		<Layers>
-		
-			<Layer level="OVERLAY">
-			
-				<!-- objects in this layer are rearranged via LUA for each table -->
-				
-				<Texture name="$parentT1" inherits="ARKINV_TextureUnknown" hidden="true" />
-				<Texture name="$parentT2" inherits="ARKINV_TextureUnknown" hidden="true" />
-				<Texture name="$parentT3" inherits="ARKINV_TextureUnknown" hidden="true" />
-				<Texture name="$parentT4" inherits="ARKINV_TextureUnknown" hidden="true" />
-				<Texture name="$parentT5" inherits="ARKINV_TextureUnknown" hidden="true" />
-				
-				<FontString name="$parentC1" inherits="ARKINV_TableRowFont" hidden="true" />
-				<FontString name="$parentC2" inherits="ARKINV_TableRowFont" hidden="true" />
-				<FontString name="$parentC3" inherits="ARKINV_TableRowFont" hidden="true" />
-				<FontString name="$parentC4" inherits="ARKINV_TableRowFont" hidden="true" />
-				<FontString name="$parentC5" inherits="ARKINV_TableRowFont" hidden="true" />
-				
-				<FontString name="$parentData" inherits="ARKINV_TableRowFont" hidden="true" />
-				
-			</Layer>
-			
-			<Layer level="BACKGROUND">
-
-				<FontString name="$parentId" inherits="ARKINV_TableRowFont" hidden="true" />
-			
-				<Texture name="$parentHighlight" inherits="ARKINV_TextureHighlight">
-					<Anchors>
-						<Anchor point="TOPLEFT" x="5" y="0" />
-						<Anchor point="BOTTOMRIGHT" x="-5" y="0" />
-					</Anchors>
-				</Texture>
-
-				<Texture name="$parentSelected" inherits="ARKINV_TextureSelected">
-					<Anchors>
-						<Anchor point="TOPLEFT" x="5" y="0" />
-						<Anchor point="BOTTOMRIGHT" x="-5" y="0" />
-					</Anchors>
-				</Texture>
-
-			</Layer>
-
-		</Layers>
-
-		<Scripts>
-
-			<OnLoad>
-			
-				self:RegisterForClicks( "LeftButtonUp", "RightButtonUp" )
-				
-				function self.ArkTableRowOnClick( button )
-					local obj = _G[self:GetParent( ):GetName( )]
-					if obj and obj["ArkTableRowOnClick"] then
-						obj.ArkTableRowOnClick( self, button )
-					end
-				end
-				
-				function self.ArkTableRowOnEnter( )
-					local obj = _G[self:GetParent( ):GetName( )]
-					if obj and obj["ArkTableRowOnEnter"] then
-						obj.ArkTableRowOnEnter( self )
-					end
-				end
-				
-				function self.ArkTableRowOnLeave( )
-					local obj = _G[self:GetParent( ):GetName( )]
-					if obj and obj["ArkTableRowOnLeave"] then
-						obj.ArkTableRowOnLeave( self )
-					end
-				end
-				
-			</OnLoad>
-
-			<OnEnter>
-				_G[string.format( "%s%s", self:GetName( ), "Highlight" )]:Show( )
-				self.ArkTableRowOnEnter( )
-			</OnEnter>
-
-			<OnLeave>
-				_G[string.format( "%s%s", self:GetName( ), "Highlight" )]:Hide( )
-				self.ArkTableRowOnLeave( )
-			</OnLeave>
-
-			<OnClick>
-				
-				if button == "LeftButton" then
-					
-					PlaySound( "igMainMenuOptionCheckBoxOn" )
-					
-					local f = self:GetName( )
-					--ArkInventory.Output( "OnClick( ", f, ", ", button, " )" )
-					
-					local parent = self:GetParent( ):GetName( )
-					
-					local cs = _G[string.format( parent, "ArkSelectedRow" )]:GetText( )
-					local ns = tostring( self:GetID( ) )
-					
-					if ns == "0" then
-						ArkInventory.Output( "XML [", self:GetName( ), "] has no ID" )
-						return
-					end
-					
-					
-					-- show/hide the "selected" background
-					if cs ~= "-1" then
-						_G[string.format( "%s%s%s%s", parent, "Row", cs, "Selected" )]:Hide( )
-					end
-					
-					if cs == ns then
-						_G[string.format( "%s%s", parent, "ArkSelectedRow" )]:SetText( "-1" )
-						_G[string.format( "%s%s", parent, "ArkSelectedId" )]:SetText( "-1" )
-					else
-						_G[string.format( "%s%s", parent, "ArkSelectedRow" )]:SetText( ns )
-						_G[string.format( "%s%s", parent, "ArkSelectedId" )]:SetText( _G[string.format( "%s%s", f, "Id" )]:GetText( ) )
-						_G[string.format( "%s%s", f, "Selected" )]:Show( )
-					end
-					
-				end
-				
-				self.ArkTableRowOnClick( button )
-				
-			</OnClick>
-			
-		</Scripts>
-		
-	</Button>
-
 	
 <!-- ADDON FRAME STARTS HERE -->
 	
@@ -2021,7 +2016,7 @@
 	
 	<GameTooltip name="ARKINV_ScanTooltip" inherits="ArkScanTooltipTemplate" />
 	
-	<Frame name="ARKINV_CombatYieldTimer" hidden="true">
+	<Frame name="ARKINV_TimerYieldCombat" hidden="true">
 		<Scripts>
 			<Onload>
 				self.timer = 0
@@ -2038,15 +2033,33 @@
 				end
 			</OnUpdate>
 			<OnEvent>
-				if ( event == "PLAYER_REGEN_DISABLED" ) then
+				if event == "PLAYER_REGEN_DISABLED" then
 					self:Show( )
-				elseif ( event == "PLAYER_REGEN_ENABLED" ) then
+				elseif event == "PLAYER_REGEN_ENABLED" then
 					self:Hide( )
 					table.wipe( ArkInventory.Global.Thread.Window )
 					table.wipe( ArkInventory.Global.Thread.WindowState )
-					--ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Recalculate )
 				end
 			</OnEvent>
+		</Scripts>
+	</Frame>
+	
+	<Frame name="ARKINV_TimerYieldRestack" hidden="true">
+		<Scripts>
+			<Onload>
+				self.timer = 0
+			</Onload>
+			<OnUpdate>
+				self.timer = self.timer + elapsed
+				if self.timer > 0.3 then
+					self.timer = 0
+					--ArkInventory.Output( "auto resume restack" )
+					if ArkInventory.RestackResume( ) then
+						--ArkInventory.Output( "stopping restack resume - all threads completed" )
+						self:Hide( )
+					end
+				end
+			</OnUpdate>
 		</Scripts>
 	</Frame>
 	

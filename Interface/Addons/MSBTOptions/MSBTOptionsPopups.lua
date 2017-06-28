@@ -107,6 +107,7 @@ end
 -- Called when a popup is hidden.
 -- ****************************************************************************
 local function OnHidePopup(this)
+ PlaySound("gsTitleOptionExit")
  if (this.hideHandler) then this.hideHandler() end
 end
 
@@ -117,16 +118,28 @@ end
 local function CreatePopup()
  local frame = CreateFrame("Frame", nil, UIParent)
  frame:Hide()
- frame:SetMovable(true)
  frame:EnableMouse(true)
- frame:SetToplevel(true)
+ frame:SetMovable(true)
+ frame:RegisterForDrag("LeftButton")
+ frame:SetFrameStrata("HIGH")
+ --frame:SetToplevel(true)
  frame:SetClampedToScreen(true)
  frame:SetBackdrop(popupBackdrop)
  frame:SetScript("OnHide", OnHidePopup)
 
+ frame:SetScript("OnShow", function(self)
+  PlaySound("igMainMenuOption")
+ end)
+ frame:SetScript("OnDragStart", function(self)
+  self:StartMoving()
+ end)
+ frame:SetScript("OnDragStop", function(self)
+  self:StopMovingOrSizing()
+ end)
+
  -- Title region.
- local titleRegion = frame:CreateTitleRegion()
- titleRegion:SetAllPoints(frame)
+ --local titleRegion = frame:CreateTitleRegion()
+ --titleRegion:SetAllPoints(frame)
 
  -- Register the frame with the main module.
  MSBTOptions.Main.RegisterPopupFrame(frame)
@@ -143,6 +156,7 @@ local function ChangePopupParent(frame, parent)
  local oldHandler = frame.hideHandler
  frame.hideHandler = nil
  frame:SetParent(parent or UIParent)
+ frame:SetFrameStrata("HIGH")
  frame.hideHandler = oldHandler
 end
 
@@ -1190,7 +1204,7 @@ local function CreateClassColors()
  local anchor = checkbox
  local globalStringSchoolIndex = 0
  local colorswatch, fontString
- for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR", "[^%s]+") do
+ for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR DEMONHUNTER", "[^%s]+") do
   colorswatch = MSBTControls.CreateColorswatch(frame)
   colorswatch:SetPoint("TOPLEFT", anchor, "BOTTOMLEFT", anchor == checkbox and 20 or 0, anchor == checkbox and -10 or -5)
   colorswatch:SetColorChangedHandler(
@@ -1237,7 +1251,7 @@ local function ShowClassColors(configTable)
  frame.colorCheckbox:SetChecked(not MSBTProfiles.currentProfile.classColoringDisabled)
 
  local profileEntry
- for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR", "[^%s]+") do
+ for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR DEMONHUNTER", "[^%s]+") do
   profileEntry = MSBTProfiles.currentProfile[class]
   frame[class .. "Colorswatch"]:SetColor(profileEntry.colorR, profileEntry.colorG, profileEntry.colorB)
   frame[class .. "Checkbox"]:SetChecked(not profileEntry.disabled)
@@ -1530,7 +1544,8 @@ local function CreateScrollAreaMoverFrame(scrollArea)
   frame:Hide()
   frame:SetMovable(true)
   frame:EnableMouse(true)
-  frame:SetToplevel(true)
+  frame:SetFrameStrata("HIGH")
+  --frame:SetToplevel(true)
   frame:SetClampedToScreen(true)
   frame:SetBackdrop(moverBackdrop)
   frame:SetScript("OnMouseDown", MoverFrameOnMouseDown)

@@ -1,8 +1,8 @@
-﻿local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "enUS", true, false )
+local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "enUS", true, false )
 if not L then return end
 
 -- game client based localisations and internal stuff
-
+L["TOC_FAIL"] = "*****  This is a Legion Beta version, it will not work on the live servers, please downgrade to 3.05.12  *****"
 
 -- class names
 L["WOW_CLASS_DRUID"] = LOCALIZED_CLASS_NAMES_MALE["DRUID"] or true
@@ -16,9 +16,11 @@ L["WOW_CLASS_WARLOCK"] = LOCALIZED_CLASS_NAMES_MALE["WARLOCK"] or true
 L["WOW_CLASS_WARRIOR"] = LOCALIZED_CLASS_NAMES_MALE["WARRIOR"] or true
 L["WOW_CLASS_DEATHKNIGHT"] = LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"] or true
 L["WOW_CLASS_MONK"] = LOCALIZED_CLASS_NAMES_MALE["MONK"] or true
+L["WOW_CLASS_DEMONHUNTER"] = LOCALIZED_CLASS_NAMES_MALE["DEMONHUNTER"] or true
 
 
 --	periodictable: set names for default class categories
+L["PT_CLASS_GUILD"] = ""
 L["PT_CLASS_DRUID"] = "Misc.Reagent.Class.Druid"
 L["PT_CLASS_HUNTER"] = "Misc.Reagent.Class.Hunter"
 L["PT_CLASS_MAGE"] = "Misc.Reagent.Class.Mage"
@@ -30,6 +32,7 @@ L["PT_CLASS_WARLOCK"] = "Misc.Reagent.Class.Warlock"
 L["PT_CLASS_WARRIOR"] = "Misc.Reagent.Class.Warrior"
 L["PT_CLASS_DEATHKNIGHT"] = "Misc.Reagent.Class.DeathKnight"
 L["PT_CLASS_MONK"] = "Misc.Reagent.Class.Monk"
+L["PT_CLASS_DEMONHUNTER"] = "Misc.Reagent.Class.DemonHunter"
 
 
 --	periodictable: other
@@ -57,15 +60,17 @@ L["LOCATION_BAG"] = INVTYPE_BAG or true
 L["LOCATION_BANK"] = BANK or true
 L["LOCATION_VAULT"] = GUILD_BANK or true
 L["LOCATION_VOIDSTORAGE"] = VOID_STORAGE or true
-
+L["LOCATION_REAGENTBANK"] = REAGENT_BANK or true
 
 
 --	category descriptions
-L["CATEGORY_CLASS"] = CLASS or true -- calculated keyword
-L["CATEGORY_CUSTOM"] = CUSTOM or true -- calculated keyword
-L["CATEGORY_EMPTY"] = EMPTY or true -- calculated keyword
-L["CATEGORY_SKILL"] = SKILL or true -- calculated keyword
-L["CATEGORY_SYSTEM"] = CHAT_MSG_SYSTEM or true -- calculated keyword
+L["CATEGORY_SYSTEM"] = CHAT_MSG_SYSTEM or true
+L["CATEGORY_CONSUMABLE"] = AUCTION_CATEGORY_CONSUMABLES or true
+L["CATEGORY_TRADEGOODS"] = AUCTION_CATEGORY_TRADE_GOODS or true
+L["CATEGORY_SKILL"] = SKILL or true
+L["CATEGORY_CLASS"] = CLASS or true
+L["CATEGORY_CUSTOM"] = CUSTOM or true
+L["CATEGORY_EMPTY"] = EMPTY or true
 
 L["CATEGORY_SYSTEM_SOULBOUND"] = ITEM_SOULBOUND or true
 L["CATEGORY_CONSUMABLE_FOOD"] = TUTORIAL_TITLE11 or true
@@ -75,16 +80,22 @@ L["CATEGORY_SYSTEM_EQUIPMENT"] = TUTORIAL_TITLE24 or true
 L["CATEGORY_SYSTEM_EQUIPMENT_SOULBOUND"] = ( TUTORIAL_TITLE24 and ITEM_SOULBOUND and string.format( "%s (%s)", TUTORIAL_TITLE24, ITEM_SOULBOUND ) ) or true
 L["CATEGORY_SYSTEM_EQUIPMENT_ACCOUNTBOUND"] = ( TUTORIAL_TITLE24 and ITEM_ACCOUNTBOUND and string.format( "%s (%s)", TUTORIAL_TITLE24, ITEM_ACCOUNTBOUND ) ) or true
 
+
 -- ldb
 L["LDB_MOUNTS_TYPE_A"] = BATTLE_PET_NAME_3 or true -- calculated keyword
 
 
 -- generic words
 L["ACCEPT"] = ACCEPT or true
+L["ACTIVE"] = ACTIVE_PETS or true
 L["ADD"] = ADD or true
 L["ALL"] = ALL or true
+L["ALREADY_KNOWN"] = ITEM_SPELL_KNOWN or true
 L["APPEARANCE"] = APPEARANCE_LABEL or true
+L["ARTIFACT_POWER"] = ARTIFACT_POWER or true
+L["ASSIGN"] = COMBAT_ALLY_START_MISSION or true
 L["BAG"] = INVTYPE_BAG or true
+L["BLIZZARD"] = "Blizzard"
 L["AQUATIC"] = BATTLE_PET_NAME_9 or true
 L["BACKGROUND"] = EMBLEM_BACKGROUND or true
 L["BATTLEPET"] = TOOLTIP_BATTLE_PET or true
@@ -93,152 +104,207 @@ L["CANCEL"] = CANCEL or true
 L["CATEGORIES"] = CATEGORIES or true
 L["CATEGORY"] = CATEGORY or true
 L["CHARACTER"] = CHARACTER or true
+L["CLEANUP"] = BAG_FILTER_CLEANUP or true
 L["CLOSE"] = CLOSE or true
 L["COLOUR"] = COLOR or true
 L["COLLECTED"] = COLLECTED or true
 L["COMPLETE"] = COMPLETE or true
+L["CONTROLS"] = CONTROLS_LABEL or true
 L["CURRENCY"] = CURRENCY or true
 L["CUSTOM"] = CUSTOM or true
 L["DEFAULT"] = DEFAULT or true
+L["DEBUG"] = BINDING_HEADER_DEBUG or true
+L["DEFAULT"] = DEFAULT or true
 L["DELETE"] = DELETE or true
 L["DESCRIPTION"] = QUEST_DESCRIPTION or true
+L["DISABLE"] = DISABLE or true
 L["DISABLED"] = ADDON_DISABLED or true
+L["DISPLAY"] = DISPLAY or true
 L["DURATION"] = AUCTION_DURATION or true
+L["EDIT"] = EDIT or true
+L["EMPTY"] = EMPTY or true
+L["ENABLE"] = ENABLE or true
+L["ENABLED"] = VIDEO_OPTIONS_ENABLED or true
 L["FILTER"] = FILTER or true
+L["FONT_SIZE"] = FONT_SIZE or true
+L["FULL"] = LOC_TYPE_FULL or true
 L["GENERAL"] = GENERAL or true
 L["HEIRLOOM"] = ITEM_QUALITY7_DESC or true
+L["HIDE"] = HIDE or true
+L["ICON"] = EMBLEM_SYMBOL or true
 L["IGNORE"] = IGNORE or true
+L["INSTANT"] = SPELL_CAST_TIME_INSTANT or true
 L["ITEMS"] = ITEMS or true
+L["JUNK"] = BAG_FILTER_JUNK or true
 L["LOCK"] = LOCK or true
+L["LOCKED"] = LOCKED or true
 L["MAIL"] = MAIL_LABEL or true
 L["MOUNT"] = MOUNT or true
+L["MODE"] = MODE or true
+L["MOVE"] = NPE_MOVE or true
 L["NAME"] = NAME or true
 L["NEW"] = NEW or true
 L["NO"] = NO or true
 L["NONE"] = NONE or true
 L["NOT_COLLECTED"] = NOT_COLLECTED or true
-L["OFFLINE"] = FRIENDS_LIST_OFFLINE or true
+L["OFFLINE"] = PLAYER_OFFLINE or true
+L["OKAY"] = OKAY or true
 L["ONLINE"] = FRIENDS_LIST_ONLINE or true
 L["OPTIONS"] = GAMEOPTIONS_MENU or true
 L["PET"] = PET or true
-L["REAGENTBANK"] = REAGENT_BANK or true
+L["REALM"] = VAS_REALM_LABEL or true
+L["REFRESH"] = REFRESH or true
 L["REMOVE"] = REMOVE or true
 L["RENAME"] = PET_RENAME or true
 L["REPUTATION"] = REPUTATION or true
 L["RESET"] = RESET or true
-L["RESTACK"] = BAG_FILTER_CLEANUP or true
+L["SAVE"] = SAVE or true
 L["SEARCH"] = SEARCH or true
+L["SETTINGS"] = SETTINGS or true
+L["SHOW"] = SHOW or true
+L["SORT_BY"] = RAID_FRAME_SORT_LABEL or true
 L["SPECIAL"] = SPECIAL or true
 L["START"] = START or true
 L["STATUS"] = STATUS or true
+L["SUMMON"] = SUMMON or true
 L["TEXT"] = LOCALE_TEXT_LABEL or true
 L["TOTAL"] = TOTAL or true
 L["TOY"] = TOY or true
 L["TOYBOX"] = TOY_BOX or true
 L["TRACKING"] = TRACKING or true
-L["UNKNOWN"] = UNKNOWNOBJECT or true
+L["TYPE"] = TYPE or true
+L["UNKNOWN"] = UNKNOWN or true
+L["VIEW"] = VIEW or true
+L["WEEKLY"] = WEEKLY or true
 L["YES"] = YES or true
 
-
-local function ConvertToCapture( text )
-	text = string.gsub( text, "%d%$", "" ) -- remove 1$ / 2$
+function FormatForRegex( text )
+	local text = text
+	text = string.gsub( text, "%.", "%%%." ) -- replace . with %.
+	text = string.gsub( text, "%*", "%%%*" ) -- replace * with %*
+	text = string.gsub( text, "%+", "%%%+" ) -- replace + with %+
+	text = string.gsub( text, "%-", "%%%-" ) -- replace - with %-
+	text = string.gsub( text, "%?", "%%%?" ) -- replace ? with %?
 	text = string.gsub( text, "%(", "%%%(" ) -- replace ( with %(
 	text = string.gsub( text, "%)", "%%%)" ) -- replace ) with %)
+	return text
+end
+
+local function FormatForCapture( text )
+	local text = FormatForRegex( text )
+	text = string.gsub( text, "%d%$", "" ) -- remove 1$ / 2$
 	text = string.gsub( text, "%%s", "(.+)" ) -- replace %s with (.+)
 	text = string.gsub( text, "%%d", "%(%%d+%)" ) -- replace %d with (%d+)
 	return string.format( "^%s$", text )
 end
 
 -- calculated
-L["WOW_TOOLTIP_REQUIRES_SKILL"] = ConvertToCapture( ITEM_MIN_SKILL )
-L["WOW_TOOLTIP_REQUIRES_LEVEL"] = ConvertToCapture( ITEM_MIN_LEVEL )
-L["WOW_TOOLTIP_REQUIRES_CLASS"] = ConvertToCapture( ITEM_CLASSES_ALLOWED )
-L["WOW_TOOLTIP_REQUIRES"] = ConvertToCapture( ITEM_REQ_SKILL )
 
-L["WOW_TOOLTIP_CLASS"] = string.format( "^%s", string.gsub( ITEM_CLASSES_ALLOWED, "%%s", "(.+)", 1 ) )
+L["WOW_TOOLTIP_ITEM_SOULBOUND"] = FormatForCapture( ITEM_SOULBOUND )
+L["WOW_TOOLTIP_ITEM_BIND_ON_PICKUP"] = FormatForCapture( ITEM_BIND_ON_PICKUP )
+
+L["WOW_TOOLTIP_ITEM_ACCOUNTBOUND"] = FormatForCapture( ITEM_ACCOUNTBOUND )
+L["WOW_TOOLTIP_ITEM_BIND_TO_ACCOUNT"] = FormatForCapture( ITEM_BIND_TO_ACCOUNT )
+L["WOW_TOOLTIP_ITEM_BIND_TO_BNETACCOUNT"] = FormatForCapture( ITEM_BIND_TO_BNETACCOUNT )
+L["WOW_TOOLTIP_ITEM_BNETACCOUNTBOUND"] = FormatForCapture( ITEM_BNETACCOUNTBOUND )
+
+L["WOW_TOOLTIP_REQUIRES_SKILL"] = FormatForCapture( ITEM_MIN_SKILL )
+L["WOW_TOOLTIP_REQUIRES_LEVEL"] = FormatForCapture( ITEM_MIN_LEVEL )
+L["WOW_TOOLTIP_REQUIRES_CLASS"] = FormatForCapture( ITEM_CLASSES_ALLOWED )
+L["WOW_TOOLTIP_REQUIRES"] = FormatForCapture( ITEM_REQ_SKILL )
+L["WOW_TOOLTIP_ITEMUPGRADELEVEL"] = FormatForCapture( ITEM_UPGRADE_TOOLTIP_FORMAT )
+L["WOW_TOOLTIP_ITEM_LEVEL"] = FormatForCapture( ITEM_LEVEL )
+L["WOW_TOOLTIP_ANCIENT_MANA"] = ( GetCurrencyInfo( 1155 ) )
+L["WOW_TOOLTIP_ARTIFACT_POWER"] = FormatForCapture( ARTIFACT_POWER )
+L["WOW_TOOLTIP_ARTIFACT_POWER_AMOUNT"] = "^.-([%d,.]+)%s(.+)"
+L["WOW_TOOLTIP_CRAFTING_REAGENT"] = FormatForCapture( PROFESSIONS_USED_IN_COOKING )
+
+L["WOW_TOOLTIP_RELIC_LEVEL"] = FormatForCapture( RELIC_TOOLTIP_ILVL_INCREASE )
+
 L["PET_BATTLE_BOUND"] = string.format( "%s (%s)", TOOLTIP_BATTLE_PET, ITEM_ACCOUNTBOUND )
 L["PET_COMPANION_BOUND"] = string.format( "%s (%s)", PET, ITEM_ACCOUNTBOUND )
 L["PET_CANNOT_BATTLE"] = string.gsub( BATTLE_PET_CANNOT_BATTLE, "\n", " " )
-L["WOW_TOOLTIP_ITEMUPGRADELEVEL"] = ConvertToCapture( ITEM_UPGRADE_TOOLTIP_FORMAT )
 
 L["MINUTES"] = string.match( D_MINUTES, ":(.-);$" ) or true
+L["SECONDS"] = string.match( D_SECONDS, ":(.-);$" ) or true
+
+L["SPELL_DRUID_TRAVEL_FORM"] = ( GetSpellInfo( 783 ) ) or true
 
 
+-- generated from item class table
 
--- generated from auction house categories
-
-local auctionTable = {
+local itemClassTable = {
 	
-	{ "WOW_AH_WEAPON", 1 },
+	{ "WOW_ITEM_CLASS_WEAPON", ArkInventory.Const.ItemClass.WEAPON },
 	
-	{ "WOW_AH_ARMOR", 2 },
+	{ "WOW_ITEM_CLASS_ARMOR", ArkInventory.Const.ItemClass.ARMOR },
 	
-	{ "WOW_AH_CONTAINER", 3 },
-	{ "WOW_AH_CONTAINER_BAG", 3, 1 },
-	{ "WOW_AH_CONTAINER_HERB", 3, 2 },
-	{ "WOW_AH_CONTAINER_ENCHANTING", 3, 3 },
-	{ "WOW_AH_CONTAINER_ENGINEERING", 3, 4 },
-	{ "WOW_AH_CONTAINER_GEM", 3, 5 },
-	{ "WOW_AH_CONTAINER_MINING", 3, 6 },
-	{ "WOW_AH_CONTAINER_LEATHERWORKING", 3, 7 },
-	{ "WOW_AH_CONTAINER_INSCRIPTION", 3, 8 },
-	{ "WOW_AH_CONTAINER_TACKLE", 3, 9 },
-	{ "WOW_AH_CONTAINER_COOKING", 3, 10 },
+	{ "WOW_ITEM_CLASS_CONTAINER", ArkInventory.Const.ItemClass.CONTAINER },
+	{ "WOW_ITEM_CLASS_CONTAINER_BAG", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_BAG },
+	{ "WOW_ITEM_CLASS_CONTAINER_SOUL", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_SOUL },
+	{ "WOW_ITEM_CLASS_CONTAINER_HERB", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_HERB },
+	{ "WOW_ITEM_CLASS_CONTAINER_ENCHANTING", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_ENCHANTING },
+	{ "WOW_ITEM_CLASS_CONTAINER_ENGINEERING", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_ENGINEERING },
+	{ "WOW_ITEM_CLASS_CONTAINER_GEM", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_GEM },
+	{ "WOW_ITEM_CLASS_CONTAINER_MINING", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_MINING },
+	{ "WOW_ITEM_CLASS_CONTAINER_LEATHERWORKING", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_LEATHERWORKING },
+	{ "WOW_ITEM_CLASS_CONTAINER_INSCRIPTION", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_INSCRIPTION },
+	{ "WOW_ITEM_CLASS_CONTAINER_FISHING", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_FISHING },
+	{ "WOW_ITEM_CLASS_CONTAINER_COOKING", ArkInventory.Const.ItemClass.CONTAINER, ArkInventory.Const.ItemClass.CONTAINER_COOKING },
 	
-	{ "WOW_AH_CONSUMABLE", 4 },
-	{ "WOW_AH_CONSUMABLE_FOOD+DRINK", 4, 1 },
-	{ "WOW_AH_CONSUMABLE_POTION", 4, 2 },
-	{ "WOW_AH_CONSUMABLE_ELIXIR", 4, 3 },
-	{ "WOW_AH_CONSUMABLE_FLASK", 4, 4 },
-	{ "WOW_AH_CONSUMABLE_BANDAGE", 4, 5 },
-	{ "WOW_AH_CONSUMABLE_ENHANCEMENT", 4, 6 },
-	{ "WOW_AH_CONSUMABLE_SCROLL", 4, 7 },
-	{ "WOW_AH_CONSUMABLE_OTHER", 4, 8 },
+	{ "WOW_ITEM_CLASS_CONSUMABLE", ArkInventory.Const.ItemClass.CONSUMABLE },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_EXPLOSIVES_AND_DEVICES", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_EXPLOSIVES_AND_DEVICES },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_POTION", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_POTION },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_ELIXIR", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_ELIXIR },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_FLASK", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_FLASK },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_FOOD_AND_DRINK", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_FOOD_AND_DRINK },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_BANDAGE", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_BANDAGE },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_OTHER", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_OTHER },
+	{ "WOW_ITEM_CLASS_CONSUMABLE_VANTUSRUNE", ArkInventory.Const.ItemClass.CONSUMABLE, ArkInventory.Const.ItemClass.CONSUMABLE_VANTUSRUNE }, -- ADDED IN LEGION
 	
-	{ "WOW_AH_GLYPH", 5 },
+	{ "WOW_ITEM_CLASS_GLYPH", ArkInventory.Const.ItemClass.GLYPH },
 	
-	{ "WOW_AH_TRADEGOODS", 6 },
-	{ "WOW_AH_TRADEGOODS_ELEMENTAL", 6, 1 },
-	{ "WOW_AH_TRADEGOODS_CLOTH", 6, 2 },
-	{ "WOW_AH_TRADEGOODS_LEATHER", 6, 3 },
-	{ "WOW_AH_TRADEGOODS_METALSTONE", 6, 4 },
-	{ "WOW_AH_TRADEGOODS_COOKING", 6, 5 },
-	{ "WOW_AH_TRADEGOODS_HERB", 6, 6 },
-	{ "WOW_AH_TRADEGOODS_ENCHANTING", 6, 7 },
-	{ "WOW_AH_TRADEGOODS_JEWELCRAFTING", 6, 8 },
-	{ "WOW_AH_TRADEGOODS_PARTS", 6, 9 },
-	{ "WOW_AH_TRADEGOODS_DEVICES", 6, 10 },
-	{ "WOW_AH_TRADEGOODS_EXPLOSIVES", 6, 11 },
-	{ "WOW_AH_TRADEGOODS_MATERIALS", 6, 12 },
-	{ "WOW_AH_TRADEGOODS_OTHER", 6, 13 },
-	{ "WOW_AH_TRADEGOODS_ENCHANTMENT", 6, 14 },
+	{ "WOW_ITEM_CLASS_TRADEGOODS", ArkInventory.Const.ItemClass.TRADEGOODS },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_PARTS", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_PARTS },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_JEWELCRAFTING", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_JEWELCRAFTING },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_CLOTH", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_CLOTH },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_LEATHER", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_LEATHER },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_METAL_AND_STONE", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_METAL_AND_STONE },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_COOKING", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_COOKING },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_HERB", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_HERB },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_ELEMENTAL", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_ELEMENTAL },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_OTHER", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_OTHER },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_ENCHANTING", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_ENCHANTING },
+	{ "WOW_ITEM_CLASS_TRADEGOODS_INSCRIPTION", ArkInventory.Const.ItemClass.TRADEGOODS, ArkInventory.Const.ItemClass.TRADEGOODS_INSCRIPTION },
 	
-	{ "WOW_AH_RECIPE", 7 },
-	{ "WOW_AH_RECIPE_LEATHERWORKING", 7, 2 },
-	{ "WOW_AH_RECIPE_TAILORING", 7, 3 },
-	{ "WOW_AH_RECIPE_ENGINEERING", 7, 4 },
-	{ "WOW_AH_RECIPE_BLACKSMITHING", 7, 5 },
-	{ "WOW_AH_RECIPE_ALCHEMY", 7, 7 },
-	{ "WOW_AH_RECIPE_INSCRIPTION", 7, 12 },
+	{ "WOW_ITEM_CLASS_RECIPE", ArkInventory.Const.ItemClass.RECIPE },
+	{ "WOW_ITEM_CLASS_RECIPE_LEATHERWORKING", ArkInventory.Const.ItemClass.RECIPE, ArkInventory.Const.ItemClass.RECIPE_LEATHERWORKING },
+	{ "WOW_ITEM_CLASS_RECIPE_TAILORING", ArkInventory.Const.ItemClass.RECIPE, ArkInventory.Const.ItemClass.RECIPE_TAILORING },
+	{ "WOW_ITEM_CLASS_RECIPE_ENGINEERING", ArkInventory.Const.ItemClass.RECIPE, ArkInventory.Const.ItemClass.RECIPE_ENGINEERING },
+	{ "WOW_ITEM_CLASS_RECIPE_BLACKSMITHING", ArkInventory.Const.ItemClass.RECIPE, ArkInventory.Const.ItemClass.RECIPE_BLACKSMITHING },
+	{ "WOW_ITEM_CLASS_RECIPE_ALCHEMY", ArkInventory.Const.ItemClass.RECIPE, ArkInventory.Const.ItemClass.RECIPE_ALCHEMY },
+	{ "WOW_ITEM_CLASS_RECIPE_INSCRIPTION", ArkInventory.Const.ItemClass.RECIPE, ArkInventory.Const.ItemClass.RECIPE_INSCRIPTION },
 	
-	{ "WOW_AH_GEM", 8 },
+	{ "WOW_ITEM_CLASS_GEM", ArkInventory.Const.ItemClass.GEM },
+	{ "WOW_ITEM_CLASS_GEM_ARTIFACT_RELIC", ArkInventory.Const.ItemClass.GEM, ArkInventory.Const.ItemClass.GEM_ARTIFACT_RELIC },
 	
-	{ "WOW_AH_MISC", 9 },
-	{ "WOW_AH_MISC_JUNK", 9, 1 },
-	{ "WOW_AH_MISC_REAGENT", 9, 2 },
-	{ "WOW_AH_MISC_PET", 9, 3 },
-	{ "WOW_AH_MISC_MOUNT", 9, 6 },
+	{ "WOW_ITEM_CLASS_ITEM_ENHANCEMENT", ArkInventory.Const.ItemClass.ITEM_ENHANCEMENT },
 	
-	{ "WOW_AH_QUEST", 10 },
+	{ "WOW_ITEM_CLASS_PET", ArkInventory.Const.ItemClass.BATTLEPET },
 	
+	{ "WOW_ITEM_CLASS_MISC", ArkInventory.Const.ItemClass.MISC },
+	{ "WOW_ITEM_CLASS_MISC_JUNK", ArkInventory.Const.ItemClass.MISC, 0 },
+	{ "WOW_ITEM_CLASS_MISC_REAGENT", ArkInventory.Const.ItemClass.MISC, ArkInventory.Const.ItemClass.MISC_REAGENT },
+	{ "WOW_ITEM_CLASS_MISC_PET", ArkInventory.Const.ItemClass.MISC, ArkInventory.Const.ItemClass.MISC_PET },
+	{ "WOW_ITEM_CLASS_MISC_HOLIDAY", ArkInventory.Const.ItemClass.MISC, ArkInventory.Const.ItemClass.MISC_HOLIDAY },
+	{ "WOW_ITEM_CLASS_MISC_OTHER", ArkInventory.Const.ItemClass.MISC, ArkInventory.Const.ItemClass.MISC_OTHER },
+	{ "WOW_ITEM_CLASS_MISC_MOUNT", ArkInventory.Const.ItemClass.MISC, ArkInventory.Const.ItemClass.MISC_MOUNT },
 	
-	{ "CATEGORY_CONSUMABLE", 4 }, -- calculated keyword
-	{ "CATEGORY_TRADEGOODS", 6 }, -- calculated keyword
-	
+	{ "WOW_ITEM_CLASS_QUEST", ArkInventory.Const.ItemClass.QUEST },
 	
 }
 
-for _, v in ipairs( auctionTable ) do
+for _, v in ipairs( itemClassTable ) do
 	
 	local key, i1, i2 = v[1], v[2], v[3]
 	
@@ -246,10 +312,10 @@ for _, v in ipairs( auctionTable ) do
 		
 		local text = nil
 		
-		if i2 then
-			text = select( i2, GetAuctionItemSubClasses( i1 ) )
-		else
-			text = select( i1, GetAuctionItemClasses( ) )
+		if i1 and i2 then
+			text = GetItemSubClassInfo( i1, i2 )
+		elseif i1 then
+			text = GetItemClassInfo( i1 )
 		end
 		
 		if text then
@@ -262,73 +328,73 @@ for _, v in ipairs( auctionTable ) do
 	
 end
 
-table.wipe( auctionTable )
-auctionTable = nil
+table.wipe( itemClassTable )
+itemClassTable = nil
 
 
 -- set all to true so that they exist and can be over-ridden by the translation update code, wont get over-ridden here because the api wont allow it
 
-L["WOW_AH_WEAPON"] = true
+L["WOW_ITEM_CLASS_WEAPON"] = true
 
-L["WOW_AH_ARMOR"] = true
+L["WOW_ITEM_CLASS_ARMOR"] = true
 
-L["WOW_AH_CONSUMABLE"] = true
-L["WOW_AH_CONSUMABLE_BANDAGE"] = true
-L["WOW_AH_CONSUMABLE_ELIXIR"] = true
-L["WOW_AH_CONSUMABLE_FLASK"] = true
-L["WOW_AH_CONSUMABLE_FOOD+DRINK"] = true
-L["WOW_AH_CONSUMABLE_ENHANCEMENT"] = true
-L["WOW_AH_CONSUMABLE_POTION"] = true
-L["WOW_AH_CONSUMABLE_SCROLL"] = true
-L["WOW_AH_CONSUMABLE_OTHER"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_EXPLOSIVES_AND_DEVICES"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_POTION"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_ELIXIR"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_FLASK"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_FOOD_AND_DRINK"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_BANDAGE"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_OTHER"] = true
+L["WOW_ITEM_CLASS_CONSUMABLE_VANTUSRUNE"] = true
 
-L["WOW_AH_CONTAINER"] = true
-L["WOW_AH_CONTAINER_BAG"] = true
-L["WOW_AH_CONTAINER_ENCHANTING"] = true
-L["WOW_AH_CONTAINER_ENGINEERING"] = true
-L["WOW_AH_CONTAINER_GEM"] = true
-L["WOW_AH_CONTAINER_HERB"] = true
-L["WOW_AH_CONTAINER_INSCRIPTION"] = true
-L["WOW_AH_CONTAINER_LEATHERWORKING"] = true
-L["WOW_AH_CONTAINER_MINING"] = true
-L["WOW_AH_CONTAINER_TACKLE"] = true
-L["WOW_AH_CONTAINER_COOKING"] = true
+L["WOW_ITEM_CLASS_CONTAINER"] = true
+L["WOW_ITEM_CLASS_CONTAINER_BAG"] = true
+L["WOW_ITEM_CLASS_CONTAINER_ENCHANTING"] = true
+L["WOW_ITEM_CLASS_CONTAINER_ENGINEERING"] = true
+L["WOW_ITEM_CLASS_CONTAINER_GEM"] = true
+L["WOW_ITEM_CLASS_CONTAINER_HERB"] = true
+L["WOW_ITEM_CLASS_CONTAINER_INSCRIPTION"] = true
+L["WOW_ITEM_CLASS_CONTAINER_LEATHERWORKING"] = true
+L["WOW_ITEM_CLASS_CONTAINER_MINING"] = true
+L["WOW_ITEM_CLASS_CONTAINER_FISHING"] = true
+L["WOW_ITEM_CLASS_CONTAINER_COOKING"] = true
 
-L["WOW_AH_GEM"] = true
+L["WOW_ITEM_CLASS_GEM"] = true
+L["WOW_ITEM_CLASS_GEM_ARTIFACT_RELIC"] = true
 
-L["WOW_AH_GLYPH"] = true
+L["WOW_ITEM_CLASS_ITEM_ENHANCEMENT"] = true
 
-L["WOW_AH_MISC"] = true
-L["WOW_AH_MISC_MOUNT"] = true
-L["WOW_AH_MISC_PET"] = true
-L["WOW_AH_MISC_REAGENT"] = true
-L["WOW_AH_MISC_JUNK"] = true
+L["WOW_ITEM_CLASS_GLYPH"] = true
 
-L["WOW_AH_QUEST"] = true
+L["WOW_ITEM_CLASS_MISC"] = true
+L["WOW_ITEM_CLASS_MISC_MOUNT"] = true
+L["WOW_ITEM_CLASS_PET"] = true
+L["WOW_ITEM_CLASS_MISC_REAGENT"] = true
+L["WOW_ITEM_CLASS_MISC_JUNK"] = true
 
-L["WOW_AH_TRADEGOODS"] = true
-L["WOW_AH_TRADEGOODS_ELEMENTAL"] = true
-L["WOW_AH_TRADEGOODS_CLOTH"] = true
-L["WOW_AH_TRADEGOODS_LEATHER"] = true
-L["WOW_AH_TRADEGOODS_METALSTONE"] = true
-L["WOW_AH_TRADEGOODS_COOKING"] = true
-L["WOW_AH_TRADEGOODS_HERB"] = true
-L["WOW_AH_TRADEGOODS_ENCHANTING"] = true
-L["WOW_AH_TRADEGOODS_JEWELCRAFTING"] = true
-L["WOW_AH_TRADEGOODS_PARTS"] = true
-L["WOW_AH_TRADEGOODS_DEVICES"] = true
-L["WOW_AH_TRADEGOODS_EXPLOSIVES"] = true
-L["WOW_AH_TRADEGOODS_MATERIALS"] = true
-L["WOW_AH_TRADEGOODS_OTHER"] = true
-L["WOW_AH_TRADEGOODS_ENCHANTMENT"] = true
+L["WOW_ITEM_CLASS_QUEST"] = true
 
-L["WOW_AH_RECIPE"] = true
-L["WOW_AH_RECIPE_ALCHEMY"] = true
-L["WOW_AH_RECIPE_BLACKSMITHING"] = true
-L["WOW_AH_RECIPE_ENGINEERING"] = true
-L["WOW_AH_RECIPE_INSCRIPTION"] = true
-L["WOW_AH_RECIPE_LEATHERWORKING"] = true
-L["WOW_AH_RECIPE_TAILORING"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_ELEMENTAL"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_CLOTH"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_LEATHER"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_METAL_AND_STONE"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_COOKING"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_HERB"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_ENCHANTING"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_JEWELCRAFTING"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_PARTS"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_OTHER"] = true
+L["WOW_ITEM_CLASS_TRADEGOODS_INSCRIPTION"] = true
+
+L["WOW_ITEM_CLASS_RECIPE"] = true
+L["WOW_ITEM_CLASS_RECIPE_ALCHEMY"] = true
+L["WOW_ITEM_CLASS_RECIPE_BLACKSMITHING"] = true
+L["WOW_ITEM_CLASS_RECIPE_ENGINEERING"] = true
+L["WOW_ITEM_CLASS_RECIPE_INSCRIPTION"] = true
+L["WOW_ITEM_CLASS_RECIPE_LEATHERWORKING"] = true
+L["WOW_ITEM_CLASS_RECIPE_TAILORING"] = true
 
 L["WOW_SKILL_HERBALISM"] = true
 L["WOW_SKILL_MINING"] = true

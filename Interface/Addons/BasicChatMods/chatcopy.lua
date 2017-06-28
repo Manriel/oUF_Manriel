@@ -5,30 +5,37 @@ local _, BCM = ...
 BCM.modules[#BCM.modules+1] = function()
 	if bcmDB.BCM_ChatCopy then return end
 
+	local scrollDown = function()
+		BCMCopyScroll:SetVerticalScroll((BCMCopyScroll:GetVerticalScrollRange()) or 0)
+	end
+
 	--Copying Functions
 	local copyFunc = function(frame)
 		if not IsShiftKeyDown() then return end
 		local cf = _G[format("%s%d", "ChatFrame", frame:GetID())]
 		local text = ""
 		for i = 1, cf:GetNumMessages() do
-			text = text .. cf:GetMessageInfo(i) .. "\n"
+			local line = cf:GetMessageInfo(i)
+			BCMCopyFrame.font:SetFormattedText("%s\n", line) -- We do this to fix special pipe methods e.g. 5 |4hour:hours; Example: copying /played text
+			local cleanLine = BCMCopyFrame.font:GetText() or ""
+			text = text .. cleanLine
 		end
-		text = text:gsub("|[Tt]Interface\\TargetingFrame\\UI%-RaidTargetingIcon_(%d):0|[Tt]", "{rt%1}") -- I like being able to copy raid icons
-		text = text:gsub("|[Tt][^|]+|[Tt]", "") -- Remove any other icons to prevent copying issues
-		BCMCopyBox:SetText(text)
-		BCMCopyBox:HighlightText(0)
+		text = text:gsub("|T[^\\]+\\[^\\]+\\[Uu][Ii]%-[Rr][Aa][Ii][Dd][Tt][Aa][Rr][Gg][Ee][Tt][Ii][Nn][Gg][Ii][Cc][Oo][Nn]_(%d)[^|]+|t", "{rt%1}") -- I like being able to copy raid icons
+		text = text:gsub("|T13700([1-8])[^|]+|t", "{rt%1}") -- I like being able to copy raid icons
+		text = text:gsub("|T[^|]+|t", "") -- Remove any other icons to prevent copying issues
+		BCMCopyFrame.box:SetText(text)
 		BCMCopyFrame:Show()
-		BCMCopyScroll.ScrollToBottom:Play() -- Scroll to the bottom, we have to delay it unfortunately
+		C_Timer.After(0.25, scrollDown) -- Scroll to the bottom, we have to delay it unfortunately
 	end
 	local hintFunc = function(frame)
 		if bcmDB.noChatCopyTip then return end
 
 		if SHOW_NEWBIE_TIPS == "1" then
-			GameTooltip:AddLine("\n|TInterface\\Icons\\Spell_ChargePositive:20|t"..BCM.CLICKTOCOPY, 1, 0, 0)
+			GameTooltip:AddLine("\n|T135769:20|t"..BCM.CLICKTOCOPY, 1, 0, 0) -- Interface\\Icons\\Spell_ChargePositive
 			GameTooltip:Show()
 		else
 			GameTooltip:SetOwner(frame, "ANCHOR_TOP")
-			GameTooltip:AddLine("|TInterface\\Icons\\Spell_ChargePositive:20|t"..BCM.CLICKTOCOPY, 1, 0, 0)
+			GameTooltip:AddLine("|T135769:20|t"..BCM.CLICKTOCOPY, 1, 0, 0) -- Interface\\Icons\\Spell_ChargePositive
 			GameTooltip:Show()
 		end
 	end
@@ -51,15 +58,7 @@ BCM.modules[#BCM.modules+1] = function()
 	scrollArea:SetPoint("TOPLEFT", frame, "TOPLEFT", 8, -5)
 	scrollArea:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -30, 5)
 
-	-- XXX temp till 6.0
-	local group = scrollArea:CreateAnimationGroup()
-	local update = group:CreateAnimation()
-	group:SetScript("OnFinished", function() BCMCopyScroll:SetVerticalScroll((BCMCopyScroll:GetVerticalScrollRange()) or 0) end)
-	update:SetOrder(1)
-	update:SetDuration(0.25)
-	BCMCopyScroll.ScrollToBottom = group
-
-	local editBox = CreateFrame("EditBox", "BCMCopyBox", frame)
+	local editBox = CreateFrame("EditBox", nil, frame)
 	editBox:SetMultiLine(true)
 	editBox:SetMaxLetters(99999)
 	editBox:EnableMouse(true)
@@ -73,6 +72,12 @@ BCM.modules[#BCM.modules+1] = function()
 
 	local close = CreateFrame("Button", "BCMCloseButton", frame, "UIPanelCloseButton")
 	close:SetPoint("TOPRIGHT", frame, "TOPRIGHT", 0, 25)
+
+	local font = frame:CreateFontString(nil, nil, "GameFontNormal")
+	font:Hide()
+
+	BCMCopyFrame.font = font
+	BCMCopyFrame.box = editBox
 
 	BCM.chatFuncsPerFrame[#BCM.chatFuncsPerFrame+1] = function(n)
 		local tab = _G[n.."Tab"]

@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	GridLocale-esES.lua
 	Spanish localization
@@ -142,6 +142,7 @@ L["Advanced"] = "Avanzado"
 L["Advanced options."] = "Opciones avanzadas"
 L["Allows mouse click through the Grid Frame."] = "Permiter hacer clic a través de la ventana de Grid."
 L["Alt-Click to permanantly hide this tab."] = "Alt + clic para ocultar permanentemente esta pestaña."
+-- L["Always hide wrong zone groups"] = ""
 L["Arena Layout"] = "Diseño - Arena"
 L["Background color"] = "Color de fondo"
 L["Background Texture"] = "Textura del fondo"
@@ -155,6 +156,7 @@ L["Bottom"] = "Abajo"
 L["Bottom Left"] = "Inferior-Izquierda"
 L["Bottom Right"] = "Inferior-Derecha"
 L["By Creature Type"] = "Por tipo de criatura"
+-- L["ByGroup Layout Options"] = ""
 L["By Owner Class"] = "Por clase del dueño"
 L["Center"] = "Centro"
 L["Choose the layout border texture."] = "Selecciona la textura del borde de la ventana de Grid."
@@ -177,6 +179,8 @@ L["Flexible Raid Layout"] = "Banda flexible"
 L["Frame lock"] = "Bloquear ventana"
 L["Frame Spacing"] = "Espaciamiento entre los marcos"
 L["Group Anchor"] = "Ancla de grupo"
+-- L["Hide when in mythic raid instance"] = ""
+-- L["Hide when in raid instance"] = ""
 L["Horizontal groups"] = "Grupos horizontales"
 L["Humanoid"] = "Humanoide"
 L["Layout"] = "Diseño"
@@ -209,8 +213,12 @@ L["Sets where Grid is anchored relative to the screen."] = "Establecer dónde se
 L["Sets where groups are anchored relative to the layout frame."] = "Establecer donde se anclan los grupos relativos a la ventana de Grid."
 L["Set the coloring strategy of pet units."] = "Establecer la regla de coloreado de mascotas."
 L["Set the color of pet units."] = "Establecer el color oara mascotas."
+-- L["Show all groups"] = ""
 L["Show a tab for dragging when Grid is unlocked."] = "Muestra la pestaña cuando Grid está desbloqueado."
 L["Show Frame"] = "Mostrar marco"
+-- L["Show groups with all players in wrong zone."] = ""
+-- L["Show groups with all players offline."] = ""
+-- L["Show Offline"] = ""
 L["Show tab"] = "Mostrar pestaña"
 L["Solo Layout"] = "Diseño - Solo"
 L["Spacing"] = "Espaciamiento"
@@ -227,6 +235,7 @@ L["Unknown Unit"] = "Unidad desconocida"
 L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = "Usar el diseño seleccionada para bandas de 40 cuando estás en una banda fuera de una estancia, en vez de usar la dificultad de banda seleccionada actualmente."
 L["Using Fallback color"] = "Usando el color alternativo"
 L["World Raid as 40 Player"] = "Banda en mundo como 40"
+-- L["Wrong Zone"] = ""
 
 ------------------------------------------------------------------------
 --	GridLayoutLayouts
@@ -256,10 +265,6 @@ L["None"] = "Ninguno"
 L["Click to toggle the frame lock."] = "Haz clic para bloquear/desbloquear el movimiento de Grid."
 
 ------------------------------------------------------------------------
---	GridRoster
-
-
-------------------------------------------------------------------------
 --	GridStatus
 
 L["Color"] = "Color"
@@ -277,6 +282,12 @@ L["Status"] = "Estado"
 L["Status: %s"] = "Estado: %s"
 L["Text"] = "Texto"
 L["Text to display on text indicators"] = "Texto para mostrar en el indicador de texto"
+
+------------------------------------------------------------------------
+--	GridStatusAbsorbs
+
+L["Absorbs"] = "Absorciones"
+L["Only show total absorbs greater than this percent of the unit's maximum health."] = "Mostrar sólo las absorciones cuyo valor total es mayor que esto porcentaje de la salud total de la unidad."
 
 ------------------------------------------------------------------------
 --	GridStatusAggro
@@ -464,3 +475,4 @@ L["In Vehicle"] = "En vehículo"
 
 L["Talking"] = "Hablando"
 L["Voice Chat"] = "Chat de voz"
+

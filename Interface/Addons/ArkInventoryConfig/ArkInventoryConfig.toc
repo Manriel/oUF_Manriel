@@ -1,13 +1,9 @@
-﻿## Interface: 60100
-## X-Curse-Packaged-Version: 3.05.00
-## X-Curse-Project-Name: ArkInventory
-## X-Curse-Project-ID: ark-inventory
-## X-Curse-Repository-ID: wow/ark-inventory/mainline
+## Interface: 70200
 
-## Title: ArkInventory [Configuration]
+## Title: Ark Inventory [Configuration]
 ## Author: Arkayenro - Khaz'goroth
 ## Email: arkayenro at gmail dot com
-## Version: 10000
+## Version: 10001
 
 ## Notes: Configuration options for ArkInventory
 

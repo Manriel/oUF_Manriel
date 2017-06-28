@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	Mouseover.lua
 	Grid status module for mouseover units.
@@ -14,7 +14,7 @@
 
 local _, Grid = ...
 local L = Grid.L
-local GridFrame = Grid:GetModule("GridFrame")
+local GridRoster = Grid:GetModule("GridRoster")
 
 local GridStatusMouseover = Grid:NewStatusModule("GridStatusMouseover")
 GridStatusMouseover.menuName = L["Mouseover"]
@@ -36,46 +36,49 @@ end
 
 function GridStatusMouseover:OnStatusEnable(status)
 	self:Debug("OnStatusEnable", status)
+	self:RegisterEvent("UPDATE_MOUSEOVER_UNIT", "UpdateAllUnits")
 	self:RegisterMessage("Grid_RosterUpdated", "UpdateAllUnits")
-	self:RegisterMessage("Grid_UnitFrame_OnEnter", "UnitFrame_OnEnter")
-	self:RegisterMessage("Grid_UnitFrame_OnLeave", "UnitFrame_OnLeave")
 	self:UpdateAllUnits()
 end
 
 function GridStatusMouseover:OnStatusDisable(status)
 	self:Debug("OnStatusDisable", status)
+	self:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 	self:UnregisterMessage("Grid_RosterUpdated")
-	self:UnregisterMessage("Grid_UnitFrame_OnEnter")
-	self:UnregisterMessage("Grid_UnitFrame_OnLeave")
 	self:SendStatusLostAllUnits(status)
 end
 
-function GridStatusMouseover:UpdateAllUnits(event)
-	local enabled = self.db.profile.mouseover.enable
-	for i = 1, #GridFrame.registeredFrames do
-		local frame = GridFrame.registeredFrames[i]
-		if enabled and frame:IsMouseOver() then
-			self:UnitFrame_OnEnter(frame.unit, frame.unitGUID)
-		else
-			self:UnitFrame_OnLeave(frame.unit, frame.unitGUID)
+local updater, t = CreateFrame("Frame"), 0.1
+updater:Hide()
+updater:SetScript("OnUpdate", function(self, elapsed)
+	t = t - elapsed
+	if t <= 0 then
+		local guid = UnitGUID("mouseover")
+		if not guid then
+			GridStatusMouseover.core:SendStatusLostAllUnits("mouseover")
+			return self:Hide()
 		end
+		t = 0.1
 	end
-end
+end)
 
-function GridStatusMouseover:UnitFrame_OnEnter(event, unit, guid)
-	local profile = GridStatusMouseover.db.profile.mouseover
-	if guid and profile.enable then
-		self.core:SendStatusGained(guid, "mouseover",
-			profile.priority,
-			nil,
-			profile.color,
-			profile.text
-		)
+function GridStatusMouseover:UpdateAllUnits(event)
+	local profile = self.db.profile.mouseover
+	local mouseover = UnitGUID("mouseover")
+	if not mouseover then
+		return self.core:SendStatusLostAllUnits("mouseover")
 	end
-end
-
-function GridStatusMouseover:UnitFrame_OnLeave(event, unit, guid)
-	if guid then
-		self.core:SendStatusLost(guid, "mouseover")
+	for guid, unit in GridRoster:IterateRoster() do
+		if guid == mouseover then
+			self.core:SendStatusGained(guid, "mouseover",
+				profile.priority,
+				nil,
+				profile.color,
+				profile.text
+			)
+			updater:Show()
+		else
+			self.core:SendStatusLost(guid, "mouseover")
+		end
 	end
 end

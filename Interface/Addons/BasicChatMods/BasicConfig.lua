@@ -77,15 +77,15 @@ BCM.modules[#BCM.modules+1] = function()
 		elseif panel == "BCM_Timestamp" and BCM_Timestamp_InputCol then
 			BCM_Timestamp_InputCol:SetText("123456")
 			BCM_Timestamp_Format:SetText("1234567890")
-			BCM_Timestamp_Format:SetText(bcmDB.stampformat)
-			if bcmDB.stampcolor == "" then
+			BCM_Timestamp_Format:SetText(bcmDB.stampfmt)
+			if bcmDB.stampcol == "" then
 				BCM_TimestampColor_Button:SetChecked(false)
 				BCM_Timestamp_InputCol:EnableMouse(false)
 				BCM_Timestamp_InputCol:SetText("")
 				BCM_Timestamp_InputCol:ClearFocus()
 			else
 				BCM_TimestampColor_Button:SetChecked(true)
-				BCM_Timestamp_InputCol:SetText((bcmDB.stampcolor):sub(5))
+				BCM_Timestamp_InputCol:SetText(bcmDB.stampcol)
 			end
 		end
 	end
@@ -106,7 +106,7 @@ BCM.modules[#BCM.modules+1] = function()
 	InterfaceOptions_AddCategory(bcm)
 	local bcmTitle = bcm:CreateFontString(nil, "ARTWORK", "GameFontNormalHuge")
 	bcmTitle:SetPoint("CENTER", bcm, "TOP", 0, -30)
-	bcmTitle:SetText(name.." v7.47") --wowace magic, replaced with tag version
+	bcmTitle:SetText(name.." v7.2.0") --wowace magic, replaced with tag version
 	local bcmDesc = bcm:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
 	bcmDesc:SetPoint("CENTER")
 	bcmDesc:SetText(BCM.CORE)
@@ -239,7 +239,7 @@ BCM.modules[#BCM.modules+1] = function()
 		removeIconBtn:SetChecked(bcmDB.noBNetIcon)
 		local removeIconBtnText = removeIconBtn:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 		removeIconBtnText:SetPoint("LEFT", removeIconBtn, "RIGHT")
-		removeIconBtnText:SetText(BCM.BNETICON:format("|TInterface\\FriendsFrame\\UI-Toast-ToastIcons.tga:16:16:0:0:128:64:2:29:34:61|t"))
+		removeIconBtnText:SetText(BCM.BNETICON:format("|T386865:16:16:0:0:128:64:2:29:34:61|t")) --Interface\\FriendsFrame\\UI-Toast-ToastIcons
 
 		local brackInputText = BCM_BNet:CreateFontString("BCM_PlayerBrackDesc", "ARTWORK", "GameFontNormal")
 		brackInputText:SetPoint("TOPLEFT", 16, -240)
@@ -600,8 +600,12 @@ BCM.modules[#BCM.modules+1] = function()
 		linesSetSlider:SetScript("OnValueChanged", function(_, v)
 			BCM_History_SetText:SetFormattedText("%s: %d", HISTORY, v)
 			local cF = ("ChatFrame%d"):format(BCM_History_Get:GetValue())
+			if v == _G[cF]:GetMaxLines() then return end -- No value changed, don't save anything
 			bcmDB.lines[cF] = v
 			_G[cF]:SetMaxLines(v)
+			if cF == "ChatFrame2" then
+				COMBATLOG_MESSAGE_LIMIT = v -- Blizzard keeps changing the combat log max lines in Blizzard_CombatLog_Refilter... this better not taint.
+			end
 		end)
 		BCM_History_SetHigh:SetText(2500)
 		BCM_History_SetLow:SetText(10)
@@ -695,7 +699,7 @@ BCM.modules[#BCM.modules+1] = function()
 		colorBtn:SetChecked(not bcmDB.noMiscColor and true)
 		local colorBtnText = colorBtn:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 		colorBtnText:SetPoint("LEFT", colorBtn, "RIGHT")
-		colorBtnText:SetText(BCM.COLORMISC)
+		colorBtnText:SetText(_G.CLASS_COLORS)
 
 		if not BCM_PlayerBrackDesc then
 			local brackInputText = BCM_PlayerNames:CreateFontString("BCM_PlayerBrackDesc", "ARTWORK", "GameFontNormal")
@@ -758,7 +762,7 @@ BCM.modules[#BCM.modules+1] = function()
 					bcmDB.sticky[v.value] = 1
 				end
 			end
-			local tbl = {"SAY", "PARTY", "RAID", "GUILD", "OFFICER", "YELL", "WHISPER", "BN_WHISPER", "BN_CONVERSATION", "EMOTE", "RAID_WARNING", "INSTANCE_CHAT", "CHANNEL"}
+			local tbl = {"SAY", "PARTY", "RAID", "GUILD", "OFFICER", "YELL", "WHISPER", "BN_WHISPER", "EMOTE", "RAID_WARNING", "INSTANCE_CHAT", "CHANNEL"}
 			for i=1, #tbl do
 				info.text = _G[tbl[i]]
 				info.value = tbl[i]
@@ -784,13 +788,13 @@ BCM.modules[#BCM.modules+1] = function()
 			local input = BCM_Timestamp_InputCol
 			if frame:GetChecked() then
 				PlaySound("igMainMenuOptionCheckBoxOn")
-				bcmDB.stampcolor = "|cff777777"
-				input:SetText("777777")
+				bcmDB.stampcol = "777777"
+				input:SetText(bcmDB.stampcol)
 				input:EnableMouse(true)
 			else
 				PlaySound("igMainMenuOptionCheckBoxOff")
-				bcmDB.stampcolor = ""
-				input:SetText("")
+				bcmDB.stampcol = ""
+				input:SetText(bcmDB.stampcol)
 				input:EnableMouse(false)
 				input:ClearFocus()
 			end
@@ -810,8 +814,8 @@ BCM.modules[#BCM.modules+1] = function()
 		stampColInput:SetScript("OnTextChanged", function(frame, changed)
 			if changed then
 				local txt = frame:GetText()
-				if txt:find("%X") then frame:SetText((bcmDB.stampcolor):sub(5)) return end
-				bcmDB.stampcolor = "|cff"..txt
+				if txt:find("%X") then frame:SetText(bcmDB.stampcol) return end
+				bcmDB.stampcol = txt
 			end
 		end)
 		stampColInput:SetScript("OnEnterPressed", stampColInput:GetScript("OnEscapePressed"))
@@ -832,7 +836,7 @@ BCM.modules[#BCM.modules+1] = function()
 		stampBrackInput:SetHeight(20)
 		stampBrackInput:SetScript("OnTextChanged", function(frame, changed)
 			if changed then
-				bcmDB.stampformat = frame:GetText()
+				bcmDB.stampfmt = frame:GetText()
 			end
 		end)
 		stampBrackInput:SetScript("OnEnterPressed", stampBrackInput:GetScript("OnEscapePressed"))

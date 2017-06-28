@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
-	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
+	http://www.wowinterface.com/downloads/info5747-Grid.htmll
 ------------------------------------------------------------------------
 	GridLocale-itIT.lua
 	Italian localization
@@ -142,6 +142,7 @@ L["Advanced"] = "Avanzato"
 L["Advanced options."] = "Opzioni avanzate."
 L["Allows mouse click through the Grid Frame."] = "Permetti click del mouse attraverso il riquadro di Grid."
 L["Alt-Click to permanantly hide this tab."] = "Alt-Click per nascondere per sempre questa scheda."
+-- L["Always hide wrong zone groups"] = ""
 L["Arena Layout"] = "Disposizione Arena"
 L["Background color"] = "Colore sfondo"
 -- L["Background Texture"] = ""
@@ -155,6 +156,7 @@ L["Bottom"] = "Basso"
 L["Bottom Left"] = "In basso a sinistra"
 L["Bottom Right"] = "In basso a destra"
 L["By Creature Type"] = "Per tipo di creatura"
+-- L["ByGroup Layout Options"] = ""
 L["By Owner Class"] = "Per Tipo di Classe"
 L["Center"] = "Centro"
 L["Choose the layout border texture."] = "Scegli la trama del bordo della disposizione."
@@ -177,6 +179,8 @@ L["Flexible Raid Layout"] = "Disposizione Incursione Dinamica"
 L["Frame lock"] = "Blocca riquadro"
 L["Frame Spacing"] = "Spaziatura Frame"
 L["Group Anchor"] = "Ancoraggio Gruppo"
+-- L["Hide when in mythic raid instance"] = ""
+-- L["Hide when in raid instance"] = ""
 L["Horizontal groups"] = "Gruppi orizzontali"
 L["Humanoid"] = "Umanoide"
 L["Layout"] = "Schema"
@@ -209,8 +213,12 @@ L["Sets where Grid is anchored relative to the screen."] = "Scegli quando Grid �
 L["Sets where groups are anchored relative to the layout frame."] = "Scegli quando i gruppi sono ancorati relativamente al riquadro principale."
 L["Set the coloring strategy of pet units."] = "Imposta la colorazione delle unità famiglio."
 L["Set the color of pet units."] = "Imposta il colore delle unità famiglio."
+-- L["Show all groups"] = ""
 L["Show a tab for dragging when Grid is unlocked."] = "Mostra una linguetta per il trascinamento quando Grid non è bloccato."
 L["Show Frame"] = "Mostra Riquadro"
+-- L["Show groups with all players in wrong zone."] = ""
+-- L["Show groups with all players offline."] = ""
+-- L["Show Offline"] = ""
 L["Show tab"] = "Mostra scheda"
 L["Solo Layout"] = "Schema Solitario"
 L["Spacing"] = "Spaziatura"
@@ -227,6 +235,7 @@ L["Unknown Unit"] = "Unità Sconosciuta"
 -- L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."] = ""
 L["Using Fallback color"] = "Utilizzo colore fallback"
 -- L["World Raid as 40 Player"] = ""
+-- L["Wrong Zone"] = ""
 
 ------------------------------------------------------------------------
 --	GridLayoutLayouts
@@ -256,10 +265,6 @@ L["None"] = "Nessuno"
 L["Click to toggle the frame lock."] = "Click per attivare il blocco del riquadro."
 
 ------------------------------------------------------------------------
---	GridRoster
-
-
-------------------------------------------------------------------------
 --	GridStatus
 
 L["Color"] = "Colore"
@@ -277,6 +282,12 @@ L["Status"] = "Status"
 L["Status: %s"] = "Status: %s"
 L["Text"] = "Testo"
 L["Text to display on text indicators"] = "Testo da mostrare negli indicatori di testo"
+
+------------------------------------------------------------------------
+--	GridStatusAbsorbs
+
+L["Absorbs"] = "Assorbimenti"
+-- L["Only show total absorbs greater than this percent of the unit's maximum health."] = ""
 
 ------------------------------------------------------------------------
 --	GridStatusAggro
@@ -462,3 +473,4 @@ L["In Vehicle"] = "In un Veicolo"
 
 L["Talking"] = "Parlando"
 L["Voice Chat"] = "Chat Vocale"
+

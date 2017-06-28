@@ -1,176 +1,215 @@
-﻿local portal = GetCVar( "Portal" )
+local portal = GetCVar( "Portal" ) or ""
 
 local ConnectedRealms = { }
-local tempData
 
-if portal == "US" then
-	ArkInventory.Output( "Loading Connected Realm (", portal, ") Data" )
-	tempData = {
-		{ ["Aegwynn"]=true, ["Bonechewer"]=true, ["Daggerspine"]=true, ["Gurubashi"]=true, ["Hakkar"]=true },
-		{ ["Aerie Peak"]=true, ["Ulduar"]=true },
-		{ ["Agamaggan"]=true, ["Archimonde"]=true, ["Burning Legion"]=true, ["Jaedenar"]=true, ["The Underbog"]=true },
-		{ ["Aggramar"]=true, ["Fizzcrank"]=true },
-		{ ["Akama"]=true, ["Dragonmaw"]=true, ["Mug'thol"]=true },
-		{ ["Alleria"]=true, ["Khadgar"]=true },
-		{ ["Alexstrasza"]=true, ["Terokkar"]=true },
-		{ ["Altar of Storms"]=true, ["Anetheron"]=true, ["Magtheridon"]=true, ["Ysondre"]=true },
-		{ ["Alterac Mountains"]=true, ["Balnazzar"]=true, ["Gorgonnash"]=true, ["The Forgotten Coast"]=true, ["Warsong"]=true },
-		{ ["Andorhal"]=true, ["Scilla"]=true, ["Ursin"]=true, ["Zuluhed"]=true },
-		{ ["Antonidas"]=true, ["Uldum"]=true },
-		{ ["Anub'arak"]=true, ["Chromaggus"]=true, ["Chrushridge"]=true, ["Garithos"]=true, ["Nathrezim"]=true, ["Smolderthorn"]=true },
-		{ ["Anvilmar"]=true, ["Undermine"]=true },
-		{ ["Argent Dawn"]=true, ["The Scryers"]=true },
-		{ ["Arygos"]=true, ["Llane"]=true },
-		{ ["Auchindoun"]=true, ["Cho'gall"]=true, ["Laughing Skull"]=true },
-		{ ["Azgalor"]=true, ["Azshara"]=true, ["Destromath"]=true, ["Thunderlord"]=true },
-		{ ["Azjol-Nerub"]=true, ["Khaz Modan"]=true },
-		{ ["Azuremyst"]=true, ["Staghelm"]=true },
-		{ ["Black Dragonflight"]=true, ["Gul'dan"]=true, ["Skullcrusher"]=true },
-		{ ["Blackhand"]=true, ["Galakrond"]=true },
-		{ ["Blackwater Raiders"]=true, ["Shadow Council"]=true },
-		{ ["Blackwing Lair"]=true, ["Dethecus"]=true, ["Detheroc"]=true, ["Haomarush"]=true, ["Lethon"]=true, ["Shadowmoon"]=true },
-		{ ["Bladefist"]=true, ["Kul Tiras"]=true },
-		{ ["Blade's Edge"]=true, ["Thunderhorn"]=true },
-		{ ["Blood Furnace"]=true, ["Mannaroth"]=true, ["Nazjatar"]=true },
-		{ ["Bloodscalp"]=true, ["Boulderfist"]=true, ["Dunemaul"]=true, ["Maiev"]=true, ["Stonemaul"]=true },
-		{ ["Borean Tundra"]=true, ["Shadowsong"]=true },
-		{ ["Bronzebeard"]=true, ["Shandris"]=true },
-		{ ["Burning Blade"]=true, ["Lightning's Blade"]=true, ["Onyxia"]=true },
-		{ ["Cairne"]=true, ["Perenolde"]=true },
-		{ ["Coilfang"]=true, ["Dark Iron"]=true, ["Dalvengyr"]=true, ["Demon Soul"]=true, ["Shattered Hand"]=true },
-		{ ["Dawnbringer"]=true, ["Madoran"]=true },
-		{ ["Darrowmere"]=true, ["Windrunner"]=true },
-		{ ["Dath'Remar"]=true, ["Khaz'goroth"]=true },
-		{ ["Dentarg"]=true, ["Whisperwind"]=true },
-		{ ["Draenor"]=true, ["Echo Isles"]=true },
-		{ ["Draka"]=true, ["Suramar"]=true },
-		{ ["Drak'Tharon"]=true, ["Firetree"]=true, ["Malorne"]=true, ["Rivendare"]=true, ["Spirestone"]=true, ["Stormscale"]=true },
-		{ ["Drak'thul"]=true, ["Skywall"]=true },
-		{ ["Dreadmaul"]=true, ["Thaurissan"]=true },
-		{ ["Drenden"]=true, ["Arathor"]=true },
-		{ ["Duskwood"]=true, ["Bloodhoof"]=true },
-		{ ["Durotan"]=true, ["Ysera"]=true },
-		{ ["Eitrigg"]=true, ["Shu'halo"]=true },
-		{ ["Eldre'Thalas"]=true, ["Korialstrasz"]=true },
-		{ ["Elune"]=true, ["Gilneas"]=true },
-		{ ["Eonar"]=true, ["Velen"]=true },
-		{ ["Eredar"]=true, ["Gorefiend"]=true, ["Spinebreaker"]=true, ["Wildhammer"]=true },
-		{ ["Deathwing"]=true, ["Executus"]=true, ["Kalecgos"]=true, ["Shattered Halls"]=true },
-		{ ["Exodar"]=true, ["Medivh"]=true },
-		{ ["Farstriders"]=true, ["Silver Hand"]=true, ["Thorium Brotherhood"]=true },
-		{ ["Fenris"]=true, ["Dragonblight"]=true },
-		{ ["Frostmane"]=true, ["Ner'zhul"]=true, ["Tortheldrin"]=true },
-		{ ["Frostwolf"]=true, ["Vashj"]=true },
-		{ ["Ghostlands"]=true, ["Kael'thas"]=true },
-		{ ["Gnomeregan"]=true, ["Moonrunner"]=true },
-		{ ["Grizzly Hills"]=true, ["Lothar"]=true },
-		{ ["Gundrak"]=true, ["Jubei'Thos"]=true },
-		{ ["Hellscream"]=true, ["Zangarmarsh"]=true },
-		{ ["Hydraxis"]=true, ["Terenas"]=true },
-		{ ["Icecrown"]=true, ["Malygos"]=true },
-		{ ["Kargath"]=true, ["Norgannon"]=true },
-		{ ["Kilrogg"]=true, ["Winterhoof"]=true },
-		{ ["Kirin Tor"]=true, ["Sentinels"]=true, ["Steamwheedle Cartel"]=true },
-		{ ["Malfurion"]=true, ["Trollbane"]=true },
-		{ ["Misha"]=true, ["Rexxar"]=true },
-		{ ["Mok'Nathal"]=true, ["Silvermoon"]=true },
-		{ ["Nagrand"]=true, ["Caelestrasz"]=true },
-		{ ["Nazgrel"]=true, ["Nesingwary"]=true, ["Vek'nilash"]=true },
-		{ ["Nordrassil"]=true, ["Muradin"]=true },
-		{ ["Quel'dorei"]=true, ["Sen'jin"]=true },
-		{ ["Runetotem"]=true, ["Uther"]=true },
-		{ ["Scarlet Crusade"]=true, ["Feathermoon"]=true },
-		{ ["Tanaris"]=true, ["Greymane"]=true },
-		{ ["Uldaman"]=true, ["Ravencrest"]=true },
-	}
+local function addRealms( ... )
+	
+	local ac = select( '#', ... )
+	
+	if ac == 0 then return end
+	
+	local system = false
+	local realm
+	local realmTable = { }
+	for ax = 1, ac do
+		realm = select( ax, ... )
+		if type( realm ) == "boolean" then
+			system = realm
+		elseif type( realm ) ~= "string" then
+			if not system then
+				ArkInventory.OutputWarning( "bad code: parameter ", ax, " is a ", type( realm ), " not a string, ignoring value" )
+			end
+		else
+			realm = string.gsub( realm, " ", "" )
+			realmTable[realm] = true
+		end
+	end
+	
+	for k in pairs( realmTable ) do
+		if ConnectedRealms[k] then
+			if not system then
+				ArkInventory.OutputWarning( "duplicate connected realm (", portal, ") data found for ", k )
+			else
+				ConnectedRealms[k] = realmTable
+			end
+		else
+			ConnectedRealms[k] = realmTable
+		end
+	end
+	
 end
 
 
-if portal == "EU" then
+if portal == "US" then
+	
 	ArkInventory.Output( "Loading Connected Realm (", portal, ") Data" )
-	tempData = {
-		--ENGLISH
-		{ ["Aggramar"]=true, ["Hellscream"]=true },
-		{ ["Arathor"]=true, ["Hellfire"]=true },
-		{ ["Bloodfeather"]=true, ["Burning Steppes"]=true, ["Executus"]=true, ["Kor'gall"]=true, ["Shattered Hand"]=true },
-		{ ["Kilrogg"]=true, ["Nagrand"]=true, ["Runetotem"]=true },
-		{ ["Thunderhorn"]=true, ["Wildhammer"]=true },
-		{ ["Azjol-Nerub"]=true, ["Quel'Thalas"]=true },
-		{ ["Dragonblight"]=true, ["Ghostlands"]=true },
-		{ ["Darkspear"]=true, ["Terokkar"]=true },
-		{ ["Aszune"]=true, ["Shadowsong"]=true },
-		{ ["Shattered Halls"]=true, ["Balnazzar"]=true, ["Ahn'Qiraj"]=true, ["Trollbane"]=true, ["Talnivarr"]=true, ["Chromaggus"]=true, ["Boulderfist"]=true, ["Daggerspine"]=true, ["Laughing Skull"]=true, ["Sunstrider"]=true },
-		{ ["Emeriss"]=true, ["Agamaggan"]=true, ["Hakkar"]=true, ["Crushridge"]=true, ["Bloodscalp"]=true },
-		{ ["Grim Batol"]=true, ["Aggra"]=true },
-		{ ["Karazhan"]=true, ["Lightning's Blade"]=true, ["Deathwing"]=true, ["The Maelstrom"]=true },
-		{ ["Auchindoun"]=true, ["Dunemaul"]=true, ["Jaedenar"]=true },
-		{ ["Dragonmaw"]=true, ["Spinebreaker"]=true, ["Haomarush"]=true, ["Vashj"]=true, ["Stormreaver"]=true },
-		{ ["Zenedar"]=true, ["Bladefist"]=true, ["Frostwhisper"]=true },
-		{ ["Xavius"]=true, ["Skullcrusher"]=true },
-		{ ["Darksorrow"]=true, ["Genjuros"]=true, ["Neptulon"]=true },
-		{ ["Drak'thul"]=true, ["Burning Blade"]=true },
-		{ ["Moonglade"]=true, ["The Sha'tar"]=true },
-		{ ["Darkmoon Faire"]=true, ["Earthen Ring"]=true },
-		{ ["Scarshield Legion"]=true, ["Ravenholdt"]=true, ["The Venture Co"]=true, ["Sporeggar"]=true },
-		-- FRENCH
-		{ ["Cho'gall"]=true, ["Eldre'Thalas"]=true, ["Sinstralis"]=true },
-		{ ["Dalaran"]=true, ["Marécage de Zangar"]=true },
-		{ ["Elune"]=true, ["Varimathras"]=true },
-		{ ["Eitrigg"]=true, ["Krasus"]=true },
-		{ ["Medivh"]=true, ["Suramar"]=true },
-		{ ["Arak-arahm"]=true, ["Throk'Feroth"]=true, ["Rashgarroth"]=true },
-		{ ["Naxxramas"]=true, ["Arathi"]=true, ["Temple Noir"]=true, ["Illidan"]=true },
-		{ ["Garona"]=true, ["Ner'zhul"]=true },
-		{ ["Confrerie du Thorium"]=true, ["Les Clairvoyants"]=true },
-		{ ["La Croisade écarlate"]=true, ["Culte de la Rive noire"]=true, ["Conseil des Ombres"]=true },
-		-- GERMAN
-		{ ["Alexstrasza"]=true, ["Nethersturm"]=true },
-		{ ["Ambossar"]=true, ["Kargath"]=true },
-		{ ["Anetheron"]=true, ["Festung der Stürme"]=true, ["Gul'dan"]=true, ["Rajaxx"]=true },
-		{ ["Area 52"]=true, ["Sen'jin"]=true, ["Un'Goro"]=true },
-		{ ["Arthas"]=true, ["Blutkessel"]=true, ["Vek'lor"]=true },
-		{ ["Azshara"]=true, ["Krag'jin"]=true },
-		{ ["Dalvengyr"]=true, ["Nazjatar"]=true },
-		{ ["Das Syndikat"]=true, ["Die Arguswacht"]=true, ["Die Todeskrallen"]=true, ["Der Abyssische Rat"]=true },
-		{ ["Dethecus"]=true, ["Mug'thol"]=true, ["Terrordar"]=true, ["Theradras"]=true },
-		{ ["Echsenkessel"]=true, ["Mal'Ganis"]=true, ["Taerar"]=true },
-		{ ["Garrosh"]=true, ["Nozdormu"]=true, ["Shattrath"]=true },
-		{ ["Gilneas"]=true, ["Ulduar"]=true },
-		{ ["Malfurion"]=true, ["Malygos"]=true },
-		{ ["Malorne"]=true, ["Ysera"]=true },
-		-- SPANISH
-		{ ["Exodar"]=true, ["Minahonda"]=true },
-		{ ["Colinas Pardas"]=true, ["Los Errantes"]=true, ["Tyrande"]=true },
-		{ ["Sanguino"]=true, ["Shen'dralar"]=true, ["Uldum"]=true, ["Zul'jin"]=true },
-		-- RUSSIAN
-		{ ["Подземье"]=true, ["Разувий"]=true },
-	}
+	
+	-- source http://us.battle.net/wow/en/blog/11393305
+	addRealms( "Aegwynn", "Bonechewer", "Daggerspine", "Gurubashi", "Hakkar" )
+	addRealms( "Aerie Peak", "Ulduar" )
+	addRealms( "Agamaggan", "Archimonde", "Burning Legion", "Jaedenar", "The Underbog" )
+	addRealms( "Aggramar", "Fizzcrank" )
+	addRealms( "Akama", "Dragonmaw", "Mug'thol" )
+	addRealms( "Alleria", "Khadgar" )
+	addRealms( "Alexstrasza", "Terokkar" )
+	addRealms( "Altar of Storms", "Anetheron", "Magtheridon", "Ysondre" )
+	addRealms( "Alterac Mountains", "Balnazzar", "Gorgonnash", "The Forgotten Coast", "Warsong" )
+	addRealms( "Andorhal", "Scilla", "Ursin", "Zuluhed" )
+	addRealms( "Antonidas", "Uldum" )
+	addRealms( "Anub'arak", "Chromaggus", "Chrushridge", "Garithos", "Nathrezim", "Smolderthorn" )
+	addRealms( "Anvilmar", "Undermine" )
+	addRealms( "Arygos", "Llane" )
+	addRealms( "Auchindoun", "Cho'gall", "Laughing Skull" )
+	addRealms( "Azgalor", "Azshara", "Destromath", "Thunderlord" )
+	addRealms( "Azjol-Nerub", "Khaz Modan" )
+	addRealms( "Azuremyst", "Staghelm" )
+	addRealms( "Black Dragonflight", "Gul'dan", "Skullcrusher" )
+	addRealms( "Blackhand", "Galakrond" )
+	addRealms( "Blackwater Raiders", "Shadow Council" )
+	addRealms( "Blackwing Lair", "Dethecus", "Lethon", "Haomarush" )
+	addRealms( "Bladefist", "Kul Tiras" )
+	addRealms( "Blade's Edge", "Thunderhorn" )
+	addRealms( "Blood Furnace", "Mannaroth", "Nazjatar" )
+	addRealms( "Bloodscalp", "Boulderfist", "Dunemaul", "Maiev", "Stonemaul" )
+	addRealms( "Borean Tundra", "Shadowsong" )
+	addRealms( "Bronzebeard", "Shandris" )
+	addRealms( "Burning Blade", "Lightning's Blade", "Onyxia" )
+	addRealms( "Cairne", "Perenolde" )
+	addRealms( "Coilfang", "Dark Iron", "Dalvengyr", "Demon Soul", "Shattered Hand" )
+	addRealms( "Dawnbringer", "Madoran" )
+	addRealms( "Darrowmere", "Windrunner" )
+	addRealms( "Dath'Remar", "Khaz'goroth" )
+	addRealms( "Dentarg", "Whisperwind" )
+	addRealms( "Draenor", "Echo Isles" )
+	addRealms( "Draka", "Suramar" )
+	addRealms( "Drak'Tharon", "Firetree", "Malorne", "Rivendare", "Spirestone", "Stormscale" )
+	addRealms( "Drak'thul", "Skywall" )
+	addRealms( "Dreadmaul", "Thaurissan" )
+	addRealms( "Drenden", "Arathor" )
+	addRealms( "Duskwood", "Bloodhoof" )
+	addRealms( "Eitrigg", "Shu'halo" )
+	addRealms( "Eldre'Thalas", "Korialstrasz" )
+	addRealms( "Elune", "Gilneas" )
+	addRealms( "Eonar", "Velen" )
+	addRealms( "Eredar", "Gorefiend", "Spinebreaker", "Wildhammer" )
+	addRealms( "Deathwing", "Executus", "Kalecgos", "Shattered Halls" )
+	addRealms( "Exodar", "Medivh" )
+	addRealms( "Farstriders", "Silver Hand", "Thorium Brotherhood" )
+	addRealms( "Fenris", "Dragonblight" )
+	addRealms( "Frostmane", "Ner'zhul", "Tortheldrin" )
+	addRealms( "Frostwolf", "Vashj" )
+	addRealms( "Ghostlands", "Kael'thas" )
+	addRealms( "Gnomeregan", "Moonrunner" )
+	addRealms( "Grizzly Hills", "Lothar" )
+	addRealms( "Gundrak", "Jubei'Thos" )
+	addRealms( "Hellscream", "Zangarmarsh" )
+	addRealms( "Hydraxis", "Terenas" )
+	addRealms( "Icecrown", "Malygos" )
+	addRealms( "Kargath", "Norgannon" )
+	addRealms( "Kilrogg", "Winterhoof" )
+	addRealms( "Kirin Tor", "Sentinels", "Steamwheedle Cartel" )
+	addRealms( "Malfurion", "Trollbane" )
+	addRealms( "Misha", "Rexxar" )
+	addRealms( "Mok'Nathal", "Silvermoon" )
+	addRealms( "Nagrand", "Caelestrasz" )
+	addRealms( "Nazgrel", "Nesingwary", "Vek'nilash" )
+	addRealms( "Nordrassil", "Muradin" )
+	addRealms( "Quel'dorei", "Sen'jin" )
+	addRealms( "Ravenholdt", "Twisting Nether" )
+	addRealms( "Runetotem", "Uther" )
+	addRealms( "Scarlet Crusade", "Feathermoon" )
+	addRealms( "Shadowmoon", "Detheroc" ) -- Detheroc is duplicated in the source with another group
+	addRealms( "Tanaris", "Greymane" )
+	addRealms( "The Scryers", "Argent Dawn" )
+	addRealms( "The Venture Co", "Maelstrom", "Lightninghoof" )
+	addRealms( "Uldaman", "Ravencrest" )
+	addRealms( "Ysera", "Durotan" )
+	addRealms( "Cenarion Circle", "Sisters of Elune" )
+	
+elseif portal == "EU" then
+
+	ArkInventory.Output( "Loading Connected Realm (", portal, ") Data" )
+	
+	--ENGLISH
+	addRealms( "Aggramar", "Hellscream" )
+	addRealms( "Arathor", "Hellfire" )
+	addRealms( "Bloodfeather", "Burning Steppes", "Executus", "Kor'gall", "Shattered Hand" )
+	addRealms( "Kilrogg", "Nagrand", "Runetotem" )
+	addRealms( "Thunderhorn", "Wildhammer" )
+	addRealms( "Azjol-Nerub", "Quel'Thalas" )
+	addRealms( "Dragonblight", "Ghostlands" )
+	addRealms( "Darkspear", "Terokkar" )
+	addRealms( "Aszune", "Shadowsong" )
+	addRealms( "Shattered Halls", "Balnazzar", "Ahn'Qiraj", "Trollbane", "Talnivarr", "Chromaggus", "Boulderfist", "Daggerspine", "Laughing Skull", "Sunstrider" )
+	addRealms( "Emeriss", "Agamaggan", "Hakkar", "Crushridge", "Bloodscalp" )
+	addRealms( "Grim Batol", "Aggra" )
+	addRealms( "Karazhan", "Lightning's Blade", "Deathwing", "The Maelstrom" )
+	addRealms( "Auchindoun", "Dunemaul", "Jaedenar" )
+	addRealms( "Dragonmaw", "Spinebreaker", "Haomarush", "Vashj", "Stormreaver" )
+	addRealms( "Zenedar", "Bladefist", "Frostwhisper" )
+	addRealms( "Xavius", "Skullcrusher" )
+	addRealms( "Darksorrow", "Genjuros", "Neptulon" )
+	addRealms( "Drak'thul", "Burning Blade" )
+	addRealms( "Moonglade", "The Sha'tar" )
+	addRealms( "Darkmoon Faire", "Earthen Ring" )
+	addRealms( "Scarshield Legion", "Ravenholdt", "The Venture Co", "Sporeggar" )
+	
+	-- FRENCH
+	addRealms( "Cho'gall", "Eldre'Thalas", "Sinstralis" )
+	addRealms( "Dalaran", "Marécage de Zangar" )
+	addRealms( "Elune", "Varimathras" )
+	addRealms( "Eitrigg", "Krasus" )
+	addRealms( "Medivh", "Suramar" )
+	addRealms( "Arak-arahm", "Throk'Feroth", "Rashgarroth" )
+	addRealms( "Naxxramas", "Arathi", "Temple Noir", "Illidan" )
+	addRealms( "Garona", "Ner'zhul" )
+	addRealms( "Confrerie du Thorium", "Les Clairvoyants" )
+	addRealms( "La Croisade écarlate", "Culte de la Rive noire", "Conseil des Ombres" )
+	
+	-- GERMAN
+	addRealms( "Alexstrasza", "Nethersturm" )
+	addRealms( "Ambossar", "Kargath" )
+	addRealms( "Anetheron", "Festung der Stürme", "Gul'dan", "Rajaxx" )
+	addRealms( "Area 52", "Sen'jin", "Un'Goro" )
+	addRealms( "Arthas", "Blutkessel", "Vek'lor" )
+	addRealms( "Azshara", "Krag'jin" )
+	addRealms( "Dalvengyr", "Nazjatar" )
+	addRealms( "Das Syndikat", "Die Arguswacht", "Die Todeskrallen", "Der Abyssische Rat" )
+	addRealms( "Dethecus", "Mug'thol", "Terrordar", "Theradras" )
+	addRealms( "Echsenkessel", "Mal'Ganis", "Taerar" )
+	addRealms( "Garrosh", "Nozdormu", "Shattrath" )
+	addRealms( "Gilneas", "Ulduar" )
+	addRealms( "Malfurion", "Malygos" )
+	addRealms( "Malorne", "Ysera" )
+	
+	-- SPANISH
+	addRealms( "Exodar", "Minahonda" )
+	addRealms( "Colinas Pardas", "Los Errantes", "Tyrande" )
+	addRealms( "Sanguino", "Shen'dralar", "Uldum", "Zul'jin" )
+	
+	-- RUSSIAN
+	addRealms( "Подземье", "Разувий" )
+	
+else
+	
+	if not portal then
+		portal = "PTR/Beta/Alpha"
+	end
+	
+	ArkInventory.Output( "Loading Connected Realm (", portal, ") Data" )
+	
 end
 
 
 function ArkInventory.IsConnectedRealm( a, b )
+	local a = string.gsub( a, " ", "" )
 	if ConnectedRealms[a] then
+		local b = string.gsub( b, " ", "" )
 		return ConnectedRealms[a][b]
 	end
 end
 
-if tempData then
-	
-	for _, v in pairs( tempData ) do
-		
-		for x in pairs( v ) do
-			
-			if ConnectedRealms[x] then
-				ArkInventory.OutputWarning( "duplicate connected realm (", portal, ") data found for ", x )
-			else
-				ConnectedRealms[x] = v
-			end
-			
-		end
-		
-	end
-	
-	table.wipe( tempData )
-	tempData = nil
-	
-end
+-- in case i dont have the data ask blizzard for the realms connected to the current one
+addRealms( true, unpack( GetAutoCompleteRealms( ) or { } ) )
+
+-- /dump unpack( GetAutoCompleteRealms( ) or { } )

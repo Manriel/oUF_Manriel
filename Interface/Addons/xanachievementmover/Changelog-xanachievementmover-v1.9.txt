@@ -1,0 +1,11 @@
+tag v1.9
+07b156e174b8a95e672c50add3de99cd7b40a5f3
+Xruptor <xruptor@manaflux.com>
+2016-10-26 09:16:45 -0400
+
+
+
+--------------------
+
+Xruptor:
+	- TOC Update Legion 7.1

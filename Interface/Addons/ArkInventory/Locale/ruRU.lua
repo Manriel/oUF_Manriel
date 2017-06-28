@@ -1,4 +1,4 @@
-﻿local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "ruRU" )
+local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "ruRU" )
 if not L then return end
 
 -- post updated translations at http://groups.google.com/group/wow-arkinventory (modify this file and include as an attachment)
@@ -32,11 +32,19 @@ if not L then return end
 	L["WOW_ITEM_TOOLTIP_POTION_MANA"] = "Восполнение %d+ - %d+ ед. маны"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_BATTLE"] = "Боевой эликсир"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_GUARDIAN"] = "Охранный эликсир"
+	L["WOW_ITEM_TOOLTIP_10P3T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P3S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P6T"] = "млн"
+--	L["WOW_ITEM_TOOLTIP_10P6S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P9T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P9S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P12T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P12S"] = ""
 	
 	
 --	location names
 --	L["LOCATION_ACCOUNT"] = ""
-	L["LOCATION_WEARING"] = "Одето"
+	L["LOCATION_WEARING"] = "Надето" --Одето
 	
 	
 --	subframe names
@@ -46,15 +54,21 @@ if not L then return end
 	
 --	status bar/bag text
 	L["STATUS_NO_DATA"] = "???"
-	L["STATUS_FULL"] = "ПОЛН"
 	L["STATUS_PURCHASE"] = "КУП"
 	
 	
 --	restack
---	L["RESTACK"] = "Сжать и собрать"
+	L["RESTACK"] = "Сжать и собрать"
 	L["RESTACK_TEXT"] = "собрать предметы в как можно меньшее количество стэков, используя по возможности слоты специальных сумок"
 	L["RESTACK_FAIL_WAIT"] = "Операция пересборки уже выполняется, пожалуйста подождите"
 	L["RESTACK_FAIL_ACCESS"] = "У вас недостаточно прав, чтобы пересобрать закладку %2$s в %1$s" -- 1 = guild bank, 2 = tab number
+--	L["RESTACK_FAIL_CLOSED"] = ""
+--	L["RESTACK_TYPE"] = ""
+--	L["RESTACK_CLEANUP_DEPOSIT"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_FILL_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_REFRESH_WHEN_COMPLETE"] = ""
 	
 	
 --	vault tab tooltips
@@ -64,12 +78,9 @@ if not L then return end
 --	L["VAULT_TAB_REMAINING_WITHDRAWALS"] = ""
 	
 	
---	category "header" descriptions  (does not have to match wow)
-	L["CATEGORY_RULE"] = "Правило"
-	
-	
 --	system category descriptions
 	L["CATEGORY_SYSTEM_CORE_MATS"] = "Материалы"
+--	L["CATEGORY_SYSTEM_MYTHIC_KEYSTONE"] = ""
 	
 	
 --	consumable category descriptions
@@ -81,25 +92,25 @@ if not L then return end
 	
 	
 --	bag names - used to name the empty slots in the status frame
-	L["STATUS_NAME_BAG"] = "Сумка"
---	L["STATUS_NAME_COOKING"] = ""
---	L["STATUS_NAME_CRITTER"] = ""
-	L["STATUS_NAME_ENCHANTING"] = "Чары"
-	L["STATUS_NAME_ENGINEERING"] = "Инжен"
---	L["STATUS_NAME_GEAR"] = ""
-	L["STATUS_NAME_GEM"] = "Ювел"
---	L["STATUS_NAME_HEIRLOOM"] = ""
-	L["STATUS_NAME_HERB"] = "Трава"
-	L["STATUS_NAME_INSCRIPTION"] = "Начер"
-	L["STATUS_NAME_KEY"] = "Ключ"
-	L["STATUS_NAME_LEATHERWORKING"] = "Кожа"
-	L["STATUS_NAME_MAIL"] = "Почта"
-	L["STATUS_NAME_MINING"] = "Руда"
---	L["STATUS_NAME_MOUNT"] = ""
---	L["STATUS_NAME_REAGENTBANK"] = ""
---	L["STATUS_NAME_TACKLE"] = ""
---	L["STATUS_NAME_TOKEN"] = ""
---	L["STATUS_NAME_TOY"] = ""
+	L["STATUS_SHORTNAME_BAG"] = "Сумка"
+--	L["STATUS_SHORTNAME_COOKING"] = ""
+--	L["STATUS_SHORTNAME_CRITTER"] = ""
+	L["STATUS_SHORTNAME_ENCHANTING"] = "Чары"
+	L["STATUS_SHORTNAME_ENGINEERING"] = "Инжен"
+--	L["STATUS_SHORTNAME_GEAR"] = ""
+	L["STATUS_SHORTNAME_GEM"] = "Ювел"
+--	L["STATUS_SHORTNAME_HEIRLOOM"] = ""
+	L["STATUS_SHORTNAME_HERB"] = "Трава"
+	L["STATUS_SHORTNAME_INSCRIPTION"] = "Начер"
+	L["STATUS_SHORTNAME_KEY"] = "Ключ"
+	L["STATUS_SHORTNAME_LEATHERWORKING"] = "Кожа"
+	L["STATUS_SHORTNAME_MAIL"] = "Почта"
+	L["STATUS_SHORTNAME_MINING"] = "Руда"
+--	L["STATUS_SHORTNAME_MOUNT"] = ""
+--	L["STATUS_SHORTNAME_REAGENTBANK"] = ""
+--	L["STATUS_SHORTNAME_TACKLE"] = ""
+--	L["STATUS_SHORTNAME_TOKEN"] = ""
+--	L["STATUS_SHORTNAME_TOY"] = ""
 	
 	
 --	main menu
@@ -118,8 +129,9 @@ if not L then return end
 	
 --	actions menu
 	L["MENU_ACTION"] = "Действия"
-	L["MENU_ACTION_REFRESH"] = "Обновить"
 	L["MENU_ACTION_REFRESH_TEXT"] = "обновляет окно"
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE"] = ""
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE_TEXT"] = ""
 	L["MENU_ACTION_RELOAD_TEXT"] = "перезагрузить окно. Используйти это действие, когда вы меняете сеты аутфита"
 	L["MENU_ACTION_EDITMODE"] = "Режим редактирования"
 	L["MENU_ACTION_EDITMODE_TEXT"] = "включает и выключает режим редактирования для изменения настроек наборов ячеек."
@@ -159,6 +171,9 @@ if not L then return end
 	L["MENU_ITEM_DEBUG_PT_TEXT"] = "Показывает в каких PT сетах находится этот предмет"
 	L["MENU_ITEM_DEBUG_PT_NONE"] = "этот предмет не состоит ни в одном PT сете"
 	L["MENU_ITEM_DEBUG_PT_TITLE"] = "PT сеты, в которых есть этот предмет"
+--	L["MENU_ITEM_DEBUG_SOURCE"] = ""
+--	L["MENU_ITEM_DEBUG_BONUS"] = ""
+--	L["MENU_ITEM_DEBUG_ITEMSTRING"] = ""
 	
 	
 --	bar menu
@@ -170,15 +185,32 @@ if not L then return end
 	L["MENU_BAR_CATEGORY_HIDDEN_TEXT"] = "клик для назначения данной категории статуса скрытой.\n\nпредметы в скрытых категориях не будут видны в обычном режиме."
 --	L["MENU_BAR_CATEGORY_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_CATEGORY_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_ENABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_DISABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_JUNK_TEXT"] = ""
 --	L["MENU_BAR_BAG_ASSIGN_TEXT"] = ""
 	L["MENU_BAR_OPTIONS"] = "Настройки полос"
-	L["MENU_BAR_CLEAR_TEXT"] = "убирает все категории, закрепленные за этим набором, за исключением категории по умолчанию."
+	L["MENU_BAR_RESET_TEXT"] = "убирает все категории, закрепленные за этим набором, за исключением категории по умолчанию."
 	L["MENU_BAR_INSERT_TEXT"] = "добавить пустой набор ячеек сюда, сдвигая все категории на один набор вверх."
-	L["MENU_BAR_REMOVE_TEXT"] = "перемещает все категории, закрепленные за этим набором в их наборы по умолчанию и сдвигает все категории над этим набором на 1 набор вниз.\n\nЕсли категория по умолчанию находится в этом наборе, то она будет закреплена за набором 1"
+	L["MENU_BAR_DELETE_TEXT"] = "перемещает все категории, закрепленные за этим набором в их наборы по умолчанию и сдвигает все категории над этим набором на 1 набор вниз.\n\nЕсли категория по умолчанию находится в этом наборе, то она будет закреплена за набором 1"
 --	L["MENU_BAR_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_MOVE_FAIL_OUTSIDE"] = ""
+--	L["MENU_BAR_MOVE_FAIL_SAME"] = ""
 --	L["MENU_BAR_SORTKEY_TEXT"] = ""
 --	L["MENU_BAR_SORTKEY_DEFAULT_RESET_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_TEXT"] = ""
+--	L["MENU_LOCKED_TEXT"] = ""
 	
 	
 --	changer bag menu
@@ -189,7 +221,6 @@ if not L then return end
 	L["MENU_BAG_ISOLATE_TEXT"] = "показывать содержимое только этой сумки"
 	L["MENU_BAG_SHOWALL"] = "Показывать всё"
 	L["MENU_BAG_SHOWALL_TEXT"] = "показывать содержимое всех сумок в этом окне"
---	L["MENU_BAG_EMPTY"] = ""
 --	L["MENU_BAG_EMPTY_TEXT"] = ""
 	
 	
@@ -198,7 +229,6 @@ if not L then return end
 	L["CONFIG_TEXT"] = "Меню опций"
 	
 --	configuration options > system
-	L["CONFIG_SYSTEM"] = "Системные"
 	L["CONFIG_SYSTEM_TEXT"] = "Системные опции"
 	
 	L["CONFIG_SYSTEM_FONT_TEXT"] = "задает шрифт для %s"
@@ -209,7 +239,17 @@ if not L then return end
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_MEDIUM"] = ""
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_HIGH"] = ""
 	
---	L["CONFIG_SYSTEM_RESTACK_TEXT"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW_TEXT"] = ""
+	
+--	L["CONFIG_SORTING_WHEN"] = ""
+--	L["CONFIG_SORTING_WHEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL_TEXT"] = ""
 	
 	L["CONFIG_SYSTEM_TOOLTIP"] = "Тултипы"
 	L["CONFIG_SYSTEM_TOOLTIP_ENABLE_TEXT"] = "включить тултипы"
@@ -267,6 +307,12 @@ if not L then return end
 --	L["CONFIG_SYSTEM_MESSAGES_TRANSLATION_FINAL_TEXT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION_TEXT"] = ""
 	
 --	L["CONFIG_SYSTEM_TIMERS"] = ""
 --	L["CONFIG_SYSTEM_TIMERS_TEXT"] = ""
@@ -275,7 +321,7 @@ if not L then return end
 --	configuration options > auto
 	L["CONFIG_AUTO"] = "Автоматически открывать/закрывать"
 	
-	L["CONFIG_AUTO_OPEN"] = "Открывать сумку %1$s, когда вы %3$s" -- program, bag, action
+--	L["CONFIG_AUTO_OPEN"] = "Открывать сумку %1$s, когда вы %3$s" -- program, bag, action
 	L["CONFIG_AUTO_OPEN_BANK"] = "открываете банк"
 	L["CONFIG_AUTO_OPEN_VAULT"] = "открываете банк гильдии"
 	L["CONFIG_AUTO_OPEN_MAIL"] = "открываете почту"
@@ -284,7 +330,7 @@ if not L then return end
 	L["CONFIG_AUTO_OPEN_AUCTION"] = "открываете аукцион"
 --	L["CONFIG_AUTO_OPEN_VOID"] = ""
 	
-	L["CONFIG_AUTO_CLOSE"] = "Закрывать сумку %1$s, кода вы %3$s"
+--	L["CONFIG_AUTO_CLOSE"] = "Закрывать сумку %1$s, кода вы %3$s"
 	L["CONFIG_AUTO_CLOSE_BANK"] = "закрываете банк"
 	L["CONFIG_AUTO_CLOSE_VAULT"] = "закрываете банк гильдии"
 	L["CONFIG_AUTO_CLOSE_MAIL"] = "закрываете почту"
@@ -296,12 +342,9 @@ if not L then return end
 	
 	
 --	configuration options > control
-	L["CONFIG_CONTROL"] = "Статус"
-	
 	L["CONFIG_CONTROL_MONITOR"] = "Следить"
 	L["CONFIG_CONTROL_MONITOR_TEXT"] = "отслеживать ли изменения в данных %1$s для этого персонажа (%2$s)?"
 	L["CONFIG_CONTROL_SAVE_TEXT"] = "сохранять ли данные %1$s для этого персонажа (%2$s), чтобы они были доступны когда вы играете за другого персонажа?"
---	L["CONFIG_CONTROL_NOTIFY_ERASE"] = ""
 --	L["CONFIG_CONTROL_NOTIFY_ERASE_TEXT"] = ""
 --	L["CONFIG_CONTROL_OVERRIDE"] = ""
 	L["CONFIG_CONTROL_OVERRIDE_TEXT"] = "скрыть стандартный интерфейс %2$s чтобы окно %1$s могло обрабатывать его действия.\n\nОтключение этой опции вернёт функционал стандартного %2$s.\n\nВы всё ещё сможете открыть %1$s %2$s когда эта опция выключена, но только используя специально назначенную клавишу"
@@ -309,114 +352,147 @@ if not L then return end
 	L["CONFIG_CONTROL_ANCHOR_LOCK_TEXT"] = "фиксирует положение окна %1$s"
 --	L["CONFIG_CONTROL_REPOSITION_NOW"] = ""
 --	L["CONFIG_CONTROL_REPOSITION_NOW_TEXT"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD_TEXT"] = ""
-	L["CONFIG_CONTROL_SETTINGS_TEXT"] = "выбрать, какие настройки использовать при создании окна %1$s"	
+	L["CONFIG_CONTROL_BLUEPRINT_TEXT"] = "выбрать, какие настройки использовать при создании окна %1$s"	
 	
 	
---	configuration options > settings
-	L["CONFIG_SETTINGS"] = "Настройки"
+--	configuration settings > design
+--	L["CONFIG_DESIGN"] = ""
+--	L["CONFIG_DESIGN_PLURAL"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME"] = "Окно"
+--	L["CONFIG_STYLE"] = ""
+--	L["CONFIG_STYLE_PLURAL"] = ""
+--	L["CONFIG_STYLE_DESCRIPTION"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_HIDE_TEXT"] = ""
+--	L["CONFIG_LAYOUT"] = ""
+--	L["CONFIG_LAYOUT_PLURAL"] = ""
+--	L["CONFIG_LAYOUT_DESCRIPTION"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME_SCALE_TEXT"] = "устанавливает масштаб, делая окно меньше или больше"
-	L["CONFIG_SETTINGS_FRAME_PADDING_TEXT"] = "устанавливает зазор между краем окна и наборами ячеек"
-	L["CONFIG_SETTINGS_FRAME_WIDTH_TEXT"] = "устанавливает количество столбцов для отображения"
---	L["CONFIG_SETTINGS_FRAME_HEIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_BACKGROUND_COLOUR_TEXT"] = "Устанавливает фоновый цвет главного окна"
-	L["CONFIG_SETTINGS_FRAME_BORDER_SHOW_TEXT"] = "показать или скрыть кромку главного окна"
-	L["CONFIG_SETTINGS_FRAME_BORDER_STYLE_TEXT"] = "стиль кромки главного окна"
-	L["CONFIG_SETTINGS_FRAME_BORDER_COLOUR_TEXT"] = "устанавливает цвет кромки главного окна"
+	L["CONFIG_DESIGN_WINDOW"] = "Окно"
+	L["CONFIG_DESIGN_WINDOW_SCALE_TEXT"] = "устанавливает масштаб, делая окно меньше или больше"
+	L["CONFIG_DESIGN_WINDOW_PADDING_TEXT"] = "устанавливает зазор между краем окна и наборами ячеек"
+	L["CONFIG_DESIGN_WINDOW_WIDTH_TEXT"] = "устанавливает количество столбцов для отображения"
+--	L["CONFIG_DESIGN_WINDOW_HEIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_WINDOW_BACKGROUND_COLOUR_TEXT"] = "Устанавливает фоновый цвет главного окна"
+	L["CONFIG_DESIGN_WINDOW_BORDER_SHOW_TEXT"] = "показать или скрыть кромку главного окна"
+	L["CONFIG_DESIGN_WINDOW_BORDER_STYLE_TEXT"] = "стиль кромки главного окна"
+	L["CONFIG_DESIGN_WINDOW_BORDER_COLOUR_TEXT"] = "устанавливает цвет кромки главного окна"
 	
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT"] = "Цвет подсветки сумок"
---	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "Устанавливает цвет, который используется для подсветки ячеек сумки, над которой курсор мыши"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE"] = "Показывать количество"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_TEXT"] = "отображать ли количество пустых ячеек на иконке сумки"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "задает цвет текста для количества пустых ячеек"
+--	L["CONFIG_DESIGN_FRAME_HIDE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY"] = ""
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT"] = "Цвет подсветки сумок"
+--	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "Устанавливает цвет, который используется для подсветки ячеек сумки, над которой курсор мыши"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE"] = "Показывать количество"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_TEXT"] = "отображать ли количество пустых ячеек на иконке сумки"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "задает цвет текста для количества пустых ячеек"
 	
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_NORMAL"] = ""
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_BARS"] = "Наборы ячеек"
-	L["CONFIG_SETTINGS_BARS_PER_ROW"] = "В ряду"
-	L["CONFIG_SETTINGS_BARS_PER_ROW_TEXT"] = "задает количество наборов ячеек в каждом ряду"
-	L["CONFIG_SETTINGS_BARS_BACKGROUND_TEXT"] = "задает цвет фона наборов ячеек"
-	L["CONFIG_SETTINGS_BARS_COMPACT"] = "Компактно"
-	L["CONFIG_SETTINGS_BARS_COMPACT_TEXT"] = "отображает все непустые наборы ячеек в последовательном порядке"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY"] = "Показывать пустые"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY_TEXT"] = "отображать или нет пустые наборы ячеек"
---	L["CONFIG_SETTINGS_BARS_PADDING_INTERNAL_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_PADDING_EXTERNAL_TEXT"] = ""
-	L["CONFIG_SETTINGS_BARS_BORDER_TEXT"] = "показать или скрыть кромку вокруг каждого набора ячеек"
-	L["CONFIG_SETTINGS_BARS_BORDER_STYLE_TEXT"] = "стиль кромки вокруг каждого набора ячеек"
-	L["CONFIG_SETTINGS_BARS_BORDER_COLOUR_TEXT"] = "задает цвет кромки наборов ячеек"
-	L["CONFIG_SETTINGS_BARS_NAME_TEXT"] = "Задает название для этого набора ячеек"
-	L["CONFIG_SETTINGS_BARS_NAME_SHOW_TEXT"] = "отображать или нет названия наборов ячеек"
-	L["CONFIG_SETTINGS_BARS_NAME_COLOUR_TEXT"] = "задает цвет кромки наборов ячеек"
---	L["CONFIG_SETTINGS_BARS_NAME_HEIGHT_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_ANCHOR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_LABEL_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_TEXT_COLOUR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_PADDING_TEXT"] = "задает расстояние медлу ячейками"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN"] = "Показывать скрытые"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN_TEXT"] = "показывать ли предметы, находящиеся в скрытых категориях"
-	L["CONFIG_SETTINGS_ITEMS_FADE"] = "Затемнять недоступное"
-	L["CONFIG_SETTINGS_ITEMS_FADE_TEXT"] = "затемнять ли недоступные в данный момент ячейки"
---	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE"] = ""
---	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_NORMAL"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_ONLINE_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_OFFLINE_COLOUR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT_TEXT"] = ""
+	L["CONFIG_DESIGN_BAR"] = "Наборы ячеек"
+	L["CONFIG_DESIGN_BAR_PER_ROW"] = "В ряду"
+	L["CONFIG_DESIGN_BAR_PER_ROW_TEXT"] = "задает количество наборов ячеек в каждом ряду"
+	L["CONFIG_DESIGN_BAR_BACKGROUND_TEXT"] = "задает цвет фона наборов ячеек"
+	L["CONFIG_DESIGN_BAR_COMPACT"] = "Компактно"
+	L["CONFIG_DESIGN_BAR_COMPACT_TEXT"] = "отображает все непустые наборы ячеек в последовательном порядке"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY"] = "Показывать пустые"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY_TEXT"] = "отображать или нет пустые наборы ячеек"
+--	L["CONFIG_DESIGN_BAR_PADDING_INTERNAL_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_PADDING_EXTERNAL_TEXT"] = ""
+	L["CONFIG_DESIGN_BAR_BORDER_TEXT"] = "показать или скрыть кромку вокруг каждого набора ячеек"
+	L["CONFIG_DESIGN_BAR_BORDER_STYLE_TEXT"] = "стиль кромки вокруг каждого набора ячеек"
+	L["CONFIG_DESIGN_BAR_BORDER_COLOUR_TEXT"] = "задает цвет кромки наборов ячеек"
+	L["CONFIG_DESIGN_BAR_NAME_TEXT"] = "Задает название для этого набора ячеек"
+	L["CONFIG_DESIGN_BAR_NAME_SHOW_TEXT"] = "отображать или нет названия наборов ячеек"
+	L["CONFIG_DESIGN_BAR_NAME_COLOUR_TEXT"] = "задает цвет кромки наборов ячеек"
+--	L["CONFIG_DESIGN_BAR_NAME_HEIGHT_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_ANCHOR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_BORDER_SHOW_TEXT"] = "отображать ли кромку вокруг каждой ячейки"
---	L["CONFIG_SETTINGS_ITEMS_BORDER_STYLE_TEXT"] = ""
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY"] = "Кромка в цвет качества"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_TEXT"] = "окрашивать ли кромку каждой ячейки в соответствии с качеством вещи"
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF"] = ""
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF_TEXT"] = ""
-	L["CONFIG_SETTINGS_ITEMS_BORDER_TEXTURE_OFFSET_TEXT"] = "расстояние в пикселях между краем картинки предмета и внутренней стороной кромки ячейки"
+	L["CONFIG_DESIGN_ITEM_PADDING_TEXT"] = "задает расстояние медлу ячейками"
+	L["CONFIG_DESIGN_ITEM_HIDDEN"] = "Показывать скрытые"
+	L["CONFIG_DESIGN_ITEM_HIDDEN_TEXT"] = "показывать ли предметы, находящиеся в скрытых категориях"
+	L["CONFIG_DESIGN_ITEM_FADE"] = "Затемнять недоступное"
+	L["CONFIG_DESIGN_ITEM_FADE_TEXT"] = "затемнять ли недоступные в данный момент ячейки"
+--	L["CONFIG_DESIGN_ITEM_TINT_USABLE"] = ""
+--	L["CONFIG_DESIGN_ITEM_TINT_USABLE_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_NEW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_ENABLED_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_CUTOFF_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_RESET_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_AGE"] = "Новые предметы"
-	L["CONFIG_SETTINGS_ITEMS_AGE_SHOW_TEXT"] = "отображать индикатор нового предмета в окне %s"
-	L["CONFIG_SETTINGS_ITEMS_AGE_COLOUR_TEXT"] = "задает цвет текста для индикатора нового предмета."
---	L["CONFIG_SETTINGS_ITEMS_AGE_CUTOFF_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_SHOW_TEXT"] = "отображать ли кромку вокруг каждой ячейки"
+--	L["CONFIG_DESIGN_ITEM_BORDER_STYLE_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY"] = "Кромка в цвет качества"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_TEXT"] = "окрашивать ли кромку каждой ячейки в соответствии с качеством вещи"
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_TEXTURE_OFFSET_TEXT"] = "расстояние в пикселях между краем картинки предмета и внутренней стороной кромки ячейки"
 	
-	L["CONFIG_SETTINGS_SORTING_OPEN"] = "При открытии окна"
-	L["CONFIG_SETTINGS_SORTING_OPEN_TEXT"] = "производить ли сортировку при открытии окна"
-	L["CONFIG_SETTINGS_SORTING_INSTANT"] = "Моментально"
-	L["CONFIG_SETTINGS_SORTING_INSTANT_TEXT"] = "производить ли сортировку незамедлительно.\n\nвключено: сортировка происходит как только что-либо меняется\n\nвыключено: сортировка происходит только при открытии окна или при ручном обновлении"
+--	L["CONFIG_DESIGN_ITEM_NEW"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_ENABLED_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_CUTOFF_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_RESET_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_EMPTY"] = "Пустые ячейки"
-	L["CONFIG_SETTINGS_EMPTY_ICON"] = "Использовать иконку"
-	L["CONFIG_SETTINGS_EMPTY_ICON_TEXT"] = "использовать иконку или сплошной цвет в качестве фона пустой ячейки?"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP"] = "Вместе"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP_TEXT"] = "помещать ли пустые ячейки в тот же набор, что и непустые ячейки того же типа или расценивать их как отдельный тип?"
-	L["CONFIG_SETTINGS_EMPTY_BORDER"] = "Цветная кромка"
-	L["CONFIG_SETTINGS_EMPTY_BORDER_TEXT"] = "красить ли кромку пустой ячейки в соответствии с цветом типа сумки?"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR"] = "Цвета ячеек"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR_TEXT"] = "устанавливает цвет кромки и фона для пустых %1$s ячеек"
---	L["CONFIG_SETTINGS_EMPTY_STATUS"] = "display format"
---	L["CONFIG_SETTINGS_EMPTY_FIRST"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST_TEXT"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_AGE"] = "Новые предметы"
+	L["CONFIG_DESIGN_ITEM_AGE_SHOW_TEXT"] = "отображать индикатор нового предмета в окне %s"
+	L["CONFIG_DESIGN_ITEM_AGE_COLOUR_TEXT"] = "задает цвет текста для индикатора нового предмета."
+--	L["CONFIG_DESIGN_ITEM_AGE_CUTOFF_TEXT"] = ""
+	
+	L["CONFIG_DESIGN_ITEM_EMPTY"] = "Пустые ячейки"
+	L["CONFIG_DESIGN_ITEM_EMPTY_ICON_TEXT"] = "использовать иконку или сплошной цвет в качестве фона пустой ячейки?"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP"] = "Вместе"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP_TEXT"] = "помещать ли пустые ячейки в тот же набор, что и непустые ячейки того же типа или расценивать их как отдельный тип?"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER"] = "Цветная кромка"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER_TEXT"] = "красить ли кромку пустой ячейки в соответствии с цветом типа сумки?"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR"] = "Цвета ячеек"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR_TEXT"] = "устанавливает цвет кромки и фона для пустых %1$s ячеек"
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_STATUS"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION_TEXT"] = ""
+	
+	
+-- junk
+--	L["CONFIG_JUNK"] = ""
+--	L["CONFIG_JUNK_SELL"] = ""
+--	L["CONFIG_JUNK_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_SOLD"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_DESTROYED"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT_TEXT"] = ""
+--	L["CONFIG_JUNK_DELETE_TEXT"] = ""
+--	L["CONFIG_JUNK_NOTIFY_TEXT"] = ""
+--	L["CONFIG_JUNK_RARITY_CUTOFF_TEXT"] = ""
+--	L["CONFIG_JUNK_CATEGORY_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_DESTROY_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_ALERT"] = ""
 	
 	
 -- sorting
@@ -425,7 +501,7 @@ if not L then return end
 	L["CONFIG_SORTING_SORT"] = "Сортировка"
 	
 --	L["CONFIG_SORTING_METHOD"] = ""
---	L["CONFIG_SORTING_METHODS"] = ""
+--	L["CONFIG_SORTING_METHOD_PLURAL"] = ""
 --	L["CONFIG_SORTING_METHOD_TEXT"] = ""
 	L["CONFIG_SORTING_METHOD_BAGSLOT"] = "Сумка / Ячейка"
 	L["CONFIG_SORTING_METHOD_BAGSLOT_TEXT"] = "сортирует инвентарь по номеру сумки и ячейки"
@@ -458,6 +534,8 @@ if not L then return end
 	L["CONFIG_SORTING_INCLUDE_VENDORPRICE_TEXT"] = "использовать ли цену продажи предмета NPC-торговцу при сортировке"
 --	L["CONFIG_SORTING_INCLUDE_ID"] = ""
 --	L["CONFIG_SORTING_INCLUDE_ID_TEXT"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE_TEXT"] = ""
 	
 	L["CONFIG_SORTING_DIRECTION_TEXT"] = "производить сортировку в порядке увеличения или убывания?"
 	L["CONFIG_SORTING_ORDER"] = "Порядок сортировки"
@@ -465,26 +543,41 @@ if not L then return end
 	L["CONFIG_SORTING_MOVE_DOWN_TEXT"] = "перемещает %1$s вниз в порядке сортировки"
 	L["CONFIG_SORTING_NOT_INCLUDED"] = "* не включено в сортировку *"
 	
---	L["CONFIG_SORTING_ADD"] = ""
---	L["CONFIG_SORTING_ADD_TEXT"] = ""
---	L["CONFIG_SORTING_RENAME_TEXT"] = ""
---	L["CONFIG_SORTING_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_LIMIT_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_UPGRADE_TEXT"] = ""
+--	L["CONFIG_LIST_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_RESTORE_TEXT"] = ""
+--	L["CONFIG_LIST_RENAME_TEXT"] = ""
+--	L["CONFIG_LIST_COPY_TEXT"] = ""
+--	L["CONFIG_LIST_PURGE_TEXT"] = ""
+--	L["CONFIG_LIST_IMPORT_TEXT"] = ""
+--	L["CONFIG_LIST_EXPORT_TEXT"] = ""
 	
 	
---	rules
-	L["CONFIG_RULES"] = "Правила"
-	L["CONFIG_RULES_SHOWDISABLED"] = "Показывать отключенные правила"
-	L["CONFIG_RULES_SHOWDISABLED_TEXT"] = "отображать ли отключенные правила?"
+	
+--	L["CONFIG_CATEGORY"] = ""
+--	L["CONFIG_CATEGORY_PLURAL"] = ""
+	
+	L["CATEGORY_RULE"] = "Правило"
+	L["CONFIG_RULE_PLURAL"] = "Правила"
+	
+	L["CONFIG_RULE_SHOWDISABLED"] = "Показывать отключенные правила"
+	L["CONFIG_RULE_SHOWDISABLED_TEXT"] = "отображать ли отключенные правила?"
+	
+--	L["CONFIG_CATEGORY_CUSTOM"] = ""
+	L["CONFIG_CATEGORY_CUSTOM_PLURAL"] = "Пользовательские категории"
+	
+--	L["CONFIG_CATEGORY_SET"] = ""
+--	L["CONFIG_CATEGORY_SET_PLURAL"] = ""
+--	L["CONFIG_CATEGORY_SET_DESCRIPTION"] = ""
+	
+--	L["CONFIG_PROFILE"] = ""
+--	L["CONFIG_PROFILE_PLURAL"] = ""
+--	L["CONFIG_PROFILE_CURRENT"] = ""
 	
 	
---	configuration options > categories
-	L["CONFIG_CATEGORY_CUSTOM"] = "Пользовательские категории"
---	L["CONFIG_CATEGORY_DELETED"] = ""
-	
---	L["CONFIG_CATEGORY_ADD"] = ""
---	L["CONFIG_CATEGORY_ADD_TEXT"] = ""
---	L["CONFIG_CATEGORY_RENAME_TEXT"] = ""
---	L["CONFIG_CATEGORY_DELETE_TEXT"] = ""
+--	L["CONFIG_OBJECT_DELETED"] = ""
 	
 	
 --	configuration options > debug
@@ -493,10 +586,10 @@ if not L then return end
 	
 	
 --	configuration options > generic
---	L["BORDER_SCALE_TEXT"] = ""
-	L["BORDER_TEXTURE_TEXT"] = "настройки текстуры кромки"
-	L["BORDER_TEXTURE_FILE_TEXT"] = "текстура, для использования на кромке (изменение этого параметра сбросит масштаб на 100%)"
-	L["BORDER_TEXTURE_HEIGHT_TEXT"] = "высота (в пикселах) текстуры"
+--	L["CONFIG_BORDER_SCALE_TEXT"] = ""
+	L["CONFIG_BORDER_TEXTURE_TEXT"] = "настройки текстуры кромки"
+	L["CONFIG_BORDER_TEXTURE_FILE_TEXT"] = "текстура, для использования на кромке (изменение этого параметра сбросит масштаб на 100%)"
+	L["CONFIG_BORDER_TEXTURE_HEIGHT_TEXT"] = "высота (в пикселах) текстуры"
 	
 	
 --	rules frame
@@ -508,6 +601,7 @@ if not L then return end
 	L["RULE_LIST_ID"] = "Правило"
 	
 	L["RULE_DAMAGED"] = "Правило %s помечено как повреждённое и более не будет работать, пока Вы его не исправите."
+--	L["RULE_DAMAGED_TEXT"] = ""
 --	L["RULE_FAILED"] = ""
 	L["RULE_FAILED_KEY_NIL"] = "нет ключа"
 	L["RULE_FAILED_DATA_NIL"] = "нет данных"
@@ -523,6 +617,7 @@ if not L then return end
 --	new item indicators
 --	L["NEW_ITEM_INCREASE"] = ""
 --	L["NEW_ITEM_DECREASE"] = ""
+--	L["NEW_ITEM_GLOW"] = ""
 	
 	
 --	slash commands
@@ -549,6 +644,8 @@ if not L then return end
 --	L["SLASH_MISC_TEXT"] = ""
 --	L["SLASH_TRACK"] = ""
 --	L["SLASH_TRACK_TEXT"] = ""
+--	L["SLASH_TRACK_ADD_TEXT"] = ""
+--	L["SLASH_TRACK_REMOVE_TEXT"] = ""
 	
 	
 --	misc chat stuff
@@ -591,7 +688,6 @@ if not L then return end
 	L["ANCHOR_TEXT1"] = "задает якорь (точку закрепления)"
 	L["ANCHOR_TEXT2"] = "прикрепляет %1$s к %2$s"
 	L["BORDER_TEXT"] = "настройки кромки"
-	L["SHOW"] = "Показать"
 	L["FILE"] = "Файл"
 	L["HEIGHT"] = "Высота"
 	L["SCALE"] = "Масштаб"
@@ -599,15 +695,11 @@ if not L then return end
 	L["FONT"] = "Шрифт"
 	L["BACKGROUND_COLOUR"] = "Цвет фона"
 	L["STYLE"] = "Стиль"
-	L["ENABLED"] = "Активирован"
 	L["ALERT"] = "Тревога"
 	L["PADDING"] = "Зазор"
 	L["INTERNAL"] = "Внутренняя"
 	L["EXTERNAL"] = "Внешняя"
 	L["WIDTH"] = "Ширина"
-	L["REALM"] = "Сервер"
-	L["VIEW"] = "Вид"
-	L["EDIT"] = "Изменить"
 	L["DIRECTION"] = "Направление"
 --	L["ASCENDING"] = ""
 --	L["DECENDING"] = ""
@@ -622,8 +714,6 @@ if not L then return end
 --	L["SORT_METHOD"] = ""
 --	L["SORT_BY_NAME"] = ""
 --	L["SORT_BY_NUMBER"] = ""
-	L["HIDE"] = "Скрыть"
---	L["MOVE"] = ""
 	L["INSERT"] = "Добавить пустой набор"
 	L["CURRENT"] = "Текущее назначение"
 	L["OFFSET"] = "Сдвиг"
@@ -640,6 +730,21 @@ if not L then return end
 --	L["TOOLTIP_PURCHASE_BANK_BAG_SLOT"] = ""
 --	L["TOOLTIP_PURCHASE_BANK_TAB_REAGENT"] = ""
 --	L["LABEL"] = ""
+--	L["ABORTED"] = ""
+--	L["RESTORE"] = ""
+--	L["PURGE"] = ""
+--	L["COPY_FROM"] = ""
+--	L["DELETED"] = ""
+--	L["IMPORT"] = ""
+--	L["EXPORT"] = ""
+--	L["NOTIFY"] = ""
+--	L["ACTION"] = ""
+--	L["FIRST"] = ""
+--	L["LAST"] = ""
+--	L["NONE_USABLE"] = ""
+--	L["NONE_OWNED"] = ""
+--	L["TEST"] = ""
+--	L["LIST"] = ""
 	
 	
 -- libdatabroker
@@ -664,8 +769,9 @@ if not L then return end
 --	L["LDB_MOUNTS_FLYING_DISMOUNT_WARNING"] = ""
 --	L["LDB_MOUNTS_SUMMON"] = ""
 --	L["LDB_MOUNTS_NODATA"] = ""
---	L["LDB_MOUNTS_TOOLTIP_MODE"] = ""
 --	L["LDB_MOUNTS_TOOLTIP_SELECTION"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM_TEXT"] = ""
 --	L["LDB_COMPANION_MISSING"] = ""
 --	L["LDB_COMPANION_NONE"] = ""
 --	L["LDB_COMPANION_RESTRICTED"] = ""

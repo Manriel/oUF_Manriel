@@ -1,353 +1,267 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ----------------------------------------------------------------------]]
 
-local GRID, Grid = ...
+local _, Grid = ...
 local L = Grid.L
+local Layout = Grid:GetModule("GridLayout")
+local Roster = Grid:GetModule("GridRoster")
 
-local GridLayout = Grid:GetModule("GridLayout")
+-- nameList = "",
+-- groupFilter = "",
+-- sortMethod = "INDEX", -- or "NAME"
+-- sortDir = "ASC", -- or "DESC"
+-- strictFiltering = false,
+-- unitsPerColumn = 5, -- treated specifically to do the right thing when available
+-- maxColumns = 5, -- mandatory if unitsPerColumn is set, or defaults to 1
+-- isPetGroup = true, -- special case, not part of the Header API
 
-GridLayout:AddLayout(L["None"], {})
-
-GridLayout:AddLayout(L["By Group 5"], {
-	defaults = {
-		-- nameList = "",
-		-- groupFilter = "",
-		-- sortMethod = "INDEX", -- or "NAME"
-		-- sortDir = "ASC", -- or "DESC"
-		-- strictFiltering = false,
-		-- unitsPerColumn = 5, -- treated specifically to do the right thing when available
-		-- maxColumns = 5, -- mandatory if unitsPerColumn is set, or defaults to 1
-		-- isPetGroup = true, -- special case, not part of the Header API
+local Layouts = {
+	None = {
+		name = L["None"],
 	},
-	[1] = {
-		showParty = true,
-		showRaid = false,
-		sortMethod = "INDEX",
+	ByGroup = {
+		name = L["By Group"],
+		defaults = {
+			sortMethod = "INDEX",
+			unitsPerColumn = 5,
+			maxColumns = 1,
+		},
+		[1] = {
+			groupFilter = "1",
+		},
+		-- additional groups added/removed dynamically
 	},
-})
-
-GridLayout:AddLayout(L["By Group 5 w/Pets"], {
-	[1] = {
-		showParty = true,
-		showRaid = false,
-		sortMethod = "INDEX",
+	ByClass = {
+		name = L["By Class"],
+		defaults = {
+			groupBy = "CLASS",
+			groupingOrder = "WARRIOR,DEATHKNIGHT,DEMONHUNTER,ROGUE,MONK,PALADIN,DRUID,SHAMAN,PRIEST,MAGE,WARLOCK,HUNTER",
+			sortMethod = "NAME",
+			unitsPerColumn = 5,
+		},
+		[1] = {
+			groupFilter = "1", -- updated dynamically
+		},
 	},
-	[2] = {
-		showParty = true,
-		showRaid = false,
-		sortMethod = "INDEX",
-
-		isPetGroup = true,
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
-
-GridLayout:AddLayout(L["By Group 10"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-})
-
-GridLayout:AddLayout(L["By Group 10 w/Pets"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "1,2",
-		isPetGroup = true,
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
-
-GridLayout:AddLayout(L["By Group 15"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-})
-
-GridLayout:AddLayout(L["By Group 15 w/Pets"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-	[4] = {
-		groupFilter = "1,2,3",
-		isPetGroup = true,
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
-
-GridLayout:AddLayout(L["By Group 20"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-	[4] = {
-		groupFilter = "4",
-	},
-})
-
-GridLayout:AddLayout(L["By Group 20 w/Pets"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-	[4] = {
-		groupFilter = "4",
-	},
-	[5] = {
-		groupFilter = "1,2,3,4",
-		isPetGroup = true,
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
-
-GridLayout:AddLayout(L["By Group 25"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-	[4] = {
-		groupFilter = "4",
-	},
-	[5] = {
-		groupFilter = "5",
-	},
-})
-
-GridLayout:AddLayout(L["By Group 25 w/Pets"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-	[4] = {
-		groupFilter = "4",
-	},
-	[5] = {
-		groupFilter = "5",
-	},
-	[6] = {
-		groupFilter = "1,2,3,4,5",
-		isPetGroup = true,
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
-
-GridLayout:AddLayout(L["By Group 25 w/Tanks"], {
-	[1] = {
-		groupFilter = "MAINTANK,MAINASSIST",
-		groupingOrder = "MAINTANK,MAINASSIST",
-	},
-	-- spacer
-	[2] = {
-		groupFilter = "",
-	},
-	[3] = {
-		groupFilter = "1",
-	},
-	[4] = {
-		groupFilter = "2",
-	},
-	[5] = {
-		groupFilter = "3",
-	},
-	[6] = {
-		groupFilter = "4",
-	},
-	[7] = {
-		groupFilter = "5",
+	ByRole = {
+		name = L["By Role"],
+		defaults = {
+			groupBy = "ASSIGNEDROLE",
+			groupingOrder = "TANK,HEALER,DAMAGER,NONE",
+			sortMethod = "NAME",
+			unitsPerColumn = 5,
+		},
+		[1] = {
+			groupFilter = "1", -- updated dynamically
+		},
 	}
-})
+}
+--[===[@debug@
+GRIDLAYOUTS = Layouts
+--@end-debug@]===]
 
-GridLayout:AddLayout(L["By Group 40"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-	[4] = {
-		groupFilter = "4",
-	},
-	[5] = {
-		groupFilter = "5",
-	},
-	[6] = {
-		groupFilter = "6",
-	},
-	[7] = {
-		groupFilter = "7",
-	},
-	[8] = {
-		groupFilter = "8",
-	},
-})
+--------------------------------------------------------------------------------
 
-GridLayout:AddLayout(L["By Group 40 w/Pets"], {
-	[1] = {
-		groupFilter = "1",
-	},
-	[2] = {
-		groupFilter = "2",
-	},
-	[3] = {
-		groupFilter = "3",
-	},
-	[4] = {
-		groupFilter = "4",
-	},
-	[5] = {
-		groupFilter = "5",
-	},
-	[6] = {
-		groupFilter = "6",
-	},
-	[7] = {
-		groupFilter = "7",
-	},
-	[8] = {
-		groupFilter = "8",
-	},
-	[9] = {
-		groupFilter = "1,2,3,4,5,6,7,8",
-		isPetGroup = true,
-		unitsPerColumn = 5,
-		maxColumns = 8,
-	},
-})
+local Manager = Layout:NewModule("GridLayoutManager", "AceEvent-3.0")
+Manager.Debug = Grid.Debug -- GridLayout doesn't have a module prototype
 
-GridLayout:AddLayout(L["By Class 10"], {
-	[1] = {
-		groupFilter = "1,2",
-		groupBy = "CLASS",
-		groupingOrder = "WARRIOR,DEATHKNIGHT,ROGUE,MONK,PALADIN,DRUID,SHAMAN,PRIEST,MAGE,WARLOCK,HUNTER",
-		unitsPerColumn = 5,
-		maxColumns = 2,
-	},
-})
+function Manager:OnInitialize()
+	self:Debug("OnInitialize")
 
-GridLayout:AddLayout(L["By Class 10 w/Pets"], {
-	[1] = {
-		groupFilter = "1,2",
-		groupBy = "CLASS",
-		groupingOrder = "WARRIOR,DEATHKNIGHT,ROGUE,MONK,PALADIN,DRUID,SHAMAN,PRIEST,MAGE,WARLOCK,HUNTER",
-		unitsPerColumn = 5,
-		maxColumns = 2,
-	},
-	[2] = {
-		isPetGroup = true,
-		groupFilter = "1,2",
-		groupBy = "CLASS",
-		groupingOrder = "HUNTER,WARLOCK,DEATHKNIGHT,PRIEST,MAGE,DRUID,SHAMAN,WARRIOR,ROGUE,PALADIN,MONK",
-		unitsPerColumn = 5,
-		maxColumns = 2,
-	},
-})
+	Grid:SetDebuggingEnabled(self.moduleName)
 
-GridLayout:AddLayout(L["By Class 25"], {
-	[1] = {
-		groupFilter = "1,2,3,4,5",
-		groupBy = "CLASS",
-		groupingOrder = "WARRIOR,DEATHKNIGHT,ROGUE,MONK,PALADIN,DRUID,SHAMAN,PRIEST,MAGE,WARLOCK,HUNTER",
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
+	for k, v in pairs(Layouts) do
+		Layout:AddLayout(k, v)
+	end
 
-GridLayout:AddLayout(L["By Class 25 w/Pets"], {
-	[1] = {
-		groupFilter = "1,2,3,4,5",
-		groupBy = "CLASS",
-		groupingOrder = "WARRIOR,DEATHKNIGHT,ROGUE,MONK,PALADIN,DRUID,SHAMAN,PRIEST,MAGE,WARLOCK,HUNTER",
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-	[2] = {
-		isPetGroup = true,
-		groupFilter = "1,2,3,4,5",
-		groupBy = "CLASS",
-		groupingOrder = "HUNTER,WARLOCK,DEATHKNIGHT,PRIEST,MAGE,DRUID,SHAMAN,WARRIOR,ROGUE,PALADIN,MONK",
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
+	self:RegisterMessage("Grid_RosterUpdated", "UpdateLayouts")
+end
 
-GridLayout:AddLayout(L["By Class 40"], {
-	[1] = {
-		groupBy = "CLASS",
-		groupingOrder = "WARRIOR,DEATHKNIGHT,ROGUE,MONK,PALADIN,DRUID,SHAMAN,PRIEST,MAGE,WARLOCK,HUNTER",
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
+--------------------------------------------------------------------------------
 
-GridLayout:AddLayout(L["By Class 40 w/Pets"], {
-	[1] = {
-		groupFilter = "1,2,3,4,5,6,7,8",
-		groupBy = "CLASS",
-		groupingOrder = "WARRIOR,DEATHKNIGHT,ROGUE,MONK,PALADIN,DRUID,SHAMAN,PRIEST,MAGE,WARLOCK,HUNTER",
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-	[2] = {
-		groupFilter = "1,2,3,4,5,6,7,8",
-		isPetGroup = true,
-		groupBy = "CLASS",
-		groupingOrder = "HUNTER,WARLOCK,DEATHKNIGHT,PRIEST,MAGE,DRUID,SHAMAN,WARRIOR,ROGUE,PALADIN,MONK",
-		unitsPerColumn = 5,
-		maxColumns = 5,
-	},
-})
+local lastNumGroups, lastUsedGroups, lastShowPets
+
+local function AddPetGroup(t, numGroups, groupFilter)
+	t = t or {}
+	t.groupFilter = groupFilter
+	t.maxColumns = numGroups
+
+	t.isPetGroup = true
+	t.groupBy = "CLASS"
+	t.groupingOrder = "HUNTER,WARLOCK,MAGE,DEATHKNIGHT,DRUID,PRIEST,SHAMAN,MONK,PALADIN,DEMONHUNTER,ROGUE,WARRIOR"
+	-- t.sortMethod = "NAME"
+
+	return t
+end
+
+local function UpdateSplitGroups(layout, numGroups, showPets)
+	for i = 1, numGroups do
+		local t = layout[i] or {}
+		t.groupFilter = tostring(i)
+		-- Reset attributes from merged layout
+		t.maxColumns = 1
+		-- Remove attributes for pet group
+		t.isPetGroup = nil
+		t.groupBy = nil
+		t.groupingOrder = nil
+		layout[i] = t
+	end
+	if showPets then
+		local i = numGroups + 1
+		layout[i] = AddPetGroup(layout[i], numGroups, groupFilter)
+		numGroups = i
+	end
+	for i = numGroups + 1, #layout do
+		layout[i] = nil
+	end
+end
+
+local function UpdateMergedGroups(layout, numGroups, showPets)
+	layout[1].groupFilter = groupFilter
+	layout[1].maxColumns = numGroups
+	if showPets then
+		layout[2] = AddPetGroup(layout[2], numGroups, groupFilter)
+	else
+		layout[2] = nil
+	end
+	for i = 3, numGroups do
+		layout[i] = nil
+	end
+end
+
+-- These are the number of groups actually used
+local function UpdateNumGroups()
+	local groupType, maxPlayers = Roster:GetPartyState()
+	local usedGroups = {}
+	local numGroups = 0
+	local realGroups = 1
+	-- local curZone = GetRealZoneText()
+	-- GetCurrentMapAreaID does not match the mapID from UnitPosition
+	-- local curMapID = GetCurrentMapAreaID()
+	local _, _, _, curMapID = UnitPosition("player")
+	local showOffline = Layout.db.profile.showOffline -- Show Offline groups
+	-- Debug
+	local offlineGroups = {}
+	local zoneGroups = {}
+	local showWrongZone = Layout:ShowWrongZone()
+
+	-- Manager:Debug("Layout.db.profile.showWrongZone ", Layout.db.profile.showWrongZone, ", showWrongZone ", showWrongZone, ", groupType ", groupType) 
+
+	if groupType == "raid" or groupType == "bg" then
+		if maxPlayers then
+			numGroups = ceil(maxPlayers / 5)
+		else
+			numGroups = 1
+		end
+
+		for i = 1, 8 do
+			usedGroups[i] = false
+		end
+		for i = 1, GetNumGroupMembers() do
+			local name, _, subgroup, _, _, _, zone, online = GetRaidRosterInfo(i);
+			local unitid = "raid" .. i
+			local _, _, _, mapID = UnitPosition(unitid)
+			-- If the highest group only has offline players it will not be shown
+			-- if name and online then
+			-- usedGroups[subgroup] = true
+			if name then
+				-- GetRaidRosterInfo zone comparison can show players in the same instance
+				-- when they are not.  For example, outside Hellfire Citadel still shows
+				-- "Hellfire Citadel" as the zone text.
+				-- if (showOffline or online) and (showWrongZone or curZone == zone) then
+				-- Manager:Debug("curMapID ", curMapID, " name ", name, " mapID ", mapID)
+				if (showOffline or online) and (showWrongZone or curMapID == mapID) then
+					usedGroups[subgroup] = true
+				else
+					if (not online) then
+					   offlineGroups[subgroup] = true
+					end
+					-- if (curZone ~= zone) then
+					if (curMapID ~= mapID) then
+					   zoneGroups[subgroup] = true
+					end
+				end
+			end
+		end
+		for i = 1, 8 do
+			if usedGroups[i] and i > realGroups then
+				-- realGroups = numGroups + 1
+				realGroups = i
+			end
+			-- Debug
+			if not usedGroups[i] and offlineGroups[i] then
+				Manager:Debug("Group ", i, "is not used because players were offline.")
+			elseif not usedGroups[i] and zoneGroups[i] then
+				Manager:Debug("Group ", i, "is not used because players were in wrong zone.")
+			end
+		end
+	else
+		numGroups = 1
+ 	end
+	return numGroups, realGroups
+end
+
+
+function Manager:UpdateLayouts(event)
+	self:Debug("UpdateLayouts", event)
+
+	local groupType, maxPlayers = Roster:GetPartyState()
+	local showPets = Layout.db.profile.showPets -- Show Pets
+	local splitGroups = Layout.db.profile.splitGroups -- Keep Groups Together
+
+	-- local numGroups, groupFilter = ceil(maxPlayers / 5), "1"
+	-- for i = 2, numGroups do
+	-- 	groupFilter = groupFilter .. "," .. i
+	-- end
+	local numGroups = 1
+	local usedGroups = 1
+
+	if groupType == "raid" or groupType == "bg" then
+		numGroups, usedGroups = UpdateNumGroups()
+	elseif maxPlayers then
+		numGroups = ceil(maxPlayers / 5)
+		usedGroups = numGroups
+	end
+
+	self:Debug("maxPlayers", maxPlayers, "numGroups", numGroups, "usedGroups", usedGroups, "showPets", showPets, "splitGroups", splitGroups)
+
+	if lastNumGroups == numGroups and lastUsedGroups == usedGroups and lastShowPets == showPets then
+		self:Debug("no changes necessary")
+		return false
+	end
+
+	lastNumGroups = numGroups
+	lastUsedGroups = usedGroups
+	lastShowPets = showPets
+
+	-- Update class and role layouts
+--[===[@debug@
+	if splitGroups then
+		UpdateSplitGroups(Layouts.ByClass,  numGroups, showPets)
+		UpdateSplitGroups(Layouts.ByRole,   numGroups, showPets)
+	else
+--@end-debug@]===]
+		UpdateMergedGroups(Layouts.ByClass, numGroups, showPets)
+		UpdateMergedGroups(Layouts.ByRole,  numGroups, showPets)
+--[===[@debug@
+	end
+--@end-debug@]===]
+
+	-- By group should always be split group
+	UpdateSplitGroups(Layouts.ByGroup, usedGroups, showPets)
+
+	-- Apply changes
+	Layout:ReloadLayout()
+
+	return true
+end
+
+

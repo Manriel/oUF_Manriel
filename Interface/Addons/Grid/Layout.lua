@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ----------------------------------------------------------------------]]
 
 local GRID, Grid = ...
@@ -20,6 +20,14 @@ local GridLayout = Grid:NewModule("GridLayout", "AceBucket-3.0", "AceTimer-3.0")
 GridLayout.LayoutList = {}
 
 local floor, next, pairs, select, tinsert, tonumber, tostring = floor, next, pairs, select, tinsert, tonumber, tostring
+
+local partyHandle
+
+-- Mythic Raid IDs
+-- http://wow.gamepedia.com/API_GetDifficultyInfo
+local mythicIDS = {
+	[16] = true, -- 20-player Mythic
+}
 
 ------------------------------------------------------------------------
 
@@ -41,7 +49,6 @@ function GridLayout.prototype:Reset()
 	self:Hide()
 
 	self:SetAttribute("showPlayer", true)
-
 	self:SetAttribute("showSolo", true)
 	self:SetAttribute("showParty", true)
 	self:SetAttribute("showRaid", true)
@@ -52,8 +59,9 @@ function GridLayout.prototype:Reset()
 	self:SetAttribute("groupingOrder", nil)
 	self:SetAttribute("maxColumns", nil)
 	self:SetAttribute("nameList", nil)
+	self:SetAttribute("roleFilter", nil)
 	self:SetAttribute("sortDir", nil)
-	self:SetAttribute("sortMethod", "NAME")
+	self:SetAttribute("sortMethod", "INDEX")
 	self:SetAttribute("startingIndex", nil)
 	self:SetAttribute("strictFiltering", nil)
 	self:SetAttribute("xOffset", nil)
@@ -62,6 +70,8 @@ function GridLayout.prototype:Reset()
 	self:SetAttributeByProxy("columnAnchorPoint", nil)
 	self:SetAttributeByProxy("point", nil)
 	self:SetAttributeByProxy("unitsPerColumn", nil)
+	
+	self:SetAttribute("gridGroupSpacing", nil) -- custom
 
 	self:SetAttribute("initialConfigFunction", GridLayout:GetInitialConfigSnippet())
 end
@@ -85,7 +95,7 @@ end
 function GridLayout.prototype:SetOrientation(horizontal)
 	local p = GridLayout.db.profile
 	local groupAnchor = p.groupAnchor
-	local padding = p.Padding
+	local padding = p.unitSpacing
 
 	local xOffset, yOffset, point
 
@@ -204,23 +214,23 @@ end
 
 GridLayout.defaultDB = {
 	layouts = {
-		solo = L["By Group 5"],
-		party = L["By Group 5"],
-		raid_10 = L["By Group 10"],
-		raid_25 = L["By Group 25"],
-		raid_flex = L["By Class 25"],
-		raid_40 = L["By Group 40"],
-		raid_outside = false,
-		arena = L["By Group 5"],
-		bg = L["By Group 40"],
+		solo  = "ByGroup",
+		party = "ByGroup",
+		raid  = "ByRole",
+		arena = "ByGroup",
+		bg    = "ByGroup",
 	},
 
+	lock = false,
 	horizontal = false,
-	FrameLock = false,
+	showPets = false,
+	showOffline = false,
+	showWrongZone = "MYTHIC",
 
-	Padding = 1,
-	Spacing = 10,
-	ScaleSize = 1.0,
+	layoutPadding = 10,
+	unitSpacing = 1,
+	scale = 1,
+
 	backgroundColor = { r = 0.1, g = 0.1, b = 0.1, a = 0.65 },
 	backgroundTexture = "Blizzard Tooltip",
 	borderColor = { r = 0.5, g = 0.5, b = 0.5, a = 1 },
@@ -240,7 +250,6 @@ GridLayout.defaultDB = {
 
 GridLayout.options = {
 	name = L["Layout"],
-	desc = L["Options for GridLayout."],
 	disabled = InCombatLockdown,
 	order = 1,
 	type = "group",
@@ -258,32 +267,21 @@ GridLayout.options = {
 		GridLayout.db.profile[k] = v
 	end,
 	args = {
-		FrameLock = {
+		lock = {
 			name = L["Frame lock"],
 			desc = L["Locks/unlocks the grid for movement."],
-			order = 5,
+			order = 2,
 			width = "double",
 			type = "toggle",
 			set = function(info, v)
-				GridLayout.db.profile.FrameLock = v
+				GridLayout.db.profile.lock = v
 				GridLayout:UpdateTabVisibility()
-			end,
-		},
-		horizontal = {
-			name = L["Horizontal groups"],
-			desc = L["Switch between horizontal/vertical groups."],
-			order = 10,
-			width = "double",
-			type = "toggle",
-			set = function(info, v)
-				GridLayout.db.profile.horizontal = v
-				GridLayout:ReloadLayout()
 			end,
 		},
 		tab = {
 			name = L["Show tab"],
 			desc = L["Show a tab for dragging when Grid is unlocked."],
-			order = 15,
+			order = 4,
 			width = "double",
 			type = "toggle",
 			get = function()
@@ -292,6 +290,55 @@ GridLayout.options = {
 			set = function(info, show)
 				GridLayout.db.profile.hideTab = not show
 				GridLayout:UpdateTabVisibility()
+			end,
+		},
+		clickThrough = {
+			name = L["Click through background"],
+			desc = L["Allow mouse clicks to pass through the background when Grid is locked."],
+			order = 6,
+			width = "double",
+			type = "toggle",
+			get = function()
+				return GridLayout.db.profile.clickThrough
+			end,
+			set = function(info, value)
+				GridLayout.db.profile.clickThrough = value
+				GridLayout:UpdateTabVisibility()
+			end,
+		},
+		horizontal = {
+			name = L["Horizontal groups"],
+			desc = L["Switch between horizontal/vertical groups."],
+			order = 8,
+			width = "double",
+			type = "toggle",
+			set = function(info, v)
+				GridLayout.db.profile.horizontal = v
+				GridLayout:ReloadLayout()
+			end,
+		},
+--[===[@debug@
+		splitGroups = {
+			name = COMPACT_UNIT_FRAME_PROFILE_KEEPGROUPSTOGETHER, -- L["Keep Groups Together"]
+			desc = L["Layouts added by plugins might not support this option."], -- TODO
+			order = 10,
+			width = "double",
+			type = "toggle",
+			set = function(info, v)
+				GridLayout.db.profile.splitGroups = v
+				GridLayout:GetModule("GridLayoutManager"):UpdateLayouts()
+			end,
+		},
+--@end-debug@]===]
+		showPets = {
+			name = COMPACT_UNIT_FRAME_PROFILE_DISPLAYPETS, -- L["Show Pets"]
+			desc = L["Layouts added by plugins might not support this option."], -- TODO
+			order = 12,
+			width = "double",
+			type = "toggle",
+			set = function(info, v)
+				GridLayout.db.profile.showPets = v
+				GridLayout:GetModule("GridLayoutManager"):UpdateLayouts()
 			end,
 		},
 		layouts = {
@@ -309,71 +356,35 @@ GridLayout.options = {
 			args = {
 				solo = {
 					name = L["Solo Layout"],
-					desc = L["Select which layout to use when not in a party."],
-					order = 10,
+					order = 2,
 					width = "double",
 					type = "select",
 					values = GridLayout.LayoutList,
 				},
 				party = {
 					name = L["Party Layout"],
-					desc = L["Select which layout to use when in a party."],
-					order = 20,
+					order = 4,
 					width = "double",
 					type = "select",
 					values = GridLayout.LayoutList,
 				},
-				raid_10 = {
-					name = L["10 Player Raid Layout"],
-					desc = L["Select which layout to use when in a 10 player raid."],
-					order = 30,
+				raid = {
+					name = L["Raid Layout"],
+					order = 6,
 					width = "double",
 					type = "select",
 					values = GridLayout.LayoutList,
-				},
-				raid_25 = {
-					name = L["25 Player Raid Layout"],
-					desc = L["Select which layout to use when in a 25 player raid."],
-					order = 40,
-					width = "double",
-					type = "select",
-					values = GridLayout.LayoutList,
-				},
-				raid_flex = {
-					name = L["Flexible Raid Layout"],
-					desc = L["Select which layout to use when in a flexible raid."],
-					order = 45,
-					width = "double",
-					type = "select",
-					values = GridLayout.LayoutList,
-				},
-				raid_40 = {
-					name = L["40 Player Raid Layout"],
-					desc = L["Select which layout to use when in a 40 player raid."],
-					order = 50,
-					width = "double",
-					type = "select",
-					values = GridLayout.LayoutList,
-				},
-				raid_outside = {
-					name = L["World Raid as 40 Player"],
-					desc = L["Use the 40 Player Raid layout when in a raid group outside of a raid instance, instead of choosing a layout based on the current Raid Difficulty setting."],
-					order = 55,
-					type = "toggle",
-					width = "full",
 				},
 				arena = {
 					name = L["Arena Layout"],
-					desc = L["Select which layout to use when in an arena."],
-					order = 60,
+					order = 10,
 					width = "double",
 					type = "select",
 					values = GridLayout.LayoutList,
 				},
 				bg = {
 					name = L["Battleground Layout"],
-					desc = L["Select which layout to use when in a battleground."],
-					order = 70,
+					order = 12,
 					width = "double",
 					type = "select",
 					values = GridLayout.LayoutList,
@@ -494,35 +505,35 @@ GridLayout.options = {
 				GridLayout:ReloadLayout()
 			end,
 		},
-		Padding = {
-			name = L["Frame Spacing"],
+		unitSpacing = {
+			name = L["Unit Spacing"],
 			desc = L["Adjust the spacing between the individual unit frames."],
 			order = 34,
 			width = "double",
 			type = "range", max = 20, min = 0, step = 1,
 			set = function(info, v)
-				GridLayout.db.profile.Padding = v
+				GridLayout.db.profile.unitSpacing = v
 				GridLayout:ReloadLayout()
 			end,
 		},
-		Spacing = {
+		layoutPadding = {
 			name = L["Layout Padding"],
 			desc = L["Adjust the extra spacing inside the layout frame, around the unit frames."],
 			order = 36,
 			width = "double",
 			type = "range", min = 0, max = 25, step = 1,
 			set = function(info, v)
-				GridLayout.db.profile.Spacing = v
+				GridLayout.db.profile.layoutPadding = v
 				GridLayout:ReloadLayout()
 			end,
 		},
-		ScaleSize = {
+		scale = {
 			name = L["Scale"],
 			order = 38,
 			width = "double",
 			type = "range", min = 0.5, max = 2.0, step = 0.05, isPercent = true,
 			set = function(info, v)
-				GridLayout.db.profile.ScaleSize = v
+				GridLayout.db.profile.scale = v
 				GridLayout:Scale()
 			end,
 		},
@@ -532,6 +543,42 @@ GridLayout.options = {
 			width = "double",
 			type = "execute",
 			func = function() GridLayout:ResetPosition() end,
+		},
+		groupOptions = {
+			name = L["ByGroup Layout Options"],
+			order = 20,
+			type = "group",
+			dialogInline = true,
+			args = {
+				showOffline = {
+					name = L["Show Offline"],
+					desc = L["Show groups with all players offline."],
+					order = 12,
+					width = "double",
+					type = "toggle",
+					set = function(info, v)
+						GridLayout.db.profile.showOffline = v
+						GridLayout:GetModule("GridLayoutManager"):UpdateLayouts()
+					end,
+				},
+				showWrongZone = {
+					name = L["Wrong Zone"],
+					desc = L["Show groups with all players in wrong zone."],
+					order = 12,
+					width = "double",
+					type = "select",
+					values = {
+						ALL      = L["Show all groups"],
+						HIDE     = L["Always hide wrong zone groups"],
+						RAIDINST = L["Hide when in raid instance"],
+						MYTHIC   = L["Hide when in mythic raid instance"],
+					},
+					set = function(info, v)
+						GridLayout.db.profile.showWrongZone = v
+						GridLayout:GetModule("GridLayoutManager"):UpdateLayouts()
+					end,
+				},
+			}
 		},
 	},
 }
@@ -561,7 +608,7 @@ function GridLayout:PostEnable()
 	self.forceRaid = true
 	self:ScheduleTimer(self.CombatFix, 1, self)
 
-	self:LoadLayout(self.db.profile.layout or self.db.profile.layouts["raid_25"])
+	self:LoadLayout(self.db.profile.layout or self.db.profile.layouts["raid"])
 	-- position and scale frame
 	self:RestorePosition()
 	self:Scale()
@@ -571,9 +618,12 @@ function GridLayout:PostEnable()
 
 	self:RegisterBucketMessage("Grid_UpdateLayoutSize", 0.2, "PartyMembersChanged")
 	self:RegisterMessage("Grid_RosterUpdated", "PartyMembersChanged")
+	self:RegisterEvent("PARTY_MEMBERS_CHANGED", "PartyMembersChanged")
+	self:RegisterEvent("GROUP_ROSTER_UPDATE", "PartyMembersChanged")
+	self:RegisterEvent("PLAYER_ENTERING_WORLD", "ZoneCheck")
 
-	self:RegisterMessage("Grid_EnteringCombat", "EnteringOrLeavingCombat")
-	self:RegisterMessage("Grid_LeavingCombat", "EnteringOrLeavingCombat")
+	self:RegisterMessage("Grid_EnteringCombat", "EnteringCombat")
+	self:RegisterMessage("Grid_LeavingCombat", "LeavingCombat")
 end
 
 function GridLayout:PostDisable()
@@ -594,10 +644,34 @@ end
 
 local reloadLayoutQueued
 local updateSizeQueued
-function GridLayout:EnteringOrLeavingCombat()
+
+function GridLayout:EnteringCombat()
+	-- Do not perform layout update checks in combat
+	if partyHandle then
+		partyHandle = self:CancelTimer(partyHandle) -- returns nil
+	end
+
 	--self:Debug("EnteringOrLeavingCombat")
 	if reloadLayoutQueued then return self:PartyTypeChanged() end
 	if updateSizeQueued then return self:PartyMembersChanged() end
+end
+
+function GridLayout:LeavingCombat()
+	--self:Debug("EnteringOrLeavingCombat")
+	-- When out of combat, check if the number of groups changed every 10 seconds
+	-- Basing this off events is not working, as it seems to take a variable amount of time for the new player
+	-- to show online
+	if not partyHandle then
+		partyHandle = self:ScheduleRepeatingTimer("Grid_CheckPartyMembersUpdate", 10)
+	end
+
+	if reloadLayoutQueued then return self:PartyTypeChanged() end
+
+	-- If we know the party size changed, definitely do an update
+	if updateSizeQueued then return self:PartyMembersChanged() end
+
+	-- Otherwise, check to see if the layout needs updating
+	self:Grid_CheckPartyMembersUpdate()
 end
 
 function GridLayout:CombatFix()
@@ -607,10 +681,56 @@ function GridLayout:CombatFix()
 	return self:ReloadLayout()
 end
 
+function GridLayout:Grid_CheckPartyMembersUpdate()
+        local update_size
+
+	if InCombatLockdown() then
+		return
+	end
+
+	update_size = GridLayout:GetModule("GridLayoutManager"):UpdateLayouts()
+	if update_size then
+		self:PartyMembersChanged()
+	end
+end
+
 function GridLayout:PartyMembersChanged()
 	--self:Debug("PartyMembersChanged")
 	self:Debug("PartyMembersChanged")
 	if InCombatLockdown() then
+		updateSizeQueued = true
+	else
+		self:UpdateSize()
+		updateSizeQueued = false
+	end
+end
+
+function GridLayout:ShowWrongZone()
+	local showWrongZone = false
+	local name, instType, diffIndex = GetInstanceInfo()
+
+	-- Show groups in wrong zone
+	if self.db.profile.showWrongZone == "ALL" then
+		-- Always show groups in wrong zone
+		showWrongZone = true
+	elseif self.db.profile.showWrongZone == "MYTHIC" and not mythicIDS[diffIndex] then
+		-- Show groups in wrong zone when not in Mythic raid instance
+		showWrongZone = true
+	elseif self.db.profile.showWrongZone == "RAIDINST" and instType ~= "raid" then
+		-- Show groups in wrong zone when not in raid instance
+		showWrongZone = true
+	end
+
+	return showWrongZone
+end
+
+-- If we only show groups that are in the correct zone, then
+-- update which groups are shown when the player changes zones
+function GridLayout:ZoneCheck()
+	self:Debug("ZoneCheck")
+	if (self:ShowWrongZone()) then
+		return
+	elseif InCombatLockdown() then
 		updateSizeQueued = true
 	else
 		self:UpdateSize()
@@ -635,7 +755,7 @@ end
 
 function GridLayout:StartMoveFrame()
 	--self:Debug("StartMoveFrame")
-	if self.config_mode or not self.db.profile.FrameLock then
+	if self.config_mode or not self.db.profile.lock then
 		self.frame:StartMoving()
 		self.frame.isMoving = true
 	end
@@ -658,14 +778,14 @@ function GridLayout:UpdateTabVisibility()
 	--print("UpdateTabVisibility", not settings.hideTab)
 
 	if not InCombatLockdown() then
-		if not settings.hideTab or (not self.config_mode and settings.FrameLock) then
+		if settings.lock and settings.clickThrough and not self.config_mode then
 			self.frame:EnableMouse(false)
 		else
 			self.frame:EnableMouse(true)
 		end
 	end
 
-	if settings.hideTab or (not self.config_mode and settings.FrameLock) then
+	if settings.hideTab or (not self.config_mode and settings.lock) then
 		self.frame.tab:Hide()
 	else
 		self.frame.tab:Show()
@@ -674,7 +794,7 @@ end
 
 local function GridLayout_OnMouseDown(frame, button)
 	if button == "LeftButton" then
-		if IsAltKeyDown() then
+		if IsAltKeyDown() and frame == GridLayoutFrame.tab then
 			GridLayout.db.profile.hideTab = true
 			GridLayout:UpdateTabVisibility()
 		else
@@ -710,15 +830,6 @@ function GridLayout:CreateFrames()
 	hider:SetAllPoints(true)
 	RegisterStateDriver(hider, "visibility", "[petbattle] hide; show")
 
-	-- create backdrop
-	local bg = CreateFrame("Frame", nil, hider)
-	bg:SetBackdrop({
-		bgFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = false, tileSize = 16,
-		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 16,
-		insets = {left = 4, right = 4, top = 4, bottom = 4},
-	})
-	bg:SetFrameLevel(0)
-
 	-- create main frame to hold all our gui elements
 	local f = CreateFrame("Frame", "GridLayoutFrame", hider)
 	f:SetPoint("CENTER")
@@ -727,20 +838,26 @@ function GridLayout:CreateFrames()
 	f:SetScript("OnMouseDown", GridLayout_OnMouseDown)
 	f:SetScript("OnMouseUp", GridLayout_OnMouseUp)
 	f:SetScript("OnHide", GridLayout_OnMouseUp)
-	f:SetFrameLevel(1)
 
-	-- attach backdrop to frame
-	bg:SetPoint("BOTTOMLEFT", f, -4, -4)
-	bg:SetPoint("TOPRIGHT", f, 4, 4)
-	f.backdrop = bg
+	-- create backdrop
+	f.backdrop = CreateFrame("Frame", "$parentBackdrop", f)
+	f.backdrop:SetPoint("BOTTOMLEFT", -4, -4)
+	f.backdrop:SetPoint("TOPRIGHT", 4, 4)
+	f.backdrop:SetBackdrop({
+		bgFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = false, tileSize = 16,
+		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 16,
+		insets = {left = 4, right = 4, top = 4, bottom = 4},
+	})
+
+	f:SetFrameLevel(f.backdrop:GetFrameLevel() + 2)
 
 	-- create drag handle
 	f.tab = CreateFrame("Frame", "$parentTab", f)
 	f.tab:SetWidth(48)
-	f.tab:SetHeight(24)
+	f.tab:SetHeight(28)
 	f.tab:EnableMouse(true)
 	f.tab:RegisterForDrag("LeftButton")
-	f.tab:SetPoint("BOTTOMLEFT", f, "TOPLEFT", 1, 0)
+	f.tab:SetPoint("BOTTOMLEFT", f.backdrop, "TOPLEFT", 2, -3)
 	f.tab:SetScript("OnMouseDown", GridLayout_OnMouseDown)
 	f.tab:SetScript("OnMouseUp", GridLayout_OnMouseUp)
 	f.tab:SetScript("OnEnter", GridLayout_OnEnter)
@@ -750,16 +867,16 @@ function GridLayout:CreateFrames()
 	f.tabBgLeft = f.tab:CreateTexture(nil, "BACKGROUND")
 	f.tabBgLeft:SetTexture("Interface\\ChatFrame\\ChatFrameTab")
 	f.tabBgLeft:SetTexCoord(0, 0.25, 0, 1)
-	f.tabBgLeft:SetPoint("TOPLEFT", f.tab, "TOPLEFT", 0, 5)
-	f.tabBgLeft:SetPoint("BOTTOMLEFT", f.tab, "BOTTOMLEFT", 0, 0)
+	f.tabBgLeft:SetPoint("TOPLEFT", 0, 5)
+	f.tabBgLeft:SetPoint("BOTTOMLEFT", 0, 0)
 	f.tabBgLeft:SetWidth(16)
 	f.tabBgLeft:SetAlpha(0.9)
 
 	f.tabBgRight = f.tab:CreateTexture(nil, "BACKGROUND")
 	f.tabBgRight:SetTexture("Interface\\ChatFrame\\ChatFrameTab")
 	f.tabBgRight:SetTexCoord(0.75, 1, 0, 1)
-	f.tabBgRight:SetPoint("TOPRIGHT", f.tab, "TOPRIGHT", 0, 5)
-	f.tabBgRight:SetPoint("BOTTOMRIGHT", f.tab, "BOTTOMRIGHT", 0, 0)
+	f.tabBgRight:SetPoint("TOPRIGHT", 0, 5)
+	f.tabBgRight:SetPoint("BOTTOMRIGHT", 0, 0)
 	f.tabBgRight:SetWidth(16)
 	f.tabBgRight:SetAlpha(0.9)
 
@@ -773,8 +890,8 @@ function GridLayout:CreateFrames()
 	-- Tab Label
 	f.tabText = f.tab:CreateFontString(nil, "BACKGROUND", "GameFontNormalSmall")
 	f.tabText:SetText("Grid")
-	f.tabText:SetPoint("LEFT", f.tab, "LEFT", 0, -5)
-	f.tabText:SetPoint("RIGHT", f.tab, "RIGHT", 0, -5)
+	f.tabText:SetPoint("LEFT", 0, -3)
+	f.tabText:SetPoint("RIGHT", 0, -3)
 
 	self.frame = f
 end
@@ -814,8 +931,8 @@ function GridLayout:PlaceGroup(layoutGroup, groupNumber)
 
 	local settings = self.db.profile
 	local horizontal = settings.horizontal
-	local padding = settings.Padding
-	local spacing = settings.Spacing
+	local padding = settings.unitSpacing
+	local spacing = settings.layoutPadding
 	local groupAnchor = settings.groupAnchor
 
 	local relPoint, xMult, yMult = getRelativePoint(groupAnchor, horizontal)
@@ -825,12 +942,15 @@ function GridLayout:PlaceGroup(layoutGroup, groupNumber)
 	if groupNumber == 1 then
 		layoutGroup:SetPoint(groupAnchor, self.frame, groupAnchor, spacing * xMult, spacing * yMult)
 	else
+		local xPlus, yPlus = 0, 0
 		if horizontal then
 			xMult = 0
+			xPlus = tonumber(layoutGroup:GetAttribute("gridGroupSpacing")) or 0
 		else
 			yMult = 0
+			yPlus = tonumber(layoutGroup:GetAttribute("gridGroupSpacing")) or 0
 		end
-		layoutGroup:SetPoint(groupAnchor, previousGroup, relPoint, padding * xMult, padding * yMult)
+		layoutGroup:SetPoint(groupAnchor, previousGroup, relPoint, (padding * xMult) + xPlus, (padding * yMult) + yPlus)
 	end
 
 	self:Debug("Placing group", groupNumber, layoutGroup:GetName(), groupNumber == 1 and self.frame:GetName() or groupAnchor, previousGroup and previousGroup:GetName(), relPoint)
@@ -838,26 +958,15 @@ function GridLayout:PlaceGroup(layoutGroup, groupNumber)
 	previousGroup = layoutGroup
 end
 
-function GridLayout:AddLayout(layoutName, layout)
+function GridLayout:AddLayout(name, layout)
 	--self:Debug("AddLayout", layoutName)
-	self.layoutSettings[layoutName] = layout
-	self.LayoutList[layoutName] = layoutName -- for options
+	self.layoutSettings[name] = layout
+	self.LayoutList[name] = layout.name or name -- for options
 end
 
 function GridLayout:ReloadLayout(event)
-	self:Debug("ReloadLayout", event)
 	local party_type = GridRoster:GetPartyState()
-	-- Switch to 10 Player or 25 Player layout if World Raid support is not enabled
-	if party_type == "raid_40" and not self.db.profile.layouts.raid_outside and not IsInInstance() then
-		local difficulty = GetRaidDifficultyID()
-		if difficulty == DIFFICULTY_PRIMARYRAID_MYTHIC or difficulty == DIFFICULTY_RAID25_HEROIC or difficulty == DIFFICULTY_RAID25_NORMAL then
-			party_type = "raid_25"
-		elseif difficulty == DIFFICULTY_RAID10_HEROIC or difficulty == DIFFICULTY_RAID10_NORMAL then
-			party_type = "raid_10"
-		elseif difficutly ~= DIFFICULTY_RAID40 then
-			party_type = "raid_flex"
-		end
-	end
+	self:Debug("ReloadLayout", event, party_type)
 	self:LoadLayout(self.db.profile.layouts[party_type])
 end
 
@@ -890,18 +999,23 @@ function GridLayout:LoadLayout(layoutName)
 
 	-- layout not ready yet
 	if type(layout) ~= "table" then
-		self:Debug("Layout not found")
-		self:UpdateDisplay()
-		return
+		-- Silently fall back to the default layout
+		-- https://wow.curseforge.com/addons/grid/tickets/835
+		layoutName = self.defaultDB.layouts[GridRoster:GetPartyState()]
+		layout = self.layoutSettings[layoutName]
+		self.db.profile.layout = layoutName
+		self:Debug("Layout not found, using default instead:", layoutName)
 	end
 
-	local groupsNeeded, groupsAvailable, petGroupsNeeded, petGroupsAvailable = 0, #self.layoutGroups, 0, #self.layoutPetGroups
+	local showPets = self.db.profile.showPets
+	local groupsNeeded, petGroupsNeeded = 0, 0
+	local groupsAvailable, petGroupsAvailable = #self.layoutGroups, #self.layoutPetGroups
 
 	for i = 1, #layout do
-		if layout[i].isPetGroup then
-			petGroupsNeeded = petGroupsNeeded + 1
-		else
+		if not layout[i].isPetGroup then
 			groupsNeeded = groupsNeeded + 1
+		elseif showPets then
+			petGroupsNeeded = petGroupsNeeded + 1
 		end
 	end
 
@@ -923,29 +1037,40 @@ function GridLayout:LoadLayout(layoutName)
 		self.layoutPetGroups[i]:Reset(true)
 	end
 
+	-- self:Debug("groupsNeeded ", groupsNeeded, "petGroupsNeeded ", petGroupsNeeded)
+
 	-- quit if layout has no groups (eg. None)
-	if #layout == 0 then
+	if groupsNeeded == 0 then
 		self:Debug("No groups found in layout")
 		self:UpdateDisplay()
 		return
 	end
 
 	local defaults = layout.defaults
+	local groupSpacing = tonumber(layout.groupSpacing)
 	local iGroup, iPetGroup = 1, 1
 	-- configure groups
 	for i = 1, #layout do
 		local l = layout[i]
+		if l.isPetGroup and not showPets then
+			-- #TODO: this assumes pet groups are always last
+			break
+		end
 
 		local layoutGroup
-		if l.isPetGroup then
-			layoutGroup = self.layoutPetGroups[iPetGroup]
-			iPetGroup = iPetGroup + 1
-		else
+		if not l.isPetGroup then
 			layoutGroup = self.layoutGroups[iGroup]
 			iGroup = iGroup + 1
+		else
+			layoutGroup = self.layoutPetGroups[iPetGroup]
+			iPetGroup = iPetGroup + 1
 		end
 
 		layoutGroup:Reset()
+		
+		if groupSpacing then
+			layoutGroup:SetAttribute("gridGroupSpacing", groupSpacing)
+		end
 
 		-- apply defaults
 		if defaults then
@@ -953,7 +1078,7 @@ function GridLayout:LoadLayout(layoutName)
 				if attr == "unitsPerColumn" then
 					layoutGroup:SetAttributeByProxy("unitsPerColumn", value)
 					layoutGroup:SetAttributeByProxy("columnAnchorPoint", getColumnAnchorPoint(p.groupAnchor, p.horizontal))
-					layoutGroup:SetAttribute("columnSpacing", p.Padding)
+					layoutGroup:SetAttribute("columnSpacing", p.unitSpacing)
 				elseif attr == "useOwnerUnit" then
 					-- related to fix for using SecureActionButtonTemplate, see GridLayout:CreateHeader()
 					if value == true then
@@ -970,7 +1095,7 @@ function GridLayout:LoadLayout(layoutName)
 			if attr == "unitsPerColumn" then
 				layoutGroup:SetAttributeByProxy("unitsPerColumn", value)
 				layoutGroup:SetAttributeByProxy("columnAnchorPoint", getColumnAnchorPoint(p.groupAnchor, p.horizontal))
-				layoutGroup:SetAttribute("columnSpacing", p.Padding)
+				layoutGroup:SetAttribute("columnSpacing", p.unitSpacing)
 			elseif attr == "useOwnerUnit" then
 				-- related to fix for using SecureActionButtonTemplate, see GridLayout:CreateHeader()
 				if value == true then
@@ -1014,7 +1139,7 @@ end
 
 function GridLayout:UpdateVisibility()
 	--self:Debug("UpdateVisibility")
-	if self.db.profile.layouts[(GridRoster:GetPartyState())] == L["None"] then
+	if self.db.profile.layouts[(GridRoster:GetPartyState())] == "None" then
 		self.frame.backdrop:Hide()
 	else
 		self.frame.backdrop:Show()
@@ -1022,22 +1147,25 @@ function GridLayout:UpdateVisibility()
 end
 
 function GridLayout:UpdateSize()
-	--self:Debug("UpdateSize")
+	self:Debug("UpdateSize")
 	local p = self.db.profile
 	local layoutGroup
 	local x, y
 
 	local groupCount, curWidth, curHeight, maxWidth, maxHeight = -1, 0, 0, 0, 0
 
-	local Padding, Spacing = p.Padding, p.Spacing * 2
+	local unitSpacing, layoutPadding = p.unitSpacing, p.layoutPadding * 2
+
+	-- Update layouts with new size
+	GridLayout:GetModule("GridLayoutManager"):UpdateLayouts()
 
 	for i = 1, #self.layoutGroups do
 		local layoutGroup = self.layoutGroups[i]
 		if layoutGroup:IsVisible() then
 			groupCount = groupCount + 1
 			local width, height = layoutGroup:GetWidth(), layoutGroup:GetHeight()
-			curWidth = curWidth + width + Padding
-			curHeight = curHeight + height + Padding
+			curWidth = curWidth + width + unitSpacing
+			curHeight = curHeight + height + unitSpacing
 			if maxWidth < width then maxWidth = width end
 			if maxHeight < height then maxHeight = height end
 		end
@@ -1048,30 +1176,28 @@ function GridLayout:UpdateSize()
 		if layoutGroup:IsVisible() then
 			groupCount = groupCount + 1
 			local width, height = layoutGroup:GetWidth(), layoutGroup:GetHeight()
-			curWidth = curWidth + width + Padding
-			curHeight = curHeight + height + Padding
+			curWidth = curWidth + width + unitSpacing
+			curHeight = curHeight + height + unitSpacing
 			if maxWidth < width then maxWidth = width end
 			if maxHeight < height then maxHeight = height end
 		end
 	end
 
 	if p.horizontal then
-		x = maxWidth + Spacing
-		y = curHeight + Spacing
+		x = maxWidth + layoutPadding
+		y = curHeight + layoutPadding
 	else
-		x = curWidth + Spacing
-		y = maxHeight + Spacing
+		x = curWidth + layoutPadding
+		y = maxHeight + layoutPadding
 	end
 
-	self.frame:SetWidth(x)
-	self.frame:SetHeight(y)
-	self.frame:SetClampRectInsets(p.Spacing, -p.Spacing, -p.Spacing, p.Spacing)
+	self.frame:SetSize(x, y)
+	self.frame:SetClampRectInsets(p.layoutPadding, -p.layoutPadding, -p.layoutPadding, p.layoutPadding)
 end
 
 function GridLayout:UpdateColor()
 	--self:Debug("UpdateColor")
 	local settings = self.db.profile
-
 
 	local backdrop = self.frame.backdrop:GetBackdrop()
 	backdrop.bgFile = Media:Fetch(Media.MediaType.BACKGROUND, settings.backgroundTexture)
@@ -1171,7 +1297,7 @@ end
 function GridLayout:Scale()
 	--self:Debug("Scale")
 	self:SavePosition()
-	self.frame:SetScale(self.db.profile.ScaleSize)
+	self.frame:SetScale(self.db.profile.scale)
 	self:RestorePosition()
 end
 
@@ -1208,8 +1334,8 @@ function GridLayout:FakeSize(width, height)
 	local frameWidth = f:GetWidth()
 	local frameHeight = f:GetHeight()
 
-	local x = frameWidth * width + (width - 1) * p.Padding + p.Spacing * 2
-	local y = frameHeight * height + (height - 1) * p.Padding + p.Spacing * 2
+	local x = frameWidth * width + (width - 1) * p.unitSpacing + p.layoutPadding * 2
+	local y = frameHeight * height + (height - 1) * p.unitSpacing + p.layoutPadding * 2
 
 	self.frame:SetWidth(x)
 	self.frame:SetHeight(y)

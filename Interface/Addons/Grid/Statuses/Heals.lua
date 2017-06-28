@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	Heals.lua
 	Grid status module for incoming heals.
@@ -106,6 +106,9 @@ function GridStatusHeals:UpdateUnit(event, unit)
 
 	if UnitIsVisible(unit) and not UnitIsDeadOrGhost(unit) then
 		local incoming = UnitGetIncomingHeals(unit) or 0
+		if incoming > 0 then
+			self:Debug("UpdateUnit", unit, incoming, UnitGetIncomingHeals(unit, "player") or 0, format("%.2f%%", incoming / UnitHealthMax(unit) * 100))
+		end
 		if settings.ignore_self then
 			incoming = incoming - (UnitGetIncomingHeals(unit, "player") or 0)
 		end

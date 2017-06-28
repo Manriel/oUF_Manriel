@@ -1,12 +1,12 @@
 --[[--------------------------------------------------------------------
 	Grid
 	Compact party and raid unit frames.
-	Copyright (c) 2006-2014 Kyle Smith (Pastamancer), Phanx
-	All rights reserved.
-	See the accompanying README and LICENSE files for more information.
+	Copyright (c) 2006-2009 Kyle Smith (Pastamancer)
+	Copyright (c) 2009-2016 Phanx <addons@phanx.net>
+	All rights reserved. See the accompanying LICENSE file for details.
+	https://github.com/Phanx/Grid
+	https://mods.curse.com/addons/wow/grid
 	http://www.wowinterface.com/downloads/info5747-Grid.html
-	http://www.wowace.com/addons/grid/
-	http://www.curse.com/addons/wow/grid
 ------------------------------------------------------------------------
 	GridRoster.lua
 	Keeps track of GUID <-> name <-> unitID mappings for party/raid members.
@@ -257,65 +257,45 @@ do
 	GridRoster.party_states = {
 		"solo",
 		"party",
-		"raid_25",
-		"raid_10",
-		"raid_40",
-		"raid_flex",
+		"raid",
 		"arena",
 		"bg",
 	}
 
-	local lastRaidType
-
 	local function GetPartyState()
-		local _, instanceType = IsInInstance()
-
+		local _, instanceType, _, _, maxPlayers = GetInstanceInfo()
+		if maxPlayers == 0 then
+			maxPlayers = nil
+		end
 		if instanceType == "arena" then
-			return "arena"
-		end
-
-		if instanceType == "pvp" or (instanceType == "none" and GetZonePVPInfo() == "combat") then
-			return "bg"
-		end
-
-		if IsInRaid() then
-			if instanceType == "raid" then
-				local _, _, difficultyID, _, maxPlayers = GetInstanceInfo()
-				if difficultyID == DIFFICULTY_PRIMARYRAID_LFR or difficultyID == DIFFICULTY_PRIMARYRAID_NORMAL or difficultyID == DIFFICULTY_PRIMARYRAID_HEROIC then
-					lastRaidType = "raid_flex"
-				elseif maxPlayers == 20 or maxPlayers == 25 then
-					-- TEMPORARY, use 25 player raid layout for mythic
-					lastRaidType = "raid_25"
-				elseif maxPlayers == 10 then
-					lastRaidType = "raid_10"
-				else
-					lastRaidType = "raid_40"
-				end
-				return lastRaidType
-			else
-				return lastRaidType or "raid_40"
-			end
+			return "arena", maxPlayers or 5
+		elseif instanceType == "pvp" or (instanceType == "none" and GetZonePVPInfo() == "combat") then
+			return "bg",    maxPlayers or 40
+		elseif maxPlayers == 1 or not IsInGroup() then -- treat solo scenarios as solo, not party or raid
+			return "solo",  1
+		elseif IsInRaid() then
+			return "raid",  maxPlayers or 40
 		else
-			lastRaidType = nil
+			-- In the world, maxPlayers is 40 even when in just a party
+			-- when not in a raid, pvp, arena, or bg use 5
+			-- return "party", maxPlayers or 5
+			return "party", 5
 		end
-
-		if IsInGroup() then
-			return "party"
-		end
-
-		return "solo"
 	end
 
+	local last_maxPlayers
+
 	function GridRoster:PartyTransitionCheck()
-		local current_state = GetPartyState()
+		local current_state, maxPlayers = GetPartyState()
 		local old_state = self.db.profile.party_state
-		if current_state ~= old_state then
+		if current_state ~= old_state or last_maxPlayers ~= maxPlayers then
 			self.db.profile.party_state = current_state
+			last_maxPlayers = maxPlayers
 			self:SendMessage("Grid_PartyTransition", current_state, old_state)
 		end
 	end
 
 	function GridRoster:GetPartyState()
-		return self.db.profile.party_state
+		return self.db.profile.party_state, last_maxPlayers
 	end
 end

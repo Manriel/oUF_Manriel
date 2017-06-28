@@ -102,6 +102,8 @@ obj["skillIcons"]	= { label="Skill Icons", tooltip="Display options for skill ic
 
 obj = L.CHECKBOXES
 obj["enableMSBT"]				= { label="Enable Mik's Scrolling Battle Text", tooltip="Enable MSBT."}
+obj["enableBlizzardDamage"]		= { label="Enable Blizzard Damage", tooltip="Enable Blzzard's floating text damage."}
+obj["enableBlizzardHealing"]	= { label="Enable Blizzard Healing", tooltip="Enable Blzzard's floating text healing."}
 obj["stickyCrits"]				= { label="Sticky Crits", tooltip="Display crits using the sticky style."}
 obj["enableSounds"]				= { label="Enable Sounds", tooltip="Play sounds that are assigned to events and triggers."}
 obj["textShadowing"]			= { label="Text Shadowing", tooltip="Apply a shadow effect to text to improve font crispness."}
@@ -139,6 +141,7 @@ obj["enablePetCooldowns"]		= { label="Pet Cooldowns", tooltip="Display notificat
 obj["enableItemCooldowns"]		= { label="Item Cooldowns", tooltip="Display notifications when item cooldowns complete."}
 obj["lootedItems"]				= { label="Looted Items", tooltip="Display notifications when items are looted."}
 obj["moneyGains"]				= { label="Money Gains", tooltip="Enable money you gain."}
+obj["currencyGains"]			= { label="Currency Gains", tooltip="Display notifications for gained currency."}
 obj["alwaysShowQuestItems"]		= { label="Always show quest items", tooltip="Always show quest items regardless of quality selections."}
 obj["enableIcons"]				= { label="Enable Skill Icons", tooltip="Displays icons for events that have a skill when possible."}
 obj["exclusiveSkills"]			= { label="Exclusive Skill Names", tooltip="Only show skill names when an icon is not available."}

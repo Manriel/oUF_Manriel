@@ -1,4 +1,4 @@
-﻿local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "frFR" )
+local L = LibStub( "AceLocale-3.0" ):NewLocale( "ArkInventory", "frFR" )
 if not L then return end
 
 -- post updated translations at http://groups.google.com/group/wow-arkinventory (modify this file and include as an attachment)
@@ -32,6 +32,14 @@ if not L then return end
 	L["WOW_ITEM_TOOLTIP_POTION_MANA"] = "Rend %d+ point de mana en %d+ sec"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_BATTLE"] = "Elixir de bataille"
 	L["WOW_ITEM_TOOLTIP_ELIXIR_GUARDIAN"] = "Elixir du gardien"
+	L["WOW_ITEM_TOOLTIP_10P3T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P3S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P6T"] = "million,millions"
+--	L["WOW_ITEM_TOOLTIP_10P6S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P9T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P9S"] = ""
+	L["WOW_ITEM_TOOLTIP_10P12T"] = ""
+--	L["WOW_ITEM_TOOLTIP_10P12S"] = ""
 	
 	
 --	location names
@@ -46,15 +54,21 @@ if not L then return end
 	
 -- status bar/bag text
 	L["STATUS_NO_DATA"] = "Aucune information"
-	L["STATUS_FULL"] = "Plein"
 	L["STATUS_PURCHASE"] = "Acheté"
 	
 	
 --	restack
---	L["RESTACK"] = "Empiler les objets"
+	L["RESTACK"] = "Empiler les objets"
 	L["RESTACK_TEXT"] = "Empiler les objets pouvant l'être et essai de remplir les emplacements vide des sacs spéciaux"
 	L["RESTACK_FAIL_WAIT"] = "Une opération d'empilage est en cours, veuillez attendre qu'elle se termine"
 	L["RESTACK_FAIL_ACCESS"] = "Vous n'avez pas l'autorisation pour empiler le casier %2$s de la %1$s"
+--	L["RESTACK_FAIL_CLOSED"] = ""
+--	L["RESTACK_TYPE"] = ""
+--	L["RESTACK_CLEANUP_DEPOSIT"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS"] = ""
+--	L["RESTACK_TOPUP_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_FILL_FROM_BAGS_TEXT"] = ""
+--	L["RESTACK_REFRESH_WHEN_COMPLETE"] = ""
 	
 	
 --	vault tab tooltips
@@ -64,12 +78,9 @@ if not L then return end
 	L["VAULT_TAB_REMAINING_WITHDRAWALS"] = "Retrait journalier restant: |cffffffff%1$s|r"
 	
 	
---	category "header" descriptions  (does not have to match wow)
-	L["CATEGORY_RULE"] = "Règle"
-	
-	
 --	system category descriptions
 	L["CATEGORY_SYSTEM_CORE_MATS"] = "Matière première"
+--	L["CATEGORY_SYSTEM_MYTHIC_KEYSTONE"] = ""
 	
 	
 --	consumable category descriptions
@@ -81,25 +92,25 @@ if not L then return end
 	
 	
 --	bag names - used to name the empty slots in the status frame
-	L["STATUS_NAME_BAG"] = "Sac"
---	L["STATUS_NAME_COOKING"] = ""
-	L["STATUS_NAME_CRITTER"] = "Comp"
-	L["STATUS_NAME_ENCHANTING"] = "Ench"
-	L["STATUS_NAME_ENGINEERING"] = "Ing"
-	L["STATUS_NAME_GEAR"] = "Equip"
-	L["STATUS_NAME_GEM"] = "Gemme"
---	L["STATUS_NAME_HEIRLOOM"] = ""
-	L["STATUS_NAME_HERB"] = "Herbe"
-	L["STATUS_NAME_INSCRIPTION"] = "Calli"
-	L["STATUS_NAME_KEY"] = "Clé"
-	L["STATUS_NAME_LEATHERWORKING"] = "Cuir"
-	L["STATUS_NAME_MAIL"] = "Courrier"
-	L["STATUS_NAME_MINING"] = "Minerai"
-	L["STATUS_NAME_MOUNT"] = "Monture"
---	L["STATUS_NAME_REAGENTBANK"] = ""
---	L["STATUS_NAME_TACKLE"] = ""
-	L["STATUS_NAME_TOKEN"] = "Insigne"
---	L["STATUS_NAME_TOY"] = ""
+	L["STATUS_SHORTNAME_BAG"] = "Sac"
+--	L["STATUS_SHORTNAME_COOKING"] = ""
+	L["STATUS_SHORTNAME_CRITTER"] = "Comp"
+	L["STATUS_SHORTNAME_ENCHANTING"] = "Ench"
+	L["STATUS_SHORTNAME_ENGINEERING"] = "Ing"
+	L["STATUS_SHORTNAME_GEAR"] = "Equip"
+	L["STATUS_SHORTNAME_GEM"] = "Gemme"
+--	L["STATUS_SHORTNAME_HEIRLOOM"] = ""
+	L["STATUS_SHORTNAME_HERB"] = "Herbe"
+	L["STATUS_SHORTNAME_INSCRIPTION"] = "Calli"
+	L["STATUS_SHORTNAME_KEY"] = "Clé"
+	L["STATUS_SHORTNAME_LEATHERWORKING"] = "Cuir"
+	L["STATUS_SHORTNAME_MAIL"] = "Courrier"
+	L["STATUS_SHORTNAME_MINING"] = "Minerai"
+	L["STATUS_SHORTNAME_MOUNT"] = "Monture"
+--	L["STATUS_SHORTNAME_REAGENTBANK"] = ""
+--	L["STATUS_SHORTNAME_TACKLE"] = ""
+	L["STATUS_SHORTNAME_TOKEN"] = "Insigne"
+--	L["STATUS_SHORTNAME_TOY"] = ""
 	
 	
 --	main menu
@@ -118,8 +129,9 @@ if not L then return end
 	
 --	actions menu
 --	L["MENU_ACTION"] = ""
-	L["MENU_ACTION_REFRESH"] = "Réactualiser"
 	L["MENU_ACTION_REFRESH_TEXT"] = "Réactualiser la fenêtre"
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE"] = ""
+--	L["MENU_ACTION_REFRESH_CLEAR_CACHE_TEXT"] = ""
 	L["MENU_ACTION_RELOAD_TEXT"] = "Recharger la fenêtre."
 	L["MENU_ACTION_EDITMODE"] = "Mode édition"
 	L["MENU_ACTION_EDITMODE_TEXT"] = "Basculer en mode édition, ce qui vous permet de changer la catégorie des objets"
@@ -159,6 +171,9 @@ if not L then return end
 --	L["MENU_ITEM_DEBUG_PT_TEXT"] = ""
 --	L["MENU_ITEM_DEBUG_PT_NONE"] = ""
 --	L["MENU_ITEM_DEBUG_PT_TITLE"] = ""
+--	L["MENU_ITEM_DEBUG_SOURCE"] = ""
+--	L["MENU_ITEM_DEBUG_BONUS"] = ""
+--	L["MENU_ITEM_DEBUG_ITEMSTRING"] = ""
 	
 	
 --	bar menu
@@ -170,15 +185,32 @@ if not L then return end
 	L["MENU_BAR_CATEGORY_HIDDEN_TEXT"] = "Cliquer pour changer le status cacher de la catégorie.\n\nLes objets dans la catégorie cachée n'apparaitront pas en mode normal"
 --	L["MENU_BAR_CATEGORY_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_CATEGORY_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_ENABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_DISABLE_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS"] = ""
+--	L["MENU_BAR_CATEGORY_STATUS_TEXT"] = ""
+--	L["MENU_BAR_CATEGORY_JUNK_TEXT"] = ""
 --	L["MENU_BAR_BAG_ASSIGN_TEXT"] = ""
 	L["MENU_BAR_OPTIONS"] = "Options des groupes"
-	L["MENU_BAR_CLEAR_TEXT"] = "Supprimer toutes les catégories assignées actuellement à ce groupe sauf la catégorie par défaut"
+	L["MENU_BAR_RESET_TEXT"] = "Supprimer toutes les catégories assignées actuellement à ce groupe sauf la catégorie par défaut"
 	L["MENU_BAR_INSERT_TEXT"] = "Insérer un groupe vide ici en déplacant toutes les catégories d'un groupe vers le haut"
-	L["MENU_BAR_REMOVE_TEXT"] = "Remettre toutes les catégories de ce groupe vers le groupe par défaut et déplacer tous les groupes au-dessus de celui-ci d'un groupe vers le bas.\n\nSi la catégorie par défaut est dans ce groupe elle va retourner vers le groupe 1"
+	L["MENU_BAR_DELETE_TEXT"] = "Remettre toutes les catégories de ce groupe vers le groupe par défaut et déplacer tous les groupes au-dessus de celui-ci d'un groupe vers le bas.\n\nSi la catégorie par défaut est dans ce groupe elle va retourner vers le groupe 1"
 --	L["MENU_BAR_MOVE_START_TEXT"] = ""
 --	L["MENU_BAR_MOVE_COMPLETE_TEXT"] = ""
+--	L["MENU_BAR_MOVE_FAIL_OUTSIDE"] = ""
+--	L["MENU_BAR_MOVE_FAIL_SAME"] = ""
 --	L["MENU_BAR_SORTKEY_TEXT"] = ""
 --	L["MENU_BAR_SORTKEY_DEFAULT_RESET_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BORDER_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_BACKGROUND_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_DEFAULT_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_CUSTOM_TEXT"] = ""
+--	L["MENU_BAR_COLOUR_NAME_TEXT"] = ""
+--	L["MENU_LOCKED_TEXT"] = ""
 	
 	
 --	changer bag menu
@@ -189,7 +221,6 @@ if not L then return end
 	L["MENU_BAG_ISOLATE_TEXT"] = "Afficher seulement le contenu de ce sac"
 	L["MENU_BAG_SHOWALL"] = "Afficher tous"
 	L["MENU_BAG_SHOWALL_TEXT"] = "Afficher le contenu de tous les sacs de cette emplacement"
---	L["MENU_BAG_EMPTY"] = ""
 --	L["MENU_BAG_EMPTY_TEXT"] = ""
 	
 	
@@ -198,7 +229,6 @@ if not L then return end
 	L["CONFIG_TEXT"] = "Menu de configuration"
 	
 --	configuration options > system
-	L["CONFIG_SYSTEM"] = "Système"
 	L["CONFIG_SYSTEM_TEXT"] = "Options système"
 	
 	L["CONFIG_SYSTEM_FONT_TEXT"] = "Sélectionner la police de caractère à utiliser"
@@ -209,7 +239,17 @@ if not L then return end
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_MEDIUM"] = ""
 --	L["CONFIG_SYSTEM_FRAMESTRATA_LEVEL_HIGH"] = ""
 	
---	L["CONFIG_SYSTEM_RESTACK_TEXT"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW"] = ""
+--	L["CONFIG_SYSTEM_REPOSITION_ONSHOW_TEXT"] = ""
+	
+--	L["CONFIG_SORTING_WHEN"] = ""
+--	L["CONFIG_SORTING_WHEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT"] = ""
+--	L["CONFIG_SORTING_WHEN_INSTANT_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN"] = ""
+--	L["CONFIG_SORTING_WHEN_OPEN_TEXT"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL"] = ""
+--	L["CONFIG_SORTING_WHEN_MANUAL_TEXT"] = ""
 	
 	L["CONFIG_SYSTEM_TOOLTIP"] = "Bulle d'information"
 	L["CONFIG_SYSTEM_TOOLTIP_ENABLE_TEXT"] = "Montrer les informations supplémentaires dans la bulle d'information"
@@ -267,6 +307,12 @@ if not L then return end
 --	L["CONFIG_SYSTEM_MESSAGES_TRANSLATION_FINAL_TEXT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT"] = ""
 --	L["CONFIG_SYSTEM_MESSAGES_BATTLEPET_OPPONENT_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_BAG_UNKNOWN_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_HOOKED_TEXT"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION"] = ""
+--	L["CONFIG_SYSTEM_MESSAGES_RULES_REGISTRATION_TEXT"] = ""
 	
 --	L["CONFIG_SYSTEM_TIMERS"] = ""
 --	L["CONFIG_SYSTEM_TIMERS_TEXT"] = ""
@@ -275,7 +321,7 @@ if not L then return end
 --	configuration options > auto
 	L["CONFIG_AUTO"] = "Ouvrir/Fermer automatique"
 	
-	L["CONFIG_AUTO_OPEN"] = "Ouvre le %2$s %1$s quand vous ouvrez %3$s"
+--	L["CONFIG_AUTO_OPEN"] = "Ouvre le %2$s %1$s quand vous ouvrez %3$s"
 	L["CONFIG_AUTO_OPEN_BANK"] = "la banque"
 	L["CONFIG_AUTO_OPEN_VAULT"] = "la banque de guilde"
 	L["CONFIG_AUTO_OPEN_MAIL"] = "une boîte aux lettres"
@@ -284,7 +330,7 @@ if not L then return end
 	L["CONFIG_AUTO_OPEN_AUCTION"] = "un hotel des ventes"
 --	L["CONFIG_AUTO_OPEN_VOID"] = ""
 	
-	L["CONFIG_AUTO_CLOSE"] = "Fermer le %2$s %1$s quand vous fermez %3$s"
+--	L["CONFIG_AUTO_CLOSE"] = "Fermer le %2$s %1$s quand vous fermez %3$s"
 	L["CONFIG_AUTO_CLOSE_BANK"] = "la banque"
 	L["CONFIG_AUTO_CLOSE_VAULT"] = "la banque de guilde"
 	L["CONFIG_AUTO_CLOSE_MAIL"] = "une boîte aux lettres"
@@ -296,12 +342,9 @@ if not L then return end
 	
 	
 --	configuration options > control
-	L["CONFIG_CONTROL"] = "Contrôle"
-	
 	L["CONFIG_CONTROL_MONITOR"] = "Surveiller"
 	L["CONFIG_CONTROL_MONITOR_TEXT"] = "Surveiller les changements dans les données de %1$s pour le personnage (%2$s)"
 	L["CONFIG_CONTROL_SAVE_TEXT"] = "Sauver les données de %1$s pour le personnage (%2$s) pour que vous puissiez le voir depuis un autre personnage"
---	L["CONFIG_CONTROL_NOTIFY_ERASE"] = ""
 --	L["CONFIG_CONTROL_NOTIFY_ERASE_TEXT"] = ""
 	L["CONFIG_CONTROL_OVERRIDE"] = "Remplacer"
 	L["CONFIG_CONTROL_OVERRIDE_TEXT"] = "Remplacer le %2$s original de Blizzard pour qu'%1$s le contrôle\n\nDésactiver cette option vous fera revenir aux fonctionnalitées de %2$s standards de Blizzard\n\nIl sera toujours possible d'ouvrir le %2$s d'%1$s quand cette option est désactivée mais vous devrez configurer et utiliser une combinaison de touche à la place"
@@ -309,114 +352,147 @@ if not L then return end
 	L["CONFIG_CONTROL_ANCHOR_LOCK_TEXT"] = "Vérrouiller la fenêtre %1$s pour qu'elle ne puisse plus être déplacée"
 --	L["CONFIG_CONTROL_REPOSITION_NOW"] = ""
 --	L["CONFIG_CONTROL_REPOSITION_NOW_TEXT"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD"] = ""
---	L["CONFIG_CONTROL_REPOSITION_ONLOAD_TEXT"] = ""
-	L["CONFIG_CONTROL_SETTINGS_TEXT"] = "Sélectionner quels paramètres utiliser lors de la génération de la fenêtre %1$s"
+	L["CONFIG_CONTROL_BLUEPRINT_TEXT"] = "Sélectionner quels paramètres utiliser lors de la génération de la fenêtre %1$s"
 	
 	
---	configuration options > settings
-	L["CONFIG_SETTINGS"] = "Paramètres"
+--	configuration settings > design
+--	L["CONFIG_DESIGN"] = ""
+--	L["CONFIG_DESIGN_PLURAL"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME"] = "Fenêtre"
+--	L["CONFIG_STYLE"] = ""
+--	L["CONFIG_STYLE_PLURAL"] = ""
+--	L["CONFIG_STYLE_DESCRIPTION"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_HIDE_TEXT"] = ""
+--	L["CONFIG_LAYOUT"] = ""
+--	L["CONFIG_LAYOUT_PLURAL"] = ""
+--	L["CONFIG_LAYOUT_DESCRIPTION"] = ""
 	
-	L["CONFIG_SETTINGS_FRAME_SCALE_TEXT"] = "Définir l'échelle. Agrandie ou diminue la taille de la fenêtre"
-	L["CONFIG_SETTINGS_FRAME_PADDING_TEXT"] = "Définir l'espace entre le bord de la fenêtre et les groupes"
-	L["CONFIG_SETTINGS_FRAME_WIDTH_TEXT"] = "Définir le nombre maximum d'objets à afficher sur une ligne"
---	L["CONFIG_SETTINGS_FRAME_HEIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_BACKGROUND_COLOUR_TEXT"] = "Définir la couleur de fond de la fenêtre principale"
-	L["CONFIG_SETTINGS_FRAME_BORDER_SHOW_TEXT"] = "Afficher une bordure autour de la fenêtre principale"
-	L["CONFIG_SETTINGS_FRAME_BORDER_STYLE_TEXT"] = "Définir le style de la bordure de la fenêtre principale"
-	L["CONFIG_SETTINGS_FRAME_BORDER_COLOUR_TEXT"] = "Définir la couleur de la bordure de la fenêtre principale"
+	L["CONFIG_DESIGN_WINDOW"] = "Fenêtre"
+	L["CONFIG_DESIGN_WINDOW_SCALE_TEXT"] = "Définir l'échelle. Agrandie ou diminue la taille de la fenêtre"
+	L["CONFIG_DESIGN_WINDOW_PADDING_TEXT"] = "Définir l'espace entre le bord de la fenêtre et les groupes"
+	L["CONFIG_DESIGN_WINDOW_WIDTH_TEXT"] = "Définir le nombre maximum d'objets à afficher sur une ligne"
+--	L["CONFIG_DESIGN_WINDOW_HEIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_WINDOW_BACKGROUND_COLOUR_TEXT"] = "Définir la couleur de fond de la fenêtre principale"
+	L["CONFIG_DESIGN_WINDOW_BORDER_SHOW_TEXT"] = "Afficher une bordure autour de la fenêtre principale"
+	L["CONFIG_DESIGN_WINDOW_BORDER_STYLE_TEXT"] = "Définir le style de la bordure de la fenêtre principale"
+	L["CONFIG_DESIGN_WINDOW_BORDER_COLOUR_TEXT"] = "Définir la couleur de la bordure de la fenêtre principale"
 	
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT"] = "Couleur de surbrillance du sac"
---	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
-	L["CONFIG_SETTINGS_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "Définir la couleur utilisée pour mettre en surbrillance les emplacements quand la souris passe sur un sac"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE"] = "Compteur d'emplacement vide"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_TEXT"] = "Montrer le compteur d'emplacements vides sur les sacs"
-	L["CONFIG_SETTINGS_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "Définir la couleur du texte du compteur d'emplacements vides"
+--	L["CONFIG_DESIGN_FRAME_HIDE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY"] = ""
---	L["CONFIG_SETTINGS_FRAME_STATUS_EMPTY_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT"] = "Couleur de surbrillance du sac"
+--	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_TEXT"] = ""
+	L["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"] = "Définir la couleur utilisée pour mettre en surbrillance les emplacements quand la souris passe sur un sac"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE"] = "Compteur d'emplacement vide"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_TEXT"] = "Montrer le compteur d'emplacements vides sur les sacs"
+	L["CONFIG_DESIGN_FRAME_CHANGER_FREE_COLOUR_TEXT"] = "Définir la couleur du texte du compteur d'emplacements vides"
 	
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_NORMAL"] = ""
---	L["CONFIG_SETTINGS_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY"] = ""
+--	L["CONFIG_DESIGN_FRAME_STATUS_EMPTY_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_BARS"] = "Groupes"
-	L["CONFIG_SETTINGS_BARS_PER_ROW"] = "Nombre par Ligne"
-	L["CONFIG_SETTINGS_BARS_PER_ROW_TEXT"] = "Définir le nombre de groupes à afficher pour chaque ligne"
-	L["CONFIG_SETTINGS_BARS_BACKGROUND_TEXT"] = "Définir la couleur de fond des groupes"
-	L["CONFIG_SETTINGS_BARS_COMPACT"] = "Compacte"
-	L["CONFIG_SETTINGS_BARS_COMPACT_TEXT"] = "Afficher tous les groupes non vides par ordre séquentiel"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY"] = "Afficher quand vides"
-	L["CONFIG_SETTINGS_BARS_SHOW_EMPTY_TEXT"] = "Afficher les groupes vides"
-	L["CONFIG_SETTINGS_BARS_PADDING_INTERNAL_TEXT"] = "Définir l'espace entre le groupe et les objets"
-	L["CONFIG_SETTINGS_BARS_PADDING_EXTERNAL_TEXT"] = "Définir l'espace entre les groupes"
-	L["CONFIG_SETTINGS_BARS_BORDER_TEXT"] = "Afficher une bordure autour de chaque groupe"
-	L["CONFIG_SETTINGS_BARS_BORDER_STYLE_TEXT"] = "Définir le style de bordure des groupes"
-	L["CONFIG_SETTINGS_BARS_BORDER_COLOUR_TEXT"] = "Définir la couleur de la bordure des groupes"
-	L["CONFIG_SETTINGS_BARS_NAME_TEXT"] = "Définir le nom de ce groupe"
-	L["CONFIG_SETTINGS_BARS_NAME_SHOW_TEXT"] = "Afficher le nom des groupes"
-	L["CONFIG_SETTINGS_BARS_NAME_COLOUR_TEXT"] = "Définir la couleur du nom de groupe"
---	L["CONFIG_SETTINGS_BARS_NAME_HEIGHT_TEXT"] = ""
---	L["CONFIG_SETTINGS_BARS_NAME_ANCHOR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_LABEL_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_SEARCH_TEXT_COLOUR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_PADDING_TEXT"] = "Définir le nombre d'espace entre les emplacements d'objet"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN"] = "Montrer caché"
-	L["CONFIG_SETTINGS_ITEMS_HIDDEN_TEXT"] = "Montrer les catégories cachées"
-	L["CONFIG_SETTINGS_ITEMS_FADE"] = "Assombrir inaccessible"
-	L["CONFIG_SETTINGS_ITEMS_FADE_TEXT"] = "Assombrir les objets inaccessibles"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE"] = "Teinter inutilisable"
-	L["CONFIG_SETTINGS_ITEMS_TINT_USABLE_TEXT"] = "Teinter les objets inutilisables en rouge"
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_ITEMLEVEL_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_NORMAL"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_SIZE_THIN"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_ONLINE_COLOUR_TEXT"] = ""
+--	L["CONFIG_DESIGN_FRAME_TITLE_OFFLINE_COLOUR_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_SHOW_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_GLOBAL_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_COOLDOWN_COMBAT_TEXT"] = ""
+	L["CONFIG_DESIGN_BAR"] = "Groupes"
+	L["CONFIG_DESIGN_BAR_PER_ROW"] = "Nombre par Ligne"
+	L["CONFIG_DESIGN_BAR_PER_ROW_TEXT"] = "Définir le nombre de groupes à afficher pour chaque ligne"
+	L["CONFIG_DESIGN_BAR_BACKGROUND_TEXT"] = "Définir la couleur de fond des groupes"
+	L["CONFIG_DESIGN_BAR_COMPACT"] = "Compacte"
+	L["CONFIG_DESIGN_BAR_COMPACT_TEXT"] = "Afficher tous les groupes non vides par ordre séquentiel"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY"] = "Afficher quand vides"
+	L["CONFIG_DESIGN_BAR_SHOW_EMPTY_TEXT"] = "Afficher les groupes vides"
+	L["CONFIG_DESIGN_BAR_PADDING_INTERNAL_TEXT"] = "Définir l'espace entre le groupe et les objets"
+	L["CONFIG_DESIGN_BAR_PADDING_EXTERNAL_TEXT"] = "Définir l'espace entre les groupes"
+	L["CONFIG_DESIGN_BAR_BORDER_TEXT"] = "Afficher une bordure autour de chaque groupe"
+	L["CONFIG_DESIGN_BAR_BORDER_STYLE_TEXT"] = "Définir le style de bordure des groupes"
+	L["CONFIG_DESIGN_BAR_BORDER_COLOUR_TEXT"] = "Définir la couleur de la bordure des groupes"
+	L["CONFIG_DESIGN_BAR_NAME_TEXT"] = "Définir le nom de ce groupe"
+	L["CONFIG_DESIGN_BAR_NAME_SHOW_TEXT"] = "Afficher le nom des groupes"
+	L["CONFIG_DESIGN_BAR_NAME_COLOUR_TEXT"] = "Définir la couleur du nom de groupe"
+--	L["CONFIG_DESIGN_BAR_NAME_HEIGHT_TEXT"] = ""
+--	L["CONFIG_DESIGN_BAR_NAME_ANCHOR_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_ITEMS_BORDER_SHOW_TEXT"] = "Montrer une bordure autour des objets"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_STYLE_TEXT"] = "Définir le style de bordure des objets"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY"] = "Couleur de rareté"
-	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_TEXT"] = "Colorer la bordure des objets en fonction de leurs raretés (Commun, Rare, Epique, etc)"
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF"] = ""
---	L["CONFIG_SETTINGS_ITEMS_BORDER_RARITY_CUTOFF_TEXT"] = ""
-	L["CONFIG_SETTINGS_ITEMS_BORDER_TEXTURE_OFFSET_TEXT"] = "Définir le nombre de pixels entre le bord extérieur des images et l'intérieur de la bordure (Utiliser pour réaligner la bordure sur la texture des objets)"
+	L["CONFIG_DESIGN_ITEM_PADDING_TEXT"] = "Définir le nombre d'espace entre les emplacements d'objet"
+	L["CONFIG_DESIGN_ITEM_HIDDEN"] = "Montrer caché"
+	L["CONFIG_DESIGN_ITEM_HIDDEN_TEXT"] = "Montrer les catégories cachées"
+	L["CONFIG_DESIGN_ITEM_FADE"] = "Assombrir inaccessible"
+	L["CONFIG_DESIGN_ITEM_FADE_TEXT"] = "Assombrir les objets inaccessibles"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE"] = "Teinter inutilisable"
+	L["CONFIG_DESIGN_ITEM_TINT_USABLE_TEXT"] = "Teinter les objets inutilisables en rouge"
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS"] = ""
+--	L["CONFIG_DESIGN_ITEM_COMPRESS_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW"] = ""
+--	L["CONFIG_DESIGN_ITEM_ITEMCOUNT_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE"] = ""
+--	L["CONFIG_DESIGN_ITEM_UPGRADE_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE"] = ""
+--	L["CONFIG_DESIGN_ITEM_SIZE_TEXT"] = ""
 	
---	L["CONFIG_SETTINGS_ITEMS_NEW"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_ENABLED_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_CUTOFF_TEXT"] = ""
---	L["CONFIG_SETTINGS_ITEMS_NEW_RESET_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_SHOW_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_GLOBAL_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT"] = ""
+--	L["CONFIG_DESIGN_ITEM_COOLDOWN_COMBAT_TEXT"] = ""
+	
+	L["CONFIG_DESIGN_ITEM_BORDER_SHOW_TEXT"] = "Montrer une bordure autour des objets"
+	L["CONFIG_DESIGN_ITEM_BORDER_STYLE_TEXT"] = "Définir le style de bordure des objets"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY"] = "Couleur de rareté"
+	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_TEXT"] = "Colorer la bordure des objets en fonction de leurs raretés (Commun, Rare, Epique, etc)"
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF"] = ""
+--	L["CONFIG_DESIGN_ITEM_BORDER_RARITY_CUTOFF_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_BORDER_TEXTURE_OFFSET_TEXT"] = "Définir le nombre de pixels entre le bord extérieur des images et l'intérieur de la bordure (Utiliser pour réaligner la bordure sur la texture des objets)"
+	
+--	L["CONFIG_DESIGN_ITEM_NEW"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_ENABLED_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_CUTOFF_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_NEW_RESET_TEXT"] = ""
 
-	L["CONFIG_SETTINGS_ITEMS_AGE"] = "Nouveaux objets"
-	L["CONFIG_SETTINGS_ITEMS_AGE_SHOW_TEXT"] = "Basculer l'afficher de l'indicateur de nouvel objet pour la fenêtre de %s"
-	L["CONFIG_SETTINGS_ITEMS_AGE_COLOUR_TEXT"] = "Définir la couleur de texte de l'indicateur de nouveaux objets"
---	L["CONFIG_SETTINGS_ITEMS_AGE_CUTOFF_TEXT"] = ""
+	L["CONFIG_DESIGN_ITEM_AGE"] = "Nouveaux objets"
+	L["CONFIG_DESIGN_ITEM_AGE_SHOW_TEXT"] = "Basculer l'afficher de l'indicateur de nouvel objet pour la fenêtre de %s"
+	L["CONFIG_DESIGN_ITEM_AGE_COLOUR_TEXT"] = "Définir la couleur de texte de l'indicateur de nouveaux objets"
+--	L["CONFIG_DESIGN_ITEM_AGE_CUTOFF_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_SORTING_OPEN"] = "Ouverture de la fenêtre"
-	L["CONFIG_SETTINGS_SORTING_OPEN_TEXT"] = "Activer pour faire un tri à l'ouverture de la fenêtre"
-	L["CONFIG_SETTINGS_SORTING_INSTANT"] = "Instantané"
-	L["CONFIG_SETTINGS_SORTING_INSTANT_TEXT"] = "Activer le mode de tri instantané\n\nActiver : fait un tri dès que quelque chose change\n\nDésactiver : le tri est fait seulement à l'ouverture de la fenêtre ou quand vous faites un réactualiser"
+	L["CONFIG_DESIGN_ITEM_EMPTY"] = "Emplacements vide"
+	L["CONFIG_DESIGN_ITEM_EMPTY_ICON_TEXT"] = "Utiliser une icône comme fond des emplacements vides"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP"] = "Remplir"
+	L["CONFIG_DESIGN_ITEM_EMPTY_CLUMP_TEXT"] = "Remplir les emplacements vides avec la couleur des emplacements non vide"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER"] = "Bordures colorées"
+	L["CONFIG_DESIGN_ITEM_EMPTY_BORDER_TEXT"] = "Colorer la bordure des emplacements vides avec la couleur du type de sac"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR"] = "Couleurs d'emplacement"
+	L["CONFIG_DESIGN_ITEM_EMPTY_COLOUR_TEXT"] = "Définir la couleur de bordure et de fond des emplacements %1$s"
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_ALPHA_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_STATUS"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_FIRST_TEXT"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION"] = ""
+--	L["CONFIG_DESIGN_ITEM_EMPTY_POSITION_TEXT"] = ""
 	
-	L["CONFIG_SETTINGS_EMPTY"] = "Emplacements vide"
-	L["CONFIG_SETTINGS_EMPTY_ICON"] = "Utiliser icône"
-	L["CONFIG_SETTINGS_EMPTY_ICON_TEXT"] = "Utiliser une icône comme fond des emplacements vides"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP"] = "Remplir"
-	L["CONFIG_SETTINGS_EMPTY_CLUMP_TEXT"] = "Remplir les emplacements vides avec la couleur des emplacements non vide"
-	L["CONFIG_SETTINGS_EMPTY_BORDER"] = "Bordures colorées"
-	L["CONFIG_SETTINGS_EMPTY_BORDER_TEXT"] = "Colorer la bordure des emplacements vides avec la couleur du type de sac"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR"] = "Couleurs d'emplacement"
-	L["CONFIG_SETTINGS_EMPTY_COLOUR_TEXT"] = "Définir la couleur de bordure et de fond des emplacements %1$s"
---	L["CONFIG_SETTINGS_EMPTY_STATUS"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST"] = ""
---	L["CONFIG_SETTINGS_EMPTY_FIRST_TEXT"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION"] = ""
---	L["CONFIG_SETTINGS_EMPTY_POSITION_TEXT"] = ""
+	
+-- junk
+--	L["CONFIG_JUNK"] = ""
+--	L["CONFIG_JUNK_SELL"] = ""
+--	L["CONFIG_JUNK_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_SOLD"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_DESTROYED"] = ""
+--	L["CONFIG_JUNK_SELL_NOTIFY_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT"] = ""
+--	L["CONFIG_JUNK_LIMIT_TEXT"] = ""
+--	L["CONFIG_JUNK_DELETE_TEXT"] = ""
+--	L["CONFIG_JUNK_NOTIFY_TEXT"] = ""
+--	L["CONFIG_JUNK_RARITY_CUTOFF_TEXT"] = ""
+--	L["CONFIG_JUNK_CATEGORY_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_SELL_TEXT"] = ""
+--	L["CONFIG_JUNK_LIST_DESTROY_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_TEXT"] = ""
+--	L["CONFIG_JUNK_TEST_ALERT"] = ""
 	
 	
 -- sorting
@@ -425,7 +501,7 @@ if not L then return end
 	L["CONFIG_SORTING_SORT"] = "Tri"
 	
 --	L["CONFIG_SORTING_METHOD"] = ""
---	L["CONFIG_SORTING_METHODS"] = ""
+--	L["CONFIG_SORTING_METHOD_PLURAL"] = ""
 	L["CONFIG_SORTING_METHOD_TEXT"] = "Choisir comment vous voulez trier vos objets"
 	L["CONFIG_SORTING_METHOD_BAGSLOT"] = "Sac / Emplacement"
 	L["CONFIG_SORTING_METHOD_BAGSLOT_TEXT"] = "Trier vos objets par sac et numéro d'emplacement"
@@ -458,6 +534,8 @@ if not L then return end
 	L["CONFIG_SORTING_INCLUDE_VENDORPRICE_TEXT"] = "inclure le prix des vendeurs (par taille de pile) pour trier l'inventaire"
 --	L["CONFIG_SORTING_INCLUDE_ID"] = ""
 --	L["CONFIG_SORTING_INCLUDE_ID_TEXT"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE"] = ""
+--	L["CONFIG_SORTING_INCLUDE_SLOTTYPE_TEXT"] = ""
 	
 	L["CONFIG_SORTING_DIRECTION_TEXT"] = "Définir dans quel sens vous voulez trier vos objets"
 	L["CONFIG_SORTING_ORDER"] = "Ordre de tri"
@@ -465,26 +543,45 @@ if not L then return end
 	L["CONFIG_SORTING_MOVE_DOWN_TEXT"] = "Déplacer %1$s vers le bas dans l'ordre de tri"
 	L["CONFIG_SORTING_NOT_INCLUDED"] = "* Pas inclus actuellement dans le tri *"
 	
---	L["CONFIG_SORTING_ADD"] = ""
---	L["CONFIG_SORTING_ADD_TEXT"] = ""
---	L["CONFIG_SORTING_RENAME_TEXT"] = ""
---	L["CONFIG_SORTING_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_LIMIT_TEXT"] = ""
+--	L["CONFIG_LIST_ADD_UPGRADE_TEXT"] = ""
+--	L["CONFIG_LIST_DELETE_TEXT"] = ""
+--	L["CONFIG_LIST_RESTORE_TEXT"] = ""
+--	L["CONFIG_LIST_RENAME_TEXT"] = ""
+--	L["CONFIG_LIST_COPY_TEXT"] = ""
+--	L["CONFIG_LIST_PURGE_TEXT"] = ""
+--	L["CONFIG_LIST_IMPORT_TEXT"] = ""
+--	L["CONFIG_LIST_EXPORT_TEXT"] = ""
 	
 	
---	rules
-	L["CONFIG_RULES"] = "Règles"
-	L["CONFIG_RULES_SHOWDISABLED"] = "Afficher les règles désactivées"
-	L["CONFIG_RULES_SHOWDISABLED_TEXT"] = "Basculer vers l'affichage des règles désactivées"
+	
+--	L["CONFIG_CATEGORY"] = ""
+--	L["CONFIG_CATEGORY_PLURAL"] = ""
+	
+	L["CATEGORY_RULE"] = "Règle"
+	L["CONFIG_RULE_PLURAL"] = "Règles"
+	
+	L["CONFIG_RULE_SHOWDISABLED"] = "Afficher les règles désactivées"
+	L["CONFIG_RULE_SHOWDISABLED_TEXT"] = "Basculer vers l'affichage des règles désactivées"
+	
+--	L["CONFIG_CATEGORY_CUSTOM"] = ""
+	L["CONFIG_CATEGORY_CUSTOM_PLURAL"] = "Catégories personnelles"
+	
+--	L["CONFIG_CATEGORY_SET"] = ""
+--	L["CONFIG_CATEGORY_SET_PLURAL"] = ""
+--	L["CONFIG_CATEGORY_SET_DESCRIPTION"] = ""
+	
+--	L["CONFIG_LAYOUT"] = ""
+--	L["CONFIG_LAYOUT_PLURAL"] = ""
+--	L["CONFIG_LAYOUT_DESCRIPTION"] = ""
+	
+--	L["CONFIG_PROFILE"] = ""
+--	L["CONFIG_PROFILE_PLURAL"] = ""
+--	L["CONFIG_PROFILE_CURRENT"] = ""
 	
 	
---	configuration options > categories
-	L["CONFIG_CATEGORY_CUSTOM"] = "Catégories personnelles"
---	L["CONFIG_CATEGORY_DELETED"] = ""
-	
---	L["CONFIG_CATEGORY_ADD"] = ""
---	L["CONFIG_CATEGORY_ADD_TEXT"] = ""
---	L["CONFIG_CATEGORY_RENAME_TEXT"] = ""
---	L["CONFIG_CATEGORY_DELETE_TEXT"] = ""
+--	L["CONFIG_OBJECT_DELETED"] = ""
 	
 	
 --	configuration options > debug
@@ -493,10 +590,10 @@ if not L then return end
 	
 	
 --	configuration options > generic
---	L["BORDER_SCALE_TEXT"] = ""
-	L["BORDER_TEXTURE_TEXT"] = "Options de texture de bordure"
-	L["BORDER_TEXTURE_FILE_TEXT"] = "La texture à utiliser pour la bordure"
-	L["BORDER_TEXTURE_HEIGHT_TEXT"] = "La hauteur (en pixels) de la texture"
+--	L["CONFIG_BORDER_SCALE_TEXT"] = ""
+	L["CONFIG_BORDER_TEXTURE_TEXT"] = "Options de texture de bordure"
+	L["CONFIG_BORDER_TEXTURE_FILE_TEXT"] = "La texture à utiliser pour la bordure"
+	L["CONFIG_BORDER_TEXTURE_HEIGHT_TEXT"] = "La hauteur (en pixels) de la texture"
 	
 	
 --	rules frame
@@ -508,6 +605,7 @@ if not L then return end
 	L["RULE_LIST_ID"] = "Règle"
 	
 	L["RULE_DAMAGED"] = "La règle %s est marquée comme emdommagée et ne sera plus utilisée avant d'être réparée"
+--	L["RULE_DAMAGED_TEXT"] = ""
 --	L["RULE_FAILED"] = ""
 	L["RULE_FAILED_KEY_NIL"] = "La clé passé est vide"
 	L["RULE_FAILED_DATA_NIL"] = "La donné passé est vide"
@@ -523,6 +621,7 @@ if not L then return end
 --	new item indicators
 --	L["NEW_ITEM_INCREASE"] = ""
 --	L["NEW_ITEM_DECREASE"] = ""
+--	L["NEW_ITEM_GLOW"] = ""
 	
 	
 --	slash commands
@@ -549,6 +648,8 @@ if not L then return end
 	L["SLASH_MISC_TEXT"] = "Options diverses."
 --	L["SLASH_TRACK"] = ""
 --	L["SLASH_TRACK_TEXT"] = ""
+--	L["SLASH_TRACK_ADD_TEXT"] = ""
+--	L["SLASH_TRACK_REMOVE_TEXT"] = ""
 	
 	
 --	misc chat stuff
@@ -591,7 +692,6 @@ if not L then return end
 	L["ANCHOR_TEXT1"] = "Définir le point d'ancrage pour la fenêtre %1$s"
 	L["ANCHOR_TEXT2"] = "Définir le point d'ancrage pour %1$s"
 	L["BORDER_TEXT"] = "Options de bordures"
-	L["SHOW"] = "Montrer"
 	L["FILE"] = "Fichier"
 	L["HEIGHT"] = "Hauteur"
 	L["SCALE"] = "Echelle"
@@ -599,15 +699,11 @@ if not L then return end
 	L["FONT"] = "Police de caractères"
 	L["BACKGROUND_COLOUR"] = "Couleur de fond"
 --	L["STYLE"] = ""
-	L["ENABLED"] = "Activer"
 	L["ALERT"] = "Alerte"
 	L["PADDING"] = "Contour"
 	L["INTERNAL"] = "Interne"
 	L["EXTERNAL"] = "Externe"
 	L["WIDTH"] = "Largeur"
-	L["REALM"] = "Serveur"
-	L["VIEW"] = "Voir"
-	L["EDIT"] = "Editer"
 	L["DIRECTION"] = "Sens"
 	L["ASCENDING"] = "Ascendant"
 	L["DECENDING"] = "Descendant"
@@ -622,8 +718,6 @@ if not L then return end
 --	L["SORT_METHOD"] = ""
 --	L["SORT_BY_NAME"] = ""
 --	L["SORT_BY_NUMBER"] = ""
-	L["HIDE"] = "Cacher"
---	L["MOVE"] = ""
 	L["INSERT"] = "Ajouter un groupe vide"
 	L["CURRENT"] = "actuel"
 	L["OFFSET"] = "Décallage"
@@ -640,6 +734,21 @@ if not L then return end
 --	L["TOOLTIP_PURCHASE_BANK_BAG_SLOT"] = ""
 --	L["TOOLTIP_PURCHASE_BANK_TAB_REAGENT"] = ""
 --	L["LABEL"] = ""
+--	L["ABORTED"] = ""
+--	L["RESTORE"] = ""
+--	L["PURGE"] = ""
+--	L["COPY_FROM"] = ""
+--	L["DELETED"] = ""
+--	L["IMPORT"] = ""
+--	L["EXPORT"] = ""
+--	L["NOTIFY"] = ""
+--	L["ACTION"] = ""
+--	L["FIRST"] = ""
+--	L["LAST"] = ""
+--	L["NONE_USABLE"] = ""
+--	L["NONE_OWNED"] = ""
+--	L["TEST"] = ""
+--	L["LIST"] = ""
 	
 	
 -- libdatabroker
@@ -664,8 +773,9 @@ if not L then return end
 --	L["LDB_MOUNTS_FLYING_DISMOUNT_WARNING"] = ""
 --	L["LDB_MOUNTS_SUMMON"] = ""
 --	L["LDB_MOUNTS_NODATA"] = ""
---	L["LDB_MOUNTS_TOOLTIP_MODE"] = ""
 --	L["LDB_MOUNTS_TOOLTIP_SELECTION"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM"] = ""
+--	L["LDB_MOUNTS_TRAVEL_FORM_TEXT"] = ""
 --	L["LDB_COMPANION_MISSING"] = ""
 --	L["LDB_COMPANION_NONE"] = ""
 --	L["LDB_COMPANION_RESTRICTED"] = ""
