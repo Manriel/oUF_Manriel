@@ -1,144 +1,9 @@
 
 RecountDB = {
 	["profileKeys"] = {
-		["Манриэль - Голдринн"] = "Манриэль - Голдринн",
-		["Чивва - Ясеневый лес"] = "Чивва - Ясеневый лес",
-		["Эксплорер - Подземье"] = "Эксплорер - Подземье",
-		["Тиндэлен - Свежеватель Душ"] = "Тиндэлен - Свежеватель Душ",
-		["Шепот - Ясеневый лес"] = "Шепот - Ясеневый лес",
-		["Манриэль - Ясеневый лес"] = "Манриэль - Ясеневый лес",
-		["Лавлиэт - Ясеневый лес"] = "Лавлиэт - Ясеневый лес",
-		["Лейреи - Ясеневый лес"] = "Лейреи - Ясеневый лес",
-		["Аскелла - Свежеватель Душ"] = "Аскелла - Свежеватель Душ",
 	},
 	["profiles"] = {
-		["Манриэль - Голдринн"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["w"] = 140.000019421976,
-					["h"] = 200.00000273549,
-				},
-			},
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["DetailWindowX"] = 0,
-			["GraphWindowX"] = 0,
-			["CurDataSet"] = "OverallData",
-		},
-		["Чивва - Ясеневый лес"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["w"] = 140.000015258789,
-				},
-			},
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
-			["DetailWindowX"] = 0,
-		},
-		["Эксплорер - Подземье"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["y"] = -444.999863841006,
-					["h"] = 188.000000820647,
-					["w"] = 377.999841478379,
-					["x"] = 580.000121729286,
-				},
-			},
-			["DetailWindowX"] = 0,
-			["MainWindowHeight"] = 188.000000820647,
-			["CurDataSet"] = "OverallData",
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["MainWindowWidth"] = 377.999911506912,
-			["GraphWindowX"] = 0,
-		},
-		["Тиндэлен - Свежеватель Душ"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["y"] = -284.114402770996,
-					["x"] = 325.099243164063,
-					["w"] = 241.000122070313,
-					["h"] = 187.000030517578,
-				},
-			},
-			["DetailWindowX"] = 0,
-			["MainWindowHeight"] = 182.000030517578,
-			["CurDataSet"] = "OverallData",
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["MainWindowWidth"] = 241.000030517578,
-			["GraphWindowX"] = 0,
-		},
-		["Шепот - Ясеневый лес"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["y"] = -444.500135851251,
-					["x"] = 561.999987553522,
-					["w"] = 400.000005470979,
-					["h"] = 187.000010873571,
-				},
-			},
-			["DetailWindowX"] = 0,
-			["MainWindowHeight"] = 186.999993366438,
-			["CurDataSet"] = "OverallData",
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["MainWindowWidth"] = 400.000005470979,
-			["GraphWindowX"] = 0,
-		},
-		["Манриэль - Ясеневый лес"] = {
+		["Manriel UI"] = {
 			["GraphWindowY"] = 0,
 			["MainWindow"] = {
 				["Buttons"] = {
@@ -146,25 +11,26 @@ RecountDB = {
 					["LeftButton"] = false,
 					["RightButton"] = false,
 				},
-				["RowHeight"] = 16,
+				["RowHeight"] = 15,
 				["BarText"] = {
 					["NumFormat"] = 2,
 				},
 				["Position"] = {
-					["y"] = -444.499860113902,
-					["x"] = 580.500265513457,
-					["w"] = 379.000024003921,
-					["h"] = 187.000028380704,
+					["y"] = -455.495323181152,
+					["x"] = 579.249877929688,
+					["w"] = 423.499755859375,
+					["h"] = 171.000015258789,
 				},
 				["RowSpacing"] = 0,
 			},
-			["MainWindowHeight"] = 187.000028380704,
+			["MainWindowHeight"] = 189.000015258789,
+			["FrameStrata"] = "3-MEDIUM",
 			["Colors"] = {
 				["Window"] = {
 					["Background"] = {
-						["r"] = 1,
-						["g"] = 1,
 						["b"] = 1,
+						["g"] = 1,
+						["r"] = 1,
 					},
 					["Title"] = {
 						["g"] = 1,
@@ -180,11 +46,11 @@ RecountDB = {
 					},
 				},
 			},
-			["DetailWindowY"] = -20.0000177806823,
-			["DetailWindowX"] = 6.9999996580638,
+			["DetailWindowY"] = -20.0000171661377,
+			["DetailWindowX"] = 2.99996995925903,
 			["GraphWindowX"] = 0,
 			["Locked"] = true,
-			["BarTextColorSwap"] = false,
+			["LastInstanceName"] = "Изумрудный Кошмар",
 			["BarTexture"] = "Manriel-Health",
 			["RealtimeWindows"] = {
 				["Realtime_!RAID_HEALINGTAKEN"] = {
@@ -278,89 +144,11 @@ RecountDB = {
 					false, -- [8]
 				},
 			},
-			["Font"] = "Calibri Bold",
+			["Font"] = "San Francisco (Bold)",
+			["BarTextColorSwap"] = false,
+			["MainWindowMode"] = 5,
+			["MainWindowWidth"] = 390.355560302734,
 			["CurDataSet"] = "LastFightData",
-			["FrameStrata"] = "3-MEDIUM",
-			["LastInstanceName"] = "Зул'Фаррак",
-			["MainWindowWidth"] = 379.000164060987,
-		},
-		["Лавлиэт - Ясеневый лес"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["y"] = -443.999852010014,
-					["x"] = 502.000100529242,
-					["w"] = 280.000038843952,
-					["h"] = 186.000003419362,
-				},
-			},
-			["DetailWindowX"] = 0,
-			["MainWindowHeight"] = 186.000015258789,
-			["CurDataSet"] = "OverallData",
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["MainWindowWidth"] = 280.000122070313,
-			["GraphWindowX"] = 0,
-		},
-		["Лейреи - Ясеневый лес"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["y"] = -444.000132124147,
-					["h"] = 186.000003419362,
-					["w"] = 400.000005470979,
-					["x"] = 561.999987553522,
-				},
-			},
-			["DetailWindowX"] = 0,
-			["LastInstanceName"] = "Мертвые копи",
-			["CurDataSet"] = "LastFightData",
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["MainWindowHeight"] = 186.000020926495,
-			["MainWindowWidth"] = 400.000005470979,
-			["GraphWindowX"] = 0,
-		},
-		["Аскелла - Свежеватель Душ"] = {
-			["GraphWindowY"] = 0,
-			["MainWindow"] = {
-				["Position"] = {
-					["w"] = 140.000019421976,
-					["h"] = 200.00000273549,
-				},
-			},
-			["Colors"] = {
-				["Bar"] = {
-					["Bar Text"] = {
-						["a"] = 1,
-					},
-					["Total Bar"] = {
-						["a"] = 1,
-					},
-				},
-			},
-			["DetailWindowY"] = 0,
-			["CurDataSet"] = "OverallData",
-			["GraphWindowX"] = 0,
-			["DetailWindowX"] = 0,
 		},
 	},
 }

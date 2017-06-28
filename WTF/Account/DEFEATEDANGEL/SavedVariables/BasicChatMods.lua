@@ -1,24 +1,30 @@
 
 bcmDB = {
+	["BCM_Resize"] = true,
 	["lines"] = {
-		["ChatFrame5"] = 2500,
-		["ChatFrame4"] = 2500,
-		["ChatFrame7"] = 520,
-		["ChatFrame3"] = 2500,
+		["ChatFrame5"] = 1010,
+		["ChatFrame4"] = 1010,
+		["ChatFrame1"] = 2500,
+		["ChatFrame3"] = 1010,
 		["ChatFrame8"] = 130,
+		["ChatFrame6"] = 1010,
 		["ChatFrame2"] = 1010,
-		["ChatFrame6"] = 2500,
-		["ChatFrame1"] = 1010,
+		["ChatFrame7"] = 520,
 	},
-	["nolevel"] = true,
 	["noBNetIcon"] = true,
-	["playerLBrack"] = "[",
-	["logcombat"] = true,
-	["fontname"] = "Interface\\AddOns\\oUF_Manriel_UI\\fonts\\Calibri.ttf",
 	["logchat"] = true,
-	["playerRBrack"] = "]",
-	["stampformat"] = "[%I:%M:%S]",
-	["stampcolor"] = "|cff777777",
+	["nolevel"] = true,
+	["fontsize"] = 11.492317199707,
+	["stampcol"] = "777777",
+	["logcombat"] = true,
+	["sticky"] = {
+		["EMOTE"] = 1,
+		["YELL"] = 1,
+		["RAID_WARNING"] = 1,
+	},
+	["stampfmt"] = "[%I:%M:%S] ",
+	["playerLBrack"] = "[",
+	["editBoxScale"] = 0.99242377281189,
 	["replacements"] = {
 		"[GEN]", -- [1]
 		"[T]", -- [2]
@@ -38,12 +44,8 @@ bcmDB = {
 		"[RW]", -- [16]
 		"[%1]", -- [17]
 	},
-	["fontsize"] = 12.7845859527588,
-	["sticky"] = {
-		["EMOTE"] = 1,
-		["YELL"] = 1,
-		["RAID_WARNING"] = 1,
-	},
+	["fontname"] = "Interface\\AddOns\\oUF_Manriel_UI\\fonts\\SF-UI-Display-Semibold.ttf",
+	["playerRBrack"] = "]",
 	["noEditBoxBG"] = true,
 	["playerSeparator"] = ":",
 }
