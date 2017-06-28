@@ -1,9 +1,9 @@
-## Interface: 60100
+## Interface: 70200
 ## Title: oUF |cffffffffManriel UI|r
 ## Author: Manriel
-## Version: 1.2.beta4
+## Version: 2.0.beta1
 ## Dependencies: 
-## OptionalDeps: Clique
+## OptionalDeps: Clique, Recount
 
 ## DefaultState: enabled
 
@@ -14,5 +14,7 @@
 ## X-Website: http://github.com/Manriel/oUF_Manriel/
 ## X-email: readytoban@gmail.com
 ## X-oUF: ManrielUI
+
+## SavedVariables: Manriel_UI_Config
 
 oUF_Manriel_UI.xml

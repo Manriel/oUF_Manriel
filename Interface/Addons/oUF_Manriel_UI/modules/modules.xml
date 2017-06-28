@@ -1,0 +1,12 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+
+	<Include file='rActionBar\rActionBar.xml'/>
+	<Include file='dataBroker\dataBroker.xml'/>
+	<Script file='minimap.lua' />
+	<Script file='panels.lua' />
+	<Script file='tooltip.lua' />
+	<Script file='сoordinates.lua' />
+	<Script file='armory.lua' />
+	<Script file='wowhead.lua' />
+
+</Ui>

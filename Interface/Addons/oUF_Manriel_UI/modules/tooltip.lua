@@ -1,7 +1,32 @@
-﻿local parent, ns = ...
-local UI = ns.ManrielUI
+﻿local parent, namespace = ...
+local UI = namespace.ManrielUI
 local config = UI.config
+local LSM = UI.lib.LSM
 local arStrings = UI.localeStrings
+
+local backdrop = {	
+	bgFile = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background'),
+	edgeFile = LSM:Fetch(LSM.MediaType.BORDER, 'Manriel-Border'),
+	edgeSize = 32,
+	insets = {left = 3, right = 3, top = 3, bottom = 3},
+	tile = true,
+	tileSize = 256
+}
+
+local GameTooltip = _G["GameTooltip"]
+if GameTooltip then GameTooltip:SetBackdrop(backdrop) end
+
+local ItemRefTooltip = _G["ItemRefTooltip"]
+if ItemRefTooltip then ItemRefTooltip:SetBackdrop(backdrop) end
+
+local ShoppingTooltip1 = _G["ShoppingTooltip1"]
+if ShoppingTooltip1 then ShoppingTooltip1:SetBackdrop(backdrop) end
+
+local ShoppingTooltip2 = _G["ShoppingTooltip2"]
+if ShoppingTooltip2 then ShoppingTooltip2:SetBackdrop(backdrop) end
+
+local ShoppingTooltip3 = _G["ShoppingTooltip3"]
+if ShoppingTooltip3 then ShoppingTooltip3:SetBackdrop(backdrop) end
 
 
 ---------------------------------------------------- Position
@@ -29,7 +54,8 @@ function GameTooltip_UnitColor(unit)
 	if UnitIsPlayer(unit) then
 		local _, class = UnitClass(unit)
 		r, g, b = RAID_CLASS_COLORS[class].r, RAID_CLASS_COLORS[class].g, RAID_CLASS_COLORS[class].b
-	elseif UnitIsTapped(unit) and not UnitIsTappedByPlayer(unit) or UnitIsDead(unit) then
+	-- elseif UnitIsTapped(unit) and not UnitIsTappedByPlayer(unit) or UnitIsDead(unit) then
+	elseif UnitIsTapDenied(unit) then
 		r, g, b = .6, .6, .6
 	else
 		r, g, b = UnitSelectionColor(unit)

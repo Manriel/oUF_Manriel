@@ -18,19 +18,12 @@ local function getWowheadDomain()
 	end
 end
 
-local PutInEditbox = function(txt)
-	local frame = _G["BCM_URLCopyFrame"]
-	if frame then
-		frame.editBox:SetText(txt)
-		frame.editBox:HighlightText()
-		frame:Show()
-	else
-		local editbox = LAST_ACTIVE_CHAT_EDIT_BOX
-		editbox:SetText(txt)
-		editbox:HighlightText()
-		editbox:Show()
-		editbox:SetFocus()
-	end
+local PutInEditbox = function(text)
+	local data = {
+		url = text
+	}
+
+	StaticPopup_Show("WOWHEAD_LINK", 'Wowhead link', '', data);
 end
 
 local function Quest_ShowOnWowhead(questID)
@@ -43,8 +36,7 @@ end
 
 hooksecurefunc("QuestObjectiveTracker_OnOpenDropDown", function(self)
 	local block = self.activeFrame;
-    local questLogIndex = block.questLogIndex;
-    local questID = select(8, GetQuestLogTitle(questLogIndex));
+    local questID = block.id;
 
 	local info = UIDropDownMenu_CreateInfo();
 	info.isNotRadio = true;
@@ -69,3 +61,15 @@ hooksecurefunc("QuestMapQuestOptionsDropDown_Initialize", function(...)
 	info.arg1 = self.questID;
 	UIDropDownMenu_AddButton(info, UIDROPDOWNMENU_MENU_LEVEL);
 end)
+
+StaticPopupDialogs["WOWHEAD_LINK"] = {
+    OnShow = function (self, data)
+        self.editBox:SetText(data.url)
+        self.editBox:HighlightText()
+    end,
+    text = '%s',
+    button1 = OKAY,
+    editBoxWidth = 350,
+    hasEditBox=true,
+    preferredIndex = 3
+}

@@ -1,7 +1,8 @@
-local parent, ns = ...
-local UI = ns.ManrielUI
+local parent, namespace = ...
+local UI = namespace.ManrielUI
 local arStrings = UI.localeStrings
 local config = UI.config
+local LSM = UI.lib.LSM
 
 local Coordinates_UpdateInterval = 0.2
 local timeSinceLastUpdate = 0
@@ -17,12 +18,12 @@ coordinatesFrame:SetFrameLevel(5)
 
 local selfValue = coordinatesFrame:CreateFontString(nil, 'OVERLAY')
 selfValue:SetPoint('BOTTOMLEFT')
-selfValue:SetFont(config.fontName, config.baseFontSize, 'OUTLINE')
+selfValue:SetFont(LSM:Fetch(LSM.MediaType.FONT, 'San Francisco (Semi-bold)'), 11, 'OUTLINE')
 coordinatesFrame.selfValue = selfValue;
 
 local cursorValue = coordinatesFrame:CreateFontString(nil, 'OVERLAY')
 cursorValue:SetPoint('BOTTOMLEFT', selfValue, 'TOPLEFT')
-cursorValue:SetFont(config.fontName, config.baseFontSize, 'OUTLINE')
+cursorValue:SetFont(LSM:Fetch(LSM.MediaType.FONT, 'San Francisco (Semi-bold)'), 11, 'OUTLINE')
 coordinatesFrame.cursorValue = cursorValue;
 
 function coordinatesFrame:VARIABLES_LOADED()
@@ -56,32 +57,36 @@ function Coordinates_UpdateCoordinates()
 
 	-- Calculate cursor position
 	local scale = WorldMapDetailFrame:GetEffectiveScale()
-	cursorX = cursorX / scale
-	cursorY = cursorY / scale
-	local width = WorldMapDetailFrame:GetWidth()
-	local height = WorldMapDetailFrame:GetHeight()
-	local left = WorldMapDetailFrame:GetLeft()
-	local top = WorldMapDetailFrame:GetTop()
-	cursorX = (cursorX - left) / width * 100
-	cursorY = (top - cursorY) / height * 100
-	if cursorX > 100 then cursorX = 100 end
-	if cursorX < 0 then cursorX = 0 end
-	if cursorY > 100 then cursorY = 100 end
-	if cursorY < 0 then cursorY = 0 end
 	local cursorCoord = ""
-	if ( cursorY >= 100 or cursorY <= 0 or cursorX >= 100 or cursorX <= 0 ) then
-		cursorCoord = ""
-	else
-		cursorCoord = arStrings.cursor..": "..format("%.0f, %.0f", cursorX, cursorY)
+	if (type(cursorX) ~= 'nil') then
+		cursorX = cursorX / scale
+		cursorY = cursorY / scale
+		local width = WorldMapDetailFrame:GetWidth()
+		local height = WorldMapDetailFrame:GetHeight()
+		local left = WorldMapDetailFrame:GetLeft()
+		local top = WorldMapDetailFrame:GetTop()
+		cursorX = (cursorX - left) / width * 100
+		cursorY = (top - cursorY) / height * 100
+		if cursorX > 100 then cursorX = 100 end
+		if cursorX < 0 then cursorX = 0 end
+		if cursorY > 100 then cursorY = 100 end
+		if cursorY < 0 then cursorY = 0 end
+		if ( cursorY >= 100 or cursorY <= 0 or cursorX >= 100 or cursorX <= 0 ) then
+			cursorCoord = ""
+		else
+			cursorCoord = arStrings.cursor..": "..format("%.0f, %.0f", cursorX, cursorY)
+		end
 	end
 
 	-- Player position
 	local px, py = GetPlayerMapPosition("player")
 	local playerCoord = ""
-	if ( px == 0 and py == 0 ) then
-		playerCoord = ""
-	else
-		playerCoord = STATUS_TEXT_PLAYER..": "..format("%.0f, %.0f", px * 100, py * 100)
+	if (type(px) ~= 'nil') then
+		if ( px == 0 and py == 0 ) then
+			playerCoord = ""
+		else
+			playerCoord = STATUS_TEXT_PLAYER..": "..format("%.0f, %.0f", px * 100, py * 100)
+		end
 	end
 
 	-- Add text

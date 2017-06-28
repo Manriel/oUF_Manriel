@@ -952,26 +952,19 @@ local GetURLParams = function( realmLocale )
 	return region, lang
 end
 
-local PutInEditbox = function(txt)
-	local frame = _G["BCM_URLCopyFrame"]
-	if frame then
-		frame.editBox:SetText(txt)
-		frame.editBox:HighlightText()
-		frame:Show()
-	else
-		local editbox = LAST_ACTIVE_CHAT_EDIT_BOX
-		editbox:SetText(txt)
-		editbox:HighlightText()
-		editbox:Show()
-		editbox:SetFocus()
-	end
+local PutInEditbox = function(text)
+	local data = {
+		url = text
+	}
+
+	StaticPopup_Show("ARMORY_LINK", 'Armory link', '', data);
 end
 
 -- Dropdown menu link
 hooksecurefunc("UnitPopup_OnClick", function(self)
 	local dropdownFrame = UIDROPDOWNMENU_INIT_MENU
 	local name = dropdownFrame.name
-	if name and self.value == "ARMORYLINK" then
+	if name and self.value == "ARMORY_LINK" then
 		local defaultRealmName = GetRealmName()
 		local realmLocale = GetLocale()
 		realmLocale = realmLocale:sub(1,2)..'_'..realmLocale:sub(3,4)
@@ -1008,8 +1001,20 @@ hooksecurefunc("UnitPopup_OnClick", function(self)
 	end
 end)
 
-UnitPopupButtons["ARMORYLINK"] = {text = arStrings.armoryLink, dist = 0, func = UnitPopup_OnClick}
-table.insert(UnitPopupMenus["FRIEND"], #UnitPopupMenus["FRIEND"] - 1, "ARMORYLINK")
-table.insert(UnitPopupMenus["PARTY"], #UnitPopupMenus["PARTY"] - 1, "ARMORYLINK")
-table.insert(UnitPopupMenus["RAID"], #UnitPopupMenus["RAID"] - 1, "ARMORYLINK")
-table.insert(UnitPopupMenus["PLAYER"], #UnitPopupMenus["PLAYER"] - 1, "ARMORYLINK")
+UnitPopupButtons["ARMORY_LINK"] = {text = arStrings.armory_linK, dist = 0, func = UnitPopup_OnClick}
+table.insert(UnitPopupMenus["FRIEND"], #UnitPopupMenus["FRIEND"] - 1, "ARMORY_LINK")
+table.insert(UnitPopupMenus["PARTY"], #UnitPopupMenus["PARTY"] - 1, "ARMORY_LINK")
+table.insert(UnitPopupMenus["RAID"], #UnitPopupMenus["RAID"] - 1, "ARMORY_LINK")
+table.insert(UnitPopupMenus["PLAYER"], #UnitPopupMenus["PLAYER"] - 1, "ARMORY_LINK")
+
+StaticPopupDialogs["ARMORY_LINK"] = {
+    OnShow = function (self, data)
+        self.editBox:SetText(data.url)
+        self.editBox:HighlightText()
+    end,
+    text = '%s',
+    button1 = OKAY,
+    editBoxWidth = 350,
+    hasEditBox=true,
+    preferredIndex = 3
+}

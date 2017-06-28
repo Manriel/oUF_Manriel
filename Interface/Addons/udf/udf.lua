@@ -157,5 +157,19 @@ function Overlay(cmd)
 		overlay:Show()
 	end
 end
+
 SlashCmdList["OVERLAY"] = function(cmd) Overlay(cmd) end
 SLASH_OVERLAY1 = "/overlay"
+
+SlashCmdList["FRAME"] = function() print(GetMouseFocus():GetName()) end
+SLASH_FRAME1 = "/frame"
+
+SlashCmdList["PARENTFRAME"] = function() print(GetMouseFocus():GetParent():GetName()) end
+SLASH_PARENTFRAME1 = "/parentframe"
+
+SlashCmdList["RELOADUI"] = function() ReloadUI() end
+SLASH_RELOADUI1 = "/rl"
+
+SlashCmdList["RCSLASH"] = function() DoReadyCheck() end
+SLASH_RCSLASH1 = "/rc"
+
