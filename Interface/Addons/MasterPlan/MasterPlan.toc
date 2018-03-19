@@ -1,4 +1,4 @@
-## Interface: 70200
+## Interface: 70300
 ## Title: Master Plan
 ## Notes: Garrision missions UI tweaks.
 ## Author: foxlit
@@ -6,8 +6,8 @@
 ## LoadOnDemand: 1
 ## RequiredDeps: Blizzard_GarrisonUI, MasterPlanA
 ## SavedVariablesPerCharacter: MasterPlanPC
-## Version: 0.107
-## X-Version-Key: offset
+## Version: 0.110
+## X-Version-Key: blues
 Libs/Evie.lua
 Libs/Reframe.lua
 Locale.lua

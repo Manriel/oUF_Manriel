@@ -2,8 +2,8 @@
 
 License: All Rights Reserved, (c) 2006-2016
 
-$Revision: 1809 $
-$Date: 2017-06-20 18:38:44 +1000 (Tue, 20 Jun 2017) $
+$Revision: 1896 $
+$Date: 2018-02-21 18:21:37 +1100 (Wed, 21 Feb 2018) $
 
 ]]--
 
@@ -195,6 +195,7 @@ function ArkInventory.ConfigInternal( )
 					min = ArkInventory.Const.Font.MinHeight,
 					max = ArkInventory.Const.Font.MaxHeight,
 					step = 1,
+					hidden = true,
 					get = function( info )
 						return ArkInventory.db.option.font.height
 					end,
@@ -964,43 +965,76 @@ function ArkInventory.ConfigInternal( )
 								},
 							},
 						},
-						combatyield = {
+						thread = {
 							order = 300,
-							name = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_COMBAT_YIELD"],
+							name = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_THREAD"],
 							type = "group",
 							inline = true,
 							args = {
-								enabled = {
+								use = {
 									order = 100,
-									name = ArkInventory.Localise["ENABLED"],
-									desc = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_COMBAT_YIELD_ENABLED_TEXT"],
+									name = USE,
+									desc = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_THREAD_DISABLED_TEXT"],
 									type = "toggle",
 									get = function( info )
-										return ArkInventory.Global.Thread.WhileInCombat
+										return ArkInventory.Global.Thread.Use
 									end,
 									set = function( info, v )
-										ArkInventory.Global.Thread.WhileInCombat = v
+										ArkInventory.Global.Thread.Use = v
 									end,
 								},
-								items = {
+								debug = {
 									order = 200,
-									name = ArkInventory.Localise["ITEMS"],
-									desc = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_COMBAT_YIELD_COUNT_TEXT"],
-									type = "range",
-									min = 1,
-									max = ArkInventory.Const.MAX_BAG_SIZE,
-									step = 1,
-									disabled = function( info )
-										return not ArkInventory.Global.Thread.WhileInCombat
-									end,
+									name = ArkInventory.Localise["DEBUG"],
+									desc = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_THREAD_DEBUG_TEXT"],
+									type = "toggle",
 									get = function( info )
-										return ArkInventory.db.option.combat.yieldafter or 30
+										return ArkInventory.db.option.thread.debug
 									end,
 									set = function( info, v )
-										local v = math.floor( v )
-										if v < 1 then v = 1 end
-										if v > ArkInventory.Const.MAX_BAG_SIZE then v = ArkInventory.Const.MAX_BAG_SIZE end
-										ArkInventory.db.option.combat.yieldafter = v
+										ArkInventory.db.option.thread.debug = v
+									end,
+								},
+								timeout_combat = {
+									order = 520,
+									name = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_THREAD_TIMEOUT_COMBAT"],
+									desc = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_THREAD_TIMEOUT_COMBAT_TEXT"],
+									type = "range",
+									min = 50,
+									max = 250,
+									step = 10,
+									disabled = function( )
+										return not ArkInventory.Global.Thread.Use
+									end,
+									get = function( info )
+										return ArkInventory.db.option.thread.timeout.combat
+									end,
+									set = function( info, v )
+										local v = math.floor( v / 10 ) * 10
+										if v < 50 then v = 50 end
+										if v > 250 then v = 250 end
+										ArkInventory.db.option.thread.timeout.combat = v
+									end,
+								},
+								timeout_normal = {
+									order = 510,
+									name = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_THREAD_TIMEOUT_NORMAL"],
+									desc = ArkInventory.Localise["CONFIG_SYSTEM_WORKAROUND_THREAD_TIMEOUT_NORMAL_TEXT"],
+									type = "range",
+									min = 50,
+									max = 5000,
+									step = 10,
+									disabled = function( )
+										return not ArkInventory.Global.Thread.Use
+									end,
+									get = function( info )
+										return ArkInventory.db.option.thread.timeout.normal
+									end,
+									set = function( info, v )
+										local v = math.floor( v / 10 ) * 10
+										if v < 50 then v = 50 end
+										if v > 5000 then v = 5000 end
+										ArkInventory.db.option.thread.timeout.normal = v
 									end,
 								},
 							},
@@ -1523,6 +1557,21 @@ function ArkInventory.ConfigInternal( )
 								
 							end,
 						},
+						clearonclose = {
+							order = 300,
+							name = ArkInventory.Localise["CLEAR"],
+							desc = ArkInventory.Localise["NEW_ITEM_GLOW_CLEAR_TEXT"],
+							type = "toggle",
+							disabled = function( info )
+								return not ArkInventory.db.option.newitemglow.enable
+							end,
+							get = function( info )
+								return ArkInventory.db.option.newitemglow.clearonclose
+							end,
+							set = function( info, v )
+								ArkInventory.db.option.newitemglow.clearonclose = v
+							end,
+						},
 					},
 				},
 			},
@@ -1782,10 +1831,10 @@ function ArkInventory.ConfigInternal( )
 				},
 			},
 		},
-		ldb = {
+		companion = {
 			cmdHidden = true,
 			order = 1100,
-			name = ArkInventory.Localise["LDB"],
+			name = ArkInventory.Localise["COMPANIONS"],
 			type = "group",
 			childGroups = "tab",
 			args = {
@@ -1794,7 +1843,16 @@ function ArkInventory.ConfigInternal( )
 					type = "group",
 					childGroups = "tab",
 					name = function( )
-						return ArkInventory.Localise["WOW_ITEM_CLASS_MISC_MOUNT"]
+						return ArkInventory.Localise["MOUNTS"] --WOW_ITEM_CLASS_MISC_MOUNT
+					end,
+					args = { },
+				},
+				pets = {
+					order = 200,
+					type = "group",
+					childGroups = "tab",
+					name = function( )
+						return ArkInventory.Localise["PETS"]
 					end,
 					args = { },
 				},
@@ -2180,7 +2238,9 @@ function ArkInventory.ConfigInternal( )
 	
 	ArkInventory.ConfigInternalProfile( )
 	
-	ArkInventory.ConfigInternalLDBMounts( path.args.ldb.args.mounts.args )
+	ArkInventory.ConfigInternalCompanionMounts( path.args.companion.args.mounts.args )
+	
+	ArkInventory.ConfigInternalCompanionPets( path.args.companion.args.pets.args )
 	
 end
 
@@ -4117,10 +4177,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 										end
 									end,
 								},
-								font = {
+								font = {  -- this section is not used at this point
 									order = 10,
 									name = ArkInventory.Localise["FONT"],
 									type = "group",
+									inline = true,
 									hidden = true,
 									args = {
 										custom = {
@@ -4163,36 +4224,6 @@ function ArkInventory.ConfigInternalDesignData( path )
 												local style = ArkInventory.ConfigInternalDesignGet( id )
 												if style.font.face ~= v then
 													style.font.face = v
-													ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
-												end
-											end,
-										},
-										height = {
-											order = 120,
-											name = ArkInventory.Localise["FONT_SIZE"],
-											--desc = ArkInventory.Localise["CONFIG_DESIGN_FONT_HEIGHT_TEXT"],
-											type = "range",
-											min = ArkInventory.Const.Font.MinHeight,
-											max = ArkInventory.Const.Font.MaxHeight,
-											step = 1,
-											disabled = function( info )
-												local id = ConfigGetNodeArg( info, #info - 5 )
-												local style = ArkInventory.ConfigInternalDesignGet( id )
-												return not style.font.custom
-											end,
-											get = function( info )
-												local id = ConfigGetNodeArg( info, #info - 5 )
-												local style = ArkInventory.ConfigInternalDesignGet( id )
-												return style.font.height
-											end,
-											set = function( info, v )
-												local v = math.floor( v )
-												if v < ArkInventory.Const.Font.MinHeight then v = ArkInventory.Const.Font.MinHeight end
-												if v > ArkInventory.Const.Font.MaxHeight then v = ArkInventory.Const.Font.MaxHeight end
-												local id = ConfigGetNodeArg( info, #info - 5 )
-												local style = ArkInventory.ConfigInternalDesignGet( id )
-												if style.font.height ~= v then
-													style.font.height = v
 													ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
 												end
 											end,
@@ -4294,11 +4325,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 										return style.title.font.height
 									end,
 									set = function( info, v )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
 										local v = math.floor( v )
 										if v < ArkInventory.Const.Font.MinHeight then v = ArkInventory.Const.Font.MinHeight end
 										if v > ArkInventory.Const.Font.MaxHeight then v = ArkInventory.Const.Font.MaxHeight end
-										local id = ConfigGetNodeArg( info, #info - 4 )
-										local style = ArkInventory.ConfigInternalDesignGet( id )
 										if style.title.font.height ~= v then
 											style.title.font.height = v
 											ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
@@ -4337,17 +4368,20 @@ function ArkInventory.ConfigInternalDesignData( path )
 									min = ArkInventory.Const.Font.MinHeight,
 									max = ArkInventory.Const.Font.MaxHeight,
 									step = 1,
+									get = function( info )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
+										return style.search.font.height
+									end,
 									set = function( info, v )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
 										local v = math.floor( v )
 										if v < ArkInventory.Const.Font.MinHeight then v = ArkInventory.Const.Font.MinHeight end
 										if v > ArkInventory.Const.Font.MaxHeight then v = ArkInventory.Const.Font.MaxHeight end
-										if ArkInventory.db.option.font.height ~= v then
-											local id = ConfigGetNodeArg( info, #info - 4 )
-											local style = ArkInventory.ConfigInternalDesignGet( id )
-											if style.search.font.height ~= v then
-												style.search.font.height = v
-												ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
-											end
+										if style.search.font.height ~= v then
+											style.search.font.height = v
+											ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
 										end
 									end,
 								},
@@ -4442,6 +4476,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 											desc = ArkInventory.Localise["CONFIG_DESIGN_FRAME_CHANGER_HIGHLIGHT_COLOUR_TEXT"],
 											type = "color",
 											hasAlpha = false,
+											disabled = function( info )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												return not style.changer.highlight.show
+											end,
 											get = function( info )
 												local id = ConfigGetNodeArg( info, #info - 5 )
 												local style = ArkInventory.ConfigInternalDesignGet( id )
@@ -4486,6 +4525,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 											desc = ArkInventory.Localise["CONFIG_DESIGN_FRAME_CHANGER_FREE_COLOUR_TEXT"],
 											type = "color",
 											hasAlpha = false,
+											disabled = function( info )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												return not style.changer.freespace.show
+											end,
 											get = function( info )
 												local id = ConfigGetNodeArg( info, #info - 5 )
 												local style = ArkInventory.ConfigInternalDesignGet( id )
@@ -4541,11 +4585,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 										return style.status.font.height
 									end,
 									set = function( info, v )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
 										local v = math.floor( v )
 										if v < ArkInventory.Const.Font.MinHeight then v = ArkInventory.Const.Font.MinHeight end
 										if v > ArkInventory.Const.Font.MaxHeight then v = ArkInventory.Const.Font.MaxHeight end
-										local id = ConfigGetNodeArg( info, #info - 4 )
-										local style = ArkInventory.ConfigInternalDesignGet( id )
 										if style.status.font.height ~= v then
 											style.status.font.height = v
 											ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
@@ -5287,6 +5331,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 									desc = ArkInventory.Localise["CONFIG_DESIGN_BAR_NAME_COLOUR_TEXT"],
 									type = "color",
 									hasAlpha = false,
+									disabled = function( info )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
+										return not style.bar.name.show
+									end,
 									get = function( info )
 										local id = ConfigGetNodeArg( info, #info - 4 )
 										local style = ArkInventory.ConfigInternalDesignGet( id )
@@ -5307,6 +5356,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 									min = ArkInventory.Const.Font.MinHeight,
 									max = ArkInventory.Const.Font.MaxHeight,
 									step = 1,
+									disabled = function( info )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
+										return not style.bar.name.show
+									end,
 									get = function( info )
 										local id = ConfigGetNodeArg( info, #info - 4 )
 										local style = ArkInventory.ConfigInternalDesignGet( id )
@@ -5336,6 +5390,11 @@ function ArkInventory.ConfigInternalDesignData( path )
 											[ArkInventory.Const.Anchor.Bottom] = ArkInventory.Localise["BOTTOM"],
 										}
 										return anchorpoints
+									end,
+									disabled = function( info )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
+										return not style.bar.name.show
 									end,
 									get = function( info )
 										local id = ConfigGetNodeArg( info, #info - 4 )
@@ -5527,31 +5586,8 @@ function ArkInventory.ConfigInternalDesignData( path )
 										end
 									end,
 								},
-								compress = {
-									order = 800,
-									name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_COMPRESS"],
-									desc = ArkInventory.Localise["CONFIG_DESIGN_ITEM_COMPRESS_TEXT"],
-									type = "range",
-									min = 0,
-									max = 5,
-									step = 1,
-									get = function( info )
-										local id = ConfigGetNodeArg( info, #info - 4 )
-										local style = ArkInventory.ConfigInternalDesignGet( id )
-										return style.slot.compress or 0
-									end,
-									set = function( info, v )
-										local id = ConfigGetNodeArg( info, #info - 4 )
-										local style = ArkInventory.ConfigInternalDesignGet( id )
-										local v = math.floor( v )
-										if v < 0 then v = 0 end
-										if v > 5 then v = 5 end
-										style.slot.compress = v
-										ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Recalculate )
-									end,
-								},
 								upgrade = {
-									order = 900,
+									order = 800,
 									name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_UPGRADE"],
 									desc = ArkInventory.Localise["CONFIG_DESIGN_ITEM_UPGRADE_TEXT"],
 									type = "toggle",
@@ -5566,6 +5602,86 @@ function ArkInventory.ConfigInternalDesignData( path )
 										style.slot.upgrade = v
 										ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Refresh )
 									end,
+								},
+								stacklimit = {
+									order = 1000,
+									name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT"],
+									type = "group",
+									inline = true,
+									args = {
+										stackcount = {
+											order = 100,
+											name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT_STACKS"],
+											desc = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT_STACKS_TEXT"],
+											type = "range",
+											min = 0,
+											max = 5,
+											step = 1,
+											get = function( info )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												return style.slot.compress.count or 0
+											end,
+											set = function( info, v )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												local v = math.floor( v )
+												if v < 0 then v = 0 end
+												if v > 5 then v = 5 end
+												style.slot.compress.count = v
+												ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
+											end,
+										},
+										identify = {
+											order = 200,
+											name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT_IDENTIFY_SHOW"],
+											desc = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT_IDENTIFY_SHOW_TEXT"],
+											type = "toggle",
+											disabled = function( info )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												return style.slot.compress.count == 0
+											end,
+											get = function( info )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												return style.slot.compress.identify
+											end,
+											set = function( info, v )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												style.slot.compress.identify = v
+												ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Refresh )
+											end,
+										},
+										position = {
+											order = 300,
+											name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT_IDENTIFY_POSITION"],
+											desc = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT_IDENTIFY_POSITION_TEXT"],
+											type = "select",
+											values = function( )
+												return { [1] = ArkInventory.Localise["LEFT"], [2] = ArkInventory.Localise["RIGHT"] }
+											end,
+											disabled = function( info )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												return style.slot.compress.count == 0
+											end,
+											get = function( info )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												return style.slot.compress.position or 1
+											end,
+											set = function( info, v )
+												local id = ConfigGetNodeArg( info, #info - 5 )
+												local style = ArkInventory.ConfigInternalDesignGet( id )
+												if style.slot.compress.position ~= v then
+													style.slot.compress.position = v
+													ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Refresh )
+												end
+											end,
+										},
+									},
 								},
 							},
 						},
@@ -5912,7 +6028,7 @@ function ArkInventory.ConfigInternalDesignData( path )
 								first = {
 									order = 500,
 									--name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_EMPTY_FIRST"],
-									name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_COMPRESS"],
+									name = ArkInventory.Localise["CONFIG_DESIGN_ITEM_STACKLIMIT"],
 									desc = ArkInventory.Localise["CONFIG_DESIGN_ITEM_EMPTY_FIRST_TEXT"],
 									type = "range",
 									min = 0,
@@ -6166,7 +6282,7 @@ function ArkInventory.ConfigInternalDesignData( path )
 										if v > ArkInventory.Const.Font.MaxHeight then v = ArkInventory.Const.Font.MaxHeight end
 										if style.slot.itemcount.font.height ~= v then
 											style.slot.itemcount.font.height = v
-											ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Init )
+											ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Refresh )
 										end
 									end,
 								},
@@ -6267,6 +6383,36 @@ function ArkInventory.ConfigInternalDesignData( path )
 										helperColourSet( style.slot.itemlevel.colour, r, g, b )
 										ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Refresh )
 									end,	
+								},
+								minimum = {
+									order = 400,
+									name = ArkInventory.Localise["MINIMUM"],
+									desc = ArkInventory.Localise["CONFIG_DESIGN_ITEM_ITEMLEVEL_SHOW_MINIMUM_TEXT"],
+									type = "range",
+									min	= ArkInventory.Const.Slot.ItemLevel.Min,
+									max = ArkInventory.Const.Slot.ItemLevel.Max,
+									step = 1,
+									disabled = function( info )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
+										return not style.slot.itemlevel.show
+									end,
+									get = function( info )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
+										return style.slot.itemlevel.min
+									end,
+									set = function( info, v )
+										local id = ConfigGetNodeArg( info, #info - 4 )
+										local style = ArkInventory.ConfigInternalDesignGet( id )
+										local v = math.floor( v )
+										if v < ArkInventory.Const.Slot.ItemLevel.Min then v = ArkInventory.Const.Slot.ItemLevel.Min end
+										if v > ArkInventory.Const.Slot.ItemLevel.Max then v = ArkInventory.Const.Slot.ItemLevel.Max end
+										if style.slot.itemlevel.min ~= v then
+											style.slot.itemlevel.min = v
+											ArkInventory.Frame_Main_Generate( nil, ArkInventory.Const.Window.Draw.Refresh )
+										end
+									end,
 								},
 							},
 						},
@@ -6563,7 +6709,7 @@ function ArkInventory.ConfigInternalProfileData( path )
  end
 
 
-function ArkInventory.ConfigInternalLDBMounts( path )
+function ArkInventory.ConfigInternalCompanionMounts( path )
 	
 	local me = ArkInventory.GetPlayerCodex( )
 	
@@ -6611,7 +6757,7 @@ function ArkInventory.ConfigInternalLDBMounts( path )
 			ArkInventory.LDB.Mounts:Update( )
 			
 			local args2 = ConfigGetNodeArg( info, #info - 1 )
-			ArkInventory.ConfigInternalLDBMountsUpdate( path, args2 )
+			ArkInventory.ConfigInternalCompanionMountsUpdate( path, args2 )
 			
 		end,
 	}
@@ -6648,7 +6794,8 @@ function ArkInventory.ConfigInternalLDBMounts( path )
 	}
 	
 	
-	path["!UseTravelForm"] = {
+	path["travelform"] = {
+		order = 1,
 		name = string.format( ArkInventory.Localise["LDB_MOUNTS_TRAVEL_FORM"], ArkInventory.Localise["SPELL_DRUID_TRAVEL_FORM"] ),
 		desc = string.format( ArkInventory.Localise["LDB_MOUNTS_TRAVEL_FORM_TEXT"], ArkInventory.Localise["SPELL_DRUID_TRAVEL_FORM"] ),
 		type = "toggle",
@@ -6658,6 +6805,19 @@ function ArkInventory.ConfigInternalLDBMounts( path )
 		end,
 		set = function( info )
 			me.player.data.ldb.travelform = not me.player.data.ldb.travelform
+		end,
+	}
+	
+	path["randomise"] = {
+		order = 2,
+		name = ArkInventory.Localise["RANDOM"],
+		desc = string.format( ArkInventory.Localise["LDB_COMPANION_RANDOMISE_TEXT"], ArkInventory.Localise["MOUNT"], ArkInventory.Localise["MOUNTS"] ),
+		type = "toggle",
+		get = function( info )
+			return me.player.data.ldb.mounts.randomise
+		end,
+		set = function( info )
+			me.player.data.ldb.mounts.randomise = not me.player.data.ldb.mounts.randomise
 		end,
 	}
 	
@@ -6673,11 +6833,11 @@ function ArkInventory.ConfigInternalLDBMounts( path )
 		
 	end
 	
-	ArkInventory.ConfigInternalLDBMountsUpdate( path, args2 )
+	ArkInventory.ConfigInternalCompanionMountsUpdate( path, args2 )
 	
 end
 
-function ArkInventory.ConfigInternalLDBMountsUpdate( path, args2 )
+function ArkInventory.ConfigInternalCompanionMountsUpdate( path, args2 )
 	
 	for mountType in pairs( ArkInventory.Const.MountTypes ) do
 		
@@ -6686,49 +6846,66 @@ function ArkInventory.ConfigInternalLDBMountsUpdate( path, args2 )
 		end
 		local mountList = path[mountType].args
 		
-		for _, md in ArkInventory.Collection.Mount.Iterate( ) do
+		for _, md in ArkInventory.Collection.Mount.Iterate( mountType ) do
 			
-			if md.owned then
-				
-				local mountKey = tostring( md.index )
-				local ok = false
-				
-				if not ok and md.mt == ArkInventory.Const.MountTypes[mountType] then
-					ok = true
-				end
-				
-				if not ok and mountType == "x" and md.mt ~= md.mto then
-					-- show anything that has been changed on the custom tab as well
-					ok = true
-				end
-				
-				if ok then
-					if not mountList[mountKey] then
-						--new mount, add it
-						mountList[mountKey] = {
-							type = "group",
-							name = md.name,
-							arg = md.index,
-							args = args2,
-						}
-					else
-						-- mount is already in the list, ignore
-					end
-				else
-					if mountList[mountKey] then
-						-- shouldnt be in this list, remove it 
-						table.wipe( mountList[mountKey] )
-						mountList[mountKey] = nil
-					end
-				end
-				
+			local mountKey = tostring( md.index )
+			local ok = false
+			
+			if not ok and md.mt == ArkInventory.Const.MountTypes[mountType] then
+				ok = true
 			end
 			
+			if not ok and mountType == "x" and md.mt ~= md.mto then
+				-- show anything that has been changed on the custom tab as well
+				ok = true
+			end
+			
+			if ok then
+				if not mountList[mountKey] then
+					--new mount, add it
+					mountList[mountKey] = {
+						type = "group",
+						name = md.name,
+						arg = md.index,
+						args = args2,
+					}
+				else
+					-- mount is already in the list, ignore
+				end
+			else
+				if mountList[mountKey] then
+					-- shouldnt be in this list, remove it 
+					table.wipe( mountList[mountKey] )
+					mountList[mountKey] = nil
+				end
+			end
+		
 		end
 		
 	end
 	
 end
+
+
+function ArkInventory.ConfigInternalCompanionPets( path )
+	
+	local me = ArkInventory.GetPlayerCodex( )
+	
+	path["randomise"] = {
+		order = 2,
+		name = ArkInventory.Localise["RANDOM"],
+		desc = string.format( ArkInventory.Localise["LDB_COMPANION_RANDOMISE_TEXT"], ArkInventory.Localise["PET"], ArkInventory.Localise["PETS"] ),
+		type = "toggle",
+		get = function( info )
+			return me.player.data.ldb.pets.randomise
+		end,
+		set = function( info )
+			me.player.data.ldb.pets.randomise = not me.player.data.ldb.pets.randomise
+		end,
+	}
+	
+end
+
 
 -- run on load
 ArkInventory:SendMessage( "EVENT_ARKINV_CONFIG_UPDATE" )

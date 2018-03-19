@@ -12,6 +12,28 @@ bcmDB = {
 		["ChatFrame7"] = 520,
 	},
 	["noBNetIcon"] = true,
+	["savedChat"] = {
+		["ChatFrame1"] = {
+			{
+				"|cFF33FF99BasicChatMods|r:  Сообщения сохраняются в файл LogsWoWChatLog.txt", -- [1]
+			}, -- [1]
+			{
+				"|cFF777777|HBCMt:1:1|h[05:48:02] |h|r|cFF00FF00Premade Group Finder 5.4 has been loaded!", -- [1]
+			}, -- [2]
+			{
+				"|cFF777777|HBCMt:2:1|h[05:48:02] |h|r|c00bfffffWorld Quest Group Finder v0.27 BETA. Кликните средней кнопкой мыши по локальному заданию в списке, чтобы найти группу.", -- [1]
+			}, -- [3]
+			{
+				"|cFF777777|HBCMt:3:1|h[05:48:03] |h|rfalse", -- [1]
+			}, -- [4]
+			{
+				"|cFF777777|HBCMt:4:1|h[05:48:03] |h|r|cff33ff99ArkInventory|r: Русский translations - attempt 1 of 5.", -- [1]
+			}, -- [5]
+			{
+				"|cFF777777|HBCMt:5:1|h[05:48:03] |h|r|cff33ff99ArkInventory|r: Русский translations successfully loaded.", -- [1]
+			}, -- [6]
+		},
+	},
 	["logchat"] = true,
 	["nolevel"] = true,
 	["fontsize"] = 11.492317199707,

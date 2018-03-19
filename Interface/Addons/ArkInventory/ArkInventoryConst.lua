@@ -31,8 +31,6 @@ ArkInventory.Lib = { -- libraries live here
 
 ArkInventory.Table = { } -- table functions live here, coded elsewhere
 
-ArkInventory.IsFlyable = false
-
 ArkInventory.Const = { -- constants
 	
 	TOC = select( 4, GetBuildInfo( ) ) or 0,  -- /run print( ArkInventory.Const.TOC )
@@ -109,6 +107,7 @@ ArkInventory.Const = { -- constants
 		--TabInfo = 5,
 		--SkillUpdate = 6,
 		--ItemUpdate = 7,
+		--BagEmpty = 8,
 	},
 
 	Location = {
@@ -195,6 +194,11 @@ ArkInventory.Const = { -- constants
 	
 		Data = { },
 		
+		ItemLevel = {
+			Min = 1,
+			Max = 9999,
+		},
+		
 	},
 
 	Anchor = {
@@ -240,7 +244,7 @@ ArkInventory.Const = { -- constants
 	
 	Font = {
 		Face = "Arial Narrow",
-		Height = 14,
+		Height = 16,
 		MinHeight = 4,
 		MaxHeight = 72,
 	},
@@ -544,6 +548,12 @@ function ArkInventory.Output( ... )
 		
 	end
 	
+end
+
+function ArkInventory.OutputThread( ... )
+	if ArkInventory.db.option.thread.debug then
+		ArkInventory.Output( "|cffffff9aTHREAD> ", ... )
+	end
 end
 
 function ArkInventory.OutputDebug( ... )

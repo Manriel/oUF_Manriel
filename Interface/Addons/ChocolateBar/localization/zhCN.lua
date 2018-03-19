@@ -21,14 +21,26 @@ L["Blizzard Options"] = "暴雪选项"
 L["Border Color/Alpha"] = "边框颜色/透明"
 L["Center"] = "中间"
 L["ChocolateBar Options"] = "ChocolateBar 选项"
+--Translation missing 
+-- L["Colorize frames during drag & drop."] = ""
+--Translation missing 
+-- L["Colorized Dragging"] = ""
 L["Could not load ChocolateBar_Options, make sure it's installed."] = "不能记载 ChocolateBar_Options, 请确认是否安装."
 L["Create Bar"] = "创建信息条"
 L["Create New Bar"] = "创建新的信息条"
+--Translation missing 
+-- L["Create New Placeholder"] = ""
+--Translation missing 
+-- L["Create Placeholder"] = ""
+--Translation missing 
+-- L["Creates a new plugin to use as a placeholder."] = ""
 L["Data Source"] = "数据来源"
 L["Debug"] = "除错"
 L["Default text color of a plugin. This will not overwrite plugins that use own colors."] = "插件的默认文本颜色。这个不会覆盖自定义颜色。"
 L["Defaults"] = "默认"
 L["Delay"] = "延迟"
+--Translation missing 
+-- L["Desaturated Icons"] = ""
 L["Disable All"] = "禁用所有"
 L["Disable all Launchers"] = "禁用所有的快捷按钮"
 L["Disable all the bad guy's:)"] = "禁用所有"
@@ -43,18 +55,38 @@ L["Eat all the chocolate at once, uff..."] = "一次吃掉所有巧克力, 啊�
 L["Enable All"] = "启用全部"
 L["Enable free placement for this bar"] = "启用这个信息条的自由位置"
 L["Enabled"] = "启用"
+--Translation missing 
+-- L["Fixed"] = ""
+--Translation missing 
+-- L["Fixed/Max Text Width"] = ""
 L["Font"] = "字体"
 L["Font Size"] = "字体大小"
 L["Fonts and Textures"] = "字体和材质"
+--Translation missing 
+-- L["Force Text Color"] = ""
+--Translation missing 
+-- L["Free"] = ""
 L["Free Placement"] = "自由位置"
 L["Gap"] = "间隙"
 L["General"] = "全局"
 L["Get back my plugins!"] = "找回我的插件！"
 L["Hide Bars"] = "隐藏信息条"
+--Translation missing 
+-- L["Hide Bars during a Pet Battle."] = ""
+--Translation missing 
+-- L["Hide Bars in Pet Battle"] = ""
 L["Hide In Combat"] = "战斗中隐藏"
+--Translation missing 
+-- L["Hide Order Hall Bar"] = ""
 L["Hide this bar during combat."] = "在战斗中隐藏这个信息条"
+--Translation missing 
+-- L["Hides the command bar displayed at the Class/Order Hall."] = ""
+--Translation missing 
+-- L["Highlight"] = ""
 L["Hold alt key to drag a plugin."] = "按住ALT键来拖曳一个插件。"
 L["Horizontal Offset"] = "水平坐标"
+--Translation missing 
+-- L["How should the plugin width adapt to the text?"] = ""
 L["Icon Size"] = "图标大小"
 L["Icon size in relation to the bar height."] = "图标的大小."
 L["If enabled new plugins of type data source will automatically be disabled."] = "如果启用，类型中新插件的数据来源将被自动禁用。"
@@ -67,6 +99,10 @@ L["Locked"] = "锁定"
 L["Look and Feel"] = "外观"
 L["Manage this Bar"] = "管理这个信息条"
 L["Managed Placement"] = "管理位置"
+--Translation missing 
+-- L["Max"] = ""
+--Translation missing 
+-- L["Modules"] = ""
 L["Move Blizzard frames above/below bars"] = "移动暴雪框体到信息条上面或者下面"
 L["Move Down"] = "移下"
 L["Move Up"] = "移上"
@@ -77,22 +113,40 @@ L["Options"] = "设定"
 L["Other"] = "其他"
 L["Overwrite Icon Size"] = "覆盖图标大小"
 L["Overwrite Text Offset"] = "覆盖文字偏移"
+--Translation missing 
+-- L["Placeholder"] = ""
+--Translation missing 
+-- L["Placeholder Options"] = ""
+--Translation missing 
+-- L["Placeholders"] = ""
 L["Plugin Statistics"] = "插件统计"
 L["Plugins"] = "插件"
 L["Quick Config"] = "快速配置"
 L["Remove Bar"] = "移除信息条"
+--Translation missing 
+-- L["Remove custom colors from plugins."] = ""
+--Translation missing 
+-- L["Remove Placeholder"] = ""
+--Translation missing 
+-- L["Remove this Placeholder"] = ""
 L["Right"] = "右"
 L["Select Bar"] = "选择信息条"
 L["Select the action when right clicking on a bar."] = "当右键条列时选择动作。"
 L["Set a width for the bar."] = "设信息条的宽度。"
+--Translation missing 
+-- L["Set fixed or max width for the text."] = ""
 L["Set seconds until bar will hide."] = "设置信息条隐藏的时间秒数。"
 L["Set the distance between the icon and the text."] = "设置图标和文字之间的距离."
 L["Set the gap between the plugins."] = "设置插件之间的间隙。"
 L["Set the opacity of the bars during combat."] = "设定条列的不透明在战斗期间。"
 L["Show Icon"] = "显示图标"
+--Translation missing 
+-- L["Show icons in gray scale mode (This will not affect icons embedded in the text of a plugin)."] = ""
 L["Show Text"] = "显示文本"
 L["Some of the fonts may depend on other addons."] = "一些字体可能取决于其他插件。"
 L["Some of the textures may depend on other addons."] = "一些材质可能取决于其他插件。"
+--Translation missing 
+-- L["Temporarily highlights the position of the plugin on the bar."] = ""
 L["Text color"] = "文本颜色"
 L["Text Offset"] = "文字偏移"
 L["Texture Color/Alpha"] = "材质颜色/透明度"
@@ -106,3 +160,6 @@ L["Type"] = "类型"
 L["Unlock to to move the bar anywhere you want."] = "解锁来移动信息条到任意位置。"
 L["Update Center Position"] = "更新中间位置"
 L["Vertical Offset"] = "垂直坐标"
+--Translation missing 
+-- L["Width Behavior"] = ""
+

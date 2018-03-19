@@ -1,4 +1,4 @@
-﻿*to-do*
+﻿to-do*
  * mail items expiry date/time
 
 *known issues*
@@ -7,12 +7,88 @@
  * your legion class tier set bonus for out of combat regeneration is triggering a bag_update_cooldown event for all bags every 5 seconds
  * broken shore tower buffs are triggering a bag_update_cooldown event multiple times per second.
  * mythic keystone links arent supported by some of the item APIs so theyre a bit weird at the moment
+ * IsFlyableArea( ) seems to be broken for newly levelled characters
  
 *wiki pages*
  * main wiki page - https://github.com/arkayenro/arkinventory/wiki
  * faq - https://github.com/arkayenro/arkinventory/wiki/FAQ
  
 
+*3.07.42 (07-MAR-2018)*
+ * fixed - issue with itemlinks getting added twice
+ * fixed - issue where clicking on an item in the bag/bank did nothing until after the window was refreshed for the first time
+ 
+*3.07.41 (06-MAR-2018)*
+ * added - config > general > new item glow > clear - option to clear the new item glow from all items when the window is closed
+ * fixed - issue with initial font height
+ * fixed - issue with config option for search font height
+ * fixed - issue with frames being called by other addons before they were created
+ * added - more config options for stack limit.  note: the identification option is extremely CPU intensive on the first load
+ * fixed - issue with pet scanning
+ * fixed - toybox scanning code updated to include new expansion filter
+ * fixed - issue with selected mounts not being deselected after you change their type
+ * fixed - opposite faction mounts should no longer show in the selection menu
+ * fixed - issue where unaligned pandaren were seeing the alliance only mounts when they shouldnt
+ * fixed - mounts you couldnt actually use were being included in the list of usable mounts (both mount.usable and spell.usable are now being checked)
+ * fixed - the use all for flying/surface mounts should now work properly and add your flying/surface mounts to your land mounts
+ * changed - mount selection code no longer uses the map
+ * changed - selecting use all (the old random) for mounts/pets will no longer clear your selections, its just overrides them when its enabled
+ * changed - use all has been set as enabled, you'll need to disable it to revert to your specific selections
+ * workaround - for flying issues with characters that never purchased the continent flying spells that were removed in 7.3.5 (affects kalimdor, eastern kingdoms, and northrend)
+ * changed - pet/mount use all can be random or sequential.  its always sequential when there are three or less usable pets/mounts
+ * added - config > companions > mounts > random - to allow for random/sequential selection
+ * added - config > companions > pets > random - to allow for random/sequential selection
+
+*3.07.40 (28-JAN-2018)*
+ * changed - collection scanning code
+ 
+*3.07.39 (21-JAN-2018)*
+ * changed - removed checks for continent flight spells for azeroth, northrend and pandaria due to blizzard removing those requirements
+
+*3.07.38 (17-JAN-2018)*
+ * changed - pet journal will get scanned when locked by another user on the same account (should help with missing pet icons)
+
+*3.07.37 (29-NOV-2017)*
+ * fixed - issue with ilvl sorting (was only catering for 3 digits)
+ 
+*3.07.36 (30-OCT-2017)*
+ * changed - (druid) if "use travel form" is selected as a mount then cat form will now be used when indoors
+ * changed - mount action will now dismount you if you are in combat, mounted, and not flying (you used to have to attack/heal something to dismount)
+ * updated - companion item/critter data to 7.3.0
+ * added - bar menu option to set a minimum width (this might be a bit flaky, and will ignore window width if you set it for all the bars in that row)
+ * added - bar menu option to set a maximum width
+ * fixed - restack code to handle potentially invalid returns from the blizzard api - GetItemFamily( )
+ * fixed - issue with removing a bag from a slot
+ * fixed - issue with emptying a bags contents (it no longer yields so may hit the script timer)
+ * changed - window drawing should be better.  the initial window draw should be a lot better
+ * fixed - toybox scanning
+ * fixed - erasing account data (pets, toys, mounts, heirlooms) will now cause an immediate rescan like it does for other player locations
+ 
+*3.07.35 (30-AUG-2017)*
+ * changed - toc updated to 70300
+
+*3.07.34 (30-AUG-2017)*
+ * fixed - calls to PlaySound( )
+
+*3.07.33 (07-AUG-2017)*
+ * added - error prevention logic to mount, pet, and toy, collection scan code to handle potentially invalid returns from the blizzard api
+ * fixed - issue with refreshing windows that arent visible
+
+*3.07.32 (01-AUG-2017)*
+ * fixed - queue for rescan message will no longer print out when set to disabled
+ * fixed - removed a pet debug output that always displayed
+ * added - error prevention logic to sort key generation code to handle potentially invalid returns from the blizzard api
+
+*3.07.31 (09-JUL-2017)*
+ * removed - config options for in-combat yielding
+ * added - config options for thread timeout values (defaults to 100ms for in-combat and 100ms for out-of-combat)
+ * changed - bag, pet, mount, toybox, heirloom, mailbox, auction, void storage, and vault scans are now threaded
+ * changed - window drawing is now threaded all the time (not just in combat) - initial window draw can be a bit laggy
+ * changed - restack should be a bit slower but leave the game more responsive (depends on what you set the out of combat thread timeout to)
+ * fixed - issue where pet scanning might sometimes not run
+ * fixed - bag rescans will now just rescan the bag having an issue, not all the bags in that location
+ * fixed - issue with search filter initilisation causing a second window rebuild at the first open
+ * fixed - issue with font size on initial window load
 
 *3.07.30 (25-JUN-2017)*
  * fixed - issue with some tooltip text containing a UTF-8 non breaking space sequence (its not the same as a normal space character so doesnt match)
@@ -1266,7 +1342,7 @@
  * fixed - corrected the ruRU translation for mining bags
  * fixed - taint issue when using class colours
  * changed - data now stored at realm level so you can see what you have on the other faction - all data has been erased, please login to each character to update its data
- * changed - function ArkInventory.ObjectCountGet( search_id, just_me, ignore_vaults, ignore_other_faction ) - added 4rd parameter to ignore the opposite faction when requesting item counts
+ * changed - function ArkInventory.ObjectCountGet( search_id, just_me, ignore_vaults, ignore_other_faction ) - added 4th parameter to ignore the opposite faction when requesting item counts
  * changed - tooltip options rearranged
 
 *3.02.26 (04-NOV-2009)*

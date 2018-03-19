@@ -66,14 +66,14 @@
 			
 			<OnUpdate>
 				if _G[string.format( "%s%s", self:GetName( ), "Highlight" )]:IsShown( ) then
-					h = _G[string.format( "%s%s", self:GetName( ), "Id" )]:GetText( )
+					local h = _G[string.format( "%s%s", self:GetName( ), "Id" )]:GetText( )
 					ArkInventory.GameTooltipSetHyperlink( self, h )
 				end
 			</OnUpdate>
 			
 			<OnEnter>
 				_G[string.format( "%s%s", self:GetName( ), "Highlight" )]:Show( )
-				h = _G[string.format( "%s%s", self:GetName( ), "Id" )]:GetText( )
+				local h = _G[string.format( "%s%s", self:GetName( ), "Id" )]:GetText( )
 				ArkInventory.GameTooltipSetHyperlink( self, h )
 			</OnEnter>
 			
@@ -83,7 +83,7 @@
 			</OnLeave>
 
 			<OnClick>
-				PlaySound( "igMainMenuOptionCheckBoxOn" )
+				PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 				ArkInventory.Frame_Search_Table_Row_OnClick( self )
 			</OnClick>
 
@@ -486,12 +486,12 @@
 			</OnDragStop>
 			
 			<OnShow>
-				PlaySound( "igMainMenuOptionCheckBoxOn" )
+				PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 				ArkInventory.Frame_Search_Paint_Actual( )
 			</OnShow>
 			
 			<OnHide>
-				PlaySound( "igMainMenuOptionCheckBoxOn" )
+				PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 			</OnHide>
 			
 		</Scripts>

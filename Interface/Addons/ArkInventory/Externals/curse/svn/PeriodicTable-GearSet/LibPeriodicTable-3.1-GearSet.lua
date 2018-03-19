@@ -1,7 +1,7 @@
--- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
+﻿-- (c) 2007 Nymbia.  see LGPLv2.1.txt for full details.
 --DO NOT MAKE CHANGES TO THIS FILE BEFORE READING THE WIKI PAGE REGARDING CHANGING THESE FILES
 if not LibStub("LibPeriodicTable-3.1", true) then error("PT3 must be loaded before data") end
-LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 522 $", "(%d+)", function(n) return n+90000 end), {
+LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 584 $", "(%d+)", function(n) return n+90000 end), {
 -- Gray Sets
 	["GearSet.Gray.Cloth.Brocade Cloth"]="3378,3379,1775,1776,1772,1777,1778",
 	["GearSet.Gray.Cloth.Calico Cloth"]="3374,3375,1498,1499,1495,1501",
@@ -325,7 +325,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 522 $", "(%d+)", 
 	["GearSet.Tier 8.10.Druid.Valorous Nightsong Battlegear"]="45355,45356,45357,45358,45359",
 	["GearSet.Tier 8.10.Druid.Valorous Nightsong Garb"]="45351,45352,45353,45354,46313",
 	["GearSet.Tier 8.10.Druid.Valorous Nightsong Regalia"]="45345,45346,45347,45348,45349",
-	["GearSet.Tier 8.10.Hunter.Valorous Scourgestalker Battlegear"]="45360,45361,45362,45363,45364",
 	["GearSet.Tier 8.10.Mage.Valorous Kirin Tor Garb"]="45365,45367,45368,45369,46131",
 	["GearSet.Tier 8.10.Paladin.Valorous Aegis Battlegear"]="45375,45376,45377,45379,45380",
 	["GearSet.Tier 8.10.Paladin.Valorous Aegis Plate"]="45381,45382,45383,45384,45385",
@@ -336,7 +335,6 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 522 $", "(%d+)", 
 	["GearSet.Tier 8.10.Shaman.Valorous Worldbreaker Battlegear"]="45412,45413,45414,45415,45416",
 	["GearSet.Tier 8.10.Shaman.Valorous Worldbreaker Garb"]="45406,45408,45409,45410,45411",
 	["GearSet.Tier 8.10.Shaman.Valorous Worldbreaker Regalia"]="45401,45402,45403,45404,45405",
-	["GearSet.Tier 8.10.Warlock.Valorous Deathbringer Garb"]="45417,45419,45420,45421,45422",
 	["GearSet.Tier 8.10.Warrior.Valorous Siegebreaker Battlegear"]="45429,45430,45431,45432,45433",
 	["GearSet.Tier 8.10.Warrior.Valorous Siegebreaker Plate"]="45424,45425,45426,45427,45428",
 
@@ -1084,20 +1082,20 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 522 $", "(%d+)", 
 	["GearSet.PvP.Arena4.Warrior.Brutal Gladiator's Battlegear"]="35066,35067,35068,35069,35070",
 
 	["GearSet.PvP.Arena5.Tier 1.Death Knight.Savage Gladiator's Desecration"]="40779,40799,40817,40837,40857",
-	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Refuge"]="41268,41269,41270,41272,41271",
-	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Sanctuary"]="41770,41675,41664,41658,41712",
-	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Wildhide"]="41290,41324,41301,41313,41278",
+	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Refuge"]="41268,41269,41270,41271,41272",
+	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Sanctuary"]="41658,41664,41675,41712,41770",
+	["GearSet.PvP.Arena5.Tier 1.Druid.Savage Gladiator's Wildhide"]="41278,41290,41301,41313,41324",
 	["GearSet.PvP.Arena5.Tier 1.Hunter.Savage Gladiator's Pursuit"]="41084,41140,41154,41202,41214",
-	["GearSet.PvP.Arena5.Tier 1.Mage.Savage Gladiator's Regalia"]="41962,41943,41968,41949,41956",
+	["GearSet.PvP.Arena5.Tier 1.Mage.Savage Gladiator's Regalia"]="41943,41949,41956,41962,41968",
 	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Redemption"]="40898,40918,40930,40936,40960",
 	["GearSet.PvP.Arena5.Tier 1.Paladin.Savage Gladiator's Vindication"]="40780,40798,40818,40838,40858",
 	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Investiture"]="41847,41848,41849,41850,41851",
-	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Raiment"]="41937,41912,41924,41930,41918",
+	["GearSet.PvP.Arena5.Tier 1.Priest.Savage Gladiator's Raiment"]="41912,41918,41924,41930,41937",
 	["GearSet.PvP.Arena5.Tier 1.Rogue.Savage Gladiator's Vestments"]="41643,41644,41645,41646,41647",
 	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Earthshaker"]="41078,41134,41148,41160,41208",
 	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Thunderfist"]="40987,41004,41016,41030,41041",
 	["GearSet.PvP.Arena5.Tier 1.Shaman.Savage Gladiator's Wartide"]="40986,40998,41010,41023,41024",
-	["GearSet.PvP.Arena5.Tier 1.Warlock.Savage Gladiator's Felshroud"]="42008,41990,42014,41996,42002",
+	["GearSet.PvP.Arena5.Tier 1.Warlock.Savage Gladiator's Felshroud"]="41990,41996,42002,42008,42014",
 	["GearSet.PvP.Arena5.Tier 1.Warrior.Savage Gladiator's Battlegear"]="40778,40797,40816,40836,40856",
 
 	["GearSet.PvP.Arena5.Tier 2.Death Knight.Hateful Gladiator's Desecration"]="40781,40803,40820,40841,40860",
@@ -1269,5 +1267,5 @@ LibStub("LibPeriodicTable-3.1"):AddData("GearSet", gsub("$Rev: 522 $", "(%d+)", 
 	["GearSet.Misc.Spirit of Eskhandar"]="18202,18203",
 	["GearSet.Misc.The Twin Stars"]="31338,31339",
 	["GearSet.Misc.Twilight Trappings"]="20406,20407,20408",
-	["GearSet.Misc.Winter Garb"]="21524,21525,34085,34086,34087",
+	["GearSet.Misc.Winter Garb"]="21524,21525,151790,151791,151792",
 })

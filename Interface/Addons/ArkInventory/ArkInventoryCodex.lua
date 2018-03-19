@@ -58,7 +58,7 @@ end
 
 function ArkInventory.GetPlayerCodex( loc_id, rebuild )
 	
-	--debugprofilestart( )
+	--local tz = debugprofilestop( )
 	
 	local loc_id = loc_id or ArkInventory.Const.Location.Bag
 	
@@ -82,8 +82,8 @@ function ArkInventory.GetPlayerCodex( loc_id, rebuild )
 	-- get storage again to retrive account/vault data if required
 	ArkInventory.GetPlayerStorage( codex.player.data.info.player_id, loc_id, codex.player )
 	
-	--local ms = debugprofilestop( )
-	--print( "built player codex for " .. codex.player.current .. " / " .. loc_id .. " / ", codex.player.data.info.player_id, " in " .. ms )
+	--tz = debugprofilestop( ) - tz
+	--print( "built player codex for " .. codex.player.current .. " / " .. loc_id .. " / ", codex.player.data.info.player_id, " in " .. tz )
 	
 	return codex
 	
@@ -91,7 +91,7 @@ end
 
 function ArkInventory.GetLocationCodex( loc_id )
 	
-	--debugprofilestart( )
+	--local tz = debugprofilestop( )
 	
 	local codex = helper_CodexInit( loc_id )
 	local changed = false
@@ -144,8 +144,8 @@ function ArkInventory.GetLocationCodex( loc_id )
 		ArkInventory.Frame_Main_DrawStatus( loc_id, ArkInventory.Const.Window.Draw.Init )
 	end
 	
-	--local ms = debugprofilestop( )
-	--print( "built location codex for " .. codex.player.current .. " / " .. loc_id .. " / ", codex.player.data.info.player_id, " in " .. ms )
+	--tz = debugprofilestop( ) - tz
+	--print( "built location codex for " .. codex.player.current .. " / " .. loc_id .. " / ", codex.player.data.info.player_id, " in " .. tz )
 	
 	return codex
 	

@@ -10,20 +10,23 @@ local C_PetJournal = _G.C_PetJournal
 local C_Heirloom = _G.C_Heirloom
 
 
+ArkInventory.Collection.Heirloom = {
+	scanning = false,
+	ready = false,
+	total = 0,
+	owned = 0,
+	cache = { },
+}
+
+
 local filter = {
-	searchBox = nil,
+	search = nil,
 	collected = true,
 	uncollected = true,
 	source = { },
 	class = 0,
 	spec = 0,
-}
-
-local data = {
-	ready = false,
-	total = 0,
-	owned = 0,
-	cache = { },
+	backup = false,
 }
 
 
@@ -90,26 +93,19 @@ end
 
 local function FilterActionClear( )
 	
-	--ArkInventory.Output( "Collection.Heirloom.FilterActionClear" )
-	
-	filter.ignore = true
-	
 	FilterSetSearch( "" )
 	FilterSetCollected( true )
 	FilterSetUncollected( true )
 	FilterSetSource( true )
 	FilterSetClassSpec( 0, 0 )
 	
+	filter.ignore = true
+	
 end
 
 local function FilterActionBackup( )
 	
-	--ArkInventory.Output( "Collection.Heirloom.FilterActionBackup" )
-	
-	if filter.ignore then
-		--ArkInventory.Output( "FilterActionBackup - ignore" )
-		return
-	end
+	if filter.backup then return end
 	
 	filter.search = FilterGetSearch( )
 	filter.collected = FilterGetCollected( )
@@ -117,13 +113,13 @@ local function FilterActionBackup( )
 	FilterGetSource( filter.source )
 	filter.class, filter.spec = FilterGetClassSpec( )
 	
+	filter.backup = true
+	
 end
 
 local function FilterActionRestore( )
 	
-	--ArkInventory.Output( "Collection.Heirloom.FilterActionRestore" )
-	
-	filter.ignore = true
+	if not filter.backup then return end
 	
 	FilterSetSearch( filter.search )
 	FilterSetCollected( filter.collected )
@@ -131,11 +127,33 @@ local function FilterActionRestore( )
 	FilterSetSource( filter.source )
 	FilterSetClassSpec( filter.class, filter.spec )
 	
+	filter.ignore = true
+	filter.backup = false
+	
 end
 
-local function Scan( )
+function ArkInventory.Collection.Heirloom.Scan( )
 	
-	local update = false
+	local thread_id = string.format( ArkInventory.Global.Thread.Format.Collection, "heirloom" )
+	
+	if not ArkInventory.Global.Thread.Use then
+		local tz = debugprofilestop( )
+		ArkInventory.OutputThread( thread_id, " start" )
+		ArkInventory.Collection.Heirloom.Scan_Threaded( )
+		tz = debugprofilestop( ) - tz
+		ArkInventory.OutputThread( string.format( "%s took %0.0fms", thread_id, tz ) )
+		return
+	end
+	
+	local tf = function ( )
+		ArkInventory.Collection.Heirloom.Scan_Threaded( thread_id )
+	end
+	
+	ArkInventory.ThreadStart( thread_id, tf )
+	
+end
+
+function ArkInventory.Collection.Heirloom.Scan_Threaded( thread_id )
 	
 	if ArkInventory.Global.Mode.Combat then
 		-- set to scan when leaving combat
@@ -143,9 +161,29 @@ local function Scan( )
 		return
 	end
 	
+	local update = false
+	
+	local data = ArkInventory.Collection.Heirloom
+	
 	local total = C_Heirloom.GetNumDisplayedHeirlooms( )
 	local owned = C_Heirloom.GetNumKnownHeirlooms( )
-	--ArkInventory.Output( "total heirlooms = ", total )
+	
+	if total == 0 or owned == 0 then
+		return
+	end
+	
+	if filter.ignore then
+		--ArkInventory.Output( "IGNORED (HEIRLOOM FILTER CHANGED BY ME)" )
+		filter.ignore = false
+		return
+	end
+	
+	--ArkInventory.Output( "Heirloom: Start Scan @ ", time( ) )
+	
+	data.scanning = true
+	
+	FilterActionBackup( )
+	FilterActionClear( )
 	
 	if data.total ~= total or not data.ready then
 		data.total = total
@@ -155,54 +193,71 @@ local function Scan( )
 	if data.owned ~= owned or not data.ready then
 		data.owned = owned
 		update = true
+		wipe( data.cache )
 	end
-	
-	data.ready = true
-	
-	if owned == 0 then return end
 	
 	local c = data.cache
 	
-	for x = 1, total do
+	for index = 1, total do
 		
-		local i = C_Heirloom.GetHeirloomItemIDFromDisplayedIndex( x )
-		local name, itemEquipLoc, isPvP, icon, upgradeLevel, source, _, effectiveLevel, useLevel, maxLevel = C_Heirloom.GetHeirloomInfo( i )
-		local owned = C_Heirloom.PlayerHasHeirloom( i )
+		local i = C_Heirloom.GetHeirloomItemIDFromDisplayedIndex( index )
 		
-		if not hide then
+		if i > 0 then
 			
-			-- only look at the bits for this toon, not any variants that are hidden
+			local name, itemEquipLoc, isPvP, icon, upgradeLevel, source, _, effectiveLevel, useLevel, maxLevel = C_Heirloom.GetHeirloomInfo( i )
+			local owned = C_Heirloom.PlayerHasHeirloom( i )
 			
-			if ( not update ) and ( not c[i] or c[i].owned ~= owned ) then
-				update = true
+			if not hide then
+				
+				-- only look at the bits for this toon, not any variants that are hidden
+				
+				if ( not update ) and ( not c[i] or c[i].owned ~= owned ) then
+					update = true
+				end
+			
+				if not c[i] then
+					c[i] = {
+						index = index,
+						item = i,
+						name = name,
+						link = C_Heirloom.GetHeirloomLink( i ),
+						--texture = icon,
+						src = source,
+					}
+				end
+				
+				c[i].owned = owned
+				
+			else
+				--ArkInventory.Output( "hidden = ", spell, " / ", name )
 			end
+			
+		end
 		
-			if not c[i] then
-				c[i] = {
-					index = x,
-					item = i,
-					name = name,
-					link = C_Heirloom.GetHeirloomLink( i ),
-					--texture = icon,
-					src = source,
-				}
-			end
-			
-			c[i].owned = owned
-			
-		else
-			--ArkInventory.Output( "hidden = ", spell, " / ", name )
+		ArkInventory.ThreadYield_Scan( thread_id )
+		
+		if HeirloomsJournal:IsVisible( ) then
+			-- will rescan when journal is closed
+			--ArkInventory.Output( "ABORTED (HEIRLOOM JOURNAL WAS OPENED)" )
+			data.scanning = false
+			FilterActionRestore( )
+			return
 		end
 		
 	end
 	
-	return update
+	--ArkInventory.Output( "Heirloom: End Scan @ ", time( ), " ( ", data.owned, " of ", data.total, " ) update=", update )
+	
+	data.ready = true
+	data.scanning = false
+	FilterActionRestore( )
+	
+	if update then
+		ArkInventory.ScanCollectionHeirloom( )
+	end
 	
 end
 
-
-
-ArkInventory.Collection.Heirloom = { }
 
 function ArkInventory.Collection.Heirloom.OnHide( )
 	filter.ignore = false
@@ -210,15 +265,15 @@ function ArkInventory.Collection.Heirloom.OnHide( )
 end
 
 function ArkInventory.Collection.Heirloom.IsReady( )
-	return data.ready
+	return ArkInventory.Collection.Heirloom.ready
 end
 
 function ArkInventory.Collection.Heirloom.GetCount( )
-	return data.owned, data.total
+	return ArkInventory.Collection.Heirloom.owned, ArkInventory.Collection.Heirloom.total
 end
 
 function ArkInventory.Collection.Heirloom.Iterate( )
-	local t = data.cache
+	local t = ArkInventory.Collection.Heirloom.cache
 	return ArkInventory.spairs( t, function( a, b ) return ( t[a].index or 0 ) < ( t[b].index or 0 ) end )
 end
 
@@ -239,28 +294,20 @@ function ArkInventory:EVENT_ARKINV_COLLECTION_HEIRLOOM_UPDATE_BUCKET( events )
 	local loc_id = ArkInventory.Const.Location.Heirloom
 	
 	if not ArkInventory.LocationIsMonitored( loc_id ) then
-		--ArkInventory.Output( "IGNORED (NOT MONITORED)" )
+		--ArkInventory.Output( "IGNORED (HEIRLOOMS NOT MONITORED)" )
 		return
 	end
 	
 	if HeirloomsJournal and HeirloomsJournal:IsVisible( ) then
-		--ArkInventory.Output( "IGNORED (HEIRLOOM JOURNAL OPEN)" )
+		--ArkInventory.Output( "IGNORED (HEIRLOOM JOURNAL IS OPEN)" )
 		return
 	end
 	
-	if filter.ignore then
-		--ArkInventory.Output( "IGNORED (FILTER CHANGED BY ME)" )
-		filter.ignore = false
-		return
-	end
-	
-	FilterActionBackup( )
-	FilterActionClear( )
-	local update = Scan( )
-	FilterActionRestore( )
-	
-	if update then
-		ArkInventory.ScanCollectionHeirloom( )
+	if not ArkInventory.Collection.Heirloom.scanning then
+		ArkInventory.Collection.Heirloom.Scan( )
+	else
+		-- wait for current thread to finish
+		ArkInventory:SendMessage( "EVENT_ARKINV_COLLECTION_HEIRLOOM_UPDATE_BUCKET", "RESCAN" )
 	end
 	
 end

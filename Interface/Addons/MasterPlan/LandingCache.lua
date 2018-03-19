@@ -131,17 +131,15 @@ local function addCacheResources(self, id)
 	if id == 824 then
 		local cv, mv = G.GetResourceCacheInfo()
 		if cv and cv > 0 then
-			self:AddLine(GARRISON_CACHE .. ": |cffff" .. (cv < mv and "ffff" or "1010") .. cv .. "/" .. mv)
-			return true
+			self:AddLine(GARRISON_CACHE .. ": |cffff" .. (cv < mv and "ffff" or "1010") .. BreakUpLargeNumbers(cv) .. "/" .. BreakUpLargeNumbers(mv))
+			self:Show()
 		end
 	end
 end
 hooksecurefunc(GameTooltip, "SetCurrencyByID", addCacheResources)
 hooksecurefunc(GameTooltip, "SetCurrencyTokenByID", addCacheResources)
 hooksecurefunc(GameTooltip, "SetCurrencyToken", function(self, idx)
-	if addCacheResources(self, tonumber((GetCurrencyListLink(idx) or ""):match("currency:(%d+)") or 0)) then
-		self:Show()
-	end
+	addCacheResources(self, tonumber((GetCurrencyListLink(idx) or ""):match("currency:(%d+)") or 0))
 end)
 hooksecurefunc(GarrisonLandingPage.Report.shipmentsPool, "ReleaseAll", function(self)
 	local o = self.inactiveObjects

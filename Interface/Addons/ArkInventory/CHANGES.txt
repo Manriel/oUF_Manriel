@@ -1,33 +1,15 @@
 ------------------------------------------------------------------------
-r648 | arkayenro | 2017-06-24 12:09:38 -0500 (Sat, 24 Jun 2017) | 8 lines
+r702 | arkayenro | 2018-03-07 08:17:23 +0000 (Wed, 07 Mar 2018) | 4 lines
 Changed paths:
    M /trunk/ArkInventory.lua
    M /trunk/ArkInventory.toc
-   M /trunk/ArkInventoryRestack.lua
-   M /trunk/ArkInventoryStorage.lua
-   M /trunk/ArkInventoryTooltip.lua
-   M /trunk/ArkInventoryTranslate.lua
-   M /trunk/Locale/deDE.lua
-   M /trunk/Locale/enUS.lua
-   M /trunk/Locale/esES.lua
-   M /trunk/Locale/esMX.lua
-   M /trunk/Locale/frFR.lua
-   M /trunk/Locale/game.lua
-   M /trunk/Locale/itIT.lua
-   M /trunk/Locale/koKR.lua
-   M /trunk/Locale/ptBR.lua
-   M /trunk/Locale/ruRU.lua
-   M /trunk/Locale/zhCN.lua
-   M /trunk/Locale/zhTW.lua
+   M /trunk/ArkInventory.xml
+   M /trunk/Modules/ArkInventorySearch/ArkInventorySearch.lua
    M /trunk/VersionHistory.txt
 
-*3.07.30 (25-JUN-2017)*
- * fixed - issue with some tooltip text containing a UTF-8 non breaking space sequence (its not the same as a normal space character so doesnt match)
- * fixed - issue with artifact power items not being categorised properly for non-english languages
- * fixed - issue with ancient mana items not being categorised properly
- * fixed - issue with artifact power and ancient mana amounts not displaying for non-english languages (the amount should show up but still requires translation of some suffixes)
- * note - some languages (RU) do not have the text "Ancient Mana" in the toltip for Ancient Mana items so the values cannot be extracted at this time
- * note - some languages (KR, CN, TW) have different structures so the values cannot be extracted at this time
+*3.07.42 (07-MAR-2018)*
+ * fixed - issue with itemlinks getting added twice
+ * fixed - issue where clicking on an item in the bag/bank did nothing until after the window was refreshed for the first time
 
 ------------------------------------------------------------------------
 

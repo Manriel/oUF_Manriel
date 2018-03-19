@@ -1,4 +1,9 @@
-## Interface: 70200
+## Interface: 70300
+## X-WoWI-Slug: zz_Friends-844
+## X-Curse-Project-Slug: zz_friends
+## X-Repository: svn://svn.wowinterface.com/zz_Friends-844
+## X-WoWI-ID: 18761
+## X-Curse-Project-ID: 39075
 ## Title: Friends Broker
 ## Notes: Displays friends and guildmembers online
 ## Notes-deDE: Zeigt Freunde und Gildenmitglieder, die online sind

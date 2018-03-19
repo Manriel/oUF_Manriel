@@ -85,7 +85,7 @@ local tentativeState, tentativeParties = {}, {} do
 	end
 	function api.DissolveAllTentativeParties(typeID)
 		if next(tentativeParties) or next(tentativeState) then
-			for k,v in pairs(tentativeParties) do
+			for k in pairs(tentativeParties) do
 				if C_Garrison.GetFollowerTypeByMissionID(k) == typeID then
 					dissolve(k, true)
 				end
@@ -482,20 +482,14 @@ function api.GetDoubleCounters(skipInactive)
 				end
 				local sc = T.SpecCounters[fi.classSpec]
 				if sc then
-					local c1, s1 = aai(fid, 1) or 0, false
-					c1 = c1 > 0 and cai(c1) or false
-					-- actually, this is wrong. we only need c1 logic for current ability + one of spec's abilities for quality < 4.
-					-- but then, we also get a difference between "Gain naturally" and "if rerolled."
-					for i=#sc-1,0,-1 do
-						local c1 = sc[i] or c1
-						for j=i+1,#sc do
-							local c2 = sc[j]
+					local lockedCounter = api.GetFollowerLockedCounterInfo(fi.garrFollowerID or fi.followerID)
+					for i=1,#sc do
+						for j=lockedCounter and #sc or (i+1),#sc do
+							local c1, c2 = sc[i], lockedCounter or sc[j]
 							local k, k2 = -(c1*100 + c2), -(c2*100 + c1)
 							local tk = rt[k] or {key=k}
 							tk[#tk + 1], rt[k], rt[k2] = fi.followerID, tk, tk
 						end
-						s1 = s1 or (sc[i] == c1)
-						if i == 1 and s1 then break end
 					end
 				end
 			end
@@ -994,7 +988,7 @@ do -- PrepareAllMissionGroups/GetMissionGroups {sc xp gr ti p1 p2 p3 xp pb}
 					break
 				end
 			end
-			for k,v in pairs(msf) do
+			for k in pairs(msf) do
 				if not (finfo[k] and finfo[k].isCollected and finfo[k].status ~= GARRISON_FOLLOWER_INACTIVE) then
 					valid, msf[k] = false
 				end
@@ -1038,10 +1032,10 @@ do -- PrepareAllMissionGroups/GetMissionGroups {sc xp gr ti p1 p2 p3 xp pb}
 					rf(mid, msi[t[i]])
 					t[i] = t[i] % fm[i] + 1
 					if t[i] > 1 or i == 1 then
-						if not af(mid, msi[t[i]]) then error("Failed to add follower " .. i .. ":" .. tostring(t[i]) .. ":" .. tostring(msi[t[i]])) end
+						if not af(mid, msi[t[i]]) then error("Failed to add follower " .. i .. ":" .. tostring(t[i]) .. ":" .. tostring(msi[t[i]]) .. " to " .. tostring(mid)) end
 						for j=i+1, nf do
 							t[j]=t[j-1]+1
-							if not af(mid, msi[t[j]]) then error("Failed to add follower " .. j .. ":" .. tostring(t[j]) .. ":" .. tostring(msi[t[j]])) end
+							if not af(mid, msi[t[j]]) then error("Failed to add follower " .. j .. ":" .. tostring(t[j]) .. ":" .. tostring(msi[t[j]]) .. " to " .. tostring(mid)) end
 						end
 						if msiMentorIndex and (mentorSlot or i) >= i then
 							mentorSlot = nil
@@ -1899,7 +1893,7 @@ function FollowerEstimator.GetMemberPool(includeInactive, moreFollowers, forceIn
 	return f, ni-1, #f
 end
 function FollowerEstimator.PrepareCounters()
-	return {[6]=0}, {[221]=0, [79]=0, [77]=0, [76]=0, [201]=0, [202]=0, [232]=0, [256]=0, [47]=0}, FTraitStack
+	return {[6]=0}, {[221]=0, [79]=0, [77]=0, [76]=0, [201]=0, [202]=0, [232]=0, [256]=0, [47]=0}, FTraitStack, T.MoreTraitStack
 end
 function FollowerEstimator.EvaluateGroup(mi, counters, traits, fa, fb, fc, scratch)
 	local mlvl, rew, mc, umc = mi[1], mi[4], scratch or {}, false
@@ -2319,7 +2313,7 @@ function api.UpdateGroupEstimates(missions, followers, yield, bMax)
 	
 	return ret
 end
-do -- +api.GetSuggestedMissionUpgradeGroups(missions, f1, f2, f3)
+do -- +api.GetSuggestedMissionUpgradeGroups(missions, ojob, f1, f2, f3)
 	local upgroups, summaries, tt, gt = {}, {}, {}, {0,0,0, nil,nil,nil, 0,0,0}
 	function EV:MP_RELEASE_CACHES()
 		upgroups, summaries = {}, {}
@@ -2399,13 +2393,17 @@ do -- +api.GetSuggestedMissionUpgradeGroups(missions, f1, f2, f3)
 		end
 		yield(2, 1, 1)
 	end
-	function api.GetSuggestedMissionUpgradeGroups(missions, f1, f2, f3)
+	local coJobs = setmetatable({}, {__mode="k"})
+	local function cmp1(a,b)
+		return a[1] < b[1]
+	end
+	function api.GetSuggestedMissionUpgradeGroups(missions, ojob, f1, f2, f3)
 		local fid = api.GetFollowerIdentity(true, false, 1)
 		if upgroups.identity ~= fid then
 			wipe(upgroups)
 			upgroups.identity = fid
 		end
-		local noRoamers, job = not (f1 or f2 or f3)
+		local noRoamers, oc, job = not (f1 or f2 or f3), coJobs[ojob]
 		for i=1,#missions do
 			local mi, rt, mid = missions[i]
 			rt, mid, mi.upgroup = noRoamers and mi.level == 100 and mi.numFollowers > 1 and mi.groups and mi.groups.rankType, mi.missionID
@@ -2421,7 +2419,22 @@ do -- +api.GetSuggestedMissionUpgradeGroups(missions, f1, f2, f3)
 			end
 		end
 		if job then
+			table.sort(job, cmp1)
+			if oc and #oc == #job and oc.fid == fid then
+				local diff = false
+				for i=1,#job do
+					local a, b = job[i], oc[i]
+					if a[1] ~= b[1] or a[3] ~= b[3] or a[4] ~= b[4] then
+						diff = true
+						break
+					end
+				end
+				if not diff then
+					return ojob
+				end
+			end
 			local cw = coroutine.create(procJobs)
+			coJobs[cw], job.fid = job, fid
 			coroutine.resume(cw, job, coroutine.yield)
 			return cw
 		end
@@ -2439,7 +2452,7 @@ function api.GetFollowerRerollConstraints(fid)
 		f[f[i].followerID] = f[i]
 	end
 	
-	local tf, scratch, counters, traits, ts = f[fid], {}, est.PrepareCounters()
+	local tf, scratch, counters, traits, ts, mts = f[fid], {}, est.PrepareCounters()
 	local tfsa, tfa, cc, ct, lt = tf.saffinity, tf.affinity, {}, {}, T.LockTraits
 	for i=1,2 do
 		local s, d = tf[i == 1 and "counters" or "traits"], i == 1 and cc or ct
@@ -2450,11 +2463,11 @@ function api.GetFollowerRerollConstraints(fid)
 		end
 	end
 	
-	local hasInterestedMissions, hasDoubleCounter = false, tf.counters[1] == tf.counters[2]
+	local hasInterestedMissions, hasDoubleCounter, rt = false, tf.counters[1] == tf.counters[2]
 	for _, mi, b in api.MoIMissions(mt, info) do
 		local idx = b and (b[1] == fid and 1 or b[2] == fid and 2 or b[3] == fid and 3)
 		if idx and b.used and api.IsInterestedInMoI(mi) and b.used % (2^idx) >= 2^(idx-1) then
-			hasInterestedMissions = true
+			hasInterestedMissions, rt = true, mi.s[4]
 			for j=1,mi.s[2] do
 				for i=1,2 do
 					local s, t = f[b[j]][i == 1 and "counters" or "traits"], i == 1 and counters or traits
@@ -2464,8 +2477,7 @@ function api.GetFollowerRerollConstraints(fid)
 					end
 				end
 			end
-
-			ct[ts[mi.s[4]] or 0] = nil
+			ct[ts[rt] or 0], ct[mts and mts[rt] or 0] = nil, nil
 			local fa, fb, fc = f[b[1]], f[b[2]], f[b[3] or b[2]]
 			local bgv = est.EvaluateGroup(mi.s, counters, traits, fa, fb, fc, scratch)
 			for i=1,2 do
@@ -2496,6 +2508,13 @@ function api.GetFollowerRerollConstraints(fid)
 				end
 			end
 		end
+	end
+	
+	local at = C_Garrison.GetFollowerAbilities(tf.garrFollowerID)
+	for k,v in pairs(at) do
+		local t = v.isTrait and ct or cc
+		local k = v.isTrait and v.id or C_Garrison.GetFollowerAbilityCounterMechanicInfo(v.id)
+		t[k] = t[k] and "soft"
 	end
 	
 	return cc, ct, hasInterestedMissions
@@ -2558,9 +2577,14 @@ function api.CountUniqueRerolls(counters, thisFollowerID)
 	local finfo, c = api.GetFollowerInfo(), counters
 	local dc, novel, inact = api.GetDoubleCounters(), 0, 0
 	
+	local me = finfo[thisFollowerID]
+	local lockedCounter = api.GetFollowerLockedCounterInfo(me and (me.garrFollowerID or me.followerID) or thisFollowerID)
+	local total = 0
+	
 	for i=1,#c do
-		for j=i+1, #c do
-			local ft, ac, ic = dc[c[i]*100 + c[j]], 0, 0
+		for j=lockedCounter and #c or (i+1), #c do
+			local c1, c2 = c[i], lockedCounter or c[j]
+			local ft, ac, ic = dc[c1*100 + c2], 0, 0
 			for i=1,ft and #ft or 0 do
 				if ft[i] == thisFollowerID then
 				elseif finfo[ft[i]].status ~= GARRISON_FOLLOWER_INACTIVE then
@@ -2570,6 +2594,7 @@ function api.CountUniqueRerolls(counters, thisFollowerID)
 					ic = ic + 1
 				end
 			end
+			total = total + 1
 			if ac == 0 and ic == 0 then
 				novel = novel + 1
 			elseif ac == 0 then
@@ -2578,36 +2603,28 @@ function api.CountUniqueRerolls(counters, thisFollowerID)
 		end
 	end
 	
-	local total = #c*(#c-1)/2
 	local desc = inact > 0 and "|cffccc78f" .. (novel > 0 and "+" or "") .. inact .. "|r" or ""
 	desc = (novel > 0 and "|cff20ff20" .. novel .. "|r" or "") .. desc .. "|cffffffff/" .. total
 	return novel, inact, total, desc
 end
-function api.PrepCounterComboIter(c)
-	local dupIdx, dupNext do
-		for i=1,#c-1 do
-			if c[i] == c[i+1] then
-				dupIdx, dupNext = i, i + 1
-				break
+do -- GetFollowerLockedCounterInfo(fid)
+	local lockedCounterCache = {}
+	function api.GetFollowerLockedCounterInfo(fid)
+		local cl = lockedCounterCache[fid]
+		if not fid or cl == false then
+			return
+		elseif cl then
+			return cl
+		end
+		local fat = C_Garrison.GetFollowerAbilities(fid)
+		for k,v in pairs(fat) do
+			if not v.isTrait and v.id and v.counters then
+				cl = cl or next(v.counters)
 			end
 		end
+		lockedCounterCache[fid] = cl or false
+		return cl
 	end
-	return dupIdx, dupNext
-end
-function api.GetCounterComboIter(c, i, dupIdx, dupNext)
-	local lidx, ridx = i % #c + 1, (i+1) % #c + 1
-	if i == dupNext then return end
-	local hasRight = not ((#c == 4 and i > 2) or lidx == dupIdx)
-
-	local pc, lc, rc = c[i], c[lidx], c[ridx]
-	local _, _, pi = api.GetMechanicInfo(pc)
-	local _, _, li = api.GetMechanicInfo(lc)
-	local _, _, ri = api.GetMechanicInfo(rc)
-	local pt = "|T" .. pi .. ":16:16:0:0:64:64:5:59:5:59|t"
-	local lt = pt .. "|T" .. li .. ":16:16:0:0:64:64:5:59:5:59|t"
-	local rt = pt .. "|T" .. ri .. ":16:16:0:0:64:64:5:59:5:59|t"
-
-	return lidx, hasRight and ridx, pc, lc, rc, lt, hasRight and rt or ""
 end
 function api.SetClassSpecTooltip(self, specId, specName, ab1, ab2)
 	local fi
@@ -2625,19 +2642,31 @@ function api.SetClassSpecTooltip(self, specId, specName, ab1, ab2)
 	if specName then
 		self:AddLine(specName, 1,1,1)
 		self:AddLine(L"Potential counters:")
-		local dupIdx, dupNext = api.PrepCounterComboIter(c)
+		local lockedCounter = api.GetFollowerLockedCounterInfo(fi and (fi.garrFollowerID or fi.followerID))
+		
+		local leftLine
 		for i=1,#c do
-			local lidx, ridx, pc, lc, rc, lt, rt = api.GetCounterComboIter(c, i, dupIdx, dupNext)
-			if lidx then
-				local lct, lpt, rct, rpt = dct[pc*100+lc], dct[-(pc*100+lc)], dct[pc*100+rc], dct[-(pc*100+rc)]
-				local lf, la, lp = api.countFreeFollowers(lct, finfo), lct and #lct or 0, lpt and #lpt or 0
-				lt = lt .. " " .. (lf == 0 and la == 0 and "0" or "") .. (lf > 0 and "|cff20ff20" .. lf .. "|r" or "") .. (la > lf and (lf > 0 and "+" or "") .. "|cffccc78f" .. (la - lf) .. "|r" or "") .. "|cffa0a0a0/" .. lp
-				if ridx then
-					local rf, ra, rp = api.countFreeFollowers(rct, finfo), rct and #rct or 0, rpt and #rpt or 0
+			for j=lockedCounter and #c or (i+1), #c do
+				local pc, lc = lockedCounter or c[j], c[i]
+				local lct, lpt = dct[pc*100+lc], dct[-(pc*100+lc)]
+				local _, _, pi = api.GetMechanicInfo(pc)
+				local _, _, li = api.GetMechanicInfo(lc)
+				local pt = "|T" .. pi .. ":16:16:0:0:64:64:5:59:5:59|t"
+				if leftLine then
+					local rt = pt .. "|T" .. li .. ":16:16:0:0:64:64:5:59:5:59|t"
+					local rf, ra, rp = api.countFreeFollowers(lct, finfo), lct and #lct or 0, lpt and #lpt or 0
 					rt = (rf == 0 and ra == 0 and "0" or "") .. (rf > 0 and "|cff20ff20" .. rf .. "|r" or "") .. (ra > rf and (rf > 0 and "+" or "") .. "|cffccc78f" .. (ra - rf) .. "|r" or "") .. "|cffa0a0a0/" .. rp .. " " .. rt
+					self:AddDoubleLine(leftLine, rt, 1,1,1, 1,1,1)
+					leftLine = nil
+				else
+					local lt = pt .. "|T" .. li .. ":16:16:0:0:64:64:5:59:5:59|t"
+					local lf, la, lp = api.countFreeFollowers(lct, finfo), lct and #lct or 0, lpt and #lpt or 0
+					leftLine = lt .. " " .. (lf == 0 and la == 0 and "0" or "") .. (lf > 0 and "|cff20ff20" .. lf .. "|r" or "") .. (la > lf and (lf > 0 and "+" or "") .. "|cffccc78f" .. (la - lf) .. "|r" or "") .. "|cffa0a0a0/" .. lp
 				end
-				self:AddDoubleLine(lt, rt, 1,1,1, 1,1,1)
 			end
+		end
+		if leftLine then
+			self:AddLine(leftLine, 1,1,1)
 		end
 	else
 		self:AddLine(ITEM_QUALITY_COLORS[4].hex .. L"Epic Ability")
@@ -3038,7 +3067,7 @@ function api.SetFollowerCloneTip(tip, cl, isCollected)
 	if cl.req then
 		local addHeader, cc, overflow, cur, lastLeft, lastRight = true, 0, 0, cl.cur
 		for i=1,2 do
-			for _, mi, b in api.MoIMissions(1) do
+			for _, mi in api.MoIMissions(1) do
 				local mid = mi[1]
 				if cl.req[mid] and api.IsInterestedInMoI(mi) and (i == 2) == (not (cur and cur[mid])) then
 					if addHeader then
@@ -3220,9 +3249,11 @@ do -- api.GetBestGroupInfo()
 			c1, c2 = c1 < c2 and c1 or c2, c1 < c2 and c2 or c1
 			local skey = c1*100+c2
 			fi.clones[skey] = fi
+
+			local lockedCounter = api.GetFollowerLockedCounterInfo(fi.garrFollowerID or fi.followerID)
 			for i=1,#ct do
-				for j=i+1,#ct do
-					local a, b = ct[i], ct[j]
+				for j=lockedCounter and #ct or (i+1),#ct do
+					local a, b = ct[i], lockedCounter or ct[j]
 					local key = a*100+b
 					if not fi.clones[key] then
 						local cl = {}
@@ -3270,9 +3301,10 @@ do -- api.GetBestGroupInfo()
 		me.active, me.working = 1, 0
 		
 		local bMax, ct, clones = #ft, T.SpecCounters[me.classSpec], {}
+		local lockedCounter = api.GetFollowerLockedCounterInfo(me.garrFollowerID or me.followerID or fid)
 		for i=1,#ct do
-			for j=i+1,#ct do
-				local a, b = ct[i], ct[j]
+			for j=lockedCounter and #ct or (i+1),#ct do
+				local a, b = ct[i], lockedCounter or ct[j]
 				local key = a*100+b
 				if not clones[key] then
 					local cl = {}

@@ -134,3 +134,4 @@ L["Unlock to to move the bar anywhere you want."] = "원하는 위치로 바를 
 L["Update Center Position"] = "중앙 위치 업데이트"
 L["Vertical Offset"] = "수직 위치"
 L["Width Behavior"] = "너비 행동"
+

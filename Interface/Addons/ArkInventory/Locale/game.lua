@@ -82,7 +82,9 @@ L["CATEGORY_SYSTEM_EQUIPMENT_ACCOUNTBOUND"] = ( TUTORIAL_TITLE24 and ITEM_ACCOUN
 
 
 -- ldb
-L["LDB_MOUNTS_TYPE_A"] = BATTLE_PET_NAME_3 or true -- calculated keyword
+L["LDB_MOUNTS_TYPE_A"] = BATTLE_PET_NAME_3 or true
+L["LDB_MOUNTS_FLYING_DISMOUNT"] = AUTO_DISMOUNT_FLYING_TEXT or true
+L["LDB_MOUNTS_NOT_HERE"] = SPELL_FAILED_NO_MOUNTS_ALLOWED or true
 
 
 -- generic words
@@ -108,6 +110,7 @@ L["CLEANUP"] = BAG_FILTER_CLEANUP or true
 L["CLOSE"] = CLOSE or true
 L["COLOUR"] = COLOR or true
 L["COLLECTED"] = COLLECTED or true
+L["COMPANIONS"] = COMPANIONS or true
 L["COMPLETE"] = COMPLETE or true
 L["CONTROLS"] = CONTROLS_LABEL or true
 L["CURRENCY"] = CURRENCY or true
@@ -118,7 +121,7 @@ L["DEFAULT"] = DEFAULT or true
 L["DELETE"] = DELETE or true
 L["DESCRIPTION"] = QUEST_DESCRIPTION or true
 L["DISABLE"] = DISABLE or true
-L["DISABLED"] = ADDON_DISABLED or true
+L["DISABLED"] = VIDEO_OPTIONS_DISABLED or true
 L["DISPLAY"] = DISPLAY or true
 L["DURATION"] = AUCTION_DURATION or true
 L["EDIT"] = EDIT or true
@@ -139,7 +142,10 @@ L["JUNK"] = BAG_FILTER_JUNK or true
 L["LOCK"] = LOCK or true
 L["LOCKED"] = LOCKED or true
 L["MAIL"] = MAIL_LABEL or true
+L["MAXIMUM"] = MAXIMUM or true
+L["MINIMUM"] = MINIMUM or true
 L["MOUNT"] = MOUNT or true
+L["MOUNTS"] = MOUNTS or true
 L["MODE"] = MODE or true
 L["MOVE"] = NPE_MOVE or true
 L["NAME"] = NAME or true
@@ -152,6 +158,7 @@ L["OKAY"] = OKAY or true
 L["ONLINE"] = FRIENDS_LIST_ONLINE or true
 L["OPTIONS"] = GAMEOPTIONS_MENU or true
 L["PET"] = PET or true
+L["PETS"] = PETS or true
 L["REALM"] = VAS_REALM_LABEL or true
 L["REFRESH"] = REFRESH or true
 L["REMOVE"] = REMOVE or true
@@ -178,7 +185,7 @@ L["VIEW"] = VIEW or true
 L["WEEKLY"] = WEEKLY or true
 L["YES"] = YES or true
 
-function FormatForRegex( text )
+local function FormatForRegex( text )
 	local text = text
 	text = string.gsub( text, "%.", "%%%." ) -- replace . with %.
 	text = string.gsub( text, "%*", "%%%*" ) -- replace * with %*

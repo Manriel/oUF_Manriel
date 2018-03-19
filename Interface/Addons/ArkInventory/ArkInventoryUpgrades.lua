@@ -1385,7 +1385,6 @@ function ArkInventory.DatabaseUpgradePostLoad( )
 		end
 		
 		
-		
 		ArkInventory.acedb.global.version = upgrade_version
 		
 	end
@@ -1451,7 +1450,46 @@ function ArkInventory.DatabaseUpgradePostLoad( )
 		ArkInventory.acedb.global.version = upgrade_version
 		
 	end
-
+	
+	
+	upgrade_version = 30742
+	if ArkInventory.acedb.global.option.version < upgrade_version then
+		
+		for id, design in pairs( ArkInventory.acedb.global.option.design.data ) do
+			if design.slot then
+				if type( design.slot.compress ) == "number" then
+					ArkInventory.Output( string.format( ArkInventory.Localise["UPGRADE_GLOBAL"], string.format( "style/layout %s", id ), upgrade_version ) )
+					local tmp = design.slot.compress
+					design.slot.compress = { ["count"] = tmp, ["position"] = 1 }
+				end
+			end
+		end
+		
+		
+		ArkInventory.acedb.global.option.version = upgrade_version
+		
+	end
+	
+	if ArkInventory.acedb.global.player.version < upgrade_version then
+		
+		for pid, pd in pairs( ArkInventory.acedb.global.player.data ) do
+			
+			for mta, mt in pairs( ArkInventory.Const.MountTypes ) do
+				
+				if pd.ldb.mounts[mta] then
+					ArkInventory.Output( string.format( ArkInventory.Localise["UPGRADE_GLOBAL"], string.format( "player %s mount", pid ), upgrade_version ) )
+					pd.ldb.mounts.type[mta] = pd.ldb.mounts[mta]
+				end
+				pd.ldb.mounts[mta] = nil
+				
+			end
+			
+		end
+		
+		
+		ArkInventory.acedb.global.player.version = upgrade_version
+		
+	end
 	
 	
 	

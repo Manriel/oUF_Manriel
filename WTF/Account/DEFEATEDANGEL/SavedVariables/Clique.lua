@@ -2,19 +2,34 @@
 CliqueDB = nil
 CliqueDB3 = {
 	["char"] = {
+		["Тиндэлен - Свежеватель Душ"] = {
+			["alerthidden"] = true,
+		},
+		["Шепот - Ясеневый лес"] = {
+			["alerthidden"] = true,
+		},
 		["Манриэль - Ясеневый лес"] = {
 			["spec1_profileKey"] = "Manriel Discipline",
-			["spec2_profileKey"] = "Manriel Holy",
-			["spec3_profileKey"] = "Manriel Shadow",
 			["sec_profileKey"] = "Manriel Shadow",
 			["fastooc"] = false,
 			["alerthidden"] = true,
 			["downclick"] = false,
 			["pri_profileKey"] = "Манриэль - Ясеневый лес",
 			["specswap"] = true,
+			["spec2_profileKey"] = "Manriel Holy",
+			["spec3_profileKey"] = "Manriel Shadow",
 		},
+		["Лейреи - Ясеневый лес"] = {
+			["alerthidden"] = true,
+		},
+		["Манриэль - Свежеватель Душ"] = {
+			["alerthidden"] = true,
+		},
+	},
 	["profileKeys"] = {
 		["Манриэль - Ясеневый лес"] = "Manriel Discipline",
+		["Лавлиэт - Ясеневый лес"] = "Лавлиэт - Ясеневый лес",
+		["Лейреи - Ясеневый лес"] = "Лейреи - Ясеневый лес",
 	},
 	["profiles"] = {
 		["Manriel Discipline"] = {
@@ -38,13 +53,13 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [2]
 				{
-					["spell"] = "Божественное перышко",
-					["key"] = "ALT-BUTTON5",
+					["spell"] = "Ментальный крик",
+					["key"] = "SHIFT-BUTTON4",
 					["sets"] = {
 						["global"] = true,
 						["default"] = true,
 					},
-					["icon"] = 642580,
+					["icon"] = 136184,
 					["type"] = "spell",
 				}, -- [3]
 				{
@@ -57,16 +72,6 @@ CliqueDB3 = {
 					},
 				}, -- [4]
 				{
-					["spell"] = "Ментальный крик",
-					["key"] = "SHIFT-BUTTON4",
-					["sets"] = {
-						["global"] = true,
-						["default"] = true,
-					},
-					["icon"] = 136184,
-					["type"] = "spell",
-				}, -- [5]
-				{
 					["spell"] = "Массовое рассеивание",
 					["key"] = "SHIFT-BUTTON3",
 					["sets"] = {
@@ -74,6 +79,16 @@ CliqueDB3 = {
 						["default"] = true,
 					},
 					["icon"] = 135739,
+					["type"] = "spell",
+				}, -- [5]
+				{
+					["spell"] = "Божественное перышко",
+					["key"] = "ALT-BUTTON5",
+					["sets"] = {
+						["global"] = true,
+						["default"] = true,
+					},
+					["icon"] = 642580,
 					["type"] = "spell",
 				}, -- [6]
 				{
@@ -218,41 +233,14 @@ CliqueDB3 = {
 					["type"] = "spell",
 				}, -- [5]
 				{
-					["spell"] = "Темное восстановление",
-					["key"] = "BUTTON1",
+					["spell"] = "Левитация",
+					["key"] = "ALT-BUTTON4",
 					["sets"] = {
 						["friend"] = true,
 					},
-					["icon"] = 136202,
+					["icon"] = 135928,
 					["type"] = "spell",
 				}, -- [6]
-				{
-					["spell"] = "Рассеивание заклинаний",
-					["key"] = "BUTTON3",
-					["sets"] = {
-						["enemy"] = true,
-					},
-					["icon"] = 136066,
-					["type"] = "spell",
-				}, -- [7]
-				{
-					["spell"] = "Исчадие Тьмы",
-					["key"] = "SHIFT-BUTTON5",
-					["sets"] = {
-						["enemy"] = true,
-					},
-					["icon"] = 136199,
-					["type"] = "spell",
-				}, -- [8]
-				{
-					["spell"] = "Очищение от болезни",
-					["key"] = "BUTTON3",
-					["sets"] = {
-						["friend"] = true,
-					},
-					["icon"] = 135935,
-					["type"] = "spell",
-				}, -- [9]
 				{
 					["spell"] = "Безмолвие",
 					["key"] = "BUTTON4",
@@ -261,16 +249,25 @@ CliqueDB3 = {
 					},
 					["icon"] = 458230,
 					["type"] = "spell",
-				}, -- [10]
+				}, -- [7]
 				{
-					["spell"] = "Левитация",
-					["key"] = "ALT-BUTTON4",
+					["spell"] = "Очищение от болезни",
+					["key"] = "BUTTON3",
 					["sets"] = {
 						["friend"] = true,
 					},
-					["icon"] = 135928,
+					["icon"] = 135935,
 					["type"] = "spell",
-				}, -- [11]
+				}, -- [8]
+				{
+					["spell"] = "Рассеивание заклинаний",
+					["key"] = "BUTTON3",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = 136066,
+					["type"] = "spell",
+				}, -- [9]
 				{
 					["spell"] = "Слово Тьмы: Смерть",
 					["key"] = "BUTTON5",
@@ -278,6 +275,24 @@ CliqueDB3 = {
 						["enemy"] = true,
 					},
 					["icon"] = 136149,
+					["type"] = "spell",
+				}, -- [10]
+				{
+					["spell"] = "Исчадие Тьмы",
+					["key"] = "SHIFT-BUTTON5",
+					["sets"] = {
+						["enemy"] = true,
+					},
+					["icon"] = 136199,
+					["type"] = "spell",
+				}, -- [11]
+				{
+					["spell"] = "Темное восстановление",
+					["key"] = "BUTTON1",
+					["sets"] = {
+						["friend"] = true,
+					},
+					["icon"] = 136202,
 					["type"] = "spell",
 				}, -- [12]
 				{
@@ -501,6 +516,44 @@ CliqueDB3 = {
 					["icon"] = 135907,
 					["type"] = "spell",
 				}, -- [23]
+			},
+		},
+		["Лавлиэт - Ясеневый лес"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
+			},
+		},
+		["Лейреи - Ясеневый лес"] = {
+			["bindings"] = {
+				{
+					["sets"] = {
+						["default"] = true,
+					},
+					["type"] = "target",
+					["key"] = "BUTTON1",
+					["unit"] = "mouseover",
+				}, -- [1]
+				{
+					["type"] = "menu",
+					["key"] = "BUTTON2",
+					["sets"] = {
+						["default"] = true,
+					},
+				}, -- [2]
 			},
 		},
 	},

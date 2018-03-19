@@ -118,7 +118,7 @@ function ArkInventory.TooltipAddBattlepetDetail( tooltip, speciesID, i, link )
 	tooltip:AddLine( info )
 	
 	local tt = { }
-	for _, pd in ArkInventory.PetJournal.Iterate( ) do
+	for _, pd in ArkInventory.Collection.Pet.Iterate( ) do
 		if ( pd.sd.speciesID == speciesID ) then
 			tt[#tt  + 1] = pd
 		end
@@ -187,7 +187,7 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 		return
 	end
 	
-	local sd = ArkInventory.PetJournal.GetSpeciesInfo( osd.id )
+	local sd = ArkInventory.Collection.Pet.GetSpeciesInfo( osd.id )
 	if not sd then
 		--ArkInventory.OutputWarning( "no species data found for ", osd.id )
 		return
@@ -198,7 +198,7 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 	local rarity = osd.q
 	
 	if i and i.index then
-		pd = ArkInventory.PetJournal.GetPet( i.index )
+		pd = ArkInventory.Collection.Pet.GetPet( i.index )
 		if pd then
 			if rarity == -1 then
 				rarity = pd.rarity
@@ -239,8 +239,8 @@ function ArkInventory.TooltipSetBattlepet( tooltip, h, i )
 		tooltip:AddLine( " " )
 		
 		
-		txt1 = LEVEL
-		txt2 = string.format( "%s %s", osd.level, "|TInterface\\PetBattles\\BattleBar-AbilityBadge-Strong-Small:0|t" )
+		local txt1 = LEVEL
+		local txt2 = string.format( "%s %s", osd.level, "|TInterface\\PetBattles\\BattleBar-AbilityBadge-Strong-Small:0|t" )
 		if pd and pd.xp and pd.maxXp and pd.xp > 0 then
 			
 			local pc = pd.xp / pd.maxXp * 100
@@ -330,7 +330,7 @@ function ArkInventory.TooltipHookSetUnit( ... )
 			
 			tooltip:Show( ) -- its a static tooltip, need to show it first to be able to add to it
 			
-			sd = ArkInventory.PetJournal.GetSpeciesInfo( speciesID )
+			local sd = ArkInventory.Collection.Pet.GetSpeciesInfo( speciesID )
 			
 			if sd then
 				

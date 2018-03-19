@@ -45,7 +45,7 @@
 		<Scripts>
 
 			<OnClick>
-				<!-- PlaySound( "igMainMenuOptionCheckBoxOn" ) -->
+				<!-- PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON ) -->
 				--local k = strmatch( self:GetName( ), "^.+_(.-)$" )
 			</OnClick>
 			
@@ -106,7 +106,7 @@
 					</OnLoad>
 					
 					<OnClick>
-						PlaySound( "igMainMenuOptionCheckBoxOn" )
+						PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 						ArkInventoryRules.Frame_Rules_Button_Modify_Ok( self )
 					</OnClick>
 					
@@ -127,7 +127,7 @@
 					</OnLoad>
 					
 					<OnClick>
-						PlaySound( "igMainMenuOptionCheckBoxOn" )
+						PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 						ArkInventoryRules.Frame_Rules_Button_Modify_Cancel( self )
 					</OnClick>
 					
@@ -435,7 +435,7 @@
 			</OnLeave>
 
 			<OnClick>
-				PlaySound( "igMainMenuOptionCheckBoxOn" )
+				PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 				ArkInventoryRules.Frame_Rules_Table_Row_OnClick( self )
 			</OnClick>
 
@@ -762,7 +762,7 @@
 							</OnLoad>
 							
 							<OnClick>
-								PlaySound( "igMainMenuOptionCheckBoxOn" )
+								PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 								ArkInventoryRules.Frame_Rules_Button_View_Edit( self )
 							</OnClick>
 							
@@ -783,7 +783,7 @@
 							</OnLoad>
 
 							<OnClick>
-								PlaySound( "igMainMenuOptionCheckBoxOn" )
+								PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 								ArkInventoryRules.Frame_Rules_Button_View_Add( self )
 							</OnClick>
 							
@@ -804,7 +804,7 @@
 							</OnLoad>
 
 							<OnClick>
-								PlaySound( "igMainMenuOptionCheckBoxOn" )
+								PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 								ArkInventoryRules.Frame_Rules_Button_View_Remove( self )
 							</OnClick>
 							
@@ -940,12 +940,12 @@
 			</OnDragStop>
 
 			<OnShow>
-				PlaySound( "igMainMenuOptionCheckBoxOn" )
+				PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 				ArkInventoryRules.Frame_Rules_Paint( )
 			</OnShow>
 			
 			<OnHide>
-				PlaySound( "igMainMenuOptionCheckBoxOn" )
+				PlaySound( SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON )
 			</OnHide>
 			
 		</Scripts>

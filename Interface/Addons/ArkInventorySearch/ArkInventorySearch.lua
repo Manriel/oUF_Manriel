@@ -2,8 +2,8 @@
 
 License: All Rights Reserved, (c) 2006-2016
 
-$Revision: 1800 $
-$Date: 2017-04-23 23:12:46 +1000 (Sun, 23 Apr 2017) $
+$Revision: 1899 $
+$Date: 2018-03-07 19:15:52 +1100 (Wed, 07 Mar 2018) $
 
 ]]--
 
@@ -160,9 +160,7 @@ end
 function ArkInventory.Frame_Search_Table_Row_OnClick( frame )
 
 	h = _G[string.format( "%s%s", frame:GetName( ), "Id" )]:GetText( )
-	if HandleModifiedItemClick( h ) then
-		return
-	end
+	if HandleModifiedItemClick( h ) then return end
 	
 end
 

@@ -229,7 +229,7 @@ function ArkInventory.ConfigBlizzard( )
 					name = ArkInventory.Localise["LDB_MOUNTS_SUMMON"],
 					type = "execute",
 					func = function( )
-						ArkInventory.LDB.Mounts.OnClick( )
+						ArkInventory.LDB.Mounts:OnClick( )
 					end,
 				},
 				pet = {
@@ -237,7 +237,7 @@ function ArkInventory.ConfigBlizzard( )
 					name = ArkInventory.Localise["LDB_PETS_SUMMON"],
 					type = "execute",
 					func = function( )
-						ArkInventory.LDB.Pets.OnClick( )
+						ArkInventory.LDB.Pets:OnClick( )
 					end,
 				},
 			},

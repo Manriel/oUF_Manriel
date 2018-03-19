@@ -62,15 +62,18 @@ end
 
 local function helper_fontsize( size )
 	
-	local size = size
+	if not size then return end
+	
 	if type( size ) ~= "number" then
 	   -- size can be -1.#QNAN (some invalid number when its first created) so just nil it
-		size = nil
+		return
 	end
-	size = size or ( ArkInventory.db and ArkInventory.db.option.font.height ) or 10
-	size = math.floor( ( size or 0 ) + 0.5 )
 	
-	if size < ArkInventory.Const.Font.MinHeight then
+	local size = math.floor( size + 0.5 )
+	
+	if size == 0 then
+		size = ArkInventory.Const.Font.Height
+	elseif size < ArkInventory.Const.Font.MinHeight then
 		size = ArkInventory.Const.Font.MinHeight
 	elseif size > ArkInventory.Const.Font.MaxHeight then
 		size = ArkInventory.Const.Font.MaxHeight
@@ -96,13 +99,16 @@ function ArkInventory.MediaObjectFontSet( obj, face, size )
 	end
 	
 	local path_old, size_old, flags = obj:GetFont( )
-	size_old = helper_fontsize( size_old )
-	
 	local path = path_old
-	local size = size or ( ArkInventory.db and ArkInventory.db.option.font.height ) or 10
+	
+	if size then
+		size = helper_fontsize( size )
+	else
+		size = helper_fontsize( size_old )
+	end
 	
 	if face then
-		path, face, size = helper_fontinfo( face, size )
+		path, face = helper_fontinfo( face )
 		if not path then
 			path = old_path
 		end
@@ -149,11 +155,11 @@ function ArkInventory.MediaFrameFontSet( frame, face, size )
 	for _, obj in pairs( { frame:GetRegions( ) } ) do
 		ArkInventory.MediaObjectFontSet( obj, face, size )
 	end
-
+	
 	for _, obj in pairs( { frame:GetChildren( ) } ) do
 		ArkInventory.MediaObjectFontSet( obj, face, size )
 	end
-
+	
 	for _, obj in pairs( { frame:GetChildren( ) } ) do
 		ArkInventory.MediaFrameFontSet( obj, face, size )
 	end

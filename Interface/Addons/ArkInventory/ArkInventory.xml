@@ -304,9 +304,9 @@
 	<Button virtual="true" name="ARKINV_TemplateButtonVaultItem" inherits="ARKINV_TemplateButtonItem" hidden="true">
 		
 		<Scripts>
-			
+
 			<OnClick>
-				<!-- override template, do nothing -->
+				<!-- override template, do nothing, using OnMouseUp instead -->
 			</OnClick>
 			
 			<OnMouseUp>
@@ -330,7 +330,7 @@
 		<Scripts>
 			
 			<OnClick>
-				<!-- override template, do nothing -->
+				<!-- override template, do nothing, using OnMouseUp instead -->
 			</OnClick>
 			
 			<OnMouseUp>
@@ -374,7 +374,7 @@
 		<Scripts>
 			
 			<OnClick>
-				<!-- override template, do nothing -->
+				<!-- override template, do nothing, using OnMouseUp instead -->
 			</OnClick>
 			
 			<OnMouseUp>
@@ -444,7 +444,7 @@
 		<Scripts>
 			
 			<OnClick>
-				<!-- override template, do nothing -->
+				<!-- override template, do nothing, using OnMouseUp instead -->
 			</OnClick>
 			
 			<OnMouseUp>
@@ -486,7 +486,7 @@
 		<Scripts>
 			
 			<OnClick>
-				<!-- override template, do nothing -->
+				<!-- override template, do nothing, using OnMouseUp instead -->
 			</OnClick>
 			
 			<OnMouseUp>
@@ -510,7 +510,7 @@
 		<Scripts>
 		
 			<OnClick>
-				<!-- override template, do nothing -->
+				<!-- override template, do nothing, using OnMouseUp instead -->
 			</OnClick>
 			
 			<OnMouseUp>
@@ -570,11 +570,11 @@
 			</OnEnter>
 			
 			<OnClick>
-				<!-- override template, do nothing -->
+				<!-- override template, do nothing, using OnMouseUp instead -->
 			</OnClick>
 			
 			<OnMouseUp>
-				<!-- override template, do nothing -->
+				ArkInventory.Frame_Item_OnMouseUp( self, button )
 			</OnMouseUp>
 			
 			<OnDragStart>
@@ -1870,7 +1870,7 @@
 				
 				<Scripts>
 					<OnClick>
-						PlaySound( "igMainMenuOption" )
+						PlaySound( SOUNDKIT.IG_MAINMENU_OPTION )
 						StaticPopup_Hide( "GUILDBANK_DEPOSIT" )
 						if StaticPopup_Visible( "GUILDBANK_WITHDRAW" ) then
 							StaticPopup_Hide( "GUILDBANK_WITHDRAW" )
@@ -1906,7 +1906,7 @@
 				
 				<Scripts>
 					<OnClick>
-						PlaySound( "igMainMenuOption" )
+						PlaySound( SOUNDKIT.IG_MAINMENU_OPTION )
 						StaticPopup_Hide( "GUILDBANK_WITHDRAW" )
 						if StaticPopup_Visible( "GUILDBANK_DEPOSIT") then
 							StaticPopup_Hide( "GUILDBANK_DEPOSIT" )
@@ -1961,7 +1961,7 @@
 						</Anchors>
 						<Scripts>
 							<OnClick>
-								PlaySound( "igMainMenuOption" )
+								PlaySound( SOUNDKIT.IG_MAINMENU_OPTION )
 								StaticPopup_Show( "CONFIRM_BUY_GUILDBANK_TAB" )
 							</OnClick>
 						</Scripts>
@@ -2016,48 +2016,14 @@
 	
 	<GameTooltip name="ARKINV_ScanTooltip" inherits="ArkScanTooltipTemplate" />
 	
-	<Frame name="ARKINV_TimerYieldCombat" hidden="true">
+	<Frame name="ARKINV_ThreadTimer" hidden="true">
 		<Scripts>
 			<Onload>
 				self.timer = 0
-				if ArkInventory.Global.Thread.WhileInCombat then
-					self:RegisterEvent( "PLAYER_REGEN_DISABLED" )
-					self:RegisterEvent( "PLAYER_REGEN_ENABLED" )
-				end
 			</Onload>
 			<OnUpdate>
-				self.timer = self.timer + elapsed
-				if self.timer > 0.05 then
-					self.timer = 0
-					ArkInventory.Frame_Main_DrawThreadResume( )
-				end
-			</OnUpdate>
-			<OnEvent>
-				if event == "PLAYER_REGEN_DISABLED" then
-					self:Show( )
-				elseif event == "PLAYER_REGEN_ENABLED" then
+				if ArkInventory.ThreadResume( ) then
 					self:Hide( )
-					table.wipe( ArkInventory.Global.Thread.Window )
-					table.wipe( ArkInventory.Global.Thread.WindowState )
-				end
-			</OnEvent>
-		</Scripts>
-	</Frame>
-	
-	<Frame name="ARKINV_TimerYieldRestack" hidden="true">
-		<Scripts>
-			<Onload>
-				self.timer = 0
-			</Onload>
-			<OnUpdate>
-				self.timer = self.timer + elapsed
-				if self.timer > 0.3 then
-					self.timer = 0
-					--ArkInventory.Output( "auto resume restack" )
-					if ArkInventory.RestackResume( ) then
-						--ArkInventory.Output( "stopping restack resume - all threads completed" )
-						self:Hide( )
-					end
 				end
 			</OnUpdate>
 		</Scripts>
