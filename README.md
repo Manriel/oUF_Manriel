@@ -2,7 +2,7 @@
 
 ## About ##
 
-This is unit-frame interface for World of Warcraft based on [haste's oUF framework](https://github.com/haste/oUF/)
+This is unit-frame interface for World of Warcraft based on [haste's oUF framework](https://github.com/oUF-wow/oUF)
 
 Now in DEV stage.
 
