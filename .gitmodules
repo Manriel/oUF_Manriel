@@ -1,0 +1,12 @@
+[submodule "Interface/Addons/oUF_Manriel_UI/libs/oUF"]
+	path = Interface/Addons/oUF_Manriel_UI/libs/oUF
+	url = https://github.com/oUF-wow/oUF.git
+[submodule "Interface/Addons/oUF_Manriel_UI/libs/oUF_Experience"]
+	path = Interface/Addons/oUF_Manriel_UI/libs/oUF_Experience
+	url = https://github.com/p3lim-wow/oUF_Experience.git
+[submodule "Interface/Addons/oUF_Manriel_UI/libs/oUF_Reputation"]
+	path = Interface/Addons/oUF_Manriel_UI/libs/oUF_Reputation
+	url = https://github.com/p3lim-wow/oUF_Reputation.git
+[submodule "Interface/Addons/oUF_Manriel_UI/libs/oUF_Smooth"]
+	path = Interface/Addons/oUF_Manriel_UI/libs/oUF_Smooth
+	url = https://github.com/sBaildon/oUF_Smooth.git

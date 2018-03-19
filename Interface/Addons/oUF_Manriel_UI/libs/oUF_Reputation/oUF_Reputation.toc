@@ -1,8 +1,0 @@
-## Interface: 70000
-## Author: p3lim
-## Version: @project-version@
-## Title: oUF Reputation
-## Notes: Reputation Bar support for oUF layouts.
-## RequiredDeps: oUF
-
-oUF_Reputation.lua
