@@ -36,10 +36,13 @@ local props = {
 	end,
 }
 
-local AltPowerPostUpdate = function ( self, min, cur, max )
+local AltPowerPostUpdate = function (self, min, cur, max )
   local caption = self.caption
   if caption then
     caption:SetFormattedText("%s: %d / %d", self.powerName, cur, max)
+    self:Show();
+  else
+  	self:Hide();
   end
 end
 
@@ -55,10 +58,10 @@ getAltPowerBar.player = function(self, unit)
 	AltPowerBar:SetStatusBarTexture(props.getTexture())
 	if(b) then
 		AltPowerBar:SetStatusBarColor(r, g, b)
-	end
-
-	if(b) then
 		AltPowerBar:SetBackdropColor(r/3, g/3, b/3)
+		AltPowerBar:Show();
+	else
+		AltPowerBar:Hide();
 	end
 
 	AltPowerBar:EnableMouse(true);

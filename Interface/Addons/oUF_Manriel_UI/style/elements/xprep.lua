@@ -53,7 +53,7 @@ local getPlayerMaxLevel = function()
 end
 
 local updateReputation = function(self, unit, cur, max, name, factionID, standingID, standingText)
-	if type(self.text) ~= 'nil' and max > 0 then
+	if type(self.text) ~= 'nil' and type(name) ~= 'nil' then
 		local percent = math.floor(100 * cur/max)
 		self.text:SetFormattedText("%s [%s] %i | %i (%i%%)", name, standingText, cur, max, percent);
 	else
@@ -67,9 +67,9 @@ local updateExperience = function(self, unit, cur, max, exhaustion, level, showH
 		self.text:SetFormattedText("%i | %i (%i%%)", cur, max, percent);
 
 		if (unit == 'player' and level ~= getPlayerMaxLevel()) then
-			print(self:GetParent().showXpBar);
+			self:GetParent().showXpBar = true;
 		else 
-			print(self:GetParent().showXpBar);
+			self:GetParent().showXpBar = false;
 		end
 	end
 end

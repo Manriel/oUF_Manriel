@@ -21,8 +21,8 @@ local props = {
 
 }
 
-local updatePower = function(Power, unit, min, max)
-  local self = Power:GetParent()
+local updatePower = function(Power, unit, cur, min, max)
+  
   if max == 0 or UnitIsDead(unit) or UnitIsGhost(unit) or not UnitIsConnected(unit) then
     Power:SetValue(0) 
     if Power.value then
@@ -30,16 +30,16 @@ local updatePower = function(Power, unit, min, max)
     end
   elseif Power.value then
     if(unit=='player') then
-      Power.value:SetText(min .. ' | ' .. max)
+      Power.value:SetText(cur .. ' | ' .. max)
     elseif(unit=="target") then
-      Power.value:SetText(UI.fn.formatVal(min) .. ' | ' .. UI.fn.formatVal(max))
+      Power.value:SetText(UI.fn.formatVal(cur) .. ' | ' .. UI.fn.formatVal(max))
     else
-      Power.value:SetFormattedText("%d|cffffffff%%", floor(min/max*100))
+      Power.value:SetFormattedText("%d|cffffffff%%", floor(cur/max*100))
     end
   end
-
+  
   local _, pType = UnitPowerType(unit)
-  local color = self.colors.power[pType] or {0.7,0.7,0.7}
+  local color = Power:GetParent().colors.power[pType] or {0.7,0.7,0.7}
 
   Power:SetStatusBarColor(color[1], color[2], color[3]) 
   Power:SetBackdropColor(color[1]/3, color[2]/3, color[3]/3,1)
