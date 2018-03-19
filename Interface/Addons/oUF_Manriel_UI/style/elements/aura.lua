@@ -3,21 +3,21 @@ local UI  = namespace.ManrielUI
 local LSM = UI.lib.LSM
 
 local props = {
-	getFont = function()
-		return LSM:Fetch(LSM.MediaType.FONT, 'San Francisco (Bold)')
-	end,
+  getFont = function()
+    return UI.config.fontNameAltBold;
+  end,
 
-	getFontSize = function()
-		return 11
-	end,
+  getFontSize = function()
+    return (UI.config.baseFontSize / 12) * 11
+  end,
 
-	getOffset = function()
-		return 4
-	end,
+  getOffset = function()
+    return UI.config.offset;
+  end,
 
-	getBorder = function()
-		return LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Caith')
-	end
+  getBorder = function()
+  	return LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Caith')
+  end
 
 }
 

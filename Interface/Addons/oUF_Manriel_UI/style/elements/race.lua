@@ -4,15 +4,15 @@ local LSM = UI.lib.LSM
 
 local props = {
 	getFont = function()
-		return LSM:Fetch(LSM.MediaType.FONT, 'San Francisco (Bold)')
+		return UI.config.fontNameAltBold;
 	end,
 
 	getFontSize = function()
-		return 9
+		return (UI.config.baseFontSize / 4) * 3
 	end,
 
 	getOffset = function()
-		return 4
+		return UI.config.offset;
 	end,
 
 }

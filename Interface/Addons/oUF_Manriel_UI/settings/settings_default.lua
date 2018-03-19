@@ -23,8 +23,10 @@ ManrielUI.config = {
 			minus = '',
 		},
 
-		fontName      = LSM:Fetch(LSM.MediaType.FONT, 'Calibri Bold'),
-		baseFontSize  = 12,
+		fontName        = LSM:Fetch(LSM.MediaType.FONT, 'Calibri Bold'),
+		fontNameAlt     = LSM:Fetch(LSM.MediaType.FONT, 'San Francisco (Semi-bold)'),
+		fontNameAltBold = LSM:Fetch(LSM.MediaType.FONT, 'San Francisco (Bold)'),
+		baseFontSize    = 12,
 
 		textureHealthBar       = LSM:Fetch(LSM.MediaType.STATUSBAR,  'Manriel-Health'),
 		textureRuneBar         = LSM:Fetch(LSM.MediaType.STATUSBAR,  'Manriel-Rune'),

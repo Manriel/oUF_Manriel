@@ -4,19 +4,19 @@ local LSM = UI.lib.LSM
 
 local props = {
 	getOffset = function()
-		return 4
+		return UI.config.offset;
 	end,
 
 	getTexture = function()
-		return LSM:Fetch(LSM.MediaType.STATUSBAR,  'Manriel-Health')
+		return UI.config.textureHealthBar;
 	end,
 
 	getBackdrop = function()
 		return {
-			bgFile   = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background'),
+			bgFile   = UI.config.texturePanel,
 			tile = true,
 			tileSize = 256,
-			edgeFile = LSM:Fetch(LSM.MediaType.BORDER,     'Manriel-Border-Light'),
+			edgeFile = UI.config.textureCastBarBorder,
 			edgeSize = 12,
 			insets   = {
 				left = 3,

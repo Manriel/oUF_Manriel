@@ -1,30 +1,31 @@
 local parent, namespace = ...
 local UI  = namespace.ManrielUI
 local LSM = UI.lib.LSM
+local ManrielUIConfig = Manriel_UI_Config;
 
 local props = {
 	getFont = function()
-		return LSM:Fetch(LSM.MediaType.FONT, 'San Francisco (Bold)')
+		return UI.config.fontNameAlt;
 	end,
 
 	getFontSize = function()
-		return 9
+		return (UI.config.baseFontSize / 4) * 3
 	end,
 
 	getOffset = function()
-		return 4
+		return UI.config.offset;
 	end,
 
 	getTexture = function()
-		return LSM:Fetch(LSM.MediaType.STATUSBAR,  'Manriel-Health')
+		return UI.config.textureHealthBar;
 	end,
 
 	getBackdrop = function()
 		return {
-			bgFile   = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background'),
+			bgFile   = UI.config.texturePanel,
 			tile = true,
 			tileSize = 256,
-			edgeFile = LSM:Fetch(LSM.MediaType.BORDER,     'Manriel-Border-Light'),
+			edgeFile = UI.config.textureCastBarBorder,
 			edgeSize = 12,
 			insets   = {
 				left = 0,
@@ -36,6 +37,20 @@ local props = {
 	end
 
 }
+
+local getPlayerMaxLevel = function()
+	local MAX_PLAYER_LEVEL_TABLE = {};
+	MAX_PLAYER_LEVEL_TABLE[0] = 60;
+	MAX_PLAYER_LEVEL_TABLE[1] = 70;
+	MAX_PLAYER_LEVEL_TABLE[2] = 80;
+	MAX_PLAYER_LEVEL_TABLE[3] = 85;
+	MAX_PLAYER_LEVEL_TABLE[4] = 90;
+	MAX_PLAYER_LEVEL_TABLE[5] = 100;
+	MAX_PLAYER_LEVEL_TABLE[6] = 110;
+	MAX_PLAYER_LEVEL_TABLE[7] = 120;
+
+	return MAX_PLAYER_LEVEL_TABLE[math.min(GetAccountExpansionLevel(), GetExpansionLevel())];
+end
 
 local updateReputation = function(self, unit, cur, max, name, factionID, standingID, standingText)
 	if type(self.text) ~= 'nil' and max > 0 then
@@ -50,6 +65,12 @@ local updateExperience = function(self, unit, cur, max, exhaustion, level, showH
 	if type(self.text) ~= 'nil' then
 		local percent = math.floor(100 * cur/max)
 		self.text:SetFormattedText("%i | %i (%i%%)", cur, max, percent);
+
+		if (unit == 'player' and level ~= getPlayerMaxLevel()) then
+			print(self:GetParent().showXpBar);
+		else 
+			print(self:GetParent().showXpBar);
+		end
 	end
 end
 
@@ -111,6 +132,8 @@ local getXpRepBar = function(self, unit)
 	XpRepBar:SetWidth(604);
 	XpRepBar:SetBackdrop(props.getBackdrop());
 
+	XpRepBar.showXpBar = false;
+
 	return XpRepBar
 end
 
@@ -129,13 +152,24 @@ UI.templates.getXpRepBar = function(self, unit)
 		XpRepBar.Reputation = getReputation['default'](self, unit, XpRepBar)
 	end
 
+	if (unit == 'player' and UnitLevel(unit) ~= getPlayerMaxLevel()) then
+		XpRepBar.showXpBar = true;
+		XpRepBar.Experience:Show();
+		XpRepBar.Reputation:Hide();
+	else 
+		XpRepBar.Experience:Hide();
+		XpRepBar.Reputation:Show();
+	end
+
 	XpRepBar:SetScript('OnEnter', function(self, motion) 
 		XpRepBar.Experience:Hide();
 		XpRepBar.Reputation:Show();
 	end);
 	XpRepBar:SetScript('OnLeave', function(self, motion)
-		XpRepBar.Experience:Show();
-		XpRepBar.Reputation:Hide();
+		if (XpRepBar.showXpBar) then
+			XpRepBar.Experience:Show();
+			XpRepBar.Reputation:Hide();
+		end
 	end);
 
 	XpRepBar.MODIFIER_STATE_CHANGED = function(self, key, state)
@@ -143,8 +177,10 @@ UI.templates.getXpRepBar = function(self, unit)
 			XpRepBar.Experience:Hide();
 			XpRepBar.Reputation:Show();
 		elseif ((key == 'LALT' or key == 'RALT') and state == 0) then
-			XpRepBar.Experience:Show();
-			XpRepBar.Reputation:Hide();
+			if (XpRepBar.showXpBar) then
+				XpRepBar.Experience:Show();
+				XpRepBar.Reputation:Hide();
+			end
 		end
 	end
 

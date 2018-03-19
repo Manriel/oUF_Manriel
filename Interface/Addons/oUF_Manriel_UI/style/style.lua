@@ -19,10 +19,10 @@ local props = {
 
 	getBackdrop = function()
 		return {
-			bgFile   = LSM:Fetch(LSM.MediaType.BACKGROUND, 'Manriel-Background'),
+			bgFile   = UI.config.texturePanel,
 			tile = true,
 			tileSize = 256,
-			edgeFile = LSM:Fetch(LSM.MediaType.BORDER,     'Manriel-Border-Light'),
+			edgeFile = UI.config.textureCastBarBorder,
 			edgeSize = 12,
 			insets   = {
 				left = 0,
