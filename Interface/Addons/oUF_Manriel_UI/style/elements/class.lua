@@ -68,6 +68,16 @@ getClass.default = function(self, unit)
 
 	return Class
 end
+getClass.player = function(self, unit)
+	local Class = getClass.default(self, unit)
+
+	return Class
+end
+getClass.target = function(self, unit)
+	local Class = getClass.default(self, unit)
+
+	return Class
+end
 
 UI.templates.getClass = function(self, unit)
 	if (getClass[unit]) then

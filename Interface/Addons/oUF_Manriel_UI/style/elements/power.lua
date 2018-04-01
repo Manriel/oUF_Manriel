@@ -34,7 +34,7 @@ local updatePower = function(Power, unit, cur, min, max)
     elseif(unit=="target") then
       Power.value:SetText(UI.fn.formatVal(cur) .. ' | ' .. UI.fn.formatVal(max))
     else
-      Power.value:SetFormattedText("%d|cffffffff%%", floor(cur/max*100))
+      Power.value:SetFormattedText("%d%%", floor(cur/max*100))
     end
   end
   

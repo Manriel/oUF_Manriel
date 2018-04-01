@@ -1,12 +1,13 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	
 	<Script file='elements/health.lua' />
+	<Script file='elements/healthprediction.lua' />
 	<Script file='elements/power.lua' />
 	<Script file='elements/additionalpower.lua' />
-	<Script file='elements/altpowerbar.lua' />
+	<Script file='elements/alternativepower.lua' />
 	
 	<Script file='elements/classicons.lua' />
-	<Script file='elements/cpoints.lua' />
+	<Script file='elements/classpower.lua' />
 	<Script file='elements/runebar.lua' />
 
 	<Script file='elements/elite.lua' />
@@ -20,11 +21,12 @@
 	
 	<Script file='elements/aura.lua' />
 	
-	<Script file='elements/pvp.lua' />
+	<Script file='elements/pvpindicator.lua' />
 	<Script file='elements/combat.lua' />
+	<Script file='elements/threatindicator.lua' />
 
 	<Script file='elements/leader.lua' />
-	<Script file='elements/assistant.lua' />
+	<Script file='elements/assistantindicator.lua' />
 	<Script file='elements/masterlooter.lua' />
 
 	<Script file='elements/ricons.lua' />

@@ -4,7 +4,7 @@ local UI = ns.ManrielUI
 local config = UI.config
 
 local BuffFrame = _G["BuffFrame"]
-local ConsolidatedBuffs = _G["ConsolidatedBuffs"]
+-- local ConsolidatedBuffs = _G["ConsolidatedBuffs"]
 
 local lsBuffHeader = CreateFrame("Frame", "lsBuffHeader", UIParent)
 lsBuffHeader:SetSize(28, 28)
@@ -113,11 +113,11 @@ local function UpdateBuffAnchors()
 			end
 
 			button:ClearAllPoints()
-			button:SetSize(28, 28)
+			button:SetSize(32, 32)
 
 			if index > 1 and (mod(index, 11) == 1) then
 				if index == 12 then
-					button:SetPoint("TOP", ConsolidatedBuffs, "BOTTOM", 0, -16)
+					button:SetPoint("TOP", BuffFrame, "BOTTOM", 0, -16)
 				else
 					button:SetPoint("TOP", above, "BOTTOM", 0, -16)
 				end
@@ -129,7 +129,7 @@ local function UpdateBuffAnchors()
 				above = button
 			else
 				if numBuffs == 1 then
-					button:SetPoint("RIGHT", ConsolidatedBuffs, "LEFT", -8, 0)
+					button:SetPoint("RIGHT", BuffFrame, "LEFT", -8, 0)
 				else
 					button:SetPoint("RIGHT", previous, "LEFT", -8, 0)
 				end
@@ -250,6 +250,6 @@ do
 		SetAuraButtonStyle("TempEnchant", i, "TEMPENCHANT")
 	end
 
-	SetAuraButtonStyle("ConsolidatedBuffs", nil, "CONSOLIDATED")
-	ConsolidatedBuffsTooltip:SetScale(1)
+	-- SetAuraButtonStyle("ConsolidatedBuffs", nil, "CONSOLIDATED")
+	-- ConsolidatedBuffsTooltip:SetScale(1)
 end

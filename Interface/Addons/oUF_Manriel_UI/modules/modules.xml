@@ -2,6 +2,7 @@
 
 	<Include file='rActionBar\rActionBar.xml'/>
 	<Include file='dataBroker\dataBroker.xml'/>
+	<!--Script file='buffs.lua' /-->
 	<Script file='minimap.lua' />
 	<Script file='panels.lua' />
 	<Script file='tooltip.lua' />

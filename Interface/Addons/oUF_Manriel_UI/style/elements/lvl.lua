@@ -19,7 +19,7 @@ local props = {
 
 local UpdateLvl = function(self, unit)
 	local level = not UnitIsConnected(unit) and '??' or UnitLevel(unit) < 1 and '??' or UnitLevel(unit)
-	self:SetFormattedText("%s%s", level, UI.config.classification[UnitClassification(unit)])
+	-- self:SetFormattedText("%s%s", level, UI.config.classification[UnitClassification(unit)])
 
     if (UnitCanAttack("player", unit) and type(level) == 'integer') then
       self:SetTextColor(getDifficultyColor(level))
@@ -64,12 +64,24 @@ getLvl.default = function(self, unit)
 
 	Lvl.PostUpdate = UpdateLvl;
 
+	self:Tag(Lvl, '[ManrielUI:smartLvl]')
+
 	local callback = function(self, ...)
 		if (type(self.Lvl) ~= 'nil' and self.Lvl.PostUpdate) then
 			self.Lvl.PostUpdate(self.Lvl, self.unit)
 		end
 	end
 	self.PostUpdate = UI.fn.addCallback(self.PostUpdate, callback)
+
+	return Lvl
+end
+getLvl.player = function(self, unit)
+	local Lvl = getLvl.default(self, unit)
+
+	return Lvl
+end
+getLvl.target = function(self, unit)
+	local Lvl = getLvl.default(self, unit)
 
 	return Lvl
 end

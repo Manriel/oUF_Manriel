@@ -20,7 +20,7 @@ ManrielUI.config = {
 			rare = ' Rare',
 			normal = '',
 			trivial = '',
-			minus = '',
+			minus = ' |cffaaaaaa-|r',
 		},
 
 		fontName        = LSM:Fetch(LSM.MediaType.FONT, 'Calibri Bold'),

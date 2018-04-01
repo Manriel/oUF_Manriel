@@ -6,6 +6,7 @@
 
 	<Script file='functions.lua' />
 	<Script file='eventFrame.lua' />
+	<Script file='tags.lua' />
 	
 	<Include file='locale\locale.xml' />
 	<Include file='settings\settings.xml' />

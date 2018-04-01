@@ -50,14 +50,17 @@ UI.getStyle = function(self, unit)
 	if (type(UI.templates.getHealth) ~= 'nil') then
 		self.Health          = UI.templates.getHealth(self, unit)
 	end
+	if (type(UI.templates.getHealthPrediction) ~= 'nil') then
+		self.HealthPrediction = UI.templates.getHealthPrediction(self, unit)
+	end
 	if (type(UI.templates.getPower) ~= 'nil') then
 		self.Power           = UI.templates.getPower(self, unit)
 	end
 	if (type(UI.templates.getAdditionalPower) ~= 'nil') then
-		self.AdditionalPower       = UI.templates.getAdditionalPower(self, unit)
+		self.AdditionalPower = UI.templates.getAdditionalPower(self, unit)
 	end
 	if (type(UI.templates.getAltPowerBar) ~= 'nil') then
-		self.AltPowerBar     = UI.templates.getAltPowerBar(self, unit)
+		self.AlternativePower = UI.templates.getAltPowerBar(self, unit)
 	end
 
 
@@ -85,8 +88,8 @@ UI.getStyle = function(self, unit)
 	end
 
 	-- Rogues and Balance druids only
-	if (type(UI.templates.getCPoints) ~= 'nil') then
-		self.CPoints         = UI.templates.getCPoints(self, unit)
+	if (type(UI.templates.getClassPower) ~= 'nil') then
+		self.ClassPower      = UI.templates.getClassPower(self, unit)
 	end
 	-- Death Knight only
 	if (type(UI.templates.getRunes) ~= 'nil') then
@@ -111,27 +114,26 @@ UI.getStyle = function(self, unit)
 		self.ClassIcons      = UI.templates.getClassIcons(self, unit)
 	end
 	if (type(UI.templates.getCombat) ~= 'nil') then
-		self.Combat          = UI.templates.getCombat(self, unit)
+		self.CombatIndicator = UI.templates.getCombat(self, unit)
 	end
 	if (type(UI.templates.getPvP) ~= 'nil') then
-		self.PvP             = UI.templates.getPvP(self, unit)
+		self.PvPIndicator    = UI.templates.getPvP(self, unit)
 	end
 	if (type(UI.templates.getResting) ~= 'nil') then
-		self.Resting         = UI.templates.getResting(self, unit)
+		self.RestingIndicator = UI.templates.getResting(self, unit)
 	end
 	if (type(UI.templates.getResurrectIcon) ~= 'nil') then
-		self.ResurrectIcon   = UI.templates.getResurrectIcon(self, unit)
+		self.ResurrectIndicator = UI.templates.getResurrectIcon(self, unit)
 	end
-	if (type(UI.templates.getThreat) ~= 'nil') then
-		self.Threat          = UI.templates.getThreat(self, unit)
+	if (type(UI.templates.getThreatIndicator) ~= 'nil') then
+		self.ThreatIndicator = UI.templates.getThreatIndicator(self, unit)
 	end
-
 
 	if (type(UI.templates.getLFDRole) ~= 'nil') then
 		self.LFDRole         = UI.templates.getLFDRole(self, unit)
 	end
 	if (type(UI.templates.getRaidRole) ~= 'nil') then
-		self.RaidRole        = UI.templates.getRaidRole(self, unit)
+		self.RaidRoleIndicator = UI.templates.getRaidRole(self, unit)
 	end
 
 	if (type(UI.templates.getReadyCheck) ~= 'nil') then
@@ -146,17 +148,17 @@ UI.getStyle = function(self, unit)
 	end
 
 	if (type(UI.templates.getLeader) ~= 'nil') then
-		self.Leader          = UI.templates.getLeader(self, unit)
+		self.LeaderIndicator = UI.templates.getLeader(self, unit)
 	end
 	if (type(UI.templates.getAssistant) ~= 'nil') then
-		self.Assistant       = UI.templates.getAssistant(self, unit)
+		self.AssistantIndicator = UI.templates.getAssistant(self, unit)
 	end
 	if (type(UI.templates.getMasterLooter) ~= 'nil') then
-		self.MasterLooter    = UI.templates.getMasterLooter(self, unit)
+		self.MasterLooterIndicator = UI.templates.getMasterLooter(self, unit)
 	end
 
 	if (type(UI.templates.getRaidIcon) ~= 'nil') then
-		self.RaidIcon        = UI.templates.getRaidIcon(self, unit)
+		self.RaidTargetIndicator = UI.templates.getRaidIcon(self, unit)
 	end
 
 	if (type(UI.templates.getRange) ~= 'nil') then
@@ -179,6 +181,6 @@ UI.getStyle = function(self, unit)
 		end
 	end
 
-	self.onUpdateFrequency = .2
+	self.onUpdateFrequency = .1
 
 end

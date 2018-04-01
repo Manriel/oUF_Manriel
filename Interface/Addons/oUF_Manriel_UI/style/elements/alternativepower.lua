@@ -38,7 +38,7 @@ local props = {
 
 local AltPowerPostUpdate = function (self, min, cur, max )
   local caption = self.caption
-  if caption then
+  if caption and self.powerName then
     caption:SetFormattedText("%s: %d / %d", self.powerName, cur, max)
     self:Show();
   else

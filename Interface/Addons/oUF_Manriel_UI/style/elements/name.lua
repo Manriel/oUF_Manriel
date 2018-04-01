@@ -23,11 +23,11 @@ local UpdateName = function(self, unit)
 		self:Hide()
 	elseif (unit == 'target') then
 		self:SetWidth((self:GetParent():GetWidth() - (props.getOffset() * 2) ) * 0.64)
-		self:SetText(UnitName(unit))
+		-- self:SetText(UnitName(unit))
 		-- self:SetFormattedText('%.99s', UnitName(unit))
 	else
 		self:SetWidth((self:GetParent():GetWidth() - (props.getOffset() * 2) ) * 0.78)
-		self:SetText(UnitName(unit))
+		-- self:SetText(UnitName(unit))
 		-- self:SetFormattedText('%.25s', UnitName(unit))
 	end
 end
@@ -38,6 +38,8 @@ getName.default = function(self, unit)
 	Name:SetMaxLines(1)
 	Name:SetPoint("RIGHT", -2, -1)
 	Name:SetJustifyH("RIGHT")
+
+	self:Tag(Name, '[name]')
 
 	Name.PostUpdate = UpdateName;
 

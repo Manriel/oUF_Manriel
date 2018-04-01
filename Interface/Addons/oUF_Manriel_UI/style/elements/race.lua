@@ -59,6 +59,15 @@ getRace.default = function(self, unit)
 
 	return Race
 end
+getRace.player = function(self, unit)
+	local Race = getRace.default(self, unit)
+	return Race
+end
+getRace.target = function(self, unit)
+	local Race = getRace.default(self, unit)
+
+	return Race
+end
 
 UI.templates.getRace = function(self, unit)
 	if (getRace[unit]) then

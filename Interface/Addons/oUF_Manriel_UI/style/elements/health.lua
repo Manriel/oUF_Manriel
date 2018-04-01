@@ -22,6 +22,7 @@ local props = {
 }
 
 local updateHealth = function(Health, unit, min, max)
+--[[
   local arStrings = UI.localeStrings
 
   local self = Health:GetParent()
@@ -39,6 +40,7 @@ local updateHealth = function(Health, unit, min, max)
     Health:SetValue(0)
     Health.value:SetText('|cffD7BEA5'..arStrings['ghost'])
   else
+  	
     if(unit=="player") then
       Health.value:SetFormattedText("%d | %d | %d|cffffffff%%", min, max, floor(min/max*100))
     elseif (unit=="target") then
@@ -46,13 +48,16 @@ local updateHealth = function(Health, unit, min, max)
     else
       Health.value:SetFormattedText("%d|cffffffff%%", floor(min/max*100))
     end
+    
   end
+]]
 end
 
 local getHealth = {}
 getHealth.default = function(self, unit)
 	local Health = CreateFrame("StatusBar", self:GetName()..'_Health', self)
 	Health:SetHeight( (self:GetHeight() - (props.getOffset() * 2) ) * .7);
+	Health:SetWidth( self:GetWidth() - (props.getOffset() * 2) )
 	Health:SetPoint('TOP', 0, -props.getOffset())
 	Health:SetPoint('LEFT', props.getOffset(), 0)
 	Health:SetPoint('RIGHT', -props.getOffset(), 0)
@@ -83,12 +88,19 @@ getHealth.default = function(self, unit)
 
 	Health.PostUpdate = updateHealth
 
+	self:Tag(Health.value, '[ManrielUI:smartHPString]');
+
 	return Health
 end
 getHealth.player = function(self, unit)
 	local Health = getHealth.default(self, unit)
 	Health.value:ClearAllPoints()
 	Health.value:SetPoint("RIGHT", -2, -1)
+
+	return Health
+end
+getHealth.target = function (self, unit)
+	local Health = getHealth.default(self, unit)
 
 	return Health
 end
