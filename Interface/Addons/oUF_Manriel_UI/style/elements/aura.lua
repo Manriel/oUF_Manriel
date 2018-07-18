@@ -130,7 +130,7 @@ local PostUpdateIcon = function(self, unit, icon, index, offset)
 
   if (icon.cd) then
     local filter = icon.filter
-    local _, _, _, _, _, duration, expirationTime, _, _, _, _, _, _ = UnitAura(unit, index, filter)
+    local _, _, _, _, duration, expirationTime, _, _, _, _, _, _ = UnitAura(unit, index, filter)
 
     icon.cd.duration = duration
     icon.cd.timeLeft = expirationTime
