@@ -24,19 +24,6 @@ end
 eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 eventFrame:SetScript("OnEvent", function(self, event, ...) eventFrame[event](self, ...) end)
 
-
--- local texture = eventFrame:CreateTexture(nil, 'OVERLAY');
--- texture:SetTexture([[Interface\Addons\oUF_Manriel_UI\textures\flame]])
--- texture:SetPoint('TOPLEFT', UIParent, 'TOPLEFT', 30, -30)
--- texture:SetSize(56, 128);
-
--- local updateTexture = function( self, elapsed )
--- 	AnimateTexCoords(texture, 512, 128, 56, 128, 9, elapsed, 0.05)
--- end
-
--- eventFrame:SetScript("OnUpdate", function( ... ) updateTexture( ... ) end)
-
-
 UI.events = eventFrame;
 
 if (not IsAddOnLoaded('Blizzard_DebugTools')) then

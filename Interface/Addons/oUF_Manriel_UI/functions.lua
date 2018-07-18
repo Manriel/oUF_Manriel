@@ -45,7 +45,7 @@ fn.formatVal = function(value)
     return string.format("%.1fG", value/1e9)
   elseif value >= 1e6 then
     return string.format("%.1fM", value/1e6)
-  elseif value >= 1e3 then
+  elseif value >= 1e4 then
     return string.format("%.1fK", value/1e3)
   else
     return value

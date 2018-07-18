@@ -122,9 +122,11 @@ local OnTooltipSetUnit = function(self)
 		self:AddLine(text, r, g, b)
 	end
 	for i = 1, lines do
-		if(_G["GameTooltipTextLeft"..i]:GetText():find(PVP_ENABLED)) then
-			_G["GameTooltipTextLeft"..i]:SetText(nil)
-			break
+		if _G["GameTooltipTextLeft"..i] then
+			if(_G["GameTooltipTextLeft"..i]:GetText():find(PVP_ENABLED)) then
+				_G["GameTooltipTextLeft"..i]:SetText(nil)
+				break
+			end
 		end
 	end
 end

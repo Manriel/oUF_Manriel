@@ -102,12 +102,12 @@ local PostUpdateIcon = function(self, unit, icon, index, offset)
   icon.unit = unit
 
   local ParentFrame = self:GetParent()
-  local AltPowerBar = ParentFrame.AltPowerBar
-  if type(AltPowerBar) ~= 'nil' then
-  	if AltPowerBar:IsShown() and unit == 'player' then
-	    if AltPowerBar:IsVisible() then
+  local AlternativePower = ParentFrame.AlternativePower
+  if type(AlternativePower) ~= 'nil' then
+  	if AlternativePower:IsShown() and unit == 'player' then
+	    if AlternativePower:IsVisible() then
 	      ParentFrame.Debuffs:ClearAllPoints()
-	      ParentFrame.Debuffs:SetPoint("BOTTOMLEFT", ParentFrame, "TOPLEFT", 0, AltPowerBar:GetHeight() + props.getFontSize() + props.getOffset()*2)
+	      ParentFrame.Debuffs:SetPoint("BOTTOMLEFT", ParentFrame, "TOPLEFT", 0, AlternativePower:GetHeight() + props.getFontSize() + props.getOffset()*3)
 	    else
 	      ParentFrame.Debuffs:ClearAllPoints()
 	      ParentFrame.Debuffs:SetPoint("BOTTOMLEFT", ParentFrame, "TOPLEFT", 0, props.getFontSize())

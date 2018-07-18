@@ -44,17 +44,23 @@ getClassPower.default = function(self, unit)
 	return nil
 end
 getClassPower.player = function(self, unit)
-	local ClassPowerFrame = CreateFrame("Frame", self:GetName() .. '_ClassPower', self);
-	ClassPowerFrame:SetAllPoints(self);
+	-- local ClassPowerFrame = CreateFrame("Frame", self:GetName() .. '_ClassPower', self);
+	-- ClassPowerFrame:SetAllPoints(self);
+	-- ClassPowerFrame:SetSize(self:GetWidth(), self:GetHeight())
+	-- ClassPowerFrame:Show();
 
 	local ClassPower = {}
 	for index = 1, 10 do
-	    local Bar = CreateFrame('StatusBar', nil, ClassPowerFrame)
+	    local Bar = CreateFrame('StatusBar', nil, self)
 	    -- Position and size.
-		Bar:SetSize(ClassPowerFrame:GetHeight()*0.5, ClassPowerFrame:GetHeight()*0.5)
-		Bar:SetPoint('LEFT', ClassPowerFrame, 'TOPLEFT', (index-1) * ClassPowerFrame:GetWidth()+props.getOffset(), 0)
+		Bar:SetSize(self:GetHeight()*0.5, self:GetHeight()*0.5)
+		Bar:SetPoint('LEFT', self, 'LEFT', (index-1) * self:GetHeight()*0.5 + --[[(index) *]] props.getOffset(), self:GetHeight()*0.1)
+		Bar:SetStatusBarTexture([[Interface/COMMON/Indicator-Gray]]);
+    	Bar:GetStatusBarTexture():SetDrawLayer('OVERLAY', 1)
 	    ClassPower[index] = Bar
 	end
+
+	return ClassPower;
 end
 
 UI.templates.getClassPower = function(self, unit)

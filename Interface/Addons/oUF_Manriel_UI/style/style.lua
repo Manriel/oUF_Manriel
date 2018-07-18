@@ -87,7 +87,6 @@ UI.getStyle = function(self, unit)
 		self.Debuffs         = UI.templates.getDebuffs(self, unit)
 	end
 
-	-- Rogues and Balance druids only
 	if (type(UI.templates.getClassPower) ~= 'nil') then
 		self.ClassPower      = UI.templates.getClassPower(self, unit)
 	end
