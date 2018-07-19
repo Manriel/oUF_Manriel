@@ -82,7 +82,7 @@ local frames = {
     "MinimapZoneTextButton",
     "MinimapZoomOut",
     "MinimapZoomIn",
-    "MiniMapVoiceChatFrame",
+--    "MiniMapVoiceChatFrame",
     "MiniMapWorldMapButton",
     
     "MiniMapMailBorder",

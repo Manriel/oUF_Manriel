@@ -59,7 +59,7 @@ end
 --Bar1
 function rActionBar:CreateActionBar1(addonName,cfg)
   L:HideMainMenuBar()
-  cfg.blizzardBar = nil
+  cfg.blizzardBar = MultiActionBar
   cfg.frameName = addonName.."Bar1"
   cfg.frameParent = cfg.frameParent or UIParent
   cfg.frameTemplate = "SecureHandlerStateTemplate"
@@ -112,6 +112,16 @@ function rActionBar:CreateActionBar2(addonName,cfg)
   local numButtons = cfg.numButtons or NUM_ACTIONBAR_BUTTONS
   local buttonList = L:GetButtonList(buttonName, numButtons, NUM_ACTIONBAR_BUTTONS)
   local frame = L:CreateButtonFrame(cfg,buttonList)
+  
+  --fix the button grid for actionbar1
+  local function ToggleButtonGrid()
+    local showgrid = tonumber(GetCVar("alwaysShowActionBars"))
+    for i, button in next, buttonList do
+      button:SetAttribute("showgrid", showgrid)
+      ActionButton_ShowGrid(button)
+    end
+  end
+  hooksecurefunc("MultiActionBar_UpdateGridVisibility", ToggleButtonGrid)
 end
 
 --Bar3
@@ -125,6 +135,16 @@ function rActionBar:CreateActionBar3(addonName,cfg)
   local numButtons = cfg.numButtons or NUM_ACTIONBAR_BUTTONS
   local buttonList = L:GetButtonList(buttonName, numButtons, NUM_ACTIONBAR_BUTTONS)
   local frame = L:CreateButtonFrame(cfg,buttonList)
+
+  --fix the button grid for actionbar1
+  local function ToggleButtonGrid()
+    local showgrid = tonumber(GetCVar("alwaysShowActionBars"))
+    for i, button in next, buttonList do
+      button:SetAttribute("showgrid", showgrid)
+      ActionButton_ShowGrid(button)
+    end
+  end
+  hooksecurefunc("MultiActionBar_UpdateGridVisibility", ToggleButtonGrid)
 end
 
 --Bar4
@@ -138,6 +158,18 @@ function rActionBar:CreateActionBar4(addonName,cfg)
   local numButtons = cfg.numButtons or NUM_ACTIONBAR_BUTTONS
   local buttonList = L:GetButtonList(buttonName, numButtons, NUM_ACTIONBAR_BUTTONS)
   local frame = L:CreateButtonFrame(cfg,buttonList)
+
+  local updateActionBar4 = function ( ... )
+    local verticalGrid = tonumber(GetCVar('multiBarRightVerticalLayout'))
+    if (verticalGrid == 1) then
+      frame:ClearAllPoints()
+      frame:SetPoint("BOTTOMRIGHT", UIParent, "RIGHT", 0, 0)
+    else
+      frame:ClearAllPoints()
+      frame:SetPoint(unpack(cfg.framePoint))
+    end
+  end
+  hooksecurefunc("MultiActionBar_Update", updateActionBar4)
 end
 
 --Bar5
@@ -151,6 +183,19 @@ function rActionBar:CreateActionBar5(addonName,cfg)
   local numButtons = cfg.numButtons or NUM_ACTIONBAR_BUTTONS
   local buttonList = L:GetButtonList(buttonName, numButtons, NUM_ACTIONBAR_BUTTONS)
   local frame = L:CreateButtonFrame(cfg,buttonList)
+
+  local updateActionBar5 = function ( ... )
+    local bar4 = _G[addonName.."Bar4"];
+    local verticalGrid = tonumber(GetCVar('multiBarRightVerticalLayout'))
+    if (verticalGrid == 1) then
+      frame:ClearAllPoints()
+      frame:SetPoint("TOP", bar4, "BOTTOM", 0, 0)
+    else
+      frame:ClearAllPoints()
+      frame:SetPoint(unpack(cfg.framePoint))
+    end
+  end
+  hooksecurefunc("MultiActionBar_Update", updateActionBar5)
 end
 
 --StanceBar

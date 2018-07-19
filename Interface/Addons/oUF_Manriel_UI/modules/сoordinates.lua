@@ -29,7 +29,12 @@ coordinatesFrame.cursorValue = cursorValue;
 function coordinatesFrame:VARIABLES_LOADED()
 	coordinatesFrame:SetScript("OnUpdate", function(self, elapsed) Coordinates_OnUpdate(self, elapsed) end)
 end
+
 function coordinatesFrame:ZONE_CHANGED_NEW_AREA()
+	Coordinates_UpdateCoordinates()
+end
+
+function coordinatesFrame:MAP_EXPLORATION_UPDATED()
 	Coordinates_UpdateCoordinates()
 end
 
@@ -56,15 +61,16 @@ function Coordinates_UpdateCoordinates()
 	local cursorX, cursorY = GetCursorPosition()
 
 	-- Calculate cursor position
-	local scale = WorldMapDetailFrame:GetEffectiveScale()
+	local WorldMapTextureContainer = WorldMapFrame.ScrollContainer.Child
+	local scale = WorldMapTextureContainer:GetEffectiveScale()
 	local cursorCoord = ""
-	if (type(cursorX) ~= 'nil') then
+	if (type(cursorX) ~= 'nil' and type(WorldMapTextureContainer) ~= 'nil' and WorldMapFrame:IsShown()) then
 		cursorX = cursorX / scale
 		cursorY = cursorY / scale
-		local width = WorldMapDetailFrame:GetWidth()
-		local height = WorldMapDetailFrame:GetHeight()
-		local left = WorldMapDetailFrame:GetLeft()
-		local top = WorldMapDetailFrame:GetTop()
+		local width = WorldMapTextureContainer:GetWidth()
+		local height = WorldMapTextureContainer:GetHeight()
+		local left = WorldMapTextureContainer:GetLeft()
+		local top = WorldMapTextureContainer:GetTop()
 		cursorX = (cursorX - left) / width * 100
 		cursorY = (top - cursorY) / height * 100
 		if cursorX > 100 then cursorX = 100 end
@@ -79,14 +85,12 @@ function Coordinates_UpdateCoordinates()
 	end
 
 	-- Player position
-	local px, py = GetPlayerMapPosition("player")
+	local mapId = WorldMapFrame.mapID
+	local playerPosition = C_Map.GetPlayerMapPosition(mapId, "player")
 	local playerCoord = ""
-	if (type(px) ~= 'nil') then
-		if ( px == 0 and py == 0 ) then
-			playerCoord = ""
-		else
-			playerCoord = STATUS_TEXT_PLAYER..": "..format("%.0f, %.0f", px * 100, py * 100)
-		end
+	if (type(playerPosition) ~= 'nil') then
+		local px, py = playerPosition:GetXY()
+		playerCoord = STATUS_TEXT_PLAYER..": "..format("%.0f, %.0f", px * 100, py * 100)
 	end
 
 	-- Add text
@@ -95,6 +99,7 @@ function Coordinates_UpdateCoordinates()
 end
 
 coordinatesFrame:RegisterEvent("VARIABLES_LOADED")
+coordinatesFrame:RegisterEvent("MAP_EXPLORATION_UPDATED")
 coordinatesFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 coordinatesFrame:RegisterEvent("ZONE_CHANGED_INDOORS")
 coordinatesFrame:RegisterEvent("ZONE_CHANGED")
