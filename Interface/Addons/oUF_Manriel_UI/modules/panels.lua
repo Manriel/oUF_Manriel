@@ -94,18 +94,18 @@ Panels.PLAYER_LOGIN = function(self)
 
 end
 
-Panels.flame = Panels:CreateTexture(nil, 'OVERLAY');
-Panels.flame:SetTexture([[Interface\Addons\oUF_Manriel_UI\textures\flame]]);
-Panels.flame:SetPoint('TOPLEFT', Panels, 'TOPLEFT', 30, -30)
-Panels.flame:SetSize(56, 128);
+--Panels.flame = Panels:CreateTexture(nil, 'OVERLAY');
+--Panels.flame:SetTexture([[Interface\Addons\oUF_Manriel_UI\textures\flame]]);
+--Panels.flame:SetPoint('TOPLEFT', Panels, 'TOPLEFT', 30, -30)
+--Panels.flame:SetSize(56, 128);
 
-local flameUpdate = function( self, elapsed )
-	AnimateTexCoords(Panels.flame, 512, 128, 56, 128, 9, elapsed, 0.05)
-end
+--local flameUpdate = function( self, elapsed )
+--	AnimateTexCoords(Panels.flame, 512, 128, 56, 128, 9, elapsed, 0.05)
+--end
 
 Panels:RegisterEvent("PLAYER_LOGIN")
 Panels:SetScript("OnEvent",function(self,event,...) self[event](self,event,...) end)
 
-Panels:SetScript("OnUpdate", function(...) flameUpdate(...) end);
+--Panels:SetScript("OnUpdate", function(...) flameUpdate(...) end);
 
 ns.ManrielUI.panels = Panels
