@@ -1,7 +1,6 @@
 # BasicChatMods
 
-## [v7.3.0](https://github.com/funkydude/BasicChatMods/tree/v7.3.0) (2017-08-29)
-[Full Changelog](https://github.com/funkydude/BasicChatMods/compare/v7.2.1...v7.3.0)
+## [v8.1.2](https://github.com/funkydude/BasicChatMods/tree/v8.1.2) (2019-02-04)
+[Full Changelog](https://github.com/funkydude/BasicChatMods/compare/v8.1.1...v8.1.2)
 
-- bump toc  
-- remove compat code  
+- Fix copying chat not working when a BNET string is involved. Closes #11  

@@ -107,8 +107,10 @@ end
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
 frame:SetScript("OnEvent", function(self, event, arg1)
-    if event == "ADDON_LOADED" and arg1 == "ImprovedNameplates" then
+    if event == "ADDON_LOADED" and arg1 == parent then
         -- Our saved variables, if they exist, have been loaded at this point.
+        ImprovedNameplatesDB = Manriel_UI_Config.ImprovedNameplatesDB
+
         if ImprovedNameplatesDB == nil then
             ImprovedNameplatesDB = {
                 showAllNames = true,
@@ -151,7 +153,7 @@ SetCVar("nameplateMinScale", 1) -- Prevent nameplates from getting smaller when 
 
 function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     local INP_Options = CreateFrame("frame", "ImprovedNameplates_Options")
-    INP_Options.name = "Improved Nameplates"
+    INP_Options.name = "Nameplates"
     InterfaceOptions_AddCategory(INP_Options)
 
     StaticPopupDialogs["NAMEPLATESCONFIRMRELOAD"] = {
@@ -179,6 +181,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     NPCNamesCheckbox:SetChecked(ImprovedNameplatesDB.showAllNames)
     NPCNamesCheckbox:SetScript("OnClick", function()
         ImprovedNameplatesDB.showAllNames = NPCNamesCheckbox:GetChecked()
+        Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB;
     end)
 
     local levelDisplayCheckbox = CreateFrame("CheckButton", "levelDisplayCheckbox", INP_Options, "ChatConfigCheckButtonTemplate")
@@ -191,6 +194,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     levelDisplayCheckbox:SetScript("OnClick", function()
         ImprovedNameplatesDB.showLevels = levelDisplayCheckbox:GetChecked()
         StaticPopup_Show("NAMEPLATESCONFIRMRELOAD")
+        Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB;
     end)
 
     local realmDisplayCheckbox = CreateFrame("CheckButton", "realmDisplayCheckbox", INP_Options, "ChatConfigCheckButtonTemplate")
@@ -202,6 +206,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     realmDisplayCheckbox:SetChecked(ImprovedNameplatesDB.showRealmNames)
     realmDisplayCheckbox:SetScript("OnClick", function()
         ImprovedNameplatesDB.showRealmNames = realmDisplayCheckbox:GetChecked()
+        Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB;
     end)
 
     local numericDisplaySelfLabel = INP_Options:CreateFontString("numericDisplaySelfLabel", "ARTWORK", "GameFontHighlightSmall")
@@ -219,6 +224,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
             info.func = function(self)
                 ImprovedNameplatesDB.numbersDisplaySelf = self.value
                 UIDropDownMenu_SetSelectedValue(dropdown, self.value)
+                Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB;
             end
             UIDropDownMenu_AddButton(info)
         end
@@ -242,6 +248,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
             info.func = function(self)
                 ImprovedNameplatesDB.numbersDisplayOthers = self.value
                 UIDropDownMenu_SetSelectedValue(dropdown, self.value)
+                Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB;
             end
             UIDropDownMenu_AddButton(info)
         end
@@ -261,7 +268,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     _G[nameFontSmallSlider:GetName() .. "Low"]:SetText("5")
     _G[nameFontSmallSlider:GetName() .. "High"]:SetText("20")
     _G[nameFontSmallSlider:GetName() .. "Text"]:SetText("Name Font Size (Small)")
-    nameFontSmallSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.nameFontSmall = nameFontSmallSlider:GetValue() nameFontSmallLabel:SetText("Selected: " .. nameFontSmallSlider:GetValue()) end)
+    nameFontSmallSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.nameFontSmall = nameFontSmallSlider:GetValue(); Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB; nameFontSmallLabel:SetText("Selected: " .. nameFontSmallSlider:GetValue()) end)
 
     local nameFontSmallLabel = INP_Options:CreateFontString("nameFontSmallLabel", "ARTWORK", "GameFontHighlightSmall")
     nameFontSmallLabel:SetPoint("LEFT", nameFontSmallSlider, "RIGHT", 20, 0)
@@ -278,7 +285,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     _G[nameFontLargeSlider:GetName() .. "Low"]:SetText("5")
     _G[nameFontLargeSlider:GetName() .. "High"]:SetText("20")
     _G[nameFontLargeSlider:GetName() .. "Text"]:SetText("Name Font Size (Large)")
-    nameFontLargeSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.nameFontLarge = nameFontLargeSlider:GetValue() nameFontLargeLabel:SetText("Selected: " .. nameFontLargeSlider:GetValue()) end)
+    nameFontLargeSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.nameFontLarge = nameFontLargeSlider:GetValue(); Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB; nameFontLargeLabel:SetText("Selected: " .. nameFontLargeSlider:GetValue()) end)
 
     local nameFontLargeLabel = INP_Options:CreateFontString("nameFontLargeLabel", "ARTWORK", "GameFontHighlightSmall")
     nameFontLargeLabel:SetPoint("LEFT", nameFontLargeSlider, "RIGHT", 20, 0)
@@ -295,7 +302,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     _G[healthFontSmallSlider:GetName() .. "Low"]:SetText("5")
     _G[healthFontSmallSlider:GetName() .. "High"]:SetText("20")
     _G[healthFontSmallSlider:GetName() .. "Text"]:SetText("Health Font Size (Small)")
-    healthFontSmallSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.healthFontSmall = healthFontSmallSlider:GetValue() healthFontSmallLabel:SetText("Selected: " .. healthFontSmallSlider:GetValue()) end)
+    healthFontSmallSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.healthFontSmall = healthFontSmallSlider:GetValue(); Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB; healthFontSmallLabel:SetText("Selected: " .. healthFontSmallSlider:GetValue()) end)
 
     local healthFontSmallLabel = INP_Options:CreateFontString("healthFontSmallLabel", "ARTWORK", "GameFontHighlightSmall")
     healthFontSmallLabel:SetPoint("LEFT", healthFontSmallSlider, "RIGHT", 20, 0)
@@ -312,7 +319,7 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     _G[healthFontLargeSlider:GetName() .. "Low"]:SetText("5")
     _G[healthFontLargeSlider:GetName() .. "High"]:SetText("20")
     _G[healthFontLargeSlider:GetName() .. "Text"]:SetText("Health Font Size (Large)")
-    healthFontLargeSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.healthFontLarge = healthFontLargeSlider:GetValue() healthFontLargeLabel:SetText("Selected: " .. healthFontLargeSlider:GetValue()) end)
+    healthFontLargeSlider:SetScript("OnValueChanged", function() ImprovedNameplatesDB.healthFontLarge = healthFontLargeSlider:GetValue(); Manriel_UI_Config.ImprovedNameplatesDB = ImprovedNameplatesDB; healthFontLargeLabel:SetText("Selected: " .. healthFontLargeSlider:GetValue()) end)
 
     local healthFontLargeLabel = INP_Options:CreateFontString("healthFontLargeLabel", "ARTWORK", "GameFontHighlightSmall")
     healthFontLargeLabel:SetPoint("LEFT", healthFontLargeSlider, "RIGHT", 20, 0)
@@ -322,7 +329,6 @@ function ImprovedNameplates_OptionPanel() -- Creating the Option Panel.
     instructionsLabel:SetPoint("TOPLEFT", 15, -475)
     instructionsLabel:SetText("You may need to refresh nameplates before some of the settings take effect.\n(Press V/Shift+V once to disable nameplates, then press it again to re-enable them.)")
 end
-
 
 -- Initializing variables for the level display.
 local levelTextSize = nil
@@ -524,33 +530,36 @@ end)
 hooksecurefunc("ClassNameplateManaBar_OnUpdate", function(self)
     local powerPercentage = ceil((UnitPower("player") / UnitPowerMax("player") * 100)) -- Calculating a percentage value for primary resource (Rage/Mana/Focus/etc.)
 
-    if not NamePlatePlayerResourceFrame.powerNumbers then
-        NamePlatePlayerResourceFrame.powerNumbers = CreateFrame("Frame", nil, NamePlatePlayerResourceFrame) -- Setting up resource display frame.
-        NamePlatePlayerResourceFrame.powerNumbers:SetSize(300,16)
-        NamePlatePlayerResourceFrame.powerNumbers.text = NamePlatePlayerResourceFrame.powerNumbers.text or NamePlatePlayerResourceFrame.powerNumbers:CreateFontString(nil, "OVERLAY")
-        NamePlatePlayerResourceFrame.powerNumbers.text:SetAllPoints(true)
-        NamePlatePlayerResourceFrame.powerNumbers:SetFrameStrata("HIGH")
-        NamePlatePlayerResourceFrame.powerNumbers:SetPoint("CENTER", ClassNameplateManaBarFrame)
-        NamePlatePlayerResourceFrame.powerNumbers.text:SetFont(props.getFont(), 11, "OUTLINE")
-        NamePlatePlayerResourceFrame.powerNumbers.text:SetVertexColor(1, 1, 1)
+    if (ClassNameplateManaBar) then
+        if not ClassNameplateManaBar.powerNumbers then
+        ClassNameplateManaBar.powerNumbers = CreateFrame("Frame", nil, ClassNameplateManaBar) -- Setting up resource display frame.
+        ClassNameplateManaBar.powerNumbers:SetSize(300,16)
+        ClassNameplateManaBar.powerNumbers.text = ClassNameplateManaBar.powerNumbers.text or ClassNameplateManaBar.powerNumbers:CreateFontString(nil, "OVERLAY")
+        ClassNameplateManaBar.powerNumbers.text:SetAllPoints(true)
+        ClassNameplateManaBar.powerNumbers:SetFrameStrata("HIGH")
+        ClassNameplateManaBar.powerNumbers:SetPoint("CENTER", ClassNameplateManaBarFrame)
+        ClassNameplateManaBar.powerNumbers.text:SetFont(props.getFont(), 11, "OUTLINE")
+        ClassNameplateManaBar.powerNumbers.text:SetVertexColor(1, 1, 1)
     else
         if InterfaceOptionsNamesPanelUnitNameplatesMakeLarger:GetValue() == "1" then -- If 'Larger Nameplates' option is enabled.
             if ImprovedNameplatesDB.numbersDisplaySelf == "Numeric Value" then
-                NamePlatePlayerResourceFrame.powerNumbers.text:SetText(formatNumbers(UnitPower("player")) .. " / " .. formatNumbers(UnitPowerMax("player"))) -- Update resource numbers.
+                ClassNameplateManaBar.powerNumbers.text:SetText(formatNumbers(UnitPower("player")) .. " / " .. formatNumbers(UnitPowerMax("player"))) -- Update resource numbers.
             elseif ImprovedNameplatesDB.numbersDisplaySelf == "Current" then
-                NamePlatePlayerResourceFrame.powerNumbers.text:SetText(formatNumbers(UnitPower("player")))
+                ClassNameplateManaBar.powerNumbers.text:SetText(formatNumbers(UnitPower("player")))
             elseif ImprovedNameplatesDB.numbersDisplaySelf == "Percentage" then
-                NamePlatePlayerResourceFrame.powerNumbers.text:SetText(powerPercentage .. "%") -- Update resource percentages.
+                ClassNameplateManaBar.powerNumbers.text:SetText(powerPercentage .. "%") -- Update resource percentages.
             elseif ImprovedNameplatesDB.numbersDisplaySelf == "Both" then
-                NamePlatePlayerResourceFrame.powerNumbers.text:SetText(formatNumbers(UnitPower("player")) .. " - " .. powerPercentage .. "%") -- Update resource numbers + percentage.
+                ClassNameplateManaBar.powerNumbers.text:SetText(formatNumbers(UnitPower("player")) .. " - " .. powerPercentage .. "%") -- Update resource numbers + percentage.
             elseif ImprovedNameplatesDB.numbersDisplaySelf == "Hide" then
-                NamePlatePlayerResourceFrame.powerNumbers.text:SetText()
+                ClassNameplateManaBar.powerNumbers.text:SetText()
             end
-            NamePlatePlayerResourceFrame.powerNumbers.text:Show()
+            ClassNameplateManaBar.powerNumbers.text:Show()
         else
-            NamePlatePlayerResourceFrame.powerNumbers.text:Hide() -- Not enough space on regular-sized nameplates to have text on resource bar alongside health bar text, so we disable that.
+            ClassNameplateManaBar.powerNumbers.text:Hide() -- Not enough space on regular-sized nameplates to have text on resource bar alongside health bar text, so we disable that.
         end
     end
+    end
+    
 end)
 
 -- Improve the font for readability.

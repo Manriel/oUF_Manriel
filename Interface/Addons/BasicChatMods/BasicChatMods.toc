@@ -1,7 +1,7 @@
-## Interface: 70300
+## Interface: 80100
 ## Title: BasicChatMods
 ## Author: Funkydude
-## Version: v7.3.0
+## Version: v8.1.2
 ## Notes: Basic Chat Mods
 ## Notes-zhCN: Basic Chat Mods
 ## Notes-zhTW: Basic Chat Mods

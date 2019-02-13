@@ -7,6 +7,10 @@ BCM.modules[#BCM.modules+1] = function()
 	if bcmDB.BCM_PlayerNames then --Cleanup vars for disabled modules
 		bcmDB.nolevel, bcmDB.nogroup, bcmDB.noMiscColor = nil, nil, nil
 		if bcmDB.BCM_BNet then bcmDB.playerLBrack, bcmDB.playerRBrack, bcmDB.playerSeparator = nil, nil, nil end
+		-- Turn colors back on if disabling this module (default Blizzard state)
+		if GetCVar("chatClassColorOverride") ~= "0" then
+			SetCVar("chatClassColorOverride", "0")
+		end
 		return
 	end
 
@@ -71,23 +75,24 @@ BCM.modules[#BCM.modules+1] = function()
 		BCM.Events.GROUP_ROSTER_UPDATE()
 	end
 
-	if bcmDB.nolevel then
-		for k in next, getmetatable(ChatTypeInfo).__index do
-			SetChatColorNameByClass(k, false)
+	if bcmDB.noMiscColor then
+		if GetCVar("chatClassColorOverride") ~= "1" then
+			SetCVar("chatClassColorOverride", "1")
+		end
+	else
+		nameColor = {}
+		if GetCVar("chatClassColorOverride") ~= "0" then
+			SetCVar("chatClassColorOverride", "0")
 		end
 	end
 
 	if not bcmDB.nolevel or not bcmDB.noMiscColor then
-		if not bcmDB.noMiscColor then
-			nameColor = {}
-			for k in next, getmetatable(ChatTypeInfo).__index do
-				SetChatColorNameByClass(k, true)
-			end
-		end
+		local GetFriendInfoByIndex = C_FriendList.GetFriendInfoByIndex
 		BCM.Events.FRIENDLIST_UPDATE = function()
-			local _, num = GetNumFriends()
+			local num = C_FriendList.GetNumOnlineFriends()
 			for i = 1, num do
-				local n, l, c = GetFriendInfo(i)
+				local tbl = GetFriendInfoByIndex(i)
+				local n, l, c = tbl.name, tbl.level, tbl.className
 				if nameLevels and n and l and l > 0 then
 					nameLevels[n] = tostring(l)
 				end
@@ -97,7 +102,7 @@ BCM.modules[#BCM.modules+1] = function()
 			end
 		end
 		BCM.Events:RegisterEvent("FRIENDLIST_UPDATE")
-		ShowFriends()
+		C_FriendList.ShowFriends()
 
 		if IsInGuild() then
 			BCM.Events.GUILD_ROSTER_UPDATE = function(frame)
@@ -124,6 +129,7 @@ BCM.modules[#BCM.modules+1] = function()
 	end
 	--[[ End Harvest Data ]]--
 
+	local GetNumWhoResults, GetWhoInfo = C_FriendList.GetNumWhoResults, C_FriendList.GetWhoInfo
 	local changeName = function(fullName, misc, nameToChange, colon)
 		local name = Ambiguate(fullName, "none")
 		--Do this here instead of listening to the guild event, as the event is slower than a player login
@@ -148,7 +154,8 @@ BCM.modules[#BCM.modules+1] = function()
 			if not nameColor[name] then
 				local num = GetNumWhoResults()
 				for i=1, num do
-					local n, _, l, _, _, _, c = GetWhoInfo(i)
+					local tbl = GetWhoInfo(i)
+					local n, l, c = tbl.fullName, tbl.level, tbl.filename
 					if n == name and l and l > 0 then
 						if nameLevels then nameLevels[n] = tostring(l) end
 						if nameColor and c then nameColor[n] = BCM:GetColor(c) end

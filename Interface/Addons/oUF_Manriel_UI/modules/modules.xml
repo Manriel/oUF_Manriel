@@ -9,6 +9,6 @@
 	<Script file='сoordinates.lua' />
 	<Script file='armory.lua' />
 	<Script file='wowhead.lua' />
-	<Script file='nameplates.lua' />
+	<!-- <Script file='nameplates.lua' /> -->
 
 </Ui>

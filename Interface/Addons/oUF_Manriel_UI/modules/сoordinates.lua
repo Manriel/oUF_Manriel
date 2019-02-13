@@ -57,45 +57,47 @@ function Coordinates_OnUpdate(self, elapsed)
 end
 
 function Coordinates_UpdateCoordinates()
-	-- Get the cursor's coordinates
-	local cursorX, cursorY = GetCursorPosition()
+	if (WorldMapFrame:IsShown()) then
+		-- Get the cursor's coordinates
+		local cursorX, cursorY = GetCursorPosition()
 
-	-- Calculate cursor position
-	local WorldMapTextureContainer = WorldMapFrame.ScrollContainer.Child
-	local scale = WorldMapTextureContainer:GetEffectiveScale()
-	local cursorCoord = ""
-	if (type(cursorX) ~= 'nil' and type(WorldMapTextureContainer) ~= 'nil' and WorldMapFrame:IsShown()) then
-		cursorX = cursorX / scale
-		cursorY = cursorY / scale
-		local width = WorldMapTextureContainer:GetWidth()
-		local height = WorldMapTextureContainer:GetHeight()
-		local left = WorldMapTextureContainer:GetLeft()
-		local top = WorldMapTextureContainer:GetTop()
-		cursorX = (cursorX - left) / width * 100
-		cursorY = (top - cursorY) / height * 100
-		if cursorX > 100 then cursorX = 100 end
-		if cursorX < 0 then cursorX = 0 end
-		if cursorY > 100 then cursorY = 100 end
-		if cursorY < 0 then cursorY = 0 end
-		if ( cursorY >= 100 or cursorY <= 0 or cursorX >= 100 or cursorX <= 0 ) then
-			cursorCoord = ""
-		else
-			cursorCoord = arStrings.cursor..": "..format("%.0f, %.0f", cursorX, cursorY)
+		-- Calculate cursor position
+		local WorldMapTextureContainer = WorldMapFrame.ScrollContainer.Child
+		local scale = WorldMapTextureContainer:GetEffectiveScale()
+		local cursorCoord = ""
+		if (type(cursorX) ~= 'nil' and type(WorldMapTextureContainer) ~= 'nil') then
+			cursorX = cursorX / scale
+			cursorY = cursorY / scale
+			local width = WorldMapTextureContainer:GetWidth()
+			local height = WorldMapTextureContainer:GetHeight()
+			local left = WorldMapTextureContainer:GetLeft()
+			local top = WorldMapTextureContainer:GetTop()
+			cursorX = (cursorX - left) / width * 100
+			cursorY = (top - cursorY) / height * 100
+			if cursorX > 100 then cursorX = 100 end
+			if cursorX < 0 then cursorX = 0 end
+			if cursorY > 100 then cursorY = 100 end
+			if cursorY < 0 then cursorY = 0 end
+			if ( cursorY >= 100 or cursorY <= 0 or cursorX >= 100 or cursorX <= 0 ) then
+				cursorCoord = ""
+			else
+				cursorCoord = arStrings.cursor..": "..format("%.0f, %.0f", cursorX, cursorY)
+			end
 		end
-	end
 
-	-- Player position
-	local mapId = WorldMapFrame.mapID
-	local playerPosition = C_Map.GetPlayerMapPosition(mapId, "player")
-	local playerCoord = ""
-	if (type(playerPosition) ~= 'nil') then
-		local px, py = playerPosition:GetXY()
-		playerCoord = STATUS_TEXT_PLAYER..": "..format("%.0f, %.0f", px * 100, py * 100)
-	end
+		-- Player position
+		local mapId = WorldMapFrame.mapID
+		local playerPosition = C_Map.GetPlayerMapPosition(mapId, "player")
+		local playerCoord = ""
+		if (type(playerPosition) ~= 'nil') then
+			local px, py = playerPosition:GetXY()
+			playerCoord = STATUS_TEXT_PLAYER..": "..format("%.0f, %.0f", px * 100, py * 100)
+		end
 
-	-- Add text
-	coordinatesFrame.selfValue:SetText(playerCoord);
-	coordinatesFrame.cursorValue:SetText(cursorCoord);
+		-- Add text
+		coordinatesFrame.selfValue:SetText(playerCoord);
+		coordinatesFrame.cursorValue:SetText(cursorCoord);
+	end
 end
 
 coordinatesFrame:RegisterEvent("VARIABLES_LOADED")

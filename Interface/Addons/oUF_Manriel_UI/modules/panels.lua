@@ -33,6 +33,7 @@ Panels.PLAYER_LOGIN = function(self)
 	ChatFrames:SetPoint('BOTTOMLEFT', Panels, 'BOTTOMLEFT', 3, 3)
 	for i=1, 10 do
 		local cF = _G[("%s%d"):format("ChatFrame", i)]
+		local bg = _G[("%s%d%s"):format("ChatFrame", i, "Background")]
 		if cF then
 			cF:SetParent(ChatFrames);
 			cF:SetAllPoints(ChatFrames);
@@ -43,6 +44,17 @@ Panels.PLAYER_LOGIN = function(self)
 			panel:SetFrameStrata("LOW");
 			panel:SetFrameLevel(0);
 			panel:Show();
+
+			cF.ScrollBar:ClearAllPoints();
+			cF.ScrollBar:SetPoint('TOPRIGHT', 0, 0);
+			cF.ScrollBar:SetPoint('BOTTOMRIGHT', 0, 32);
+
+			bg:ClearAllPoints();
+			bg:SetPoint('TOPLEFT', -2, 3);
+			bg:SetPoint('TOPRIGHT', 2, 3);
+			bg:SetPoint('BOTTOMLEFT', -2, -6);
+			bg:SetPoint('BOTTOMRIGHT', 2, -6);
+
 		end;
 	end
 

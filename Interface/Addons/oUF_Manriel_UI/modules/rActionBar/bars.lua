@@ -69,6 +69,7 @@ function rActionBar:CreateActionBar1(addonName,cfg)
   local numButtons = cfg.numButtons or NUM_ACTIONBAR_BUTTONS
   local buttonList = L:GetButtonList(buttonName, numButtons, NUM_ACTIONBAR_BUTTONS)
   local frame = L:CreateButtonFrame(cfg,buttonList)
+  
   --fix the button grid for actionbar1
   local function ToggleButtonGrid()
     if InCombatLockdown() then
@@ -76,14 +77,15 @@ function rActionBar:CreateActionBar1(addonName,cfg)
       return
     end
     local showgrid = tonumber(GetCVar("alwaysShowActionBars"))
-    for i, button in next, buttonList do
+    for i, button in pairs(buttonList) do
       button:SetAttribute("showgrid", showgrid)
-      ActionButton_ShowGrid(button)
+      ActionButton_ShowGrid(button, ACTION_BUTTON_SHOW_GRID_REASON_EVENT)
     end
   end
   hooksecurefunc("MultiActionBar_UpdateGridVisibility", ToggleButtonGrid)
+
   --_onstate-page state driver
-  for i, button in next, buttonList do
+  for i, button in pairs(buttonList) do
     frame:SetFrameRef(buttonName..i, button)
   end
   frame:Execute(([[
@@ -113,15 +115,17 @@ function rActionBar:CreateActionBar2(addonName,cfg)
   local buttonList = L:GetButtonList(buttonName, numButtons, NUM_ACTIONBAR_BUTTONS)
   local frame = L:CreateButtonFrame(cfg,buttonList)
   
+  
   --fix the button grid for actionbar1
   local function ToggleButtonGrid()
     local showgrid = tonumber(GetCVar("alwaysShowActionBars"))
-    for i, button in next, buttonList do
+    for i, button in pairs(buttonList) do
       button:SetAttribute("showgrid", showgrid)
-      ActionButton_ShowGrid(button)
+      ActionButton_ShowGrid(button, ACTION_BUTTON_SHOW_GRID_REASON_EVENT)
     end
   end
   hooksecurefunc("MultiActionBar_UpdateGridVisibility", ToggleButtonGrid)
+
 end
 
 --Bar3
@@ -136,15 +140,17 @@ function rActionBar:CreateActionBar3(addonName,cfg)
   local buttonList = L:GetButtonList(buttonName, numButtons, NUM_ACTIONBAR_BUTTONS)
   local frame = L:CreateButtonFrame(cfg,buttonList)
 
+  
   --fix the button grid for actionbar1
   local function ToggleButtonGrid()
     local showgrid = tonumber(GetCVar("alwaysShowActionBars"))
-    for i, button in next, buttonList do
+    for i, button in pairs(buttonList) do
       button:SetAttribute("showgrid", showgrid)
-      ActionButton_ShowGrid(button)
+      ActionButton_ShowGrid(button, ACTION_BUTTON_SHOW_GRID_REASON_EVENT)
     end
   end
   hooksecurefunc("MultiActionBar_UpdateGridVisibility", ToggleButtonGrid)
+
 end
 
 --Bar4
